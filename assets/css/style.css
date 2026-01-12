@@ -1,0 +1,20 @@
+
+:root{--blue:#09126a}
+body{margin:0;font-family:'Bricolage Grotesque',sans-serif;color:#000}
+h1,h2{font-family:'Inknut Antiqua',serif}
+nav{background:#fff;padding:20px 40px;display:flex;justify-content:space-between;align-items:center}
+nav a{color:#000;text-decoration:none;margin-left:30px;font-size:30px}
+.logo img{height:50px}
+.hero{height:90vh;background-size:cover;background-position:center;position:relative}
+.hero-text{position:absolute;top:40px;right:40px;color:#fff;font-size:36px}
+.blue{background:var(--blue);color:#fff;padding:60px;font-size:31px}
+.split{display:flex}
+.split div{flex:1;position:relative}
+.split img{width:100%;height:100%;object-fit:cover}
+.split span{position:absolute;bottom:30px;left:30px;font-size:30px;color:var(--blue)}
+.section{padding:60px;font-size:28px}
+footer{background:#fff;padding:40px;display:flex;justify-content:space-between;font-size:30px}
+.contact{height:90vh;background-size:cover;display:flex;align-items:center;justify-content:center}
+form{background:rgba(255,255,255,.9);padding:40px;width:400px}
+form input,form textarea{width:100%;padding:10px;margin-bottom:15px;font-size:20px}
+form button{background:var(--blue);color:#fff;border:none;padding:12px;font-size:20px;cursor:pointer}
