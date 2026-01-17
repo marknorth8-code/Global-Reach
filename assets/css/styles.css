@@ -1,6 +1,0 @@
-
-* { box-sizing: border-box; margin:0; padding:0; }
-body { font-family: 'Bricolage Grotesque', sans-serif; overflow-x:hidden; padding-top:90px; }
-img { max-width:100%; height:100%; display:block; }
-header { position:fixed; top:0; left:0; width:100%; height:90px; background:#fff; }
-footer { background:#09126a; color:#fff; padding:40px; }
