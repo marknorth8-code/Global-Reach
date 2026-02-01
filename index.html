@@ -18,28 +18,27 @@
   <!-- ================= HEADER ================= -->
   <header class="site-header">
     <nav class="nav-bar" aria-label="Main navigation">
-
       <div class="container nav-inner">
 
         <!-- Logo -->
-        <a href="index.html" class="logo-container">
-          Global Reach
-        </a>
+        <a href="index.html" class="logo-container">Global Reach</a>
 
         <!-- Desktop navigation -->
         <ul class="nav-links nav-desktop">
-          <li class="has-dropdown">
-            <span>Locations</span>
-            <ul class="dropdown">
+          <li class="nav-item has-dropdown">
+            <button class="nav-link" aria-haspopup="true" aria-expanded="false">
+              Locations
+            </button>
+            <ul class="dropdown" aria-label="Locations">
               <li><a href="locations/uk.html">UK</a></li>
               <li><a href="locations/nz.html">New Zealand</a></li>
               <li><a href="locations/br.html">Brazil</a></li>
               <li><a href="locations/jp.html">Japan</a></li>
             </ul>
           </li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="insights.html">Insights</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li class="nav-item"><a href="about.html">About</a></li>
+          <li class="nav-item"><a href="insights.html">Insights</a></li>
+          <li class="nav-item"><a href="contact.html">Contact</a></li>
         </ul>
 
         <!-- Mobile hamburger -->
@@ -85,12 +84,8 @@
     <section class="home-intro">
       <div class="container">
         <h1>Global Reach</h1>
-        <p>
-          Why we are different. What we do.
-        </p>
-        <p>
-          <a href="insights.html">Read our insights</a>
-        </p>
+        <p>Why we are different. What we do.</p>
+        <p><a href="insights.html">Read our insights</a></p>
       </div>
     </section>
 
@@ -147,15 +142,37 @@
 
   <!-- ================= FOOTER ================= -->
   <footer>
-    <div class="container">
+    <div class="container footer-inner">
       <p>&copy; Global Reach</p>
+      <p class="footer-contact">
+        +44 7470 292 634 | barkertonss@outlook.com
+      </p>
     </div>
   </footer>
 
-  <!-- ================= JS STUBS ================= -->
-  <script src="js/header.js" defer></script>
-  <script src="js/carousel.js" defer></script>
-  <script src="js/intro.js" defer></script>
+  <!-- ================= JS ================= -->
+  <script>
+    // Mobile hamburger toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.getAttribute('aria-hidden') === 'false';
+      mobileMenu.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+      toggle.setAttribute('aria-expanded', !isOpen);
+    });
+
+    // Desktop Locations dropdown
+    document.querySelectorAll('.has-dropdown').forEach(item => {
+      const btn = item.querySelector('button');
+      const dropdown = item.querySelector('.dropdown');
+
+      btn.addEventListener('mouseenter', () => dropdown.style.display = 'block');
+      btn.addEventListener('mouseleave', () => dropdown.style.display = 'none');
+      item.addEventListener('mouseleave', () => dropdown.style.display = 'none');
+    });
+  </script>
 
 </body>
 </html>
+
