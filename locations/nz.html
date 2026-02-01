@@ -2,38 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NZ</title>
-  <link rel="canonical" href="https://example.com/nz.html">
+  <title>New Zealand | Global Reach</title>
+
+  <!-- Canonical placeholder -->
+  <link rel="canonical" href="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Global + Locations CSS -->
   <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/locations.css">
 </head>
+
 <body>
 
-<!-- HEADER -->
-<header>
-  <nav aria-label="Main navigation">
-    <a href="/index.html" class="logo">Global Reach</a>
-    <ul>
-      <li>Locations</li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/insights.html">Insights</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <!-- ================= HEADER ================= -->
+  <!-- Include header.html -->
+  <header role="banner">
+    <!-- header.html injected here -->
+  </header>
 
+  <main id="main-content">
 
-<main>
-  <h1>NZ Location</h1>
+    <!-- ================= LOCATION INTRO ================= -->
+    <section class="location-intro section">
+      <div class="container">
+        <h1>New Zealand</h1>
+        <p>
+          <!-- “Why this location” text placeholder -->
+        </p>
 
-  <!-- Page sections go here -->
+        <!-- Link to insight article -->
+        <a href="/insights.html">
+          <!-- Placement insight article link placeholder -->
+        </a>
+      </div>
+    </section>
 
-</main>
+    <hr class="location-divider">
 
-<!-- FOOTER -->
-<footer>
-  <p>&copy; Global Reach</p>
-</footer>
+    <!-- ================= PROPERTY GRID ================= -->
+    <section class="location-properties section">
+      <div class="container">
 
+        <!-- Grid populated from nz-data.json -->
+        <div
+          class="location-grid"
+          aria-label="Properties in New Zealand"
+        >
+
+          <!-- Property card placeholder -->
+          <article class="property-card">
+
+            <a href="/property.html?id=xxxx">
+
+              <div class="property-image" aria-hidden="true"></div>
+
+              <div class="property-card-content">
+                <p class="property-title">
+                  <!-- Property title placeholder -->
+                </p>
+              </div>
+
+            </a>
+
+          </article>
+
+          <!-- Repeat cards via JS in Step 2 -->
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <!-- Include footer.html -->
+  <footer role="contentinfo">
+    <!-- footer.html injected here -->
+  </footer>
+
+  <!-- Page JS placeholder -->
+  <script src="/js/locations.js" defer></script>
 
 </body>
 </html>
