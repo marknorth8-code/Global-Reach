@@ -1,178 +1,51 @@
-<!doctype html>
-<html lang="en">
+<!-- ================= HEADER ================= -->
+<header class="site-header" role="banner">
+  <div class="container nav-inner">
 
-<head>
-  <meta charset="utf-8">
-  <title>Global Reach</title>
+    <!-- ================= LOGO ================= -->
+    <a href="index.html" class="logo-container">
+      Global Reach
+    </a>
 
-  <!-- SEO (placeholder) -->
-  <link rel="canonical" href="https://example.com/index.html">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ================= DESKTOP NAV ================= -->
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <ul class="nav-links nav-desktop">
 
-  <!-- Global + page CSS -->
-  <link rel="stylesheet" href="/css/global.css">
-  <link rel="stylesheet" href="/css/home.css">
-</head>
+        <li class="has-dropdown">
+          <span class="nav-link">Locations</span>
+          <ul class="dropdown">
+            <li><a href="locations/uk.html">United Kingdom</a></li>
+            <li><a href="locations/nz.html">New Zealand</a></li>
+            <li><a href="locations/br.html">Brazil</a></li>
+            <li><a href="locations/jp.html">Japan</a></li>
+          </ul>
+        </li>
 
-<body>
-
-  <!-- ======================================================
-       Global Header – Step 1.1
-       Fixed height: 90px (shrink target in CSS – Step 2)
-       ====================================================== -->
-  <header role="banner">
-
-    <nav aria-label="Primary navigation">
-
-      <div class="nav-inner">
-
-        <!-- LOGO -->
-        <a href="/index.html" class="logo-container" aria-label="Global Reach home">
-          Global Reach
-        </a>
-
-        <!-- DESKTOP NAV -->
-        <ul class="nav-links nav-desktop">
-
-          <li class="has-dropdown">
-            <span>Locations</span>
-            <ul class="dropdown" aria-label="Locations">
-              <li><a href="/locations/uk.html">United Kingdom</a></li>
-              <li><a href="/locations/nz.html">New Zealand</a></li>
-              <li><a href="/locations/br.html">Brazil</a></li>
-              <li><a href="/locations/jp.html">Japan</a></li>
-            </ul>
-          </li>
-
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/insights.html">Insights</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-
-        </ul>
-
-        <!-- MOBILE TOGGLE -->
-        <button
-          class="nav-toggle"
-          aria-label="Open menu"
-          aria-expanded="false"
-        >
-          ☰
-        </button>
-
-      </div>
-
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="insights.html" class="nav-link">Insights</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
     </nav>
 
-  </header>
+    <!-- ================= MOBILE HAMBURGER ================= -->
+    <button class="nav-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+      ☰
+    </button>
+
+  </div>
 
   <!-- ================= MOBILE SIDEBAR ================= -->
-  <aside
-    class="mobile-sidebar"
-    aria-label="Mobile navigation"
-    aria-hidden="true"
-  >
-    <ul class="nav-links">
-      <li><a href="/locations/uk.html">United Kingdom</a></li>
-      <li><a href="/locations/nz.html">New Zealand</a></li>
-      <li><a href="/locations/br.html">Brazil</a></li>
-      <li><a href="/locations/jp.html">Japan</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/insights.html">Insights</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
+  <aside id="mobile-menu" class="mobile-sidebar" aria-label="Mobile navigation" aria-hidden="true">
+    <nav>
+      <ul class="mobile-nav-links">
+        <li><a href="locations/uk.html">UK</a></li>
+        <li><a href="locations/nz.html">New Zealand</a></li>
+        <li><a href="locations/br.html">Brazil</a></li>
+        <li><a href="locations/jp.html">Japan</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </aside>
-
-  <!-- ================= MAIN ================= -->
-  <main id="main-content">
-
-    <!-- Splash placeholder (Step 2 – desktop only)
-    <div id="intro" aria-hidden="true">
-      <div class="intro-logo"></div>
-      <div class="intro-text">Real Estate Investment Thought Differently</div>
-    </div>
-    -->
-
-    <!-- ================= INTRO ================= -->
-    <section class="home-intro">
-      <div class="container">
-        <h1>Global Reach</h1>
-        <p>Why we are different. What we do.</p>
-        <p><a href="/insights.html">Read our insights</a></p>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- ================= LISTINGS CAROUSEL ================= -->
-    <section
-      class="carousel carousel-listings"
-      aria-label="Featured property listings carousel"
-    >
-      <div class="carousel-track">
-        <!-- Listing placeholders -->
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- ================= LOCATIONS CAROUSEL ================= -->
-    <section
-      class="carousel carousel-locations"
-      aria-label="Locations navigation carousel"
-    >
-      <div class="carousel-track">
-        <!-- Location placeholders -->
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- ================= ABOUT SUMMARY ================= -->
-    <section class="home-about">
-      <div class="container">
-        <h2>About</h2>
-        <p>
-          We limit the number of investments so we understand each one better.
-          We work with close networks to expand our reach.
-        </p>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- ================= SERVICES CAROUSEL ================= -->
-    <section
-      class="carousel carousel-services"
-      aria-label="Services overview carousel"
-    >
-      <div class="carousel-track">
-        <!-- Service placeholders -->
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ================= FOOTER ================= -->
-  <footer>
-    <div class="container">
-      <p>&copy; Global Reach</p>
-    </div>
-  </footer>
-
-  <!-- ================= JS STUBS ================= -->
-  <script src="/js/header.js" defer></script>
-  <script src="/js/carousel.js" defer></script>
-  <script src="/js/intro.js" defer></script>
-
-</body>
-</html>
+</header>
