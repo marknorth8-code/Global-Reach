@@ -94,6 +94,7 @@ header {
   height: var(--header-height-desktop);
   background: #ffffff;
   z-index: 1000;
+  border-bottom: 1px solid var(--color-border);
   /* Fixed header: target height 90px (shrink on scroll – Step 2) */
 }
 
@@ -101,14 +102,18 @@ nav {
   height: 100%;
 }
 
-/* aligned with index.html */
+/* Header inner alignment */
 .nav-inner {
   height: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding-mobile);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* Logo */
 .logo-container {
   font-family: var(--font-body);
   font-size: 15px;
@@ -126,17 +131,18 @@ nav {
   font-size: 15px;
 }
 
-.nav-desktop {
-  width: 60%;
-  justify-content: flex-end;
-}
-
 .nav-links li {
   position: relative;
 }
 
 .has-dropdown > span {
   cursor: default;
+}
+
+/* Desktop nav container */
+.nav-desktop {
+  width: 60%;
+  justify-content: flex-end;
 }
 
 /* Dropdown (visual only – Step 2 enablement) */
@@ -158,6 +164,10 @@ nav {
   padding: 6px 16px;
 }
 
+.dropdown li a {
+  display: block;
+}
+
 /* ================= MOBILE NAVIGATION ================= */
 .nav-toggle {
   display: block;
@@ -167,126 +177,16 @@ nav {
   cursor: pointer;
 }
 
+/* Hide desktop nav on mobile */
 .nav-desktop {
   display: none;
 }
 
-/* Slide-out sidebar (structure only – no animation yet) */
+/* Slide-out sidebar (structure only) */
 .mobile-sidebar {
+  display: none;
   position: fixed;
   top: 0;
   right: 0;
   width: 80%;
-  height: 100vh;
-  background: #ffffff;
-  border-left: 1px solid var(--color-border);
-  padding: 40px 20px;
-  z-index: 1100;
-}
-
-/* ================= MAIN ================= */
-main {
-  padding-top: var(--header-height-desktop);
-}
-
-/* ================= LAYOUT HELPERS ================= */
-.container {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding: var(--section-spacing-mobile)
-           var(--container-padding-mobile);
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding: var(--section-spacing-desktop)
-             var(--container-padding-desktop);
-  }
-
-  .nav-toggle {
-    display: none;
-  }
-
-  .nav-desktop {
-    display: flex;
-  }
-
-  .mobile-sidebar {
-    display: none;
-  }
-}
-
-/* ================= SECTION DIVIDER ================= */
-.section-divider {
-  width: 90%;
-  margin: var(--section-spacing-mobile) auto;
-  border: none;
-  border-bottom: 1px solid var(--color-border);
-}
-
-@media (min-width: 768px) {
-  .section-divider {
-    margin: var(--section-spacing-desktop) auto;
-  }
-}
-
-/* ================= CAROUSELS (STRUCTURE ONLY) ================= */
-.carousel {
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 20px;
-  padding: var(--section-spacing-mobile) 20px;
-}
-
-.carousel-track > div {
-  background: var(--color-tertiary);
-  min-width: 250px;
-  min-height: 250px;
-}
-
-/* ================= GRIDS ================= */
-.grid {
-  display: grid;
-  gap: 30px;
-}
-
-.grid-2,
-.grid-3 {
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 768px) {
-  .grid-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .grid-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* ================= CARDS ================= */
-.card {
-  background: var(--color-tertiary);
-  padding: 20px;
-}
-
-/* ================= FOOTER ================= */
-footer {
-  background: #ffffff;
-  border-top: 1px solid var(--color-border);
-}
-
-footer p {
-  margin: 0;
-  font-size: 14px;
-}
-
-/* ================= ACCESSIBILITY HELPERS ================= */
-[aria-hidden="true"] {
-  display: none;
-}
+  height:
