@@ -5,7 +5,7 @@
   <title>Global Reach</title>
 
   <!-- SEO (placeholder) -->
-  <link rel="canonical" href="https://example.com/index.html">
+  <link rel="canonical" href="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Global + page CSS -->
@@ -16,16 +16,19 @@
 <body>
 
   <!-- ================= HEADER ================= -->
-  <!-- Inline include (Step 1 approach A) -->
-  <header>
-    <nav aria-label="Main navigation">
-      <div class="container header-inner">
+  <!-- Fixed header: target height 90px (shrink on scroll – Step 2) -->
+  <header class="site-header">
+    <nav class="nav-bar" aria-label="Main navigation">
+
+      <div class="container nav-inner">
+
+        <!-- Logo -->
         <a href="/index.html" class="logo-container">
-          <!-- Logo image placeholder -->
           Global Reach
         </a>
 
-        <ul class="nav-links">
+        <!-- Desktop navigation -->
+        <ul class="nav-links nav-desktop">
           <li class="has-dropdown">
             <span>Locations</span>
             <ul class="dropdown">
@@ -39,12 +42,47 @@
           <li><a href="/insights.html">Insights</a></li>
           <li><a href="/contact.html">Contact</a></li>
         </ul>
+
+        <!-- Mobile hamburger -->
+        <button
+          class="nav-toggle"
+          aria-label="Open menu"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
       </div>
     </nav>
+
+    <!-- Header divider (same line used elsewhere) -->
+    <hr class="section-divider">
   </header>
 
+  <!-- ================= MOBILE SLIDE-OUT ================= -->
+  <!-- Step 2: JS toggles visibility -->
+  <aside
+    id="mobile-menu"
+    class="mobile-sidebar"
+    aria-label="Mobile navigation"
+    aria-hidden="true"
+  >
+    <nav>
+      <ul class="mobile-nav-links">
+        <li><a href="/locations/uk.html">UK</a></li>
+        <li><a href="/locations/nz.html">New Zealand</a></li>
+        <li><a href="/locations/br.html">Brazil</a></li>
+        <li><a href="/locations/jp.html">Japan</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/insights.html">Insights</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
+
   <!-- ================= MAIN ================= -->
-  <main>
+  <main id="main-content">
 
     <!-- Splash screen placeholder (desktop only – Step 2)
     <div id="intro" aria-hidden="true">
@@ -73,12 +111,6 @@
       class="carousel carousel-listings"
       aria-label="Featured property listings carousel"
     >
-      <!--
-        Step 2:
-        - Populated from location JSONs
-        - Infinite scroll
-        - Center image scales + reveals 3:2
-      -->
       <div class="carousel-track">
         <!-- carousel item placeholders -->
       </div>
@@ -91,12 +123,6 @@
       class="carousel carousel-locations"
       aria-label="Locations navigation carousel"
     >
-      <!--
-        Step 2:
-        - 4 items only
-        - 1.5 visible on desktop
-        - Swipe on mobile
-      -->
       <div class="carousel-track">
         <!-- location card placeholders -->
       </div>
@@ -122,12 +148,6 @@
       class="carousel carousel-services"
       aria-label="Services overview carousel"
     >
-      <!--
-        Step 2:
-        - Conceptual images
-        - 1:1 ratio
-        - Slow, visual
-      -->
       <div class="carousel-track">
         <!-- service image placeholders -->
       </div>
@@ -143,7 +163,6 @@
   </footer>
 
   <!-- ================= JS STUBS ================= -->
-  <!-- Step 1: empty files only -->
   <script src="/js/header.js" defer></script>
   <script src="/js/carousel.js" defer></script>
   <script src="/js/intro.js" defer></script>
