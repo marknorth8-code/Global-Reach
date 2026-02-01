@@ -1,1 +1,141 @@
-/* Home page specific styles - Step 1 placeholder */
+/* H/* =========================================================
+   Home Page CSS – Step 1.1
+   ---------------------------------------------------------
+   Structural scaffolding only
+   Mobile-first
+   No animations / no JS
+   ========================================================= */
+
+/* ================= HOME INTRO ================= */
+.home-intro {
+  background: #ffffff;
+}
+
+/* Left-aligned text block */
+.home-intro-text {
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .home-intro-text {
+    width: 50%;
+  }
+}
+
+/* ================= LISTINGS CAROUSEL ================= */
+.carousel-listings {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Track placeholder */
+.carousel-listings .carousel-track {
+  display: flex;
+  gap: 20px;
+}
+
+/* Image card placeholder */
+.carousel-listings .carousel-item {
+  background: #e0e0e0;
+  aspect-ratio: 1 / 1;
+  min-width: 70%;
+}
+
+/* Desktop scaling intent */
+@media (min-width: 768px) {
+  .carousel-listings .carousel-item {
+    min-width: 22%;
+  }
+}
+
+/* ================= LOCATIONS CAROUSEL ================= */
+.home-locations {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Desktop split */
+@media (min-width: 768px) {
+  .home-locations {
+    flex-direction: row;
+  }
+
+  .home-locations-text {
+    width: 40%;
+  }
+
+  .home-locations-carousel {
+    width: 60%;
+  }
+}
+
+/* Carousel container */
+.carousel-locations {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+}
+
+/* Location card */
+.carousel-locations .carousel-item {
+  min-width: 80%;
+  background: #dddddd;
+  aspect-ratio: 3 / 2;
+}
+
+@media (min-width: 768px) {
+  .carousel-locations .carousel-item {
+    min-width: 40%;
+  }
+}
+
+/* ================= ABOUT TEASER ================= */
+.home-about {
+  background: #ffffff;
+}
+
+.home-about-text {
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .home-about-text {
+    width: 50%;
+  }
+}
+
+/* ================= SERVICES CAROUSEL ================= */
+.carousel-services {
+  width: 100%;
+  height: 75vh;
+  overflow: hidden;
+}
+
+/* Track placeholder */
+.carousel-services .carousel-track {
+  display: flex;
+  gap: 20px;
+}
+
+/* Service card */
+.carousel-services .carousel-item {
+  background: #e0e0e0;
+  aspect-ratio: 1 / 1;
+  min-width: 70%;
+}
+
+@media (min-width: 768px) {
+  .carousel-services .carousel-item {
+    min-width: 33%;
+  }
+}
+
+/* ================= SECTION DIVIDER ================= */
+.home-divider {
+  width: 90%;
+  margin: 0 auto;
+  border: none;
+  border-bottom: 1px solid #333;
+}
+ome page specific styles - Step 1 placeholder */
