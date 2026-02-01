@@ -1,9 +1,10 @@
-/* Co/* =========================================================
+/* =========================================================
    Contact Page CSS – Step 1.1
    ---------------------------------------------------------
    Structural layout only
    Mobile-first
-   No validation / no JS logic
+   No animations
+   No JS dependencies
    ========================================================= */
 
 /* ================= CONTACT INTRO ================= */
@@ -11,24 +12,32 @@
   background: #ffffff;
 }
 
+/* Narrow readable intro text */
 .contact-intro p {
   max-width: 640px;
 }
 
 /* ================= CONTACT LAYOUT ================= */
+/*
+  Mobile:
+  - Stack form + details vertically
+
+  Desktop:
+  - Form left (60%)
+  - Details right (40%)
+*/
 .contact-layout {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-/* Desktop: split layout */
 @media (min-width: 768px) {
   .contact-layout {
     flex-direction: row;
   }
 
-  .contact-form-wrapper {
+  .contact-form {
     width: 60%;
   }
 
@@ -39,58 +48,78 @@
 
 /* ================= CONTACT FORM ================= */
 .contact-form {
+  background: #ffffff;
+}
+
+/* Form structure only (no validation / JS yet) */
+.contact-form form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Form rows */
-.form-row {
+/* Field group */
+.form-group {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-/* Placeholder inputs */
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  min-height: 44px;
-  border: 1px solid #ccc;
+.form-group label {
+  font-size: 14px;
+}
+
+/* Inputs – neutral styling */
+.form-group input,
+.form-group textarea {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
   background: #ffffff;
 }
 
-/* Textarea sizing */
-.contact-form textarea {
-  min-height: 140px;
+.form-group textarea {
+  min-height: 120px;
   resize: vertical;
 }
 
-/* Button placeholder */
+/* Submit button (visual placeholder only) */
 .contact-form button {
   align-self: flex-start;
-  min-height: 44px;
+  padding: 10px 20px;
+  background: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 14px;
+  cursor: pointer;
 }
 
 /* ================= CONTACT DETAILS ================= */
 .contact-details {
+  background: var(--color-tertiary);
+  padding: 30px;
+}
+
+/* Detail blocks */
+.contact-details p {
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+/* Social links list */
+.contact-socials {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
-/* Social links */
-.contact-social {
-  display: flex;
-  gap: 16px;
-}
-
-/* Social icon placeholders */
-.contact-social a {
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  background: #dddddd;
+.contact-socials a {
+  font-size: 14px;
 }
 
 /* ================= SECTION DIVIDER ================= */
@@ -98,6 +127,5 @@
   width: 90%;
   margin: 0 auto;
   border: none;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid var(--color-border);
 }
-ntact page styles - Step 1 placeholder */
