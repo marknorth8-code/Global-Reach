@@ -1,1 +1,103 @@
-/* Contact page styles - Step 1 placeholder */
+/* Co/* =========================================================
+   Contact Page CSS – Step 1.1
+   ---------------------------------------------------------
+   Structural layout only
+   Mobile-first
+   No validation / no JS logic
+   ========================================================= */
+
+/* ================= CONTACT INTRO ================= */
+.contact-intro {
+  background: #ffffff;
+}
+
+.contact-intro p {
+  max-width: 640px;
+}
+
+/* ================= CONTACT LAYOUT ================= */
+.contact-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Desktop: split layout */
+@media (min-width: 768px) {
+  .contact-layout {
+    flex-direction: row;
+  }
+
+  .contact-form-wrapper {
+    width: 60%;
+  }
+
+  .contact-details {
+    width: 40%;
+  }
+}
+
+/* ================= CONTACT FORM ================= */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form rows */
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Placeholder inputs */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #ccc;
+  background: #ffffff;
+}
+
+/* Textarea sizing */
+.contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Button placeholder */
+.contact-form button {
+  align-self: flex-start;
+  min-height: 44px;
+}
+
+/* ================= CONTACT DETAILS ================= */
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Social links */
+.contact-social {
+  display: flex;
+  gap: 16px;
+}
+
+/* Social icon placeholders */
+.contact-social a {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: #dddddd;
+}
+
+/* ================= SECTION DIVIDER ================= */
+.contact-divider {
+  width: 90%;
+  margin: 0 auto;
+  border: none;
+  border-bottom: 1px solid #333;
+}
+ntact page styles - Step 1 placeholder */
