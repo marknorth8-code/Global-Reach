@@ -1,4 +1,4 @@
-/* About /* =========================================================
+/* =========================================================
    About Page CSS – Step 1.1
    ---------------------------------------------------------
    Structural layout only
@@ -36,7 +36,7 @@
 /* Image placeholder */
 .about-intro-image {
   background: #e0e0e0;
-  aspect-ratio: 3 / 2;
+  min-height: 240px;
 }
 
 /* ================= TEAM SECTION ================= */
@@ -73,10 +73,10 @@
   gap: 20px;
 }
 
-/* Individual team image */
+/* Individual team image placeholder */
 .team-photo {
   background: #dddddd;
-  aspect-ratio: 9 / 16;
+  min-height: 200px;
 }
 
 /* ================= HISTORY CAROUSEL ================= */
@@ -105,25 +105,9 @@
   }
 }
 
-/* Carousel placeholder */
-.carousel-history {
-  display: flex;
-  gap: 20px;
-  overflow: hidden;
-}
-
-/* History card */
-.history-card {
-  min-width: 66%;
+/* Placeholder items only */
+.carousel-history .carousel-track > div {
   background: #e0e0e0;
-  aspect-ratio: 3 / 2;
+  min-width: 66%;
+  min-height: 240px;
 }
-
-/* ================= SECTION DIVIDER ================= */
-.about-divider {
-  width: 90%;
-  margin: 0 auto;
-  border: none;
-  border-bottom: 1px solid #333;
-}
-page specific styles - Step 1 placeholder */
