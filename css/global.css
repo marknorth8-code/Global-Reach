@@ -1,0 +1,42 @@
+/* Global CSS
+   Step 1 Skeleton
+   Mobile-first, variables only, no animations yet
+*/
+:root {
+  --color-primary: #222222;
+  --color-secondary: #111111;
+  --color-tertiary: #f5f5f5;
+
+  --font-heading: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-body: Georgia, "Times New Roman", serif;
+
+  --header-height-desktop: 90px; /* Step 2 target shrink: 65px */
+  --container-width: 1200px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-primary);
+  background: #ffffff;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: var(--header-height-desktop);
+  background: #ffffff;
+  z-index: 1000;
+}
+
+main {
+  padding-top: var(--header-height-desktop);
+}
+
+hr.section-divider {
+  width: 90%;
+  margin: 60px auto;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}

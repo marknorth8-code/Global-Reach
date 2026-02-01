@@ -1,0 +1,1 @@
+// Header shrink logic placeholder (Step 2)

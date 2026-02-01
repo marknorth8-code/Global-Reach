@@ -1,0 +1,1 @@
+// Shared carousel engine placeholder (Step 2)

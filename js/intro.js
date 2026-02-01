@@ -1,0 +1,1 @@
+// Splash screen animation placeholder (Step 2)
