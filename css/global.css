@@ -1,42 +1,262 @@
-/* Global CSS
-   Step 1 Skeleton
-   Mobile-first, variables only, no animations yet
-*/
+/* =========================================================
+   Global CSS – Step 1.1 Structural Skeleton
+   ---------------------------------------------------------
+   • Mobile-first
+   • No animations yet
+   • No JS-dependent behaviour
+   • CSS variables for easy tuning
+   ========================================================= */
+
+/* ================= ROOT VARIABLES ================= */
 :root {
+  /* Colours */
   --color-primary: #222222;
   --color-secondary: #111111;
   --color-tertiary: #f5f5f5;
+  --color-border: #cccccc;
 
+  /* Fonts */
   --font-heading: "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-body: Georgia, "Times New Roman", serif;
 
-  --header-height-desktop: 90px; /* Step 2 target shrink: 65px */
-  --container-width: 1200px;
+  /* Typography */
+  --font-size-body: 15px;
+  --font-size-h1: 26px;
+  --font-size-h2: 22px;
+  --line-height-body: 1.6;
+
+  /* Layout */
+  --header-height-desktop: 90px; /* Step 2 shrink target: 65px */
+  --container-max-width: 1200px;
+  --container-padding-mobile: 20px;
+  --container-padding-desktop: 40px;
+
+  /* Spacing */
+  --section-spacing-mobile: 40px;
+  --section-spacing-desktop: 60px;
+
+  /* Timing (Step 2 placeholders) */
+  --transition-fast: 200ms ease;
+  --transition-medium: 300ms ease;
+}
+
+/* ================= RESET / BASE ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
 }
 
 body {
   margin: 0;
   font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   color: var(--color-primary);
-  background: #ffffff;
+  background-color: #ffffff;
 }
 
+/* ================= TYPOGRAPHY ================= */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  margin: 0 0 20px;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+p {
+  margin: 0 0 20px;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ================= HEADER ================= */
 header {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: var(--header-height-desktop);
   background: #ffffff;
   z-index: 1000;
+  border-bottom: 1px solid transparent;
+  /* Step 2: shrink + animate height/padding */
 }
 
+nav {
+  height: 100%;
+}
+
+.header-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-container {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-secondary);
+}
+
+/* ================= NAVIGATION ================= */
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 24px;
+  font-family: var(--font-body);
+  font-size: 15px;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.has-dropdown > span {
+  cursor: default;
+}
+
+/* Dropdown (visual only – no JS yet) */
+.dropdown {
+  display: none; /* Step 2: enable via hover / JS */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  min-width: 160px;
+  border: 1px solid var(--color-border);
+  z-index: 1001;
+}
+
+.dropdown li {
+  padding: 6px 16px;
+}
+
+.dropdown li a {
+  display: block;
+}
+
+/* ================= MAIN ================= */
 main {
   padding-top: var(--header-height-desktop);
 }
 
-hr.section-divider {
+/* ================= LAYOUT HELPERS ================= */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--section-spacing-mobile)
+           var(--container-padding-mobile);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: var(--section-spacing-desktop)
+             var(--container-padding-desktop);
+  }
+}
+
+/* ================= SECTION DIVIDER ================= */
+.section-divider {
   width: 90%;
-  margin: 60px auto;
+  margin: var(--section-spacing-mobile) auto;
   border: none;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+  .section-divider {
+    margin: var(--section-spacing-desktop) auto;
+  }
+}
+
+/* ================= CAROUSELS (STRUCTURE ONLY) ================= */
+.carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  padding: var(--section-spacing-mobile) 20px;
+}
+
+/* Placeholder carousel item */
+.carousel-track > div {
+  background: var(--color-tertiary);
+  min-width: 250px;
+  min-height: 250px;
+}
+
+/* ================= GRIDS ================= */
+.grid {
+  display: grid;
+  gap: 30px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ================= CARDS ================= */
+.card {
+  background: var(--color-tertiary);
+  padding: 20px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: #ffffff;
+  border-top: 1px solid var(--color-border);
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* ================= ACCESSIBILITY HELPERS ================= */
+[aria-hidden="true"] {
+  display: none;
 }
