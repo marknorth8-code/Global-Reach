@@ -11,6 +11,54 @@
   <!-- Global + page CSS -->
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/home.css">
+  <style>
+    /* Quick inline fix for header/footer alignment */
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-links.nav-desktop {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      border: 1px solid #ccc;
+      list-style: none;
+      padding: 10px 0;
+      min-width: 160px;
+      z-index: 1000;
+    }
+
+    .dropdown li {
+      padding: 6px 16px;
+    }
+
+    .nav-links li:hover .dropdown {
+      display: block;
+    }
+
+    footer .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer .footer-contact {
+      text-align: right;
+    }
+  </style>
 </head>
 
 <body>
@@ -26,9 +74,7 @@
         <!-- Desktop navigation -->
         <ul class="nav-links nav-desktop">
           <li class="nav-item has-dropdown">
-            <button class="nav-link" aria-haspopup="true" aria-expanded="false">
-              Locations
-            </button>
+            <span class="nav-link">Locations</span>
             <ul class="dropdown" aria-label="Locations">
               <li><a href="locations/uk.html">UK</a></li>
               <li><a href="locations/nz.html">New Zealand</a></li>
@@ -144,9 +190,7 @@
   <footer>
     <div class="container footer-inner">
       <p>&copy; Global Reach</p>
-      <p class="footer-contact">
-        +44 7470 292 634 | barkertonss@outlook.com
-      </p>
+      <p class="footer-contact">+44 7470 292 634 | barkertonss@outlook.com</p>
     </div>
   </footer>
 
@@ -160,16 +204,6 @@
       const isOpen = mobileMenu.getAttribute('aria-hidden') === 'false';
       mobileMenu.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
       toggle.setAttribute('aria-expanded', !isOpen);
-    });
-
-    // Desktop Locations dropdown
-    document.querySelectorAll('.has-dropdown').forEach(item => {
-      const btn = item.querySelector('button');
-      const dropdown = item.querySelector('.dropdown');
-
-      btn.addEventListener('mouseenter', () => dropdown.style.display = 'block');
-      btn.addEventListener('mouseleave', () => dropdown.style.display = 'none');
-      item.addEventListener('mouseleave', () => dropdown.style.display = 'none');
     });
   </script>
 
