@@ -69,13 +69,8 @@ h3 {
   margin: 0 0 20px;
 }
 
-h1 {
-  font-size: var(--font-size-h1);
-}
-
-h2 {
-  font-size: var(--font-size-h2);
-}
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
 
 p {
   margin: 0 0 20px;
@@ -99,15 +94,15 @@ header {
   height: var(--header-height-desktop);
   background: #ffffff;
   z-index: 1000;
-  border-bottom: 1px solid transparent;
-  /* Step 2: shrink + animate height/padding */
+  /* Fixed header: target height 90px (shrink on scroll – Step 2) */
 }
 
 nav {
   height: 100%;
 }
 
-.header-inner {
+/* aligned with index.html */
+.nav-inner {
   height: 100%;
   display: flex;
   align-items: center;
@@ -131,6 +126,11 @@ nav {
   font-size: 15px;
 }
 
+.nav-desktop {
+  width: 60%;
+  justify-content: flex-end;
+}
+
 .nav-links li {
   position: relative;
 }
@@ -139,9 +139,9 @@ nav {
   cursor: default;
 }
 
-/* Dropdown (visual only – no JS yet) */
+/* Dropdown (visual only – Step 2 enablement) */
 .dropdown {
-  display: none; /* Step 2: enable via hover / JS */
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
@@ -158,8 +158,30 @@ nav {
   padding: 6px 16px;
 }
 
-.dropdown li a {
+/* ================= MOBILE NAVIGATION ================= */
+.nav-toggle {
   display: block;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.nav-desktop {
+  display: none;
+}
+
+/* Slide-out sidebar (structure only – no animation yet) */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 100vh;
+  background: #ffffff;
+  border-left: 1px solid var(--color-border);
+  padding: 40px 20px;
+  z-index: 1100;
 }
 
 /* ================= MAIN ================= */
@@ -179,6 +201,18 @@ main {
   .container {
     padding: var(--section-spacing-desktop)
              var(--container-padding-desktop);
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-desktop {
+    display: flex;
+  }
+
+  .mobile-sidebar {
+    display: none;
   }
 }
 
@@ -208,7 +242,6 @@ main {
   padding: var(--section-spacing-mobile) 20px;
 }
 
-/* Placeholder carousel item */
 .carousel-track > div {
   background: var(--color-tertiary);
   min-width: 250px;
@@ -221,12 +254,9 @@ main {
   gap: 30px;
 }
 
-.grid-2 {
-  grid-template-columns: repeat(1, 1fr);
-}
-
+.grid-2,
 .grid-3 {
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: 1fr;
 }
 
 @media (min-width: 768px) {
