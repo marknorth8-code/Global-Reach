@@ -1,39 +1,152 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Home</title>
-  <link rel="canonical" href="https://example.com/home.html">
+  <meta charset="utf-8">
+  <title>Global Reach</title>
+
+  <!-- SEO (placeholder) -->
+  <link rel="canonical" href="https://example.com/index.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Global + page CSS -->
   <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/home.css">
 </head>
+
 <body>
 
-<!-- HEADER -->
-<header>
-  <nav aria-label="Main navigation">
-    <a href="/index.html" class="logo">Global Reach</a>
-    <ul>
-      <li>Locations</li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/insights.html">Insights</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <!-- ================= HEADER ================= -->
+  <!-- Inline include (Step 1 approach A) -->
+  <header>
+    <nav aria-label="Main navigation">
+      <div class="container header-inner">
+        <a href="/index.html" class="logo-container">
+          <!-- Logo image placeholder -->
+          Global Reach
+        </a>
 
+        <ul class="nav-links">
+          <li class="has-dropdown">
+            <span>Locations</span>
+            <ul class="dropdown">
+              <li><a href="/locations/uk.html">UK</a></li>
+              <li><a href="/locations/nz.html">New Zealand</a></li>
+              <li><a href="/locations/br.html">Brazil</a></li>
+              <li><a href="/locations/jp.html">Japan</a></li>
+            </ul>
+          </li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/insights.html">Insights</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-<main>
-  <h1>Home</h1>
+  <!-- ================= MAIN ================= -->
+  <main>
 
-  <!-- Page sections go here -->
+    <!-- Splash screen placeholder (desktop only – Step 2)
+    <div id="intro" aria-hidden="true">
+      <div class="intro-logo"></div>
+      <div class="intro-text">Real Estate Investment Thought Differently</div>
+    </div>
+    -->
 
-</main>
+    <!-- ========= SECTION 1: COMPANY INTRO ========= -->
+    <section class="home-intro">
+      <div class="container">
+        <h1>Global Reach</h1>
+        <p>
+          Why we are different. What we do.
+        </p>
+        <p>
+          <a href="/insights.html">Read our insights</a>
+        </p>
+      </div>
+    </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>&copy; Global Reach</p>
-</footer>
+    <hr class="section-divider">
 
+    <!-- ========= SECTION 2: LISTINGS CAROUSEL ========= -->
+    <section
+      class="carousel carousel-listings"
+      aria-label="Featured property listings carousel"
+    >
+      <!--
+        Step 2:
+        - Populated from location JSONs
+        - Infinite scroll
+        - Center image scales + reveals 3:2
+      -->
+      <div class="carousel-track">
+        <!-- carousel item placeholders -->
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========= SECTION 3: LOCATIONS CAROUSEL ========= -->
+    <section
+      class="carousel carousel-locations"
+      aria-label="Locations navigation carousel"
+    >
+      <!--
+        Step 2:
+        - 4 items only
+        - 1.5 visible on desktop
+        - Swipe on mobile
+      -->
+      <div class="carousel-track">
+        <!-- location card placeholders -->
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========= SECTION 4: ABOUT SUMMARY ========= -->
+    <section class="home-about">
+      <div class="container">
+        <h2>About</h2>
+        <p>
+          We limit the number of investments so we understand each one better.
+          We work with close networks to expand our reach.
+        </p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========= SECTION 5: SERVICES CAROUSEL ========= -->
+    <section
+      class="carousel carousel-services"
+      aria-label="Services overview carousel"
+    >
+      <!--
+        Step 2:
+        - Conceptual images
+        - 1:1 ratio
+        - Slow, visual
+      -->
+      <div class="carousel-track">
+        <!-- service image placeholders -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container">
+      <p>&copy; Global Reach</p>
+    </div>
+  </footer>
+
+  <!-- ================= JS STUBS ================= -->
+  <!-- Step 1: empty files only -->
+  <script src="/js/header.js" defer></script>
+  <script src="/js/carousel.js" defer></script>
+  <script src="/js/intro.js" defer></script>
 
 </body>
 </html>
