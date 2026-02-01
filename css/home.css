@@ -1,4 +1,4 @@
-/* H/* =========================================================
+/* =========================================================
    Home Page CSS – Step 1.1
    ---------------------------------------------------------
    Structural scaffolding only
@@ -11,14 +11,11 @@
   background: #ffffff;
 }
 
-/* Left-aligned text block */
-.home-intro-text {
-  max-width: 100%;
-}
-
+/* Limit text width on desktop */
 @media (min-width: 768px) {
-  .home-intro-text {
-    width: 50%;
+  .home-intro .container {
+    max-width: 50%;
+    margin-left: 0;
   }
 }
 
@@ -28,64 +25,34 @@
   overflow: hidden;
 }
 
-/* Track placeholder */
-.carousel-listings .carousel-track {
-  display: flex;
-  gap: 20px;
-}
-
-/* Image card placeholder */
-.carousel-listings .carousel-item {
+/* Placeholder items only */
+.carousel-listings .carousel-track > div {
   background: #e0e0e0;
-  aspect-ratio: 1 / 1;
   min-width: 70%;
+  min-height: 250px;
 }
 
-/* Desktop scaling intent */
 @media (min-width: 768px) {
-  .carousel-listings .carousel-item {
+  .carousel-listings .carousel-track > div {
     min-width: 22%;
   }
 }
 
 /* ================= LOCATIONS CAROUSEL ================= */
-.home-locations {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-/* Desktop split */
-@media (min-width: 768px) {
-  .home-locations {
-    flex-direction: row;
-  }
-
-  .home-locations-text {
-    width: 40%;
-  }
-
-  .home-locations-carousel {
-    width: 60%;
-  }
-}
-
-/* Carousel container */
 .carousel-locations {
-  display: flex;
-  gap: 20px;
+  width: 100%;
   overflow: hidden;
 }
 
-/* Location card */
-.carousel-locations .carousel-item {
-  min-width: 80%;
+/* Placeholder items */
+.carousel-locations .carousel-track > div {
   background: #dddddd;
-  aspect-ratio: 3 / 2;
+  min-width: 80%;
+  min-height: 240px;
 }
 
 @media (min-width: 768px) {
-  .carousel-locations .carousel-item {
+  .carousel-locations .carousel-track > div {
     min-width: 40%;
   }
 }
@@ -95,13 +62,10 @@
   background: #ffffff;
 }
 
-.home-about-text {
-  max-width: 100%;
-}
-
 @media (min-width: 768px) {
-  .home-about-text {
-    width: 50%;
+  .home-about .container {
+    max-width: 50%;
+    margin-left: 0;
   }
 }
 
@@ -112,30 +76,14 @@
   overflow: hidden;
 }
 
-/* Track placeholder */
-.carousel-services .carousel-track {
-  display: flex;
-  gap: 20px;
-}
-
-/* Service card */
-.carousel-services .carousel-item {
+.carousel-services .carousel-track > div {
   background: #e0e0e0;
-  aspect-ratio: 1 / 1;
   min-width: 70%;
+  min-height: 300px;
 }
 
 @media (min-width: 768px) {
-  .carousel-services .carousel-item {
+  .carousel-services .carousel-track > div {
     min-width: 33%;
   }
 }
-
-/* ================= SECTION DIVIDER ================= */
-.home-divider {
-  width: 90%;
-  margin: 0 auto;
-  border: none;
-  border-bottom: 1px solid #333;
-}
-ome page specific styles - Step 1 placeholder */
