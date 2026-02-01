@@ -1,1 +1,105 @@
-/* Insights page styles - Step 1 placeholder */
+/* I/* =========================================================
+   Insights CSS – Step 1.1
+   ---------------------------------------------------------
+   Shared by insights index + article pages
+   Structural scaffolding only
+   ========================================================= */
+
+/* ================= INSIGHTS INTRO ================= */
+.insights-intro {
+  background: #ffffff;
+}
+
+.insights-intro h1 {
+  margin-bottom: 10px;
+}
+
+.insights-intro p {
+  max-width: 680px;
+}
+
+/* ================= INSIGHTS GRID ================= */
+.insights-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr;
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 768px) {
+  .insights-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ================= INSIGHT CARD ================= */
+.insight-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-tertiary);
+  height: 100%;
+}
+
+/* Image placeholder */
+.insight-image {
+  background: #dddddd;
+  aspect-ratio: 3 / 2;
+}
+
+/* Content */
+.insight-content {
+  padding: 20px;
+}
+
+.insight-content h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.insight-meta {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
+
+.insight-excerpt {
+  font-size: 14px;
+}
+
+/* ================= ARTICLE PAGE ================= */
+.article {
+  background: #ffffff;
+}
+
+.article-header h1 {
+  margin-bottom: 12px;
+}
+
+.article-meta {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 30px;
+}
+
+.article-content {
+  max-width: 760px;
+}
+
+/* Article body rhythm */
+.article-content p {
+  margin-bottom: 22px;
+}
+
+/* ================= RELATED INSIGHTS ================= */
+.related-insights {
+  background: var(--color-tertiary);
+}
+
+/* ================= PAGINATION PLACEHOLDER ================= */
+.insights-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+}
+nsights page styles - Step 1 placeholder */
