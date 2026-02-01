@@ -1,21 +1,20 @@
-/* I/* =========================================================
-   Insights CSS – Step 1.1
+/* =========================================================
+   Insights Page CSS – Step 1.1
    ---------------------------------------------------------
-   Shared by insights index + article pages
+   Mobile-first
    Structural scaffolding only
+   No JS / no animations
    ========================================================= */
 
-/* ================= INSIGHTS INTRO ================= */
-.insights-intro {
-  background: #ffffff;
+/* ================= INSIGHTS PAGE ================= */
+.insights-page {
+  padding: var(--section-spacing-mobile) var(--container-padding-mobile);
 }
 
-.insights-intro h1 {
-  margin-bottom: 10px;
-}
-
-.insights-intro p {
-  max-width: 680px;
+@media (min-width: 768px) {
+  .insights-page {
+    padding: var(--section-spacing-desktop) var(--container-padding-desktop);
+  }
 }
 
 /* ================= INSIGHTS GRID ================= */
@@ -25,7 +24,6 @@
   grid-template-columns: 1fr;
 }
 
-/* Desktop: 3 columns */
 @media (min-width: 768px) {
   .insights-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -33,73 +31,69 @@
 }
 
 /* ================= INSIGHT CARD ================= */
-.insight-card {
+.insight-card-link {
   display: flex;
   flex-direction: column;
   background: var(--color-tertiary);
-  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--color-primary);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
 }
 
-/* Image placeholder */
-.insight-image {
-  background: #dddddd;
-  aspect-ratio: 3 / 2;
+.insight-card-link:hover {
+  /* Step 2: hover interaction placeholder */
 }
 
-/* Content */
-.insight-content {
+/* Insight image placeholder */
+.insight-card-link img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
+
+/* Insight content */
+.insight-card-content {
   padding: 20px;
 }
 
-.insight-content h2 {
+.insight-card-content h3 {
+  margin: 0 0 10px;
   font-size: 18px;
-  margin-bottom: 8px;
 }
 
-.insight-meta {
-  font-size: 13px;
-  opacity: 0.7;
-  margin-bottom: 12px;
-}
-
-.insight-excerpt {
+.insight-card-content p {
+  margin: 0;
   font-size: 14px;
+  opacity: 0.8;
 }
 
-/* ================= ARTICLE PAGE ================= */
-.article {
-  background: #ffffff;
+/* ================= SECTION DIVIDER ================= */
+.insights-divider {
+  width: 90%;
+  margin: var(--section-spacing-mobile) auto;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
 }
 
-.article-header h1 {
-  margin-bottom: 12px;
+@media (min-width: 768px) {
+  .insights-divider {
+    margin: var(--section-spacing-desktop) auto;
+  }
 }
 
-.article-meta {
-  font-size: 14px;
-  opacity: 0.7;
-  margin-bottom: 30px;
-}
-
-.article-content {
-  max-width: 760px;
-}
-
-/* Article body rhythm */
-.article-content p {
-  margin-bottom: 22px;
-}
-
-/* ================= RELATED INSIGHTS ================= */
-.related-insights {
-  background: var(--color-tertiary);
-}
-
-/* ================= PAGINATION PLACEHOLDER ================= */
-.insights-pagination {
+/* ================= CAROUSEL PLACEHOLDER ================= */
+.carousel-insights {
   display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 40px;
+  overflow-x: auto;
+  gap: 20px;
 }
-nsights page styles - Step 1 placeholder */
+
+.carousel-insights .carousel-track > div {
+  min-width: 250px;
+  background: var(--color-tertiary);
+  aspect-ratio: 16 / 9;
+}
