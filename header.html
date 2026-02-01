@@ -1,11 +1,69 @@
-<header>
-  <nav aria-label="Main navigation">
-    <a href="/index.html" class="logo">Global Reach</a>
-    <ul>
-      <li>Locations</li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/insights.html">Insights</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
-  </nav>
+<!-- ======================================================
+     Global Header – Step 1.1
+     ------------------------------------------------------
+     Fixed height: 90px (shrink target noted in CSS later)
+     No JS behaviour yet
+     ====================================================== -->
+
+<header class="site-header" role="banner">
+
+  <div class="header-inner">
+
+    <!-- ================= LOGO ================= -->
+    <div class="header-logo-wrapper">
+      <a href="/index.html" aria-label="Global Reach home">
+        <!-- Same logo container used by splash screen later -->
+        <img
+          src=""
+          alt="Global Reach"
+          class="header-logo"
+          loading="eager"
+        >
+      </a>
+    </div>
+
+    <!-- ================= PRIMARY NAV ================= -->
+    <nav
+      class="primary-nav"
+      aria-label="Primary navigation"
+    >
+
+      <ul class="nav-list">
+
+        <!-- Locations dropdown -->
+        <li class="nav-item has-dropdown">
+          <button
+            class="nav-link"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Locations
+          </button>
+
+          <ul class="dropdown-menu" aria-label="Locations">
+            <li><a href="/locations/uk.html">United Kingdom</a></li>
+            <li><a href="/locations/nz.html">New Zealand</a></li>
+            <li><a href="/locations/br.html">Brazil</a></li>
+            <li><a href="/locations/jp.html">Japan</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="/about.html" class="nav-link">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/insights.html" class="nav-link">Insights</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/contact.html" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </div>
+
 </header>
