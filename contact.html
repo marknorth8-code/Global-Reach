@@ -16,101 +16,62 @@
 
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <!-- Include header.html -->
-  <header role="banner">
-    <!-- header.html injected here -->
-  </header>
+  <!-- ======================================================
+       Header
+       ------------------------------------------------------
+       Fixed height 90px (shrink target in CSS)
+       Includes mobile slide-out sidebar
+       ====================================================== -->
+  <header class="site-header" role="banner">
 
-  <main id="main-content">
+    <div class="header-inner">
 
-    <!-- ================= CONTACT INTRO ================= -->
-    <section class="contact-intro section">
-      <div class="container">
-        <h1>Contact</h1>
-        <p>
-          <!-- Short contact intro text placeholder -->
-        </p>
+      <!-- ================= LOGO ================= -->
+      <div class="header-logo-wrapper">
+        <a href="/index.html" aria-label="Global Reach home">
+          <img src="" alt="Global Reach" class="header-logo" loading="eager">
+        </a>
       </div>
-    </section>
 
-    <hr class="contact-divider">
+      <!-- ================= PRIMARY NAV ================= -->
+      <nav class="primary-nav" aria-label="Primary navigation">
 
-    <!-- ================= CONTACT CONTENT ================= -->
-    <section class="contact-content section">
-      <div class="container contact-layout">
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          &#9776;
+        </button>
 
-        <!-- ================= CONTACT FORM ================= -->
-        <div class="contact-form-wrapper">
-
-          <form
-            class="contact-form"
-            aria-label="Contact form"
-            method="post"
-            action=""
-          >
-
-            <div class="form-row">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="">
-            </div>
-
-            <div class="form-row">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="">
-            </div>
-
-            <div class="form-row">
-              <label for="message">Message</label>
-              <textarea id="message" name="message"></textarea>
-            </div>
-
-            <!-- Submit button placeholder -->
-            <button type="submit">
-              Send
+        <ul class="nav-list nav-desktop">
+          <li class="nav-item has-dropdown">
+            <button class="nav-link" aria-haspopup="true" aria-expanded="false">
+              Locations
             </button>
+            <ul class="dropdown-menu" aria-label="Locations">
+              <li><a href="/locations/uk.html">United Kingdom</a></li>
+              <li><a href="/locations/nz.html">New Zealand</a></li>
+              <li><a href="/locations/br.html">Brazil</a></li>
+              <li><a href="/locations/jp.html">Japan</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="/about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="/insights.html" class="nav-link">Insights</a></li>
+          <li class="nav-item"><a href="/contact.html" class="nav-link">Contact</a></li>
+        </ul>
 
-          </form>
+      </nav>
 
-        </div>
+    </div>
 
-        <!-- ================= CONTACT DETAILS ================= -->
-        <aside class="contact-details">
-
-          <div class="contact-info">
-            <p>
-              <!-- Email placeholder -->
-            </p>
-            <p>
-              <!-- Phone placeholder -->
-            </p>
-          </div>
-
-          <!-- Social links -->
-          <nav
-            class="contact-social"
-            aria-label="Social media links"
-          >
-            <a href="#" aria-label="LinkedIn"></a>
-            <a href="#" aria-label="Instagram"></a>
-            <a href="#" aria-label="Twitter / X"></a>
-          </nav>
-
-        </aside>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ================= FOOTER ================= -->
-  <!-- Include footer.html -->
-  <footer role="contentinfo">
-    <!-- footer.html injected here -->
-  </footer>
-
-  <!-- Page JS placeholder -->
-  <script src="/js/contact.js" defer></script>
-
-</body>
-</html>
+    <!-- ================= MOBILE SIDEBAR ================= -->
+    <aside class="mobile-sidebar" aria-hidden="true">
+      <ul class="nav-list">
+        <li class="nav-item has-dropdown">
+          <button class="nav-link">Locations</button>
+          <ul class="dropdown-menu">
+            <li><a href="/locations/uk.html">United Kingdom</a></li>
+            <li><a href="/locations/nz.html">New Zealand</a></li>
+            <li><a href="/locations/br.html">Brazil</a></li>
+            <li><a href="/locations/jp.html">Japan</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="/about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="/insights.html" class="nav-link">Insights<
