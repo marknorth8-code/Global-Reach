@@ -1,4 +1,4 @@
-/* /* =========================================================
+/* =========================================================
    Locations CSS – Step 1.1
    ---------------------------------------------------------
    Shared by all location pages (UK / NZ / BR / JP)
@@ -61,7 +61,7 @@
 /* Image wrapper placeholder */
 .property-image {
   background: #dddddd;
-  aspect-ratio: 3 / 2; /* Confirmed ratio */
+  aspect-ratio: 3 / 2;
 }
 
 /* Card content */
@@ -88,4 +88,5 @@
 .section-narrow p {
   max-width: 700px;
 }
-Shared locations page styles - Step 1 placeholder */
+
+/* Shared locations page styles – Step 1 placeholder */
