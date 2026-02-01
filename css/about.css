@@ -36,7 +36,7 @@
 /* Image placeholder */
 .about-intro-image {
   background: #e0e0e0;
-  min-height: 240px;
+  aspect-ratio: 3 / 2;
 }
 
 /* ================= TEAM SECTION ================= */
@@ -73,10 +73,10 @@
   gap: 20px;
 }
 
-/* Individual team image placeholder */
+/* Individual team image */
 .team-photo {
   background: #dddddd;
-  min-height: 200px;
+  aspect-ratio: 9 / 16;
 }
 
 /* ================= HISTORY CAROUSEL ================= */
@@ -105,9 +105,27 @@
   }
 }
 
-/* Placeholder items only */
-.carousel-history .carousel-track > div {
-  background: #e0e0e0;
-  min-width: 66%;
-  min-height: 240px;
+/* Carousel placeholder */
+.carousel-history {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
 }
+
+/* History card */
+.history-card {
+  min-width: 66%;
+  background: #e0e0e0;
+  aspect-ratio: 3 / 2;
+}
+
+/* ================= SECTION DIVIDER ================= */
+.about-divider {
+  width: 90%;
+  margin: 0 auto;
+  border: none;
+  border-bottom: 1px solid #333;
+}
+
+/* ================= PAGE PLACEHOLDER NOTES ================= */
+/* Step 1 placeholder for content-specific styles */
