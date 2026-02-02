@@ -1,174 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <title>About | Global Reach</title>
-
-  <!-- Canonical placeholder -->
-  <link rel="canonical" href="">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Global + Page CSS -->
-  <link rel="stylesheet" href="/css/global.css">
-  <link rel="stylesheet" href="/css/about.css">
+  <link rel="canonical" href="">
+  <link rel="stylesheet" href="css/global.css">
 </head>
 
 <body>
 
-  <!-- ======================================================
-       Header
-       ------------------------------------------------------
-       Fixed height 90px (shrink target in CSS)
-       Includes mobile slide-out sidebar
-       ====================================================== -->
-  <header class="site-header" role="banner">
+  <!-- HEADER (IDENTICAL ON ALL PAGES) -->
+  <header class="site-header">
+    <div class="container header-inner">
 
-    <div class="header-inner">
+      <a href="index.html" class="logo">Global Reach</a>
 
-      <!-- ================= LOGO ================= -->
-      <div class="header-logo-wrapper">
-        <a href="/index.html" aria-label="Global Reach home">
-          <img src="" alt="Global Reach" class="header-logo" loading="eager">
-        </a>
-      </div>
-
-      <!-- ================= PRIMARY NAV ================= -->
-      <nav class="primary-nav" aria-label="Primary navigation">
-
-        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-          &#9776;
-        </button>
-
-        <ul class="nav-list nav-desktop">
-          <li class="nav-item has-dropdown">
-            <button class="nav-link" aria-haspopup="true" aria-expanded="false">
-              Locations
-            </button>
-            <ul class="dropdown-menu" aria-label="Locations">
-              <li><a href="/locations/uk.html">United Kingdom</a></li>
-              <li><a href="/locations/nz.html">New Zealand</a></li>
-              <li><a href="/locations/br.html">Brazil</a></li>
-              <li><a href="/locations/jp.html">Japan</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a href="/about.html" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="/insights.html" class="nav-link">Insights</a></li>
-          <li class="nav-item"><a href="/contact.html" class="nav-link">Contact</a></li>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="locations/uk.html">Locations</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
-
       </nav>
 
     </div>
-
-    <!-- ================= MOBILE SIDEBAR ================= -->
-    <aside class="mobile-sidebar" aria-hidden="true">
-      <ul class="nav-list">
-        <li class="nav-item has-dropdown">
-          <button class="nav-link">Locations</button>
-          <ul class="dropdown-menu">
-            <li><a href="/locations/uk.html">United Kingdom</a></li>
-            <li><a href="/locations/nz.html">New Zealand</a></li>
-            <li><a href="/locations/br.html">Brazil</a></li>
-            <li><a href="/locations/jp.html">Japan</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a href="/about.html" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="/insights.html" class="nav-link">Insights</a></li>
-        <li class="nav-item"><a href="/contact.html" class="nav-link">Contact</a></li>
-      </ul>
-    </aside>
-
   </header>
 
-  <main id="main-content">
-
-    <!-- ================= ABOUT INTRO ================= -->
-    <section class="about-intro section">
-      <div class="container about-intro-inner">
-
-        <div class="about-intro-text">
-          <h1>About</h1>
-          <p>
-            <!-- Philosophy / mission text placeholder -->
-          </p>
-        </div>
-
-        <div class="about-intro-image" aria-hidden="true">
-          <!-- Image placeholder -->
-        </div>
-
+  <!-- MAIN -->
+  <main>
+    <section class="page-section">
+      <div class="container">
+        <h1>About</h1>
+        <p>Brief placeholder text.</p>
       </div>
     </section>
-
-    <hr class="about-divider">
-
-    <!-- ================= TEAM SECTION ================= -->
-    <section class="about-team section">
-      <div class="container team-layout">
-
-        <!-- Team images -->
-        <div class="team-images">
-          <div class="team-photo" aria-hidden="true"></div>
-          <div class="team-photo" aria-hidden="true"></div>
-          <div class="team-photo" aria-hidden="true"></div>
-          <div class="team-photo" aria-hidden="true"></div>
-        </div>
-
-        <!-- Team text -->
-        <div class="team-content">
-          <h2>Team</h2>
-          <p>
-            <!-- Team descriptions and PDF profile links placeholder -->
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <hr class="about-divider">
-
-    <!-- ================= HISTORY SECTION ================= -->
-    <section class="about-history section">
-      <div class="container history-layout">
-
-        <!-- History text -->
-        <div class="history-text">
-          <h2>History</h2>
-          <p>
-            <!-- History of completed deals placeholder -->
-          </p>
-        </div>
-
-        <!-- History carousel -->
-        <div class="history-carousel carousel-history" aria-label="Completed work carousel">
-          <div class="carousel-track">
-            <div class="history-card" aria-hidden="true"></div>
-            <div class="history-card" aria-hidden="true"></div>
-            <div class="history-card" aria-hidden="true"></div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
   </main>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner container">
-      <div class="footer-left">
-        <p>&copy; Global Reach</p>
+  <!-- FOOTER (IDENTICAL ON ALL PAGES) -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+
+      <p>&copy; Global Reach</p>
+
+      <div class="footer-contact">
+        <a href="tel:+447470292634">+44 7470 292 634</a>
+        <a href="mailto:barkertonss@outlook.com">barkertonss@outlook.com</a>
       </div>
-      <div class="footer-right">
-        <p>Phone: <a href="tel:+447470292634">+44 7470 292 634</a></p>
-        <p>Email: <a href="mailto:barkertonss@outlook.com">barkertonss@outlook.com</a></p>
-      </div>
+
     </div>
   </footer>
-
-  <!-- Page JS placeholder -->
-  <script src="/js/about.js" defer></script>
 
 </body>
 </html>
