@@ -1,291 +1,92 @@
-/* =========================================================
-   Global CSS – Step 1.1 Structural Skeleton
-   ---------------------------------------------------------
-   • Mobile-first
-   • No animations yet
-   • No JS-dependent behaviour
-   • CSS variables for easy tuning
-   ========================================================= */
-
-/* ================= ROOT VARIABLES ================= */
-:root {
-  /* Colours */
-  --color-primary: #222222;
-  --color-secondary: #111111;
-  --color-tertiary: #f5f5f5;
-  --color-border: #cccccc;
-
-  /* Fonts */
-  --font-heading: "Garamond SC", "EB Garamond", Garamond, Baskerville, "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  --font-body: Georgia, "Times New Roman", serif;
-
-  /* Typography */
-  --font-size-body: 15px;
-  --font-size-h1: 26px;
-  --font-size-h2: 22px;
-  --line-height-body: 1.6;
-
-  /* Layout */
-  --header-height-desktop: 90px; /* Step 2 shrink target: 65px */
-  --container-max-width: 1200px;
-  --container-padding-mobile: 20px;
-  --container-padding-desktop: 40px;
-
-  /* Spacing */
-  --section-spacing-mobile: 40px;
-  --section-spacing-desktop: 60px;
-
-  /* Timing (Step 2 placeholders) */
-  --transition-fast: 200ms ease;
-  --transition-medium: 300ms ease;
-}
-
-/* ================= RESET / BASE ================= */
+/* ================= RESET ================= */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html {
-  font-size: 100%;
-}
-
 body {
   margin: 0;
-  font-family: var(--font-body);
-  font-size: var(--font-size-body);
-  line-height: var(--line-height-body);
-  color: var(--color-primary);
-  background-color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #222;
+  background: #fff;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 /* ================= TYPOGRAPHY ================= */
-h1,
-h2,
-h3 {
-  font-family: var(--font-heading);
+h1, h2, h3 {
+  font-family: "Segoe UI", system-ui, sans-serif;
   font-weight: 400;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
 }
-
-h1 { font-size: var(--font-size-h1); }
-h2 { font-size: var(--font-size-h2); }
 
 p {
-  margin: 0 0 20px;
-}
-
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+  margin: 0 0 16px;
 }
 
 /* ================= HEADER ================= */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: var(--header-height-desktop);
-  background: #ffffff;
-  z-index: 1000;
-  /* Fixed header: target height 90px (shrink on scroll – Step 2) */
+.site-header {
+  border-bottom: 1px solid #ddd;
 }
 
-nav {
-  height: 100%;
-}
-
-/* Header inner flex alignment */
 .header-inner {
-  height: 100%;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.logo-container {
-  font-family: var(--font-body);
-  font-size: 15px;
-  color: var(--color-secondary);
+.logo {
+  text-decoration: none;
+  color: #222;
+  font-size: 16px;
 }
 
-/* ================= NAVIGATION ================= */
-.nav-links {
+.main-nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 24px;
-  font-family: var(--font-body);
+  gap: 32px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #222;
   font-size: 15px;
 }
 
-.nav-links li {
-  position: relative;
-}
-
-.has-dropdown > span {
-  cursor: default;
-}
-
-/* Dropdown (visual only – Step 2 enablement) */
-.dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #ffffff;
-  list-style: none;
-  padding: 10px 0;
-  margin: 0;
-  min-width: 160px;
-  border: 1px solid var(--color-border);
-  z-index: 1001;
-}
-
-.dropdown li {
-  padding: 6px 16px;
-}
-
-.dropdown li a {
-  display: block;
-}
-
-/* ================= MOBILE NAVIGATION ================= */
-.nav-toggle {
-  display: block;
-  background: none;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.nav-desktop {
-  display: none;
-}
-
-/* Slide-out sidebar (structure only – no animation yet) */
-.mobile-sidebar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 80%;
-  height: 100vh;
-  background: #ffffff;
-  border-left: 1px solid var(--color-border);
-  padding: 40px 20px;
-  z-index: 1100;
-}
-
 /* ================= MAIN ================= */
-main {
-  padding-top: var(--header-height-desktop);
-}
-
-/* ================= LAYOUT HELPERS ================= */
-.container {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding: var(--section-spacing-mobile)
-           var(--container-padding-mobile);
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding: var(--section-spacing-desktop)
-             var(--container-padding-desktop);
-  }
-
-  .nav-toggle {
-    display: none;
-  }
-
-  .nav-desktop {
-    display: flex;
-  }
-
-  .mobile-sidebar {
-    display: none;
-  }
-}
-
-/* ================= SECTION DIVIDER ================= */
-.section-divider {
-  width: 90%;
-  margin: var(--section-spacing-mobile) auto;
-  border: none;
-  border-bottom: 1px solid var(--color-border);
-}
-
-@media (min-width: 768px) {
-  .section-divider {
-    margin: var(--section-spacing-desktop) auto;
-  }
-}
-
-/* ================= CAROUSELS (STRUCTURE ONLY) ================= */
-.carousel {
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 20px;
-  padding: var(--section-spacing-mobile) 20px;
-}
-
-.carousel-track > div {
-  background: var(--color-tertiary);
-  min-width: 250px;
-  min-height: 250px;
-}
-
-/* ================= GRIDS ================= */
-.grid {
-  display: grid;
-  gap: 30px;
-}
-
-.grid-2,
-.grid-3 {
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 768px) {
-  .grid-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .grid-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* ================= CARDS ================= */
-.card {
-  background: var(--color-tertiary);
-  padding: 20px;
+.page-section {
+  padding: 60px 0;
 }
 
 /* ================= FOOTER ================= */
-footer {
-  background: #ffffff;
-  border-top: 1px solid var(--color-border);
+.site-footer {
+  border-top: 1px solid #ddd;
+  padding: 30px 0;
 }
 
-footer p {
-  margin: 0;
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-contact {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-contact a {
+  text-decoration: none;
+  color: #222;
   font-size: 14px;
-}
-
-/* ================= ACCESSIBILITY HELPERS ================= */
-[aria-hidden="true"] {
-  display: none;
 }
