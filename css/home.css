@@ -45,3 +45,40 @@
     padding: 40px;
   }
 }
+
+/* ================= HOME VERTICAL RHYTHM ================= */
+
+/* Reduce default spacing between home sections */
+.home section {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+/* More breathing room after carousel */
+.home .featured-carousel {
+  padding-bottom: 72px;
+}
+
+/* Intro section tighter */
+.home .home-intro {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+/* Grid section slightly heavier */
+.home .home-grid {
+  padding-top: 64px;
+  padding-bottom: 72px;
+}
+
+/* Desktop refinement */
+@media (min-width: 768px) {
+  .home section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .home .featured-carousel {
+    padding-bottom: 96px;
+  }
+}
