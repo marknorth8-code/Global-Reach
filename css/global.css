@@ -16,7 +16,7 @@
   --color-border: #cccccc;
 
   /* Fonts */
-  --font-heading: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-heading: "Garamond SC", "EB Garamond", Garamond, Baskerville, "Palatino Linotype", "Book Antiqua", Palatino, serif;
   --font-body: Georgia, "Times New Roman", serif;
 
   /* Typography */
