@@ -51,6 +51,7 @@
   padding-top: 0;
 }
 
+
 .home-locations-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -58,9 +59,27 @@
 }
 
 .location-card {
-  aspect-ratio: 3 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   background: #f0f0f0;
+  aspect-ratio: 3 / 2;
+  padding: 12px;
 }
+
+.location-title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .home-locations-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
 
 /* ================= HOME – VERTICAL RHYTHM ================= */
 
@@ -116,11 +135,6 @@
 
 .location-title {
   font-size: 14px;
-}
-
-/* Desktop */
-@media (min-width: 768px) {
-  .home-locations-grid {
-    grid-template-columns: repeat(4, 1fr);
+  
   }
 }
