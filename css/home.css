@@ -64,6 +64,12 @@
   padding-top: 48px;
   padding-bottom: 48px;
 }
+/* Home intro text refinement */
+.home-intro p {
+  margin-bottom: 0;
+  font-size: 17px;
+}
+
 
 /* Grid section slightly heavier */
 .home .home-grid {
