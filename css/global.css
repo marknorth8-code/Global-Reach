@@ -33,59 +33,123 @@ p {
 /* ================= HEADER ================= */
 
 .site-header {
-  border-bottom: 1px solid #e5e5e5;
-  height: 90px;
-  display: flex;
-  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid var(--color-border);
+  z-index: 1000;
 }
 
 .header-inner {
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* LOGO */
-
+/* Logo */
 .site-logo {
+  font-family: var(--font-heading);
   font-size: 18px;
-  font-weight: 600;
-  text-decoration: none;
-  color: inherit;
+  color: var(--color-primary);
 }
 
-/* NAV */
-
-.site-nav {
-  display: flex;
-  align-items: center;
+/* Desktop nav */
+.primary-nav {
+  display: none;
 }
 
 .nav-list {
-  display: none;
+  display: flex;
+  gap: 32px;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 32px;
 }
 
-.nav-list li a {
-  text-decoration: none;
-  color: inherit;
-  font-size: 14px;
+.nav-link {
+  cursor: pointer;
+  white-space: nowrap;
 }
 
-/* DESKTOP */
+/* Dropdown */
+.has-dropdown {
+  position: relative;
+}
 
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  min-width: 200px;
+  display: none;
+}
+
+.has-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 8px 16px;
+}
+
+/* Mobile */
+.nav-toggle {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 90px;
+  right: 0;
+  width: 80%;
+  height: calc(100vh - 90px);
+  background: #fff;
+  border-left: 1px solid var(--color-border);
+  padding: 24px;
+}
+
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mobile-nav li {
+  margin-bottom: 16px;
+}
+
+/* Desktop breakpoint */
 @media (min-width: 768px) {
-  .nav-list {
-    display: flex;
+  .primary-nav {
+    display: block;
   }
 
   .nav-toggle {
     display: none;
   }
+
+  .mobile-nav {
+    display: none !important;
+  }
 }
+
+/* Offset fixed header */
+main {
+  padding-top: 90px;
+}
+
+
 
 /* MOBILE */
 
