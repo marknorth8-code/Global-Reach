@@ -207,3 +207,44 @@ p {
     text-align: center;
   }
 }
+/* ================= PAGE HERO ================= */
+
+.page-hero {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.page-hero h1 {
+  margin: 0;
+}
+
+/* ================= PAGE SECTION ================= */
+
+.page-section {
+  padding: 48px 0;
+}
+
+/* ================= PROPERTY GRID ================= */
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.property-card {
+  cursor: pointer;
+}
+
+.property-image {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  background: #f0f0f0;
+  margin-bottom: 8px;
+}
+
+.property-title {
+  font-size: 14px;
+}
