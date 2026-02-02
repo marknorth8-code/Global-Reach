@@ -1,15 +1,12 @@
-// document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.querySelector(".nav-toggle");
-  const navList = document.querySelector(".nav-list");
+  const mobileNav = document.querySelector(".mobile-nav");
 
-  if (!toggle || !navList) return;
+  if (!toggle || !mobileNav) return;
 
   toggle.addEventListener("click", () => {
-    const expanded = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", !expanded);
-    navList.style.display = expanded ? "none" : "flex";
-    navList.style.flexDirection = "column";
-    navList.style.gap = "20px";
+    const isOpen = mobileNav.style.display === "block";
+    mobileNav.style.display = isOpen ? "none" : "block";
+    toggle.setAttribute("aria-expanded", String(!isOpen));
   });
 });
-Header shrink logic placeholder (Step 2)
