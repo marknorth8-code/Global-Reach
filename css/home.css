@@ -6,6 +6,11 @@
 }
 
 .home-featured-track {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.home-featured-track {
   display: flex;
   gap: 24px;
   padding: 24px;
