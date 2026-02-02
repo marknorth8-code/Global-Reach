@@ -20,15 +20,97 @@ body {
 }
 
 /* ================= TYPOGRAPHY ================= */
-h1, h2, h3 {
-  font-family: "Segoe UI", system-ui, sans-serif;
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-primary);
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
   font-weight: 400;
+  line-height: var(--line-height-heading);
   margin: 0 0 16px;
 }
 
-p {
-  margin: 0 0 16px;
+h1 {
+  font-size: var(--font-size-h1);
 }
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+/* Paragraphs */
+p {
+  margin: 0 0 20px;
+  max-width: 70ch; /* subtle readability control */
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Small text */
+small {
+  font-size: var(--font-size-small);
+}
+
+
+:root {
+  /* Colours */
+  --color-primary: #222222;
+  --color-secondary: #111111;
+  --color-tertiary: #f5f5f5;
+  --color-border: #cccccc;
+
+  /* Fonts */
+  --font-heading: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-body: Georgia, "Times New Roman", serif;
+
+  /* Font sizes (mobile-first) */
+  --font-size-body: 16px;
+  --font-size-small: 14px;
+
+  --font-size-h1: 26px;
+  --font-size-h2: 22px;
+  --font-size-h3: 18px;
+
+  /* Line heights */
+  --line-height-body: 1.65;
+  --line-height-heading: 1.25;
+
+  /* Spacing */
+  --section-spacing-mobile: 48px;
+  --section-spacing-desktop: 72px;
+
+  /* Layout */
+  --container-max-width: 1200px;
+  --container-padding-mobile: 20px;
+  --container-padding-desktop: 40px;
+
+  /* Header */
+  --header-height-desktop: 90px;
+
+  /* Timing */
+  --transition-fast: 200ms ease;
+}
+
 
 /* ================= HEADER ================= */
 
@@ -276,3 +358,148 @@ main {
 .property-title {
   font-size: 14px;
 }
+
+.page-section,
+section {
+  padding: var(--section-spacing-mobile) 0;
+}
+
+@media (min-width: 768px) {
+  .page-section,
+  section {
+    padding: var(--section-spacing-desktop) 0;
+  }
+}
+
+
+@media (min-width: 768px) {
+  :root {
+    --font-size-h1: 32px;
+    --font-size-h2: 26px;
+    --font-size-h3: 20px;
+  }
+}
+/* ================= LAYOUT UTILITIES ================= */
+/* ================= CONTAINER ================= */
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding-left: var(--container-padding-mobile);
+  padding-right: var(--container-padding-mobile);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--container-padding-desktop);
+    padding-right: var(--container-padding-desktop);
+  }
+}
+
+/* ================= SECTIONS ================= */
+
+section,
+.page-section {
+  padding-top: var(--section-spacing-mobile);
+  padding-bottom: var(--section-spacing-mobile);
+}
+
+@media (min-width: 768px) {
+  section,
+  .page-section {
+    padding-top: var(--section-spacing-desktop);
+    padding-bottom: var(--section-spacing-desktop);
+  }
+}
+
+/* ================= FULL WIDTH ================= */
+
+.full-width {
+  width: 100%;
+}
+
+.full-width > .container {
+  max-width: var(--container-max-width);
+}
+
+/* ================= DIVIDER ================= */
+
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ================= GRID ================= */
+
+.grid {
+  display: grid;
+  gap: 32px;
+}
+
+.grid-2 {
+  grid-template-columns: 1fr;
+}
+
+.grid-3 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ================= IMAGE RATIOS ================= */
+
+.ratio-3-2 {
+  aspect-ratio: 3 / 2;
+}
+
+.ratio-1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.media-box {
+  background: var(--color-tertiary);
+  overflow: hidden;
+}
+
+/* ================= ALIGNMENT ================= */
+
+.center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ================= STACK ================= */
+
+.stack > * + * {
+  margin-top: 16px;
+}
+
+.stack-large > * + * {
+  margin-top: 32px;
+}
+
