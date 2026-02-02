@@ -1,28 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const track = document.getElementById("featuredTrack");
+  const track = document.querySelector(".home-featured-track");
   if (!track) return;
 
-  // Duplicate content for seamless looping
-  track.innerHTML += track.innerHTML;
-
-  let scrollSpeed = 0.3; // pixels per frame
+  let scrollSpeed = 0.3; // px per frame
   let isPaused = false;
 
-  function animate() {
+  function autoScroll() {
     if (!isPaused) {
       track.scrollLeft += scrollSpeed;
 
-      if (track.scrollLeft >= track.scrollWidth / 2) {
+      // Loop seamlessly
+      if (
+        track.scrollLeft + track.clientWidth >=
+        track.scrollWidth - 1
+      ) {
         track.scrollLeft = 0;
       }
     }
-    requestAnimationFrame(animate);
+
+    requestAnimationFrame(autoScroll);
   }
 
-  track.addEventListener("mouseenter", () => isPaused = true);
-  track.addEventListener("mouseleave", () => isPaused = false);
-  track.addEventListener("touchstart", () => isPaused = true);
-  track.addEventListener("touchend", () => isPaused = false);
+  // Pause on hover (desktop)
+  track.addEventListener("mouseenter", () => (isPaused = true));
+  track.addEventListener("mouseleave", () => (isPaused = false));
 
-  animate();
+  autoScroll();
 });
