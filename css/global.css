@@ -151,34 +151,6 @@ main {
 
 
 
-/* MOBILE */
-
-.nav-toggle {
-  background: none;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-
-
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 900px) {
-  .nav-desktop {
-    display: none;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-}
-
-/* ================= MAIN ================= */
-.page-section {
-  padding: 60px 0;
-}
-
 /* ================= FOOTER ================= */
 
 .site-footer {
