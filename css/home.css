@@ -88,3 +88,39 @@
     padding-bottom: 96px;
   }
 }
+
+/* ================= HOME – LOCATIONS ================= */
+
+.home-locations h2 {
+  margin-bottom: 32px;
+}
+
+.home-locations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.location-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.location-image {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  background: #eaeaea;
+  margin-bottom: 8px;
+}
+
+.location-title {
+  font-size: 14px;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .home-locations-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
