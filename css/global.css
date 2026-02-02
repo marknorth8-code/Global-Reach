@@ -158,25 +158,52 @@ p {
 }
 
 /* ================= FOOTER ================= */
+
 .site-footer {
-  border-top: 1px solid #ddd;
-  padding: 30px 0;
+  background: #ffffff;
+  border-top: 1px solid #e5e5e5;
+  padding: 32px 0;
+  font-size: 13px;
+  color: #000;
 }
 
 .footer-inner {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  justify-content: space-between;
 }
 
-.footer-contact {
-  display: flex;
-  gap: 20px;
+/* Left side */
+.footer-left {
+  white-space: nowrap;
 }
 
-.footer-contact a {
+/* Right side (contact details) */
+.footer-right {
+  text-align: right;
+}
+
+.footer-right a {
+  display: block;
   text-decoration: none;
-  color: #222;
-  font-size: 14px;
+  color: #000;
+  line-height: 1.5;
+}
+
+.footer-right a:hover {
+  text-decoration: underline;
+}
+
+/* ================= FOOTER MOBILE ================= */
+
+@media (max-width: 700px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .footer-right {
+    text-align: center;
+  }
 }
