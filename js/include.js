@@ -7,6 +7,6 @@ async function loadPartial(selector, file) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadPartial("#header", "/partials/header.html");
-  loadPartial("#footer", "/partials/footer.html");
+  loadPartial("#header", "partials/header.html");
+  loadPartial("#footer", "partials/footer.html");
 });
