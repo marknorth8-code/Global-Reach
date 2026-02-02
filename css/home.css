@@ -1,89 +1,44 @@
-/* =========================================================
-   Home Page CSS – Step 1.1
-   ---------------------------------------------------------
-   Structural scaffolding only
-   Mobile-first
-   No animations / no JS
-   ========================================================= */
+/* ================= HOME FEATURED CAROUSEL ================= */
 
-/* ================= HOME INTRO ================= */
-.home-intro {
-  background: #ffffff;
+.home-featured-carousel {
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
 }
 
-/* Limit text width on desktop */
-@media (min-width: 768px) {
-  .home-intro .container {
-    max-width: 50%;
-    margin-left: 0;
-  }
-}
-
-/* ================= LISTINGS CAROUSEL ================= */
-.carousel-listings {
+.carousel-viewport {
   width: 100%;
   overflow: hidden;
 }
 
-/* Placeholder items only */
-.carousel-listings .carousel-track > div {
-  background: #e0e0e0;
-  min-width: 70%;
-  min-height: 250px;
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  will-change: transform;
 }
 
-@media (min-width: 768px) {
-  .carousel-listings .carousel-track > div {
-    min-width: 22%;
-  }
+/* Property cards */
+.home-featured-carousel .property-card {
+  flex: 0 0 auto;
+  width: min(70vw, 520px);
 }
 
-/* ================= LOCATIONS CAROUSEL ================= */
-.carousel-locations {
+/* Image placeholder */
+.home-featured-carousel .property-image {
   width: 100%;
-  overflow: hidden;
+  background: #eaeaea;
 }
 
-/* Placeholder items */
-.carousel-locations .carousel-track > div {
-  background: #dddddd;
-  min-width: 80%;
-  min-height: 240px;
-}
-
-@media (min-width: 768px) {
-  .carousel-locations .carousel-track > div {
-    min-width: 40%;
+/* Desktop tuning */
+@media (min-width: 1024px) {
+  .home-featured-carousel {
+    height: 65vh;
+    display: flex;
+    align-items: center;
   }
-}
 
-/* ================= ABOUT TEASER ================= */
-.home-about {
-  background: #E3DAC9;
-}
-
-@media (min-width: 768px) {
-  .home-about .container {
-    max-width: 50%;
-    margin-left: 0;
-  }
-}
-
-/* ================= SERVICES CAROUSEL ================= */
-.carousel-services {
-  width: 100%;
-  height: 75vh;
-  overflow: hidden;
-}
-
-.carousel-services .carousel-track > div {
-  background: #e0e0e0;
-  min-width: 70%;
-  min-height: 300px;
-}
-
-@media (min-width: 768px) {
-  .carousel-services .carousel-track > div {
-    min-width: 33%;
+  .carousel-track {
+    padding: 40px;
   }
 }
