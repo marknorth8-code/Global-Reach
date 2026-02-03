@@ -1,0 +1,126 @@
+/* ================= HOME – FEATURED PROPERTY CAROUSEL ================= */
+.home-featured {
+  overflow: hidden;
+  padding: 0 0 72px 0; /* bottom spacing for carousel */
+}
+
+.home-featured-track {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.home-featured-card {
+  flex: 0 0 320px; /* min-width and no shrinking */
+  display: flex;
+  flex-direction: column;
+}
+
+.home-featured-image {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  background: #eaeaea;
+  margin-bottom: 8px;
+}
+
+.home-featured-title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ================= HOME – INTRO ================= */
+.home-intro {
+  text-align: center;
+  padding: 48px 0;
+}
+
+.home-intro h1 {
+  margin-bottom: 16px;
+}
+
+.home-intro p {
+  margin: 0 auto 16px auto;
+  font-size: 17px;
+  max-width: 600px;
+}
+
+.home-intro a {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/* ================= HOME – LOCATIONS GRID ================= */
+.home-locations {
+  padding-top: 0;
+  padding-bottom: 72px;
+}
+
+.home-locations h2 {
+  margin-bottom: 32px;
+  font-size: 22px;
+}
+
+.home-locations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.location-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: #f0f0f0;
+  aspect-ratio: 3 / 2;
+  padding: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
+.location-card:hover {
+  transform: translateY(-4px);
+}
+
+.location-image {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  background: #eaeaea;
+  margin-bottom: 8px;
+}
+
+.location-title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Desktop layout */
+@media (min-width: 768px) {
+  .home-locations-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .home-featured {
+    padding-bottom: 96px;
+  }
+
+  .home-intro {
+    padding: 72px 0;
+  }
+}
+
+/* ================= HOME – VERTICAL RHYTHM ================= */
+.home section {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+@media (min-width: 768px) {
+  .home section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+}

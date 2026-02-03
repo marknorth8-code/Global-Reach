@@ -1,0 +1,1 @@
+// Insights JSON logic placeholder (Step 2)

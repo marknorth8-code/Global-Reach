@@ -1,0 +1,266 @@
+/* =========================================================
+   GLOBAL RESET & BASE
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #111;
+  background: #ffffff;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+
+p {
+  max-width: 70ch;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   LAYOUT UTILITIES
+   ========================================================= */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.page-section {
+  padding: 60px 0;
+}
+
+.page-section--tight {
+  padding: 30px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+  width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+  background: #ffffff;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+/* Logo */
+
+.site-logo {
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Navigation */
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.main-nav a {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Locations dropdown */
+
+.nav-item {
+  position: relative;
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  display: none;
+  z-index: 10;
+}
+
+.nav-dropdown a {
+  display: block;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+}
+
+.nav-item:hover .nav-dropdown {
+  display: block;
+}
+
+/* Mobile toggle */
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+}
+
+/* =========================================================
+   MOBILE HEADER
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .main-nav {
+    position: absolute;
+    top: 72px;
+    right: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    display: none;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .main-nav.is-open {
+    display: flex;
+  }
+
+  .nav-item:hover .nav-dropdown {
+    display: none;
+  }
+
+  .nav-dropdown {
+    position: static;
+    border: none;
+    width: 100%;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  border-top: 1px solid #e5e5e5;
+  padding: 40px 0;
+  font-size: 0.85rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  max-width: 500px;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-right a {
+  display: block;
+}
+
+/* =========================================================
+   HERO SECTIONS
+   ========================================================= */
+
+.hero {
+  height: 200px;
+  background: #f3f3f3;
+  display: flex;
+  align-items: center;
+}
+
+.hero h1 {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   IMAGE GRIDS
+   ========================================================= */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.photo-grid img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  background: #eaeaea;
+}
+
+/* =========================================================
+   BLOG / INSIGHTS GRID
+   ========================================================= */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  border: 1px solid #e5e5e5;
+  padding: 20px;
+  background: #ffffff;
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+}
