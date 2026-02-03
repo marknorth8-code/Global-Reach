@@ -264,3 +264,9 @@ a:hover {
 .card h3 {
   margin-bottom: 0.5rem;
 }
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
