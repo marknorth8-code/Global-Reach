@@ -11,4 +11,13 @@ window.CAROUSEL_CONFIGS = {
     pauseOnHover: true,
     loop: true
   }
+   "property-gallery": {
+  autoplay: false,
+  loop: false,
+  speed: 400,
+  pauseOnHover: false,
+  snap: true,
+  arrows: true
+}
+
 };
