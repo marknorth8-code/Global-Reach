@@ -73,8 +73,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ================= INIT ================= */
+requestAnimationFrame(() => {
+  setTimeout(startAutoplay, 100);
+});
 
-    startAutoplay();
-  });
+
 });
 hared carousel engine placeholder (Step 2)
