@@ -265,8 +265,15 @@ a:hover {
   margin-bottom: 0.5rem;
 }
 
+/* ================= CAROUSEL CORE ================= */
+
 .carousel {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow: hidden;        /* THIS kills the scrollbar */
+}
+
+.carousel-track {
+  display: flex;
+  will-change: transform;
 }
