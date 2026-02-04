@@ -275,5 +275,7 @@ a:hover {
 
 .carousel-track {
   display: flex;
+  width: max-content;   /* ← THIS is the missing piece */
   will-change: transform;
 }
+
