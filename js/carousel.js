@@ -1,4 +1,4 @@
-// S/* =========================================================
+/* =========================================================
    CAROUSEL ENGINE
    Generic, config-driven
    ========================================================= */
@@ -19,13 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
     let autoplayTimer = null;
     let isPaused = false;
 
-    const itemWidth = items[0].offsetWidth;
-    const gap = parseInt(getComputedStyle(track).gap || 0, 10);
-    const step = itemWidth + gap;
+    /* NOTE: widths must be read AFTER layout */
+    function getStep() {
+      const itemWidth = items[0].offsetWidth;
+      const gap = parseInt(getComputedStyle(track).gap || 0, 10);
+      return itemWidth + gap;
+    }
 
     /* ================= MOVE ================= */
 
     function goToIndex(index) {
+      const step = getStep();
       track.style.transition = `transform ${config.speed || 500}ms ease`;
       track.style.transform = `translateX(${-index * step}px)`;
       currentIndex = index;
@@ -73,10 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ================= INIT ================= */
-requestAnimationFrame(() => {
-  setTimeout(startAutoplay, 100);
-});
 
+    requestAnimationFrame(() => {
+      setTimeout(startAutoplay, 100);
+    });
 
+  });
 });
-hared carousel engine placeholder (Step 2)
