@@ -10,7 +10,7 @@ window.CAROUSEL_CONFIGS = {
     speed: 600,
     pauseOnHover: true,
     loop: true
-  }
+  },
    "property-gallery": {
   autoplay: false,
   loop: false,
