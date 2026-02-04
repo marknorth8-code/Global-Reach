@@ -7,9 +7,7 @@
 .home-featured-track {
   display: flex;
   gap: 24px;
-  padding: 24px;
   width: max-content;
-  overflow: visible;       /* JS controls movement */
   will-change: transform;
 }
 
