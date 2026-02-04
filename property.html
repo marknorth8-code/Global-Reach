@@ -29,14 +29,32 @@
       <div class="container">
 
         <!-- Image carousel placeholder -->
-        <div
-          class="carousel-property"
-          aria-label="Property image gallery"
-        >
-          <div class="carousel-track">
-            <div class="property-image" aria-hidden="true"></div>
-          </div>
-        </div>
+<div
+  id="property-gallery"
+  class="carousel property-gallery"
+  aria-label="Property image gallery"
+>
+
+  <button
+    class="carousel-arrow prev"
+    aria-label="Previous image"
+  >
+    ‹
+  </button>
+
+  <div class="carousel-track">
+    <!-- property images injected via JS -->
+  </div>
+
+  <button
+    class="carousel-arrow next"
+    aria-label="Next image"
+  >
+    ›
+  </button>
+
+</div>
+
 
       </div>
     </section>
