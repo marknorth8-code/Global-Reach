@@ -8,9 +8,9 @@
   display: flex;
   gap: 24px;
   padding: 24px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  width: max-content;
+  overflow: visible;       /* JS controls movement */
+  will-change: transform;
 }
 
 .home-featured-card {
