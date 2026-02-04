@@ -41,7 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (config.loop) {
         goToIndex(0);
       }
-    }
+ }
+       
+       function goToPrev() {
+  if (currentIndex > 0) {
+    goToIndex(currentIndex - 1);
+  }
+}
+
 
     /* ================= AUTOPLAY ================= */
 function startAutoplay() {
@@ -74,7 +81,32 @@ function startAutoplay() {
         isPaused = false;
       });
     }
-     
+
+     /* ================= ARROWS ================= */
+
+if (config.arrows) {
+  const prevBtn = carousel.querySelector(".carousel-arrow.prev");
+  const nextBtn = carousel.querySelector(".carousel-arrow.next");
+
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", goToPrev);
+    nextBtn.addEventListener("click", goToNext);
+
+    function updateArrows() {
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === items.length - 1;
+    }
+
+    updateArrows();
+
+    const originalGoToIndex = goToIndex;
+    goToIndex = function (index) {
+      originalGoToIndex(index);
+      updateArrows();
+    };
+  }
+}
+
 /* ================= VISIBILITY (IntersectionObserver) ================= */
 
 const observer = new IntersectionObserver(
