@@ -44,9 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ================= AUTOPLAY ================= */
-
-    function startAutoplay() {
-      if (!config.autoplay) return;
+function startAutoplay() {
+  if (!config.autoplay || !isVisible) return;
 
       stopAutoplay();
 
@@ -75,7 +74,29 @@ document.addEventListener("DOMContentLoaded", () => {
         isPaused = false;
       });
     }
+     
+/* ================= VISIBILITY (IntersectionObserver) ================= */
 
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        isVisible = true;
+        startAutoplay();
+      } else {
+        isVisible = false;
+        stopAutoplay();
+      }
+    });
+  },
+  {
+    threshold: 0.25 // 25% visible = active
+  }
+);
+
+observer.observe(carousel);
+
+     
     /* ================= INIT ================= */
 
     requestAnimationFrame(() => {
