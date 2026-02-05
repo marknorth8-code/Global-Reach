@@ -35,12 +35,19 @@
   aria-label="Property image gallery"
 >
 
-  <button
-    class="carousel-arrow prev"
-    aria-label="Previous image"
-  >
-    ‹
-  </button>
+  <div class="carousel-counter" aria-live="polite">
+    1 / 1
+  </div>
+
+  <button class="carousel-arrow prev" aria-label="Previous image">‹</button>
+
+  <div class="carousel-track">
+    <!-- property images injected via JS -->
+  </div>
+
+  <button class="carousel-arrow next" aria-label="Next image">›</button>
+
+</div>
 
   <div class="carousel-track">
     <!-- property images injected via JS -->
