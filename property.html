@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <title>Property | Global Reach</title>
 
-  <!-- Canonical placeholder -->
-  <link rel="canonical" href="">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Global + Page CSS -->
@@ -16,136 +13,80 @@
 
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <!-- Include header.html -->
-  <header role="banner">
-    <!-- header.html injected here -->
-  </header>
+<header role="banner">
+  <!-- header.html injected -->
+</header>
 
-  <main id="main-content">
+<main id="main-content">
 
-    <!-- ================= PROPERTY HERO ================= -->
-    <section class="property-hero section">
-      <div class="container">
+  <!-- ================= PROPERTY HERO ================= -->
+  <section class="property-hero section">
+    <div class="container">
 
-        <!-- Image carousel placeholder -->
-<div
-  id="property-gallery"
-  class="carousel property-gallery"
-  aria-label="Property image gallery"
->
+      <div
+        id="property-gallery"
+        class="carousel carousel-property"
+        aria-label="Property image gallery"
+      >
 
-  <div class="carousel-counter" aria-live="polite">
-    1 / 1
-  </div>
+        <!-- Counter -->
+        <div class="carousel-counter">
+          <span class="current">1</span> / <span class="total">1</span>
+        </div>
 
-  <button class="carousel-arrow prev" aria-label="Previous image">‹</button>
+        <!-- Arrows -->
+        <button class="carousel-arrow prev" aria-label="Previous image">‹</button>
+        <button class="carousel-arrow next" aria-label="Next image">›</button>
 
-  <div class="carousel-track">
-    <!-- property images injected via JS -->
-  </div>
-
-  <button class="carousel-arrow next" aria-label="Next image">›</button>
-
-</div>
-
-  <div class="carousel-track">
-    <!-- property images injected via JS -->
-  </div>
-
-  <button
-    class="carousel-arrow next"
-    aria-label="Next image"
-  >
-    ›
-  </button>
-
-</div>
-
-
-      </div>
-    </section>
-
-    <hr class="property-divider">
-
-    <!-- ================= PROPERTY DETAILS ================= -->
-    <section class="property-details section">
-      <div class="container property-layout">
-
-        <!-- Left: Main details -->
-        <article class="property-main">
-
-          <h1>Property title</h1>
-
-          <p class="property-location">
-            <!-- Location placeholder -->
-          </p>
-
-          <p class="property-price">
-            <!-- Price placeholder -->
-          </p>
-
-          <div class="property-description">
-            <!-- Long description placeholder -->
-          </div>
-
-        </article>
-
-        <!-- Right: Meta info -->
-        <aside class="property-meta">
-
-          <ul class="property-meta-list">
-            <li>
-              <strong>Type:</strong>
-              <span><!-- Type placeholder --></span>
-            </li>
-            <li>
-              <strong>Status:</strong>
-              <span><!-- Status placeholder --></span>
-            </li>
-            <li>
-              <strong>Reference:</strong>
-              <span><!-- ID placeholder --></span>
-            </li>
-          </ul>
-
-        </aside>
-
-      </div>
-    </section>
-
-    <hr class="property-divider">
-
-    <!-- ================= RELATED PROPERTIES ================= -->
-    <section class="property-related section">
-      <div class="container">
-
-        <h2>Related Properties</h2>
-
-        <!-- Reuse carousel-listings later -->
-        <div
-          class="carousel-listings"
-          aria-label="Related properties"
-        >
-          <div class="carousel-track">
-            <div class="carousel-item" aria-hidden="true"></div>
-            <div class="carousel-item" aria-hidden="true"></div>
-          </div>
+        <!-- Track -->
+        <div class="carousel-track">
+          <div class="carousel-item property-image"></div>
+          <div class="carousel-item property-image"></div>
+          <div class="carousel-item property-image"></div>
         </div>
 
       </div>
-    </section>
 
-  </main>
+    </div>
+  </section>
 
-  <!-- ================= FOOTER ================= -->
-  <!-- Include footer.html -->
-  <footer role="contentinfo">
-    <!-- footer.html injected here -->
-  </footer>
+  <hr class="property-divider">
 
-  <!-- Page JS placeholder -->
-  <script src="/js/property.js" defer></script>
+  <!-- ================= PROPERTY DETAILS ================= -->
+  <section class="property-details section">
+    <div class="container property-layout">
+
+      <article class="property-main">
+        <h1>Property title</h1>
+        <p class="property-location">Location</p>
+        <p class="property-price">Price</p>
+        <div class="property-description">
+          Property description goes here.
+        </div>
+      </article>
+
+      <aside class="property-meta">
+        <ul class="property-meta-list">
+          <li><strong>Type:</strong> Apartment</li>
+          <li><strong>Status:</strong> For Sale</li>
+          <li><strong>Reference:</strong> GR-001</li>
+        </ul>
+      </aside>
+
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <!-- footer.html injected -->
+</footer>
+
+<!-- Carousel engine -->
+<script src="/js/carousel.js" defer></script>
+
+<!-- Property page logic -->
+<script src="/js/property.js" defer></script>
 
 </body>
 </html>
