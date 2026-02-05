@@ -25,15 +25,26 @@ document.addEventListener("DOMContentLoaded", () => {
       const gap = parseInt(getComputedStyle(track).gap || 0, 10);
       return itemWidth + gap;
     }
+     
+const counter = carousel.querySelector(".carousel-counter");
+const total = items.length;
+
+if (counter) {
+  counter.textContent = `1 / ${total}`;
+}
 
     /* ================= MOVE ================= */
+function goToIndex(index) {
+  const step = getStep();
+  track.style.transition = `transform ${config.speed || 500}ms ease`;
+  track.style.transform = `translateX(${-index * step}px)`;
+  currentIndex = index;
 
-    function goToIndex(index) {
-      const step = getStep();
-      track.style.transition = `transform ${config.speed || 500}ms ease`;
-      track.style.transform = `translateX(${-index * step}px)`;
-      currentIndex = index;
-    }
+  if (counter) {
+    counter.textContent = `${currentIndex + 1} / ${total}`;
+  }
+}
+
 
     function goToNext() {
       if (currentIndex < items.length - 1) {
