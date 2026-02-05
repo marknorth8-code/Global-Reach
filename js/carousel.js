@@ -1,6 +1,5 @@
 /* =========================================================
-   CAROUSEL ENGINE
-   Generic, config-driven
+   CAROUSEL ENGINE – Generic, config-driven
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -12,39 +11,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const track = carousel.querySelector(".carousel-track");
     const items = carousel.querySelectorAll(".carousel-item");
-
     if (!track || items.length === 0) return;
 
     let currentIndex = 0;
     let autoplayTimer = null;
     let isPaused = false;
+    let isVisible = false;
 
-    /* NOTE: widths must be read AFTER layout */
+    /* ---------- Counter ---------- */
+    const counter = carousel.querySelector(".carousel-counter");
+    const currentEl = counter?.querySelector(".current");
+    const totalEl = counter?.querySelector(".total");
+
+    if (totalEl) totalEl.textContent = items.length;
+
+    /* ---------- Sizing ---------- */
     function getStep() {
       const itemWidth = items[0].offsetWidth;
       const gap = parseInt(getComputedStyle(track).gap || 0, 10);
       return itemWidth + gap;
     }
-     
-const counter = carousel.querySelector(".carousel-counter");
-const total = items.length;
 
-if (counter) {
-  counter.textContent = `1 / ${total}`;
-}
+    /* ---------- Arrows ---------- */
+    const prevBtn = carousel.querySelector(".carousel-arrow.prev");
+    const nextBtn = carousel.querySelector(".carousel-arrow.next");
 
-    /* ================= MOVE ================= */
-function goToIndex(index) {
-  const step = getStep();
-  track.style.transition = `transform ${config.speed || 500}ms ease`;
-  track.style.transform = `translateX(${-index * step}px)`;
-  currentIndex = index;
+    function updateArrows() {
+      if (!prevBtn || !nextBtn) return;
 
-  if (counter) {
-    counter.textContent = `${currentIndex + 1} / ${total}`;
-  }
-}
+      if (config.loop) {
+        prevBtn.disabled = false;
+        nextBtn.disabled = false;
+      } else {
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === items.length - 1;
+      }
+    }
 
+    /* ---------- Movement ---------- */
+    function goToIndex(index) {
+      const step = getStep();
+      track.style.transition = `transform ${config.speed || 500}ms ease`;
+      track.style.transform = `translateX(${-index * step}px)`;
+      currentIndex = index;
+
+      if (currentEl) {
+        currentEl.textContent = currentIndex + 1;
+      }
+
+      updateArrows();
+    }
 
     function goToNext() {
       if (currentIndex < items.length - 1) {
@@ -52,26 +68,20 @@ function goToIndex(index) {
       } else if (config.loop) {
         goToIndex(0);
       }
- }
-       
-       function goToPrev() {
-  if (currentIndex > 0) {
-    goToIndex(currentIndex - 1);
-  }
-}
+    }
 
+    function goToPrev() {
+      if (currentIndex > 0) {
+        goToIndex(currentIndex - 1);
+      }
+    }
 
-    /* ================= AUTOPLAY ================= */
-function startAutoplay() {
-  if (!config.autoplay || !isVisible) return;
+    /* ---------- Autoplay ---------- */
+    function startAutoplay() {
+      if (!config.autoplay || !isVisible) return;
 
       stopAutoplay();
-
-      autoplayTimer = setInterval(() => {
-        if (!isPaused) {
-          goToNext();
-        }
-      }, config.autoplayDelay || 3000);
+      autoplayTimer = setInterval(goToNext, config.autoplayDelay || 4000);
     }
 
     function stopAutoplay() {
@@ -81,70 +91,29 @@ function startAutoplay() {
       }
     }
 
-    /* ================= INTERACTION ================= */
-
     if (config.pauseOnHover) {
-      carousel.addEventListener("mouseenter", () => {
-        isPaused = true;
-      });
-
-      carousel.addEventListener("mouseleave", () => {
-        isPaused = false;
-      });
+      carousel.addEventListener("mouseenter", () => (isPaused = true));
+      carousel.addEventListener("mouseleave", () => (isPaused = false));
     }
 
-     /* ================= ARROWS ================= */
+    /* ---------- Arrows wiring ---------- */
+    prevBtn?.addEventListener("click", goToPrev);
+    nextBtn?.addEventListener("click", goToNext);
 
-if (config.arrows) {
-  const prevBtn = carousel.querySelector(".carousel-arrow.prev");
-  const nextBtn = carousel.querySelector(".carousel-arrow.next");
+    /* ---------- Visibility ---------- */
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isVisible = entry.isIntersecting;
+          isVisible ? startAutoplay() : stopAutoplay();
+        });
+      },
+      { threshold: 0.25 }
+    );
 
-  if (prevBtn && nextBtn) {
-    prevBtn.addEventListener("click", goToPrev);
-    nextBtn.addEventListener("click", goToNext);
+    observer.observe(carousel);
 
-    function updateArrows() {
-      prevBtn.disabled = currentIndex === 0;
-      nextBtn.disabled = currentIndex === items.length - 1;
-    }
-
-    updateArrows();
-
-    const originalGoToIndex = goToIndex;
-    goToIndex = function (index) {
-      originalGoToIndex(index);
-      updateArrows();
-    };
-  }
-}
-
-/* ================= VISIBILITY (IntersectionObserver) ================= */
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        isVisible = true;
-        startAutoplay();
-      } else {
-        isVisible = false;
-        stopAutoplay();
-      }
-    });
-  },
-  {
-    threshold: 0.25 // 25% visible = active
-  }
-);
-
-observer.observe(carousel);
-
-     
-    /* ================= INIT ================= */
-
-    requestAnimationFrame(() => {
-      setTimeout(startAutoplay, 100);
-    });
-
+    /* ---------- Init ---------- */
+    goToIndex(0);
   });
 });
