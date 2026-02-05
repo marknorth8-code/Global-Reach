@@ -312,3 +312,15 @@ a:hover {
   opacity: 0.3;
   cursor: default;
 }
+.carousel-counter {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  z-index: 3;
+  font-size: 13px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 3px;
+  pointer-events: none;
+}
