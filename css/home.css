@@ -44,7 +44,7 @@
    ========================================================= */
 
 .home-hero {
-  margin-top: 45px;       /* space below header */
+  margin-top: 60px;       /* space below header */
   height: 100vh;
   overflow: hidden;
 }
@@ -57,12 +57,13 @@
 .carousel-hero .carousel-track {
   display: flex;
   height: 100%;
+   gap: 48px; 
   will-change: transform;
 }
 
 /* 2 full images + partial third */
 .carousel-hero .carousel-item {
-  flex: 0 0 calc(100vw / 2.4);
+  flex: 0 0 calc(100vw / 2.4) * 0.6);
   height: 100%;
 }
 
