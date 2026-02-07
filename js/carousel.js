@@ -33,6 +33,32 @@ document.addEventListener("DOMContentLoaded", () => {
     if (totalEl) totalEl.textContent = items.length;
     if (currentEl) currentEl.textContent = 1;
 
+    /* ---------- Thumbnails ---------- */
+    const thumbnailStrip = carousel.querySelector(".carousel-thumbnails");
+    const thumbnails = [];
+
+    if (thumbnailStrip) {
+      items.forEach((item, index) => {
+        const img = item.querySelector("img");
+        if (!img) return;
+
+        const thumb = document.createElement("button");
+        thumb.type = "button";
+        thumb.className = "carousel-thumbnail";
+        thumb.style.backgroundImage = `url(${img.src})`;
+        thumb.style.backgroundSize = "cover";
+        thumb.style.backgroundPosition = "center";
+        thumb.setAttribute("aria-label", `View image ${index + 1}`);
+
+        thumb.addEventListener("click", () => {
+          goToIndex(index);
+        });
+
+        thumbnailStrip.appendChild(thumb);
+        thumbnails.push(thumb);
+      });
+    }
+
     /* ---------- Sizing ---------- */
     function getStep() {
       const itemWidth = items[0].offsetWidth;
@@ -42,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function setTranslate(x, animate = false) {
       track.style.transition = animate
-        ? `transform ${config.speed || 300}ms ease`
+        ? `transform ${config.speed || 400}ms ease`
         : "none";
       track.style.transform = `translateX(${x}px)`;
     }
@@ -71,6 +97,12 @@ document.addEventListener("DOMContentLoaded", () => {
       setTranslate(-index * step, true);
 
       if (currentEl) currentEl.textContent = currentIndex + 1;
+
+      if (thumbnails.length) {
+        thumbnails.forEach(t => t.classList.remove("is-active"));
+        thumbnails[currentIndex]?.classList.add("is-active");
+      }
+
       updateArrows();
     }
 
