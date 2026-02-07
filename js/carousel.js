@@ -36,7 +36,12 @@ let isDragging = false;
       const gap = parseInt(getComputedStyle(track).gap || 0, 10);
       return itemWidth + gap;
     }
-
+     
+function setTranslate(x, animate = false) {
+  track.style.transition = animate ? `transform ${config.speed || 300}ms ease` : "none";
+  track.style.transform = `translateX(${x}px)`;
+}
+     
     /* ---------- Arrows ---------- */
     const prevBtn = carousel.querySelector(".carousel-arrow.prev");
     const nextBtn = carousel.querySelector(".carousel-arrow.next");
@@ -117,7 +122,44 @@ let isDragging = false;
     );
 
     observer.observe(carousel);
+function onDragStart(e) {
+  isDragging = true;
+  isPaused = true;
 
+  startX = e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
+  prevTranslate = -currentIndex * getStep();
+
+  track.style.transition = "none";
+}
+
+function onDragMove(e) {
+  if (!isDragging) return;
+
+  const currentX = e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
+  const delta = currentX - startX;
+
+  currentTranslate = prevTranslate + delta;
+  setTranslate(currentTranslate);
+}
+
+function onDragEnd() {
+  if (!isDragging) return;
+  isDragging = false;
+  isPaused = false;
+
+  const movedBy = currentTranslate - prevTranslate;
+  const threshold = getStep() * 0.2;
+
+  if (movedBy < -threshold) {
+    goToNext();
+  } else if (movedBy > threshold) {
+    goToPrev();
+  } else {
+    goToIndex(currentIndex);
+  }
+}
+
+     
     /* ---------- Init ---------- */
     goToIndex(0);
   });
