@@ -1,73 +1,42 @@
 /* =========================================================
-   CAROUSEL ENGINE – Infinite loop with cloned slides
+   CAROUSEL ENGINE – Bundle 1: Interaction Upgrade
+   Momentum + Snap + Drag Polish
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".carousel").forEach((carousel) => {
+  const carousels = document.querySelectorAll(".carousel");
+
+  carousels.forEach((carousel) => {
     const id = carousel.id;
     const config =
       (window.CAROUSEL_CONFIGS && window.CAROUSEL_CONFIGS[id]) || {};
 
     const track = carousel.querySelector(".carousel-track");
-    let items = Array.from(carousel.querySelectorAll(".carousel-item"));
+    const items = carousel.querySelectorAll(".carousel-item");
     if (!track || items.length === 0) return;
 
-    /* ---------- Clone slides (loop only) ---------- */
-    if (config.loop) {
-      const firstClone = items[0].cloneNode(true);
-      const lastClone = items[items.length - 1].cloneNode(true);
-
-      firstClone.classList.add("clone");
-      lastClone.classList.add("clone");
-
-      track.appendChild(firstClone);
-      track.insertBefore(lastClone, items[0]);
-
-      items = Array.from(track.querySelectorAll(".carousel-item"));
-    }
-
-    const realCount = config.loop ? items.length - 2 : items.length;
-
     /* ---------- State ---------- */
-    let currentIndex = config.loop ? 1 : 0;
+    let currentIndex = 0;
     let autoplayTimer = null;
     let isPaused = false;
     let isVisible = false;
 
     let startX = 0;
+    let lastX = 0;
+    let velocity = 0;
     let currentTranslate = 0;
     let prevTranslate = 0;
     let isDragging = false;
+    let dragStartTime = 0;
+    let hasDragged = false;
 
     /* ---------- Counter ---------- */
     const counter = carousel.querySelector(".carousel-counter");
     const currentEl = counter?.querySelector(".current");
     const totalEl = counter?.querySelector(".total");
 
-    if (totalEl) totalEl.textContent = realCount;
-
-    /* ---------- Thumbnails ---------- */
-    const thumbnailStrip = carousel.querySelector(".carousel-thumbnails");
-    const thumbnails = [];
-
-    if (thumbnailStrip) {
-      const realItems = config.loop ? items.slice(1, -1) : items;
-
-      realItems.forEach((item, index) => {
-        const img = item.querySelector("img");
-        if (!img) return;
-
-        const thumb = document.createElement("button");
-        thumb.className = "carousel-thumbnail";
-        thumb.style.backgroundImage = `url(${img.src})`;
-        thumb.addEventListener("click", () => {
-          goToIndex(config.loop ? index + 1 : index);
-        });
-
-        thumbnailStrip.appendChild(thumb);
-        thumbnails.push(thumb);
-      });
-    }
+    if (totalEl) totalEl.textContent = items.length;
+    if (currentEl) currentEl.textContent = 1;
 
     /* ---------- Sizing ---------- */
     function getStep() {
@@ -78,68 +47,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function setTranslate(x, animate = false) {
       track.style.transition = animate
-        ? `transform ${config.speed || 400}ms ease`
+        ? `transform ${config.speed || 350}ms ease`
         : "none";
       track.style.transform = `translateX(${x}px)`;
     }
 
-    /* ---------- UI Sync ---------- */
-    function updateUI() {
-      let displayIndex = currentIndex;
+    /* ---------- Arrows ---------- */
+    const prevBtn = carousel.querySelector(".carousel-arrow.prev");
+    const nextBtn = carousel.querySelector(".carousel-arrow.next");
+
+    function updateArrows() {
+      if (!prevBtn || !nextBtn) return;
 
       if (config.loop) {
-        if (currentIndex === 0) displayIndex = realCount;
-        else if (currentIndex === items.length - 1) displayIndex = 1;
-        else displayIndex = currentIndex;
-        displayIndex -= 1;
-      }
-
-      if (currentEl) currentEl.textContent = displayIndex + 1;
-
-      if (thumbnails.length) {
-        thumbnails.forEach(t => t.classList.remove("is-active"));
-        thumbnails[displayIndex]?.classList.add("is-active");
+        prevBtn.disabled = false;
+        nextBtn.disabled = false;
+      } else {
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === items.length - 1;
       }
     }
 
     /* ---------- Movement ---------- */
-    function goToIndex(index, animate = true) {
-      currentIndex = index;
-      setTranslate(-index * getStep(), animate);
-      updateUI();
+    function goToIndex(index) {
+      const step = getStep();
+      currentIndex = Math.max(0, Math.min(index, items.length - 1));
+
+      setTranslate(-currentIndex * step, true);
+
+      if (currentEl) currentEl.textContent = currentIndex + 1;
+      updateArrows();
     }
 
     function goToNext() {
-      goToIndex(currentIndex + 1);
+      if (currentIndex < items.length - 1) {
+        goToIndex(currentIndex + 1);
+      } else if (config.loop) {
+        goToIndex(0);
+      }
     }
 
     function goToPrev() {
-      goToIndex(currentIndex - 1);
+      if (currentIndex > 0) {
+        goToIndex(currentIndex - 1);
+      }
     }
-
-    /* ---------- Snap after clone ---------- */
-    track.addEventListener("transitionend", () => {
-      if (!config.loop) return;
-
-      if (currentIndex === 0) {
-        goToIndex(items.length - 2, false);
-      }
-
-      if (currentIndex === items.length - 1) {
-        goToIndex(1, false);
-      }
-    });
 
     /* ---------- Autoplay ---------- */
     function startAutoplay() {
       if (!config.autoplay || !isVisible || autoplayTimer) return;
 
       autoplayTimer = setInterval(() => {
-        if (!isPaused && !isDragging) goToNext();
+        if (!isPaused && !isDragging) {
+          goToNext();
+        }
       }, config.autoplayDelay || 4000);
     }
 
     function stopAutoplay() {
+      if (!autoplayTimer) return;
       clearInterval(autoplayTimer);
       autoplayTimer = null;
     }
@@ -149,37 +115,59 @@ document.addEventListener("DOMContentLoaded", () => {
       carousel.addEventListener("mouseleave", () => (isPaused = false));
     }
 
-    /* ---------- Arrows ---------- */
-    carousel.querySelector(".carousel-arrow.prev")?.addEventListener("click", goToPrev);
-    carousel.querySelector(".carousel-arrow.next")?.addEventListener("click", goToNext);
+    /* ---------- Arrow wiring ---------- */
+    prevBtn?.addEventListener("click", goToPrev);
+    nextBtn?.addEventListener("click", goToNext);
 
-    /* ---------- Drag / Swipe ---------- */
+    /* ---------- Drag / Swipe w/ Momentum ---------- */
     function onDragStart(e) {
       isDragging = true;
       isPaused = true;
-      startX = e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
+      hasDragged = false;
+
+      startX = e.type.includes("mouse")
+        ? e.pageX
+        : e.touches[0].clientX;
+
+      lastX = startX;
+      velocity = 0;
+      dragStartTime = Date.now();
+
       prevTranslate = -currentIndex * getStep();
       track.style.transition = "none";
     }
 
     function onDragMove(e) {
       if (!isDragging) return;
-      const x = e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
-      currentTranslate = prevTranslate + (x - startX);
+
+      const currentX = e.type.includes("mouse")
+        ? e.pageX
+        : e.touches[0].clientX;
+
+      const delta = currentX - lastX;
+      velocity = delta;
+      lastX = currentX;
+
+      currentTranslate += delta;
+      hasDragged = true;
+
       setTranslate(currentTranslate);
     }
 
     function onDragEnd() {
       if (!isDragging) return;
+
       isDragging = false;
       isPaused = false;
 
-      const movedBy = currentTranslate - prevTranslate;
-      const threshold = getStep() * 0.2;
+      const step = getStep();
+      const momentum = velocity * 3; // tuning factor
+      const projected = currentTranslate + momentum;
 
-      if (movedBy < -threshold) goToNext();
-      else if (movedBy > threshold) goToPrev();
-      else goToIndex(currentIndex);
+      let targetIndex = Math.round(-projected / step);
+      targetIndex = Math.max(0, Math.min(targetIndex, items.length - 1));
+
+      goToIndex(targetIndex);
     }
 
     carousel.addEventListener("mousedown", onDragStart);
@@ -191,11 +179,27 @@ document.addEventListener("DOMContentLoaded", () => {
     carousel.addEventListener("touchmove", onDragMove, { passive: true });
     carousel.addEventListener("touchend", onDragEnd);
 
+    /* ---------- Prevent accidental clicks ---------- */
+    carousel.addEventListener("click", (e) => {
+      if (hasDragged) {
+        e.preventDefault();
+        e.stopPropagation();
+        hasDragged = false;
+      }
+    });
+
     /* ---------- Visibility ---------- */
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        isVisible = entry.isIntersecting;
-        isVisible ? startAutoplay() : stopAutoplay();
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            isVisible = true;
+            startAutoplay();
+          } else {
+            isVisible = false;
+            stopAutoplay();
+          }
+        });
       },
       { threshold: 0.25 }
     );
@@ -203,6 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(carousel);
 
     /* ---------- Init ---------- */
-    goToIndex(currentIndex, false);
+    currentTranslate = 0;
+    goToIndex(0);
   });
 });
