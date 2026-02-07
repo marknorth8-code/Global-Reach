@@ -18,6 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let isPaused = false;
     let isVisible = false;
 
+     let startX = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
+let isDragging = false;
+
     /* ---------- Counter ---------- */
     const counter = carousel.querySelector(".carousel-counter");
     const currentEl = counter?.querySelector(".current");
