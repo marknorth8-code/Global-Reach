@@ -150,3 +150,6 @@
 .thumbnail {
   background-repeat: no-repeat;
 }
+.carousel-item.clone {
+  pointer-events: none;
+}
