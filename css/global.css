@@ -324,3 +324,59 @@ a:hover {
   border-radius: 3px;
   pointer-events: none;
 }
+/* Prevent horizontal page overflow */
+body {
+  overflow-x: hidden;
+}
+
+/* Carousel base */
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Track */
+.carousel-track {
+  display: flex;
+  gap: 16px;
+  will-change: transform;
+}
+
+/* Items */
+.carousel-item {
+  flex: 0 0 100%;
+}
+
+/* Counter */
+.carousel-counter {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-size: 13px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+/* Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.carousel-arrow.prev { left: 12px; }
+.carousel-arrow.next { right: 12px; }
+
+.carousel-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
