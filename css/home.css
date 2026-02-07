@@ -147,3 +147,6 @@
 .thumbnail:hover {
   opacity: 0.85;
 }
+.thumbnail {
+  background-repeat: no-repeat;
+}
