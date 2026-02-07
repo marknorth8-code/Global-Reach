@@ -1,27 +1,29 @@
-/* =========================================================
-   HOME – FEATURED PROPERTY CAROUSEL (Architectural)
-   ========================================================= */
+/* ================= HOME – FEATURED PROPERTY CAROUSEL ================= */
 
 .home-featured {
   position: relative;
-  overflow: hidden; /* CRITICAL: kills horizontal scrollbar */
-  padding: 0 0 96px 0;
+  overflow: hidden;          /* section-level clip */
+  padding-bottom: 72px;
 }
 
-/* Track */
+.home-featured .carousel {
+  overflow: hidden;          /* belt + braces */
+}
+
 .home-featured-track {
   display: flex;
-  gap: 32px;
+  gap: 24px;
   will-change: transform;
-  transform: translateX(0);
+  transform: translateX(0); /* prevent sub-pixel drift */
 }
 
-/* Card */
 .home-featured-card {
-  flex: 0 0 clamp(280px, 28vw, 420px);
+  flex: 0 0 320px;           /* fixed slide width */
+  max-width: 320px;
   display: flex;
   flex-direction: column;
 }
+
 
 /* Image */
 .home-featured-image {
@@ -90,6 +92,13 @@
 /* ---------------------------------------------------------
    Desktop refinement
    --------------------------------------------------------- */
+@media (min-width: 768px) {
+  .home-featured-track {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 
 @media (min-width: 1024px) {
   .home-featured {
