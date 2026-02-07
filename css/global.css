@@ -380,3 +380,11 @@ body {
   opacity: 0.3;
   cursor: default;
 }
+.carousel {
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.carousel:active {
+  cursor: grabbing;
+}
