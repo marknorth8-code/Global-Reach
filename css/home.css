@@ -50,7 +50,8 @@
   overflow: hidden;
 }
 
-.carousel-hero {
+.carousel-hero .carousel-item {
+  flex: 0 0 calc((100vw - 45px) / 2.35);
   height: 100%;
 }
 
