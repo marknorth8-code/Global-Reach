@@ -1,29 +1,29 @@
-/* ================= HOME – FEATURED PROPERTY CAROUSEL ================= */
+/* =========================================================
+   HOME – FEATURED PROPERTY CAROUSEL (Section carousel)
+   ========================================================= */
 
 .home-featured {
   position: relative;
-  overflow: hidden;          /* section-level clip */
+  overflow: hidden;
   padding-bottom: 72px;
 }
 
 .home-featured .carousel {
-  overflow: hidden;          /* belt + braces */
+  overflow: hidden;
 }
 
 .home-featured-track {
   display: flex;
   gap: 24px;
   will-change: transform;
-  transform: translateX(0); /* prevent sub-pixel drift */
 }
 
 .home-featured-card {
-  flex: 0 0 320px;           /* fixed slide width */
+  flex: 0 0 320px;
   max-width: 320px;
   display: flex;
   flex-direction: column;
 }
-
 
 /* Image */
 .home-featured-image {
@@ -41,10 +41,41 @@
   letter-spacing: 0.02em;
 }
 
-/* ---------------------------------------------------------
-   Counter (e.g. 1 / 14)
-   --------------------------------------------------------- */
+/* =========================================================
+   HOME – HERO CAROUSEL (Section 1)
+   ========================================================= */
 
+.home-hero {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.carousel-hero {
+  height: 100%;
+}
+
+.carousel-hero .carousel-track {
+  display: flex;
+  height: 100%;
+  will-change: transform;
+}
+
+.carousel-hero .carousel-item {
+  flex: 0 0 100vw;
+  height: 100%;
+}
+
+.carousel-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================================================
+   CAROUSEL UI
+   ========================================================= */
+
+/* Counter (e.g. 1 / 14) */
 .carousel-counter {
   position: absolute;
   bottom: 24px;
@@ -55,17 +86,14 @@
   pointer-events: none;
 }
 
-/* ---------------------------------------------------------
-   Arrows (subtle, architectural)
-   --------------------------------------------------------- */
-
+/* Arrows (architectural, subtle) */
 .carousel-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 40px;
   height: 40px;
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   background: transparent;
   cursor: pointer;
   opacity: 0.5;
@@ -89,16 +117,9 @@
   cursor: default;
 }
 
-/* ---------------------------------------------------------
-   Desktop refinement
-   --------------------------------------------------------- */
-@media (min-width: 768px) {
-  .home-featured-track {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
+/* =========================================================
+   RESPONSIVE REFINEMENTS
+   ========================================================= */
 
 @media (min-width: 1024px) {
   .home-featured {
@@ -109,10 +130,6 @@
     gap: 40px;
   }
 }
-
-/* ---------------------------------------------------------
-   Mobile behaviour
-   --------------------------------------------------------- */
 
 @media (max-width: 767px) {
   .carousel-arrow {
