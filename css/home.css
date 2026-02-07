@@ -25,7 +25,6 @@
   flex-direction: column;
 }
 
-/* Image */
 .home-featured-image {
   width: 100%;
   aspect-ratio: 3 / 2;
@@ -33,7 +32,6 @@
   overflow: hidden;
 }
 
-/* Title */
 .home-featured-title {
   margin-top: 10px;
   font-size: 14px;
@@ -46,13 +44,14 @@
    ========================================================= */
 
 .home-hero {
+  margin-top: 45px;       /* space below header */
   height: 100vh;
   overflow: hidden;
 }
 
-.carousel-hero .carousel-item {
-  flex: 0 0 calc((100vw - 45px) / 2.35);
+.carousel-hero {
   height: 100%;
+  overflow: hidden;
 }
 
 .carousel-hero .carousel-track {
@@ -61,17 +60,23 @@
   will-change: transform;
 }
 
+/* 2 full images + partial third */
+.carousel-hero .carousel-item {
+  flex: 0 0 calc(100vw / 2.4);
+  height: 100%;
+}
+
 .carousel-hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  aspect-ratio: 3 / 2;
 }
 
 /* =========================================================
    CAROUSEL UI
    ========================================================= */
 
-/* Counter (e.g. 1 / 14) */
 .carousel-counter {
   position: absolute;
   bottom: 24px;
@@ -82,7 +87,6 @@
   pointer-events: none;
 }
 
-/* Arrows (architectural, subtle) */
 .carousel-arrow {
   position: absolute;
   top: 50%;
@@ -129,7 +133,7 @@
 
 @media (max-width: 767px) {
   .carousel-arrow {
-    display: none; /* swipe-only on mobile */
+    display: none;
   }
 
   .carousel-counter {
