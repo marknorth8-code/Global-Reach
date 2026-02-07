@@ -7,7 +7,6 @@
 .home-featured-track {
   display: flex;
   gap: 24px;
-  width: max-content;
   will-change: transform;
 }
 
