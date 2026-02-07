@@ -45,7 +45,6 @@
 
 .home-hero {
   margin-top: 60px;       /* space below header */
-  height: 100vh;
   overflow: hidden;
      padding-bottom: 120px; /* NEW – visual separation */
 }
