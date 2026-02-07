@@ -283,6 +283,7 @@ a:hover {
   display: flex;
   width: max-content;   /* ← THIS is the missing piece */
   will-change: transform;
+    touch-action: pan-y; 
 }
 
 .property-gallery {
