@@ -147,6 +147,14 @@ body {
   align-items: center;
 }
 
+/* Space below header before first section */
+.site-header {
+  border-bottom: 1px solid #000;
+}
+
+.home-hero {
+  margin-top: 45px;
+}
 
 /* =========================================================
    DESKTOP NAV
