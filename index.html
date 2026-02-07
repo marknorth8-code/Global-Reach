@@ -1,221 +1,134 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Property Carousel</title>
+  <meta charset="utf-8">
+  <title>Global Reach</title>
 
-<style>
-/* ================= RESET ================= */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-body {
-  font-family: Arial, sans-serif;
-  overflow-x: hidden;
-}
+  <!-- Canonical placeholder -->
+  <link rel="canonical" href="">
 
-/* ================= CAROUSEL ================= */
-.carousel {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding: 40px 0;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 20px;
-  will-change: transform;
-}
-
-.carousel-item {
-  min-width: 80vw;
-  height: 400px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 12px;
-  flex-shrink: 0;
-}
-
-/* ================= COUNTER ================= */
-.carousel-counter {
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 14px;
-}
-</style>
+  <!-- Global + Page CSS -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/home.css">
 </head>
 
-<body>
+<body class="home">
 
-<section class="carousel" id="property-gallery">
-  <div class="carousel-track">
-    <div class="carousel-item" style="background-image:url('https://picsum.photos/1200/800?1')"></div>
-    <div class="carousel-item" style="background-image:url('https://picsum.photos/1200/800?2')"></div>
-    <div class="carousel-item" style="background-image:url('https://picsum.photos/1200/800?3')"></div>
-    <div class="carousel-item" style="background-image:url('https://picsum.photos/1200/800?4')"></div>
-  </div>
+  <!-- ================= HEADER (INCLUDED) ================= -->
+  <div id="header"></div>
 
-  <div class="carousel-counter">
-    <span class="current">1</span> / <span class="total">4</span>
-  </div>
-</section>
+  <!-- ================= MAIN ================= -->
+  <main id="main-content">
 
-<script>
-/* ================= CONFIG ================= */
-window.CAROUSEL_CONFIGS = {
-  "property-gallery": {
-    loop: true,
-    autoplay: true,
-    autoplayDelay: 3000
-  }
-};
-</script>
+    <!-- ========= SECTION 1: FEATURED PROPERTY CAROUSEL ========= -->
+    <section class="home-featured">
 
-<script>
-/* =========================================================
-   CAROUSEL ENGINE – Infinite loop with clones
-   ========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".carousel").forEach((carousel) => {
-    const id = carousel.id;
-    const config = window.CAROUSEL_CONFIGS[id] || {};
-    const track = carousel.querySelector(".carousel-track");
+      <div id="home-carousel" class="carousel">
+        <div class="carousel-track home-featured-track">
 
-    let items = Array.from(track.children);
-    if (!items.length) return;
+          <div class="carousel-item home-featured-card">
+            <div class="home-featured-image"></div>
+            <p class="home-featured-title">Property 1</p>
+          </div>
 
-    /* ---------- CLONES ---------- */
-    if (config.loop && items.length > 1) {
-      const first = items[0].cloneNode(true);
-      const last = items[items.length - 1].cloneNode(true);
-      first.classList.add("clone");
-      last.classList.add("clone");
-      track.appendChild(first);
-      track.insertBefore(last, items[0]);
-      items = Array.from(track.children);
-    }
+          <div class="carousel-item home-featured-card">
+            <div class="home-featured-image"></div>
+            <p class="home-featured-title">Property 2</p>
+          </div>
 
-    let index = config.loop ? 1 : 0;
-    let timer = null;
-    let visible = false;
+          <div class="carousel-item home-featured-card">
+            <div class="home-featured-image"></div>
+            <p class="home-featured-title">Property 3</p>
+          </div>
 
-    const counter = carousel.querySelector(".carousel-counter");
-    const currentEl = counter.querySelector(".current");
-    const totalEl = counter.querySelector(".total");
+          <div class="carousel-item home-featured-card">
+            <div class="home-featured-image"></div>
+            <p class="home-featured-title">Property 4</p>
+          </div>
 
-    const realCount = config.loop ? items.length - 2 : items.length;
-    totalEl.textContent = realCount;
+        </div>
 
-    function step() {
-      const gap = parseInt(getComputedStyle(track).gap || 0, 10);
-      return items[0].offsetWidth + gap;
-    }
+        <!-- Optional UI (safe to exist even if unused) -->
+        <button class="carousel-arrow prev" aria-label="Previous"></button>
+        <button class="carousel-arrow next" aria-label="Next"></button>
 
-    function updateCounter() {
-      let display = index;
-      if (config.loop) {
-        if (index === 0) display = realCount;
-        else if (index === items.length - 1) display = 1;
-      }
-      currentEl.textContent = display;
-    }
+        <div class="carousel-counter">
+          <span class="current">1</span> / <span class="total">4</span>
+        </div>
 
-    function goTo(i, animate = true) {
-      index = i;
-      track.style.transition = animate ? "transform 400ms ease" : "none";
-      track.style.transform = `translateX(${-i * step()}px)`;
-      updateCounter();
-    }
+      </div>
+    </section>
 
-    function next() {
-      goTo(index + 1);
-    }
+    <hr class="section-divider">
 
-    /* ---------- LOOP FIX ---------- */
-    track.addEventListener("transitionend", () => {
-      if (!config.loop) return;
+    <!-- ========= SECTION 2: HOME INTRO ========= -->
+    <section class="home-intro page-section">
+      <div class="container">
+        <h1>Global Reach</h1>
+        <p>
+          We limit the number of investments so we understand each one better.
+          We work with close networks to expand our reach.
+        </p>
+        <p><a href="insights.html">Read our insights</a></p>
+      </div>
+    </section>
 
-      if (items[index].classList.contains("clone")) {
-        if (index === 0) goTo(items.length - 2, false);
-        if (index === items.length - 1) goTo(1, false);
-      }
-    });
+    <hr class="section-divider">
 
-    /* ---------- AUTOPLAY ---------- */
-    function start() {
-      if (!config.autoplay || timer || !visible) return;
-      timer = setInterval(next, config.autoplayDelay || 4000);
-    }
+    <!-- ========= SECTION 3: LOCATIONS GRID ========= -->
+    <section class="home-locations page-section">
+      <div class="container">
+        <h2>Locations</h2>
 
-    function stop() {
-      clearInterval(timer);
-      timer = null;
-    }
+        <div class="home-locations-grid">
+          <a href="locations/uk.html" class="location-card">
+            <div class="location-image"></div>
+            <p class="location-title">United Kingdom</p>
+          </a>
 
-    /* ---------- DRAG / SWIPE ---------- */
-    let startX = 0;
-    let dragging = false;
-    let prevTranslate = 0;
-    let currentTranslate = 0;
+          <a href="locations/nz.html" class="location-card">
+            <div class="location-image"></div>
+            <p class="location-title">New Zealand</p>
+          </a>
 
-    function dragStart(e) {
-      dragging = true;
-      startX = e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
-      prevTranslate = -index * step();
-      track.style.transition = "none";
-    }
+          <a href="locations/br.html" class="location-card">
+            <div class="location-image"></div>
+            <p class="location-title">Brazil</p>
+          </a>
 
-    function dragMove(e) {
-      if (!dragging) return;
-      const x = e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
-      currentTranslate = prevTranslate + (x - startX);
-      track.style.transform = `translateX(${currentTranslate}px)`;
-    }
+          <a href="locations/jp.html" class="location-card">
+            <div class="location-image"></div>
+            <p class="location-title">Japan</p>
+          </a>
+        </div>
+      </div>
+    </section>
 
-    function dragEnd() {
-      if (!dragging) return;
-      dragging = false;
+    <hr class="section-divider">
 
-      const moved = currentTranslate - prevTranslate;
-      if (moved < -step() * 0.2) next();
-      else if (moved > step() * 0.2) goTo(index - 1);
-      else goTo(index);
-    }
+    <!-- ========= SECTION 4: INSIGHTS ========= -->
+    <section class="page-section">
+      <div class="container">
+        <h2>Insights</h2>
+        <p>Commentary and analysis on markets, strategy, and opportunities.</p>
+        <p><a href="insights.html">Read our latest insights</a></p>
+      </div>
+    </section>
 
-    carousel.addEventListener("mousedown", dragStart);
-    carousel.addEventListener("mousemove", dragMove);
-    carousel.addEventListener("mouseup", dragEnd);
-    carousel.addEventListener("mouseleave", dragEnd);
-    carousel.addEventListener("touchstart", dragStart, { passive: true });
-    carousel.addEventListener("touchmove", dragMove, { passive: true });
-    carousel.addEventListener("touchend", dragEnd);
+  </main>
 
-    /* ---------- VISIBILITY ---------- */
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        visible = entry.isIntersecting;
-        visible ? start() : stop();
-      });
-    }, { threshold: 0.3 });
+  <!-- ================= FOOTER (INCLUDED) ================= -->
+  <div id="footer"></div>
 
-    observer.observe(carousel);
+  <!-- ================= JS ================= -->
+  <script src="js/include.js"></script>
+  <script src="js/header.js"></script>
 
-    /* ---------- INIT ---------- */
-    goTo(index, false);
-    start();
-  });
-});
-</script>
+  <!-- Carousel system -->
+  <script src="js/carousel-configs.js"></script>
+  <script src="js/carousel.js"></script>
 
 </body>
 </html>
