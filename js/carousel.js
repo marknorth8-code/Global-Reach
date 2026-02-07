@@ -1,7 +1,7 @@
 /* =========================================================
    CAROUSEL ENGINE
-   Bundle 1 + Bundle 2
-   Interaction + Accessibility + Keyboard
+   Bundle 1 + 2 + 3
+   Interaction + A11y + Infinite Looping
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,11 +13,31 @@ document.addEventListener("DOMContentLoaded", () => {
       (window.CAROUSEL_CONFIGS && window.CAROUSEL_CONFIGS[id]) || {};
 
     const track = carousel.querySelector(".carousel-track");
-    const items = carousel.querySelectorAll(".carousel-item");
+    let items = Array.from(track.children);
     if (!track || items.length === 0) return;
 
+    const isLooping = !!config.loop;
+
+    /* ================= CLONE SLIDES ================= */
+    let realCount = items.length;
+    let startIndex = 0;
+
+    if (isLooping && realCount > 1) {
+      const firstClone = items[0].cloneNode(true);
+      const lastClone = items[realCount - 1].cloneNode(true);
+
+      firstClone.classList.add("is-clone");
+      lastClone.classList.add("is-clone");
+
+      track.appendChild(firstClone);
+      track.insertBefore(lastClone, items[0]);
+
+      items = Array.from(track.children);
+      startIndex = 1;
+    }
+
     /* ================= STATE ================= */
-    let currentIndex = 0;
+    let currentIndex = startIndex;
     let autoplayTimer = null;
     let isPaused = false;
     let isVisible = false;
@@ -31,10 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ================= ACCESSIBILITY ================= */
     carousel.setAttribute("role", "region");
-    carousel.setAttribute(
-      "aria-roledescription",
-      "carousel"
-    );
+    carousel.setAttribute("aria-roledescription", "carousel");
     carousel.setAttribute(
       "aria-label",
       config.ariaLabel || "Image carousel"
@@ -43,13 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     items.forEach((item, i) => {
       item.setAttribute("role", "group");
-      item.setAttribute(
-        "aria-roledescription",
-        "slide"
-      );
+      item.setAttribute("aria-roledescription", "slide");
       item.setAttribute(
         "aria-label",
-        `${i + 1} of ${items.length}`
+        `${((i - 1 + realCount) % realCount) + 1} of ${realCount}`
       );
     });
 
@@ -58,10 +72,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentEl = counter?.querySelector(".current");
     const totalEl = counter?.querySelector(".total");
 
-    if (totalEl) totalEl.textContent = items.length;
-    if (currentEl) {
-      currentEl.textContent = 1;
-      currentEl.setAttribute("aria-live", "polite");
+    if (totalEl) totalEl.textContent = realCount;
+
+    function updateCounter() {
+      if (!currentEl) return;
+      const realIndex =
+        ((currentIndex - startIndex) % realCount + realCount) % realCount;
+      currentEl.textContent = realIndex + 1;
     }
 
     /* ================= SIZING ================= */
@@ -78,47 +95,36 @@ document.addEventListener("DOMContentLoaded", () => {
       track.style.transform = `translateX(${x}px)`;
     }
 
-    /* ================= ARROWS ================= */
-    const prevBtn = carousel.querySelector(".carousel-arrow.prev");
-    const nextBtn = carousel.querySelector(".carousel-arrow.next");
-
-    function updateArrows() {
-      if (!prevBtn || !nextBtn) return;
-
-      if (config.loop) {
-        prevBtn.disabled = false;
-        nextBtn.disabled = false;
-      } else {
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex === items.length - 1;
-      }
-    }
-
     /* ================= MOVEMENT ================= */
-    function goToIndex(index) {
+    function goToIndex(index, animate = true) {
       const step = getStep();
-      currentIndex = Math.max(0, Math.min(index, items.length - 1));
+      currentIndex = index;
+      currentTranslate = -index * step;
 
-      currentTranslate = -currentIndex * step;
-      setTranslate(currentTranslate, true);
-
-      if (currentEl) currentEl.textContent = currentIndex + 1;
-      updateArrows();
+      setTranslate(currentTranslate, animate);
+      updateCounter();
     }
 
     function goToNext() {
-      if (currentIndex < items.length - 1) {
-        goToIndex(currentIndex + 1);
-      } else if (config.loop) {
-        goToIndex(0);
-      }
+      goToIndex(currentIndex + 1);
     }
 
     function goToPrev() {
-      if (currentIndex > 0) {
-        goToIndex(currentIndex - 1);
-      }
+      goToIndex(currentIndex - 1);
     }
+
+    /* ================= LOOP FIX ================= */
+    track.addEventListener("transitionend", () => {
+      if (!isLooping) return;
+
+      if (currentIndex === 0) {
+        goToIndex(realCount, false);
+      }
+
+      if (currentIndex === items.length - 1) {
+        goToIndex(startIndex, false);
+      }
+    });
 
     /* ================= AUTOPLAY ================= */
     function startAutoplay() {
@@ -137,7 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
       autoplayTimer = null;
     }
 
-    /* Pause autoplay when focused (a11y) */
     carousel.addEventListener("focusin", () => {
       isPaused = true;
       stopAutoplay();
@@ -155,8 +160,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ================= KEYBOARD ================= */
     carousel.addEventListener("keydown", (e) => {
-      if (isDragging) return;
-
       switch (e.key) {
         case "ArrowRight":
           e.preventDefault();
@@ -166,20 +169,8 @@ document.addEventListener("DOMContentLoaded", () => {
           e.preventDefault();
           goToPrev();
           break;
-        case "Home":
-          e.preventDefault();
-          goToIndex(0);
-          break;
-        case "End":
-          e.preventDefault();
-          goToIndex(items.length - 1);
-          break;
       }
     });
-
-    /* ================= ARROW WIRING ================= */
-    prevBtn?.addEventListener("click", goToPrev);
-    nextBtn?.addEventListener("click", goToNext);
 
     /* ================= DRAG / SWIPE ================= */
     function onDragStart(e) {
@@ -223,7 +214,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const projected = currentTranslate + velocity * 3;
       let target = Math.round(-projected / step);
 
-      target = Math.max(0, Math.min(target, items.length - 1));
       goToIndex(target);
     }
 
@@ -258,6 +248,8 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(carousel);
 
     /* ================= INIT ================= */
-    goToIndex(0);
+    requestAnimationFrame(() => {
+      goToIndex(startIndex, false);
+    });
   });
 });
