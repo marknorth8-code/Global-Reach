@@ -74,6 +74,11 @@
   object-fit: cover;
   display: block;
 }
+.carousel-hero .carousel-item {
+  flex: 0 0 420px;
+  max-width: 420px;
+  aspect-ratio: 3 / 2;
+}
 
 /* =========================================================
    CAROUSEL UI
