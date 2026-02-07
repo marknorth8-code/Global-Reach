@@ -57,14 +57,14 @@
 .carousel-hero .carousel-track {
   display: flex;
   height: 100%;
-   gap: 48px; 
+   gap: 64px; 
   will-change: transform;
 }
 
 /* 2 full images + partial third */
 .carousel-hero .carousel-item {
-  flex: 0 0 calc((100vw / 2.4) * 0.6);
-  height: 100%;
+  flex: 0 0 420px;   /* architectural, calm scale */
+  max-width: 420px;
 }
 
 .carousel-hero img {
