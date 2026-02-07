@@ -110,6 +110,16 @@ function setTranslate(x, animate = false) {
     prevBtn?.addEventListener("click", goToPrev);
     nextBtn?.addEventListener("click", goToNext);
 
+/* ---------- Drag / Swipe ---------- */
+carousel.addEventListener("mousedown", onDragStart);
+carousel.addEventListener("mousemove", onDragMove);
+carousel.addEventListener("mouseup", onDragEnd);
+carousel.addEventListener("mouseleave", onDragEnd);
+
+carousel.addEventListener("touchstart", onDragStart, { passive: true });
+carousel.addEventListener("touchmove", onDragMove, { passive: true });
+carousel.addEventListener("touchend", onDragEnd);
+     
     /* ---------- Visibility ---------- */
     const observer = new IntersectionObserver(
       (entries) => {
