@@ -121,3 +121,29 @@
     padding-bottom: 72px;
   }
 }
+/* ================= CAROUSEL THUMBNAILS ================= */
+
+.carousel-thumbnails {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.thumbnail {
+  width: 64px;
+  height: 48px;
+  background: #ddd;
+  border: 2px solid transparent;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.thumbnail.is-active {
+  border-color: #111;
+}
+
+.thumbnail:hover {
+  opacity: 0.85;
+}
