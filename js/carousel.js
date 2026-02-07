@@ -7,21 +7,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   carousels.forEach((carousel) => {
     const id = carousel.id;
-    const config = (window.CAROUSEL_CONFIGS && window.CAROUSEL_CONFIGS[id]) || {};
+    const config =
+      (window.CAROUSEL_CONFIGS && window.CAROUSEL_CONFIGS[id]) || {};
 
     const track = carousel.querySelector(".carousel-track");
     const items = carousel.querySelectorAll(".carousel-item");
     if (!track || items.length === 0) return;
 
+    /* ---------- State ---------- */
     let currentIndex = 0;
     let autoplayTimer = null;
     let isPaused = false;
     let isVisible = false;
 
-     let startX = 0;
-let currentTranslate = 0;
-let prevTranslate = 0;
-let isDragging = false;
+    let startX = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let isDragging = false;
 
     /* ---------- Counter ---------- */
     const counter = carousel.querySelector(".carousel-counter");
@@ -29,6 +31,7 @@ let isDragging = false;
     const totalEl = counter?.querySelector(".total");
 
     if (totalEl) totalEl.textContent = items.length;
+    if (currentEl) currentEl.textContent = 1;
 
     /* ---------- Sizing ---------- */
     function getStep() {
@@ -36,12 +39,14 @@ let isDragging = false;
       const gap = parseInt(getComputedStyle(track).gap || 0, 10);
       return itemWidth + gap;
     }
-     
-function setTranslate(x, animate = false) {
-  track.style.transition = animate ? `transform ${config.speed || 300}ms ease` : "none";
-  track.style.transform = `translateX(${x}px)`;
-}
-     
+
+    function setTranslate(x, animate = false) {
+      track.style.transition = animate
+        ? `transform ${config.speed || 300}ms ease`
+        : "none";
+      track.style.transform = `translateX(${x}px)`;
+    }
+
     /* ---------- Arrows ---------- */
     const prevBtn = carousel.querySelector(".carousel-arrow.prev");
     const nextBtn = carousel.querySelector(".carousel-arrow.next");
@@ -61,14 +66,11 @@ function setTranslate(x, animate = false) {
     /* ---------- Movement ---------- */
     function goToIndex(index) {
       const step = getStep();
-      track.style.transition = `transform ${config.speed || 500}ms ease`;
-      track.style.transform = `translateX(${-index * step}px)`;
       currentIndex = index;
 
-      if (currentEl) {
-        currentEl.textContent = currentIndex + 1;
-      }
+      setTranslate(-index * step, true);
 
+      if (currentEl) currentEl.textContent = currentIndex + 1;
       updateArrows();
     }
 
@@ -88,17 +90,19 @@ function setTranslate(x, animate = false) {
 
     /* ---------- Autoplay ---------- */
     function startAutoplay() {
-      if (!config.autoplay || !isVisible) return;
+      if (!config.autoplay || !isVisible || autoplayTimer) return;
 
-      stopAutoplay();
-      autoplayTimer = setInterval(goToNext, config.autoplayDelay || 4000);
+      autoplayTimer = setInterval(() => {
+        if (!isPaused && !isDragging) {
+          goToNext();
+        }
+      }, config.autoplayDelay || 4000);
     }
 
     function stopAutoplay() {
-      if (autoplayTimer) {
-        clearInterval(autoplayTimer);
-        autoplayTimer = null;
-      }
+      if (!autoplayTimer) return;
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
     }
 
     if (config.pauseOnHover) {
@@ -106,70 +110,81 @@ function setTranslate(x, animate = false) {
       carousel.addEventListener("mouseleave", () => (isPaused = false));
     }
 
-    /* ---------- Arrows wiring ---------- */
+    /* ---------- Arrow wiring ---------- */
     prevBtn?.addEventListener("click", goToPrev);
     nextBtn?.addEventListener("click", goToNext);
 
-/* ---------- Drag / Swipe ---------- */
-carousel.addEventListener("mousedown", onDragStart);
-carousel.addEventListener("mousemove", onDragMove);
-carousel.addEventListener("mouseup", onDragEnd);
-carousel.addEventListener("mouseleave", onDragEnd);
+    /* ---------- Drag / Swipe ---------- */
+    function onDragStart(e) {
+      isDragging = true;
+      isPaused = true;
 
-carousel.addEventListener("touchstart", onDragStart, { passive: true });
-carousel.addEventListener("touchmove", onDragMove, { passive: true });
-carousel.addEventListener("touchend", onDragEnd);
-     
+      startX = e.type.includes("mouse")
+        ? e.pageX
+        : e.touches[0].clientX;
+
+      prevTranslate = -currentIndex * getStep();
+      track.style.transition = "none";
+    }
+
+    function onDragMove(e) {
+      if (!isDragging) return;
+
+      const currentX = e.type.includes("mouse")
+        ? e.pageX
+        : e.touches[0].clientX;
+
+      const delta = currentX - startX;
+      currentTranslate = prevTranslate + delta;
+
+      setTranslate(currentTranslate);
+    }
+
+    function onDragEnd() {
+      if (!isDragging) return;
+
+      isDragging = false;
+      isPaused = false;
+
+      const movedBy = currentTranslate - prevTranslate;
+      const threshold = getStep() * 0.2;
+
+      if (movedBy < -threshold) {
+        goToNext();
+      } else if (movedBy > threshold) {
+        goToPrev();
+      } else {
+        goToIndex(currentIndex);
+      }
+    }
+
+    carousel.addEventListener("mousedown", onDragStart);
+    carousel.addEventListener("mousemove", onDragMove);
+    carousel.addEventListener("mouseup", onDragEnd);
+    carousel.addEventListener("mouseleave", onDragEnd);
+
+    carousel.addEventListener("touchstart", onDragStart, { passive: true });
+    carousel.addEventListener("touchmove", onDragMove, { passive: true });
+    carousel.addEventListener("touchend", onDragEnd);
+
     /* ---------- Visibility ---------- */
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          isVisible = entry.isIntersecting;
-          isVisible ? startAutoplay() : stopAutoplay();
+          if (entry.isIntersecting) {
+            isVisible = true;
+            startAutoplay();
+          } else {
+            isVisible = false;
+            stopAutoplay();
+          }
         });
       },
       { threshold: 0.25 }
     );
 
     observer.observe(carousel);
-function onDragStart(e) {
-  isDragging = true;
-  isPaused = true;
 
-  startX = e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
-  prevTranslate = -currentIndex * getStep();
-
-  track.style.transition = "none";
-}
-
-function onDragMove(e) {
-  if (!isDragging) return;
-
-  const currentX = e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
-  const delta = currentX - startX;
-
-  currentTranslate = prevTranslate + delta;
-  setTranslate(currentTranslate);
-}
-
-function onDragEnd() {
-  if (!isDragging) return;
-  isDragging = false;
-  isPaused = false;
-
-  const movedBy = currentTranslate - prevTranslate;
-  const threshold = getStep() * 0.2;
-
-  if (movedBy < -threshold) {
-    goToNext();
-  } else if (movedBy > threshold) {
-    goToPrev();
-  } else {
-    goToIndex(currentIndex);
-  }
-}
-
-     
     /* ---------- Init ---------- */
     goToIndex(0);
   });
