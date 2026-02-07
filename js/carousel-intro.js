@@ -1,19 +1,31 @@
-// Intro Images Carousel
+
+// ========= carousel-intro.js =========
+
+// Array of images (placeholder for now)
 const introImages = [
-  '/images/placeholder/intro-01.jpg',
-  '/images/placeholder/intro-02.jpg',
-  '/images/placeholder/intro-03.jpg',
-  '/images/placeholder/intro-04.jpg'
+  'https://via.placeholder.com/1200x800/ff7f7f/333333?text=Intro+Image+1',
+  'https://via.placeholder.com/1200x800/7fbfff/333333?text=Intro+Image+2',
+  'https://via.placeholder.com/1200x800/7fff7f/333333?text=Intro+Image+3',
+  'https://via.placeholder.com/1200x800/ffff7f/333333?text=Intro+Image+4'
 ];
 
 let currentIntroIndex = 0;
 const introImageDiv = document.getElementById('intro-image');
 
+// ========= Preload images to avoid flicker =========
+introImages.forEach(src => {
+  const img = new Image();
+  img.src = src;
+});
+
+// ========= Function to change image =========
 function changeIntroImage() {
   introImageDiv.style.backgroundImage = `url('${introImages[currentIntroIndex]}')`;
   currentIntroIndex = (currentIntroIndex + 1) % introImages.length;
 }
 
-// Initialize
+// Initialize first image
 changeIntroImage();
-setInterval(changeIntroImage, 4000); // change every 4 seconds
+
+// Rotate every 4 seconds
+setInterval(changeIntroImage, 4000);
