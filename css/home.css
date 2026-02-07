@@ -161,6 +161,90 @@
   opacity: 0.2;
   cursor: default;
 }
+/* Locations Carousel Section */
+.locations-carousel {
+  width: 100%;
+  padding: 4% 2%;
+}
+
+.locations-container {
+  display: flex;
+  width: 100%;
+}
+
+.locations-text {
+  width: 40%;
+  padding-right: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.locations-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.locations-text p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.locations-carousel-wrapper {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.locations-carousel-track {
+  display: flex;
+  gap: 16px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.locations-carousel-track .carousel-item {
+  min-width: 250px; /* width of one card */
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.locations-carousel-track .carousel-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+/* Arrows below carousel */
+.locations-carousel-arrows {
+  margin-top: 12px;
+  display: flex;
+  gap: 16px;
+}
+
+.locations-carousel-arrows button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background-color: #333;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.locations-carousel-arrows button:hover {
+  background-color: #555;
+}
 
 /* =========================================================
    RESPONSIVE REFINEMENTS
