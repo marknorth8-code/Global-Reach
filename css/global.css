@@ -126,6 +126,13 @@ body {
   white-space: nowrap;
 }
 
+/* Remove bullets from header nav */
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 /* =========================================================
    DESKTOP NAV
    ========================================================= */
