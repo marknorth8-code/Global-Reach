@@ -226,13 +226,9 @@
   gap: 48px;
   align-items: stretch;
 }
-.locations-container {
-  padding-left: 4%;
-  padding-right: 4%;
-}
 
 .locations-carousel {
-  padding-bottom: 120px;
+  padding: 60px 0 180px;
 }
 
 
@@ -269,7 +265,7 @@
 
 /* Slides */
 .locations-carousel-track .carousel-item {
-  flex: 0 0 85%;                  /* visible margin */
+  flex: 0 0 100%;                  /* visible margin */
   height: 100%;
 }
 
