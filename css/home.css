@@ -212,42 +212,76 @@
   }
 }
 
-
 /* =========================
    CAROUSEL – LOCATIONS (Section 4)
    ========================= */
 
+/* Section wrapper */
 .locations-carousel {
   width: 100%;
+  padding: 60px 0 240px; /* increased height by 60px */
+  overflow: visible;    /* prevent clipping from body */
 }
 
+/* Inner layout */
 .locations-container {
   display: flex;
   gap: 48px;
   align-items: stretch;
+  overflow: visible;    /* allow arrows to show */
 }
 
-.locations-carousel {
-  padding: 60px 0 180px;
-}
-
-
-/* 40% text */
+/* -------- TEXT (45%) -------- */
 .locations-text {
   flex: 0 0 45%;
 }
 
-/* 60% carousel */
+/* -------- CAROUSEL (55%) -------- */
 .locations-carousel-wrapper {
   position: relative;
   flex: 0 0 55%;
-  overflow: hidden;              /* CRITICAL */
+  overflow: hidden;     /* CRITICAL: hide next slide */
 }
 
-/* arrows container */
+/* -------- TRACK -------- */
+.locations-carousel-track {
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+
+  /* remove gap to prevent slide bleed */
+  gap: 0;
+
+  /* hide scrollbars */
+  scrollbar-width: none;
+}
+
+.locations-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* -------- SLIDES -------- */
+.locations-carousel-track .carousel-item {
+  flex: 0 0 100%;
+  height: 100%;
+  padding-right: 24px; /* visual spacing without bleed */
+}
+
+/* -------- IMAGES -------- */
+.locations-carousel-track img {
+  width: 100%;
+  height: 100%;
+  max-height: 420px;    /* keeps your perfect size */
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+/* -------- ARROWS (below carousel) -------- */
 .locations-carousel-arrows {
   position: absolute;
-  bottom: -56px;     /* sits below carousel */
+  bottom: -56px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -255,36 +289,10 @@
   z-index: 5;
 }
 
-
-/* Track */
-.locations-carousel-track {
-  display: flex;
-  gap: 24px;
-  height: 100%;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-
-  /* manual scroll */
-  scrollbar-width: none;
+/* Override GLOBAL arrow positioning */
+.locations-carousel-arrows .carousel-arrow {
+  position: static;
+  top: auto;
+  transform: none;
 }
-.locations-carousel-track::-webkit-scrollbar {
-  display: none;
-}
-
-/* Slides */
-.locations-carousel-track .carousel-item {
-  flex: 0 0 100%;                  /* visible margin */
-  height: 100%;
-}
-
-/* Images */
-.locations-carousel-track img {
-  width: 100%;
-  height: 100%;
-  max-height: 420px;              /* adjust if needed */
-  object-fit: cover;
-  border-radius: 8px;
-  display: block;
-}
-
 
