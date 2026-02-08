@@ -287,3 +287,14 @@
   gap: 16px;
   z-index: 10;
 }
+.locations-prev,
+.locations-next {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.3);
+  background: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
