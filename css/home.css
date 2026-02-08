@@ -162,18 +162,19 @@
   cursor: default;
 }
 
-/* Locations Carousel Section */
-.locations-carousel {
-  width: 100%;
-  padding: 4% 2%;
-}
+/* =========================
+   LOCATIONS CAROUSEL FINAL
+   ========================= */
 
+/* Container: 40% text, 60% carousel on desktop */
 .locations-container {
   display: flex;
-  flex-wrap: nowrap; /* important: keep two columns side by side */
+  flex-wrap: nowrap;
   gap: 2%;
+  align-items: center;
 }
 
+/* Left text column */
 .locations-text {
   flex: 0 0 40%;
   display: flex;
@@ -191,31 +192,36 @@
   line-height: 1.5;
 }
 
+/* Right carousel column */
 .locations-carousel-wrapper {
-  flex: 0 0 58%; /* 60% minus gap */
+  flex: 0 0 58%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* Track: horizontal scroll */
 .locations-carousel-track {
   display: flex;
   gap: 16px;
   overflow-x: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  width: 100%;
 }
 
 .locations-carousel-track::-webkit-scrollbar {
   display: none; /* hide scrollbar */
 }
 
+/* Carousel items */
 .locations-carousel-track .carousel-item {
   flex: 0 0 auto;
-  width: 250px; /* width of each card */
+  width: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .locations-carousel-track .carousel-item img {
@@ -228,9 +234,10 @@
 
 /* Arrows below carousel */
 .locations-carousel-arrows {
-  margin-top: 12px;
   display: flex;
+  justify-content: center;
   gap: 16px;
+  margin-top: 12px;
 }
 
 .locations-carousel-arrows button {
@@ -252,28 +259,21 @@
   background-color: #555;
 }
 
-
-/* =========================================================
-   RESPONSIVE REFINEMENTS
-   ========================================================= */
-
-@media (min-width: 1024px) {
-  .home-featured {
-    padding-bottom: 120px;
-  }
-
-  .home-featured-track {
-    gap: 40px;
-  }
-}
-
+/* =========================
+   RESPONSIVE: STACK ON MOBILE
+   ========================= */
 @media (max-width: 767px) {
-  .carousel-arrow {
-    display: none;
+  .locations-container {
+    flex-direction: column;
+    gap: 24px;
   }
 
-  .carousel-counter {
-    bottom: 16px;
-    right: 16px;
+  .locations-text,
+  .locations-carousel-wrapper {
+    flex: 0 0 100%;
+  }
+
+  .locations-carousel-track .carousel-item {
+    width: 80%; /* or 100% if you want full-width cards */
   }
 }
