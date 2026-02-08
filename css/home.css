@@ -43,47 +43,6 @@
 
 
 /* =========================================================
-   HOME – FEATURED Services CAROUSEL (Section carousel)
-   ========================================================= */
-
-.home-featured {
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 72px;
-}
-
-.home-featured .carousel {
-  overflow: hidden;
-}
-
-.home-featured-track {
-  display: flex;
-  gap: 24px;
-  will-change: transform;
-}
-
-.home-featured-card {
-  flex: 0 0 320px;
-  max-width: 320px;
-  display: flex;
-  flex-direction: column;
-}
-
-.home-featured-image {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  background: #eaeaea;
-  overflow: hidden;
-}
-
-.home-featured-title {
-  margin-top: 10px;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
-
-/* =========================================================
    HOME – HERO CAROUSEL (Section 1)
    ========================================================= */
 
@@ -161,6 +120,99 @@
   opacity: 0.2;
   cursor: default;
 }
+
+/* =========================================================
+   HOME – SERVICES CAROUSEL (Section 3)
+   ========================================================= */
+.home-hero {
+  margin-top: 60px;
+  padding-bottom: 80px;
+  overflow: hidden;
+  position: relative;
+}
+
+#services-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+#services-carousel .carousel-track {
+  display: flex;
+  gap: 32px;              /* space between slides */
+  will-change: transform;
+}
+
+#services-carousel .carousel-item {
+  flex: 0 0 420px;        /* width of each slide */
+  max-width: 420px;
+  aspect-ratio: 3 / 2;    /* maintain image ratio */
+}
+
+#services-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+/* ----------------- ARROWS ----------------- */
+#services-carousel .carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+  z-index: 2;
+}
+
+#services-carousel .carousel-arrow:hover {
+  opacity: 1;
+}
+
+#services-carousel .carousel-arrow.prev {
+  left: 16px;
+}
+
+#services-carousel .carousel-arrow.next {
+  right: 16px;
+}
+
+/* ----------------- COUNTER ----------------- */
+#services-carousel .carousel-counter {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* ----------------- RESPONSIVE ----------------- */
+@media (max-width: 1024px) {
+  #services-carousel .carousel-item {
+    flex: 0 0 320px;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  #services-carousel .carousel-item {
+    flex: 0 0 80%;       /* nearly full width on mobile */
+  }
+  #services-carousel .carousel-track {
+    gap: 16px;
+  }
+}
+
+
 
 /* =========================
    LOCATIONS CAROUSEL FINAL
