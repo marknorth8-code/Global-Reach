@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <title>Brazil - Global Reach</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/global.css">
-  <link rel="stylesheet" href="../css/location.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/location.css">
   <style>
     /* ================= LOCATION HERO ================= */ 
     .location-hero {
@@ -24,30 +24,36 @@
       z-index: 0;
     }
 
-    .location-hero .hero-bg {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('../images/locations/br/hero.JPG');
-      background-size: cover;
-      background-position: center;
-      z-index: -1;
-    }
+.location-hero {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+}
 
-    .location-hero .hero-content {
-      position: relative;
-      padding: 0 40px;
-      display: flex;
-      align-items: center;
-      height: 100%;
-    }
+.location-hero .hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;       /* full viewport width */
+  height: 100%;
+  background-image: url('images/locations/br/hero.JPG');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
 
-    .location-hero h1 {
-      color: #fff;
-      font-size: 3rem;
-      z-index: 1;
-    }
+.location-hero .hero-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.location-hero h1 {
+  color: #fff;
+  font-size: 3rem;
+}
 
     /* ================= INTRO ================= */
     .location-intro {
@@ -140,19 +146,19 @@
   <!-- ================= PROPERTY GRID ================= -->
   <section class="property-grid container">
     <div class="property-card">
-      <div class="property-image" style="background-image:url('../images/locations/br/property1.jpg');"></div>
+      <div class="property-image" style="background-image:url('images/locations/br/property1.jpg');"></div>
       <div class="property-title">Property 1</div>
     </div>
     <div class="property-card">
-      <div class="property-image" style="background-image:url('../images/locations/br/property2.jpg');"></div>
+      <div class="property-image" style="background-image:url('images/locations/br/property2.jpg');"></div>
       <div class="property-title">Property 2</div>
     </div>
     <div class="property-card">
-      <div class="property-image" style="background-image:url('../images/locations/br/property3.jpg');"></div>
+      <div class="property-image" style="background-image:url('images/locations/br/property3.jpg');"></div>
       <div class="property-title">Property 3</div>
     </div>
     <div class="property-card">
-      <div class="property-image" style="background-image:url('../images/locations/br/property4.jpg');"></div>
+      <div class="property-image" style="background-image:url('images/locations/br/property4.jpg');"></div>
       <div class="property-title">Property 4</div>
     </div>
   </section>
