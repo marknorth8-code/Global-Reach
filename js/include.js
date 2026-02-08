@@ -1,18 +1,18 @@
-async function loadPartial(selector, file) {
-  const el = document.querySelector(selector);
-  if (!el) return;
+function includeHTML() {
+  const includes = [
+    { id: "header", file: "../includes/header.html" },
+    { id: "footer", file: "../includes/footer.html" }
+  ];
 
-  try {
-    const res = await fetch(file);
-    if (!res.ok) throw new Error(`Failed to load ${file}`);
-    el.innerHTML = await res.text();
-  } catch (err) {
-    console.error(err);
-  }
+  includes.forEach(item => {
+    const el = document.getElementById(item.id);
+    if (el) {
+      fetch(item.file)
+        .then(res => res.text())
+        .then(html => el.innerHTML = html)
+        .catch(err => console.error(`Failed to load ${item.file}:`, err));
+    }
+  });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Update paths for root-level pages
-  loadPartial("#header", "partials/header.html");
-  loadPartial("#footer", "partials/footer.html");
-});
+document.addEventListener("DOMContentLoaded", includeHTML);
