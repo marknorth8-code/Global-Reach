@@ -321,7 +321,8 @@ a:hover {
   pointer-events: none;
 }
 
-/* Prevent global carousel rules affecting manual scroll sections */
-.carousel:not(.js-carousel) .carousel-track {
+/* Prevent global carousel rules affecting ONLY scrolling carousels */
+.carousel.manual-carousel .carousel-track {
   width: auto;
 }
+
