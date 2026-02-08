@@ -244,8 +244,19 @@
   overflow: hidden;              /* CRITICAL */
 }
 
+/* arrows container */
+.locations-carousel-arrows {
+  position: absolute;
+  bottom: -56px;     /* sits below carousel */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  z-index: 5;
+}
+
 .locations-carousel-track {
-  padding-left: 24px;
+  padding-left: 0px;
 }
 
 /* Track */
