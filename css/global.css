@@ -320,3 +320,8 @@ a:hover {
   position: absolute;
   pointer-events: none;
 }
+
+/* Prevent global carousel rules affecting manual scroll sections */
+.carousel:not(.js-carousel) .carousel-track {
+  width: auto;
+}
