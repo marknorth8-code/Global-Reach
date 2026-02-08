@@ -1,21 +1,6 @@
 /* Intro Images Section */
-.intro-images {
-  width: 100%;
-  height: 70vh; /* adjust height as needed */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.intro-images-container {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
 
 .intro-text {
-  width: 40%;
   padding: 4%;
   display: flex;
   flex-direction: column;
@@ -33,8 +18,6 @@
 }
 
 .intro-image {
-  width: 60%;
-  height: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -47,7 +30,7 @@
 
 .intro-images {
   width: 100%;
-  padding: 90px 0 60px;
+  padding: 90px 0 90px; /* bottom space added */
 }
 
 .intro-images-container {
@@ -55,7 +38,6 @@
   gap: 48px;
   align-items: flex-start;
 
-  /* MATCH SECTION 4 */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
@@ -66,33 +48,36 @@
   flex: 0 0 45%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-}
-
-.intro-text h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.intro-text p {
-  font-size: 1.25rem;
-  line-height: 1.5;
 }
 
 /* RIGHT IMAGE — 55% */
 .intro-image {
   flex: 0 0 55%;
-  height: 420px;
+  min-height: 420px;
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  /* MATCH SECTION 4 IMAGE */
   border-radius: 8px;
   overflow: hidden;
 }
 
+/* Mobile */
+@media (max-width: 900px) {
+  .intro-images-container {
+    flex-direction: column;
+  }
+
+  .intro-text,
+  .intro-image {
+    flex: 0 0 100%;
+  }
+
+  .intro-image {
+    min-height: 300px;
+  }
+}
 
 
 /* =========================================================
