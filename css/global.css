@@ -21,7 +21,7 @@ body {
   background: #ffffff;
   line-height: 1.6;
   padding-top: 90px;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 @media (max-width: 900px) {
