@@ -46,6 +46,12 @@
   text-shadow: 0 2px 6px rgba(0,0,0,0.5);  /* makes text readable */
 }
 
+.location-hero .hero-image {
+  width: 100vw;    /* full viewport width */
+  max-width: 100%;
+}
+
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .location-hero h1 {
