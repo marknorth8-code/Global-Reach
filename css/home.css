@@ -42,38 +42,57 @@
 }
 
 /* =========================
-   SECTION 1 – INTRO IMAGES
+   INTRO IMAGES (Section 1)
    ========================= */
 
 .intro-images {
   width: 100%;
-  padding: 0;               /* override page-section */
+  padding: 90px 0 60px;
 }
 
 .intro-images-container {
   display: flex;
-  min-height: 70vh;         /* 👈 anchor height HERE */
-  width: 100%;
+  gap: 48px;
+  align-items: flex-start;
+
+  /* MATCH SECTION 4 */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-/* LEFT TEXT — 45% (match section 4) */
+/* LEFT TEXT — 45% */
 .intro-text {
   flex: 0 0 45%;
-  padding: 4%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-/* RIGHT STATIC CAROUSEL — 55% */
+.intro-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.intro-text p {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+/* RIGHT IMAGE — 55% */
 .intro-image {
   flex: 0 0 55%;
-  min-height: 420px;        /* 👈 guarantees visibility */
+  height: 420px;
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: background-image 1s ease-in-out;
+
+  /* MATCH SECTION 4 IMAGE */
+  border-radius: 8px;
+  overflow: hidden;
 }
+
 
 
 /* =========================================================
