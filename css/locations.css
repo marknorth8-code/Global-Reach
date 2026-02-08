@@ -10,7 +10,7 @@
     
   /* ================= LOCATION HERO ================= */
 .location-hero {
-  position: relative;
+  position: absolute;
   width: 100%;            /* full page width */
   overflow: hidden;
 }
@@ -44,11 +44,6 @@
   margin: 0;
   padding: 0 10px;
   text-shadow: 0 2px 6px rgba(0,0,0,0.5);  /* makes text readable */
-}
-
-.location-hero .hero-image {
-  width: 100vw;    /* full viewport width */
-  max-width: 100%;
 }
 
 
