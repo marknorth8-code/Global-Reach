@@ -35,13 +35,14 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;       /* full viewport width */
+  width: 100%;        /* match the section width */
   height: 100%;
   background-image: url('images/locations/br/hero.JPG');
   background-size: cover;
   background-position: center;
   z-index: -1;
 }
+
 
 .location-hero .hero-content {
   position: relative;
