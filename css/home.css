@@ -217,126 +217,57 @@
    CAROUSEL – LOCATIONS (Section 4)
    ========================= */
 
-/* Container: 40% text, 60% carousel on desktop */
-.carousel-locations-container {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 2%;
-  align-items: center;
-}
-
-/* Left text column */
-.carousel-locations-text {
-  flex: 0 0 40%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.carousel-locations-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.carousel-locations-text p {
-  font-size: 1.1rem;
-  line-height: 1.5;
-}
-
-/* Right carousel column ~60% */
-.carousel-locations-wrapper {
-  flex: 0 0 58%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 8px; /* small margin around images */
-}
-
-/* Track: horizontal scroll */
-.carousel-locations-track {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+.locations-carousel {
   width: 100%;
 }
 
-/* Hide scrollbar */
-.carousel-locations-track::-webkit-scrollbar {
+.locations-container {
+  display: flex;
+  gap: 48px;
+  align-items: stretch;
+}
+
+/* 40% text */
+.locations-text {
+  flex: 0 0 40%;
+}
+
+/* 60% carousel */
+.locations-carousel-wrapper {
+  position: relative;
+  flex: 0 0 60%;
+  overflow: hidden;              /* CRITICAL */
+}
+
+/* Track */
+.locations-carousel-track {
+  display: flex;
+  gap: 24px;
+  height: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+
+  /* manual scroll */
+  scrollbar-width: none;
+}
+.locations-carousel-track::-webkit-scrollbar {
   display: none;
 }
 
-/* Carousel items now fill almost full width of right column */
-.carousel-locations-track .carousel-item {
-  flex: 0 0 100%;       /* item takes full width of track container */
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border-radius: 8px;
-  overflow: hidden;
+/* Slides */
+.locations-carousel-track .carousel-item {
+  flex: 0 0 85%;                  /* visible margin */
+  height: 100%;
 }
 
 /* Images */
-.carousel-locations-track .carousel-item img {
+.locations-carousel-track img {
   width: 100%;
-  height: auto;
-  max-height: 400px;
+  height: 100%;
+  max-height: 420px;              /* adjust if needed */
   object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 0.5rem;
+  display: block;
 }
-
-/* Arrows below carousel */
-.carousel-locations-arrows {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 12px;
-}
-
-.carousel-locations-arrows button {
-  width: 36px;
-  height: 36px;
-  border: none;
-  border-radius: 50%;
-  background-color: #333;
-  color: #fff;
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s;
-}
-
-.carousel-locations-arrows button:hover {
-  background-color: #555;
-}
-
-/* =========================
-   RESPONSIVE: STACK ON MOBILE
-   ========================= */
-@media (max-width: 1024px) {
-  .carousel-locations-track .carousel-item {
-    flex: 0 0 90%;       /* nearly full width on tablet */
-  }
-}
-
-@media (max-width: 767px) {
-  .carousel-locations-wrapper {
-    flex: 0 0 100%;
-  }
-  .carousel-locations-track .carousel-item {
-    flex: 0 0 95%;       /* almost full width on mobile */
-  }
-  .carousel-locations-container {
-    flex-direction: column;
-    gap: 24px;
-  }
-}
-
 
 
