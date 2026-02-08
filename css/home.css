@@ -7,12 +7,35 @@
   justify-content: center;
 }
 
+/* =========================
+   INTRO IMAGES (Section 1) TYPOGRAPHY
+   ========================= */
+
 .intro-text h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-   font-size: 1.25rem;
-  line-height: 1.5;
+  font-size: 3rem;        /* large, eye-catching heading */
+  line-height: 1.2;       /* tighter spacing for a bold look */
+  margin-bottom: 1.5rem;  /* space below heading */
+  font-weight: 600;       /* slightly bolder than normal */
 }
+
+.intro-text p {
+  font-size: 1.125rem;    /* slightly larger paragraph text */
+  line-height: 1.6;       /* readable line spacing */
+  margin-bottom: 1rem;
+  color: #222;            /* optional: slightly darker than default for contrast */
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .intro-text h1 {
+    font-size: 2rem;      /* smaller heading for mobile */
+  }
+
+  .intro-text p {
+    font-size: 1rem;
+  }
+}
+
 
 .intro-image {
   background-size: cover;
