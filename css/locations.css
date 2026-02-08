@@ -1,78 +1,161 @@
-/* ================= LOCATION HERO ================= */
-.location-hero {
-  height: 400px; /* Increase from 200px for better visual impact */
-  width: 100%;
-  background-image: url('../images/locations/br/hero.JPG');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  padding: 0 40px;
-}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Brazil - Global Reach</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/location.css">
+  <style>
+    /* ================= LOCATION HERO ================= */ 
+    .location-hero {
+      position: relative;       
+      height: 400px;            
+      width: 100%;
+      overflow: hidden;         
+    }
 
-.location-hero {
-  height: 400px; /* Increase from 200px for better visual impact */
-  width: 100%;
-  background-image: url('../images/locations/br/hero.JPG');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  padding: 0 40px;
-}
+    .location-hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.35);
+      z-index: 0;
+    }
 
-.location-hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.35); /* dark overlay */
-  z-index: 0;
-}
+    .location-hero .hero-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('../images/locations/br/hero.JPG');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+    }
 
-.location-hero h1 {
-  position: relative;
-  z-index: 1;
-  color: #fff;
-  font-size: 3rem;
-}
+    .location-hero .hero-content {
+      position: relative;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
 
+    .location-hero h1 {
+      color: #fff;
+      font-size: 3rem;
+      z-index: 1;
+    }
 
-/* ================= INTRO ================= */
+    /* ================= INTRO ================= */
+    .location-intro {
+      padding: 60px 0;
+    }
 
-.location-intro {
-  padding: 60px 0;
-}
+    .location-intro h2 {
+      margin-bottom: 12px;
+    }
 
-.location-intro h2 {
-  margin-bottom: 12px;
-}
+    .property-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
 
-.property-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  gap: 20px;
-}
+    .property-card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
 
-.property-card {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #fff;
-}
+    .property-image {
+      width: 100%;
+      height: 0;
+      padding-top: 75%;
+      background-size: cover;
+      background-position: center;
+    }
 
-.property-image {
-  width: 100%;
-  height: 0;
-  padding-top: 75%; /* 4:3 aspect ratio */
-  background-size: cover;
-  background-position: center;
-}
+    .property-title {
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
 
-.property-title {
-  padding: 10px;
-  font-weight: bold;
-  text-align: center;
-}
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .location-hero {
+        height: 300px;
+      }
+      .location-hero h1 {
+        font-size: 2rem;
+      }
+      .property-grid {
+        grid-template-columns: 1fr;
+      }
+      .location-hero .hero-content {
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+      <a href="/index.html" class="site-logo">Global Reach</a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a class="nav-link" href="/locations/br/index.html">Brazil</a></li>
+          <li class="nav-item"><a class="nav-link" href="/locations/jp/index.html">Japan</a></li>
+          <li class="nav-item"><a class="nav-link" href="/locations/nz/index.html">New Zealand</a></li>
+          <li class="nav-item"><a class="nav-link" href="/locations/uk/index.html">UK</a></li>
+          <li class="nav-item"><a class="nav-link" href="/insights.html">Insights</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= LOCATION HERO ================= -->
+  <section class="location-hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Brazil</h1>
+    </div>
+  </section>
+
+  <!-- ================= INTRO ================= -->
+  <section class="location-intro container">
+    <h2>Discover Brazil</h2>
+    <p>Explore our prime properties and investment opportunities across Brazil. From vibrant city spaces to scenic retreats, we help you find the perfect location.</p>
+  </section>
+
+  <!-- ================= PROPERTY GRID ================= -->
+  <section class="property-grid container">
+    <div class="property-card">
+      <div class="property-image" style="background-image:url('../images/locations/br/property1.jpg');"></div>
+      <div class="property-title">Property 1</div>
+    </div>
+    <div class="property-card">
+      <div class="property-image" style="background-image:url('../images/locations/br/property2.jpg');"></div>
+      <div class="property-title">Property 2</div>
+    </div>
+    <div class="property-card">
+      <div class="property-image" style="background-image:url('../images/locations/br/property3.jpg');"></div>
+      <div class="property-title">Property 3</div>
+    </div>
+    <div class="property-card">
+      <div class="property-image" style="background-image:url('../images/locations/br/property4.jpg');"></div>
+      <div class="property-title">Property 4</div>
+    </div>
+  </section>
+
+</body>
+</html>
