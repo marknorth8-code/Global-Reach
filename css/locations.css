@@ -7,54 +7,52 @@
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/location.css">
   <style>
-    /* ================= LOCATION HERO ================= */ 
-    .location-hero {
-      position: relative;       
-      height: 400px;            
-      width: 100%;
-      overflow: hidden;         
-    }
-
-    .location-hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.35);
-      z-index: 0;
-    }
-
+    
+  /* ================= LOCATION HERO ================= */
 .location-hero {
   position: relative;
-   max-height: 400px; /* limit height */
-  width: 100%;
+  width: 100%;            /* full page width */
   overflow: hidden;
 }
 
-.location-hero .hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;        /* match the section width */
-  height: 100%;
-  background-image: url('images/locations/br/hero.JPG');
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
+.location-hero .container {
+  position: relative;      /* so heading can overlay image */
+  max-width: 1200px;       /* matches your global container */
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
+.location-hero .hero-image-wrapper {
+  width: 100%;
+}
 
-.location-hero .hero-content {
-  position: relative;
-  height: 100%;
-  display: flex;
-  align-items: center;
+.location-hero .hero-image {
+  display: block;
+  width: 100%;            /* image fills the container width */
+  height: auto;           /* keeps natural aspect ratio */
 }
 
 .location-hero h1 {
+  position: absolute;     /* overlay on image */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: #fff;
   font-size: 3rem;
+  text-align: center;
+  z-index: 2;
+  margin: 0;
+  padding: 0 10px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);  /* makes text readable */
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .location-hero h1 {
+    font-size: 2rem;
+  }
+}
+
 
     /* ================= INTRO ================= */
     .location-intro {
