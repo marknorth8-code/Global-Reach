@@ -213,13 +213,12 @@
 }
 
 
-
 /* =========================
-   LOCATIONS CAROUSEL FINAL
+   CAROUSEL – LOCATIONS (Section 4)
    ========================= */
 
 /* Container: 40% text, 60% carousel on desktop */
-.locations-container {
+.carousel-locations-container {
   display: flex;
   flex-wrap: nowrap;
   gap: 2%;
@@ -227,35 +226,36 @@
 }
 
 /* Left text column */
-.locations-text {
+.carousel-locations-text {
   flex: 0 0 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.locations-text h2 {
+.carousel-locations-text h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.locations-text p {
+.carousel-locations-text p {
   font-size: 1.1rem;
   line-height: 1.5;
 }
 
-/* Right carousel column stays 60% */
-.locations-carousel-wrapper {
-  flex: 0 0 58%;       /* keep ~60% of screen */
+/* Right carousel column ~60% */
+.carousel-locations-wrapper {
+  flex: 0 0 58%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 8px; /* small margin around images */
 }
 
 /* Track: horizontal scroll */
-.locations-carousel-track {
+.carousel-locations-track {
   display: flex;
-  gap: 16px;            /* small space between images */
+  gap: 16px;
   overflow-x: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
@@ -263,14 +263,14 @@
 }
 
 /* Hide scrollbar */
-.locations-carousel-track::-webkit-scrollbar {
+.carousel-locations-track::-webkit-scrollbar {
   display: none;
 }
 
 /* Carousel items now fill almost full width of right column */
-.locations-carousel-track .carousel-item {
+.carousel-locations-track .carousel-item {
   flex: 0 0 100%;       /* item takes full width of track container */
-  max-width: 100%;      /* ensure it doesn’t exceed container */
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -280,24 +280,24 @@
 }
 
 /* Images */
-.locations-carousel-track .carousel-item img {
-  width: 100%;          /* fill the item */
-  height: auto;         /* maintain aspect ratio */
-  max-height: 400px;    /* optional: limit very tall images */
-  object-fit: cover;    /* cover container nicely */
-  border-radius: 8px;   /* small margin effect */
+.carousel-locations-track .carousel-item img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
   margin-bottom: 0.5rem;
 }
 
 /* Arrows below carousel */
-.locations-carousel-arrows {
+.carousel-locations-arrows {
   display: flex;
   justify-content: center;
   gap: 16px;
   margin-top: 12px;
 }
 
-.locations-carousel-arrows button {
+.carousel-locations-arrows button {
   width: 36px;
   height: 36px;
   border: none;
@@ -312,37 +312,31 @@
   transition: background-color 0.3s;
 }
 
-.locations-carousel-arrows button:hover {
+.carousel-locations-arrows button:hover {
   background-color: #555;
 }
-.locations-carousel-track {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-.locations-carousel-track::-webkit-scrollbar {
-  display: none;
-}
-
 
 /* =========================
    RESPONSIVE: STACK ON MOBILE
    ========================= */
 @media (max-width: 1024px) {
-  .locations-carousel-track .carousel-item {
+  .carousel-locations-track .carousel-item {
     flex: 0 0 90%;       /* nearly full width on tablet */
   }
 }
 
 @media (max-width: 767px) {
-  .locations-carousel-wrapper {
-    flex: 0 0 100%;      /* full width on mobile */
+  .carousel-locations-wrapper {
+    flex: 0 0 100%;
   }
-  .locations-carousel-track .carousel-item {
+  .carousel-locations-track .carousel-item {
     flex: 0 0 95%;       /* almost full width on mobile */
   }
+  .carousel-locations-container {
+    flex-direction: column;
+    gap: 24px;
+  }
 }
+
+
 
