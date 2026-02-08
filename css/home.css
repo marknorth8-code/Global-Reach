@@ -241,7 +241,7 @@
 .locations-carousel-wrapper {
   position: relative;
   flex: 0 0 55%;
-  overflow: hidden; /* HARD CLIP — no bleed */
+  overflow: visible; /* HARD CLIP — no bleed */
 }
 
 /* TRACK */
