@@ -66,10 +66,10 @@
   </div>
 </section>
 
-
-    <!-- ========= SECTION 4: LOCATIONS CAROUSEL ========= -->
-<section class="locations-carousel page-section">
+<!-- ========= SECTION 4: LOCATIONS CAROUSEL ========= -->
+<section class="locations-carousel carousel-locations page-section">
   <div class="locations-container">
+
     <!-- Left Text Column (40%) -->
     <div class="locations-text">
       <h2>Locations</h2>
@@ -78,33 +78,45 @@
 
     <!-- Right Carousel Column (60%) -->
     <div class="locations-carousel-wrapper">
-      <div class="locations-carousel-track" id="locations-carousel-track">
+
+      <!-- Track (manual scroll) -->
+      <div
+        class="locations-carousel-track"
+        id="locations-carousel-track"
+        aria-label="Locations carousel"
+      >
         <div class="carousel-item">
           <img src="images/locations/br/brazil.jpg" alt="Brazil">
           <p>Brazil</p>
         </div>
+
         <div class="carousel-item">
           <img src="images/locations/jp/japan.jpg" alt="Japan">
           <p>Japan</p>
         </div>
+
         <div class="carousel-item">
           <img src="images/locations/nz/nz.jpg" alt="New Zealand">
           <p>New Zealand</p>
         </div>
+
         <div class="carousel-item">
           <img src="images/locations/uk/uk.jpg" alt="United Kingdom">
           <p>United Kingdom</p>
         </div>
       </div>
 
-      <!-- Arrows -->
+      <!-- Manual scroll arrows -->
       <div class="locations-carousel-arrows">
-        <button class="locations-prev">&lt;</button>
-        <button class="locations-next">&gt;</button>
+        <button class="locations-prev" aria-label="Previous location">&lt;</button>
+        <button class="locations-next" aria-label="Next location">&gt;</button>
       </div>
+
     </div>
   </div>
 </section>
+
+
 
          <hr class="section-divider">
 
