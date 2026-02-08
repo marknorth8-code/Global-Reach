@@ -12,6 +12,7 @@ async function loadPartial(selector, file) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadPartial("#header", "../partials/header.html");
-  loadPartial("#footer", "../partials/footer.html");
+  // Update paths for root-level pages
+  loadPartial("#header", "partials/header.html");
+  loadPartial("#footer", "partials/footer.html");
 });
