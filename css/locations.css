@@ -49,24 +49,31 @@
 }
 
 /* ================= IMAGE GRID ================= */
-
-.location-gallery {
-  padding-bottom: 80px;
-}
-
-.location-grid {
+.property-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 }
 
-.location-image {
-  aspect-ratio: 3 / 2;
+.property-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   overflow: hidden;
+  background: #fff;
 }
 
-.location-image img {
+.property-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  padding-top: 75%; /* 4:3 aspect ratio */
+  background-size: cover;
+  background-position: center;
 }
+
+.property-title {
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
