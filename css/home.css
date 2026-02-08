@@ -331,18 +331,18 @@
 /* =========================
    RESPONSIVE: STACK ON MOBILE
    ========================= */
-@media (max-width: 767px) {
-  .locations-container {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .locations-text,
-  .locations-carousel-wrapper {
-    flex: 0 0 100%;
-  }
-
+@media (max-width: 1024px) {
   .locations-carousel-track .carousel-item {
-    width: 80%; /* or 100% if you want full-width cards */
+    flex: 0 0 90%;       /* nearly full width on tablet */
   }
 }
+
+@media (max-width: 767px) {
+  .locations-carousel-wrapper {
+    flex: 0 0 100%;      /* full width on mobile */
+  }
+  .locations-carousel-track .carousel-item {
+    flex: 0 0 95%;       /* almost full width on mobile */
+  }
+}
+
