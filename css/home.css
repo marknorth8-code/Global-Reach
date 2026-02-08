@@ -244,9 +244,9 @@
   line-height: 1.5;
 }
 
-/* Right carousel column */
+/* Right carousel column stays 60% */
 .locations-carousel-wrapper {
-  flex: 0 0 58%;
+  flex: 0 0 58%;       /* keep ~60% of screen */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -255,32 +255,37 @@
 /* Track: horizontal scroll */
 .locations-carousel-track {
   display: flex;
-  gap: 16px;
+  gap: 16px;            /* small space between images */
   overflow-x: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   width: 100%;
 }
 
+/* Hide scrollbar */
 .locations-carousel-track::-webkit-scrollbar {
-  display: none; /* hide scrollbar */
+  display: none;
 }
 
-/* Carousel items */
+/* Carousel items now fill almost full width of right column */
 .locations-carousel-track .carousel-item {
-  flex: 0 0 auto;
-  width: 250px;
+  flex: 0 0 100%;       /* item takes full width of track container */
+  max-width: 100%;      /* ensure it doesn’t exceed container */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
+/* Images */
 .locations-carousel-track .carousel-item img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
+  width: 100%;          /* fill the item */
+  height: auto;         /* maintain aspect ratio */
+  max-height: 400px;    /* optional: limit very tall images */
+  object-fit: cover;    /* cover container nicely */
+  border-radius: 8px;   /* small margin effect */
   margin-bottom: 0.5rem;
 }
 
