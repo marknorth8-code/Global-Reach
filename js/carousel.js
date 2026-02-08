@@ -95,14 +95,31 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- AUTOPLAY ---------- */
   function startAutoplay() {
     if (!config.autoplay || autoplayTimer) return;
+
     autoplayTimer = setInterval(() => {
-      if (!isPaused && !isDragging) next();
+      if (isPaused || isDragging) return;
+
+      // Stop autoplay at last real slide and reset to start
+      if (currentIndex === realTotal) {
+        stopAutoplay();
+        resetToStart();
+        return;
+      }
+
+      next();
     }, config.autoplayDelay);
   }
 
   function stopAutoplay() {
     clearInterval(autoplayTimer);
     autoplayTimer = null;
+  }
+
+  function resetToStart() {
+    track.style.transition = "transform 400ms ease";
+    currentIndex = 1;
+    setTranslate(-currentIndex * getStep());
+    updateCounter();
   }
 
   if (config.pauseOnHover) {
