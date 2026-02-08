@@ -227,16 +227,25 @@
   align-items: stretch;
 }
 
+.locations-carousel {
+  padding-bottom: 60px;
+}
+
+
 /* 40% text */
 .locations-text {
-  flex: 0 0 40%;
+  flex: 0 0 45%;
 }
 
 /* 60% carousel */
 .locations-carousel-wrapper {
   position: relative;
-  flex: 0 0 60%;
+  flex: 0 0 55%;
   overflow: hidden;              /* CRITICAL */
+}
+
+.locations-carousel-track {
+  padding-left: 24px;
 }
 
 /* Track */
