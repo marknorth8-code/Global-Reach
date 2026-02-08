@@ -1,8 +1,8 @@
 /* ================= LOCATION HERO ================= */
-
 .location-hero {
-  height: 200px;
+  height: 400px; /* Increase from 200px for better visual impact */
   width: 100%;
+  background-image: url('../images/locations/br/hero.JPG');
   background-size: cover;
   background-position: center;
   display: flex;
