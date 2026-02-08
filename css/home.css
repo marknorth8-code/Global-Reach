@@ -226,6 +226,10 @@
   gap: 48px;
   align-items: stretch;
 }
+.locations-container {
+  padding-left: 4%;
+  padding-right: 4%;
+}
 
 .locations-carousel {
   padding-bottom: 60px;
