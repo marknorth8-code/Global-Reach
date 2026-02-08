@@ -1,7 +1,8 @@
+// include.js
 function includeHTML() {
   const includes = [
-    { id: "header", file: "../includes/header.html" },
-    { id: "footer", file: "../includes/footer.html" }
+    { id: "header", file: "/includes/header.html" },
+    { id: "footer", file: "/includes/footer.html" }
   ];
 
   includes.forEach(item => {
