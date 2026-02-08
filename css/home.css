@@ -310,6 +310,18 @@
 .locations-carousel-arrows button:hover {
   background-color: #555;
 }
+.locations-carousel-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.locations-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
 
 /* =========================
    RESPONSIVE: STACK ON MOBILE
