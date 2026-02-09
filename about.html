@@ -13,7 +13,45 @@
   <!-- HEADER (IDENTICAL ON ALL PAGES) -->
     <div id="header"></div>
 
+<section class="page-section section-1">
+  <div class="container section-1-inner">
+    <div class="text-content" style="flex: 0 0 45%;">
+      <h1>About</h1>
+      <p>Brief placeholder text.</p>
+    </div>
+    <div class="image-content" style="flex: 0 0 55%;">
+      <img src="images/about-hero.jpg" alt="About Image">
+    </div>
+  </div>
+</section>
 
+<style>
+  /* SECTION 1 FLEX LAYOUT */
+  .section-1-inner {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* spacing between text and image */
+  }
+
+  .section-1 .image-content img {
+    width: 100%;
+    height: auto; /* preserves aspect ratio */
+    display: block;
+    object-fit: cover; /* ensures full coverage without distortion */
+  }
+
+  /* Responsive: stack on smaller screens */
+  @media (max-width: 767px) {
+    .section-1-inner {
+      flex-direction: column;
+    }
+    .text-content,
+    .image-content {
+      flex: 1 1 100%;
+    }
+  }
+</style>
+  
   <!-- MAIN -->
   <main>
     <section class="page-section">
