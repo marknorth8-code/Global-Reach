@@ -105,14 +105,19 @@
   }
 }
 
-/* ================= SECTION 3 – WORK CAROUSEL ================= */
+/* ABOUT PAGE – WORK CAROUSEL MATCHING LOCATIONS CAROUSEL */
+.locations-carousel {
+  width: 100%;
+  padding: 90px 0 60px;
+}
 
-/* Container split: left text 45%, right carousel 55% */
 .locations-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
   display: flex;
-  gap: 20px;
+  gap: 48px;
   align-items: flex-start;
-  flex-wrap: nowrap; /* prevent wrapping on desktop */
 }
 
 .locations-text {
@@ -120,73 +125,62 @@
 }
 
 .locations-carousel-wrapper {
-  flex: 0 0 55%;
-  overflow: hidden; /* hide excess carousel items */
   position: relative;
+  flex: 0 0 55%;
+  overflow: hidden;
 }
 
-/* Track: horizontal scroll flex */
-#about-locations-carousel-track {
+.locations-carousel-track {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding-bottom: 10px; /* optional space for scrollbar */
+  scrollbar-width: none;
 }
 
-/* Remove scrollbar for webkit */
-#about-locations-carousel-track::-webkit-scrollbar {
+.locations-carousel-track::-webkit-scrollbar {
   display: none;
 }
 
-/* Carousel items */
-#about-locations-carousel-track .carousel-item {
-  flex: 0 0 auto;  /* don't shrink */
-  width: 200px;    /* fixed item width */
-  max-width: 100%; /* safety */
-  text-align: center;
+.locations-carousel-track .carousel-item {
+  flex: 0 0 100%; /* full width of wrapper */
 }
 
-#about-locations-carousel-track .carousel-item img {
-  width: 100%;      /* fit container */
-  height: auto;
-  border-radius: 12px;
+.locations-carousel-track img {
+  width: 100%;
+  max-height: 420px;
   object-fit: cover;
+  border-radius: 8px;
+  display: block;
 }
 
-/* Carousel arrows */
+.locations-carousel-track p {
+  margin-top: 10px;
+  text-align: left;
+  padding-left: 4px;
+  font-size: 0.9rem;
+}
+
 .locations-carousel-arrows {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
   display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  pointer-events: none; /* allow only buttons */
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px; /* arrows below carousel */
 }
 
-.locations-carousel-arrows button {
-  pointer-events: all;
-  background: #fff;
-  border: 1px solid #ccc;
+.locations-prev,
+.locations-next {
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  padding: 8px 12px;
+  border: 1px solid rgba(0,0,0,0.3);
+  background: #fff;
   cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
 }
 
-/* Responsive: stack text + carousel */
-@media (max-width: 767px) {
-  .locations-container {
-    flex-direction: column;
-  }
-  .locations-text,
-  .locations-carousel-wrapper {
-    flex: 1 1 100%;
-  }
-
-  #about-locations-carousel-track .carousel-item {
-    width: 80%; /* smaller width on mobile */
-    margin: 0 auto;
-  }
+.locations-carousel-arrows button:hover {
+  background: #111;
+  color: #fff;
 }
