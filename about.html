@@ -4,32 +4,35 @@
   <meta charset="utf-8">
   <title>About | Global Reach</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="canonical" href="">
+
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/about.css">
 </head>
 
 <body>
 
-  <!-- HEADER -->
+  <!-- ================= HEADER ================= -->
   <div id="header"></div>
 
-  <!-- SECTION 1 – INTRO HERO -->
+  <!-- ================= SECTION 1: INTRO ================= -->
   <section class="page-section section-1">
     <div class="container section-1-inner">
+
       <div class="text-content">
         <h1>About</h1>
         <p>Brief placeholder text.</p>
       </div>
+
       <div class="image-content">
-        <img src="images/about/about-hero.jpg" alt="About Image">
+        <img src="images/about/about-hero.jpg" alt="About Global Reach">
       </div>
+
     </div>
   </section>
 
   <hr class="section-divider">
 
-  <!-- SECTION 2 – IMAGE + TEXT PROFILES -->
+  <!-- ================= SECTION 2: PROFILES ================= -->
   <section class="page-section section-2">
     <div class="container">
 
@@ -68,67 +71,74 @@
         </div>
 
       </div>
-
     </div>
   </section>
 
   <hr class="section-divider">
 
-<!-- ========= SECTION 3 – WORK CAROUSEL ========= -->
-<section class="locations-carousel page-section">
-  <div class="locations-container">
+  <!-- ================= SECTION 3: WORK CAROUSEL ================= -->
+  <section class="locations-carousel page-section">
+    <div class="locations-container">
 
-    <!-- LEFT TEXT COLUMN -->
-    <div class="locations-text">
-      <h2>Our Global Presence</h2>
-      <p>Discover the regions where we operate and invest, and explore our strategic locations worldwide.</p>
-    </div>
-
-    <!-- RIGHT CAROUSEL COLUMN -->
-    <div class="locations-carousel-wrapper">
-
-      <!-- TRACK -->
-      <div class="locations-carousel-track" id="about-locations-carousel-track" aria-label="About page locations carousel">
-        <div class="carousel-item">
-          <img src="images/about/work/work-01.jpg" alt="Work 1">
-          <p>Location 1</p>
-        </div>
-        <div class="carousel-item">
-          <img src="images/about/work/work-02.webp" alt="Work 2">
-          <p>Location 2</p>
-        </div>
-        <div class="carousel-item">
-          <img src="images/about/work/work-03.webp" alt="Work 3">
-          <p>Location 3</p>
-        </div>
-        <div class="carousel-item">
-          <img src="images/about/work/work-04.webp" alt="Work 4">
-          <p>Location 4</p>
-        </div>
+      <!-- LEFT TEXT -->
+      <div class="locations-text">
+        <h2>Our Global Presence</h2>
+        <p>
+          Discover the regions where we operate and invest,
+          and explore our strategic locations worldwide.
+        </p>
       </div>
 
-      <!-- MANUAL ARROWS BELOW CAROUSEL -->
-      <div class="manual-carousel">
-  <div class="manual-carousel-track">
-    <!-- items -->
-  </div>
+      <!-- RIGHT CAROUSEL -->
+      <div class="locations-carousel-wrapper">
 
-  <div class="manual-carousel-arrows">
-    <button class="manual-prev" aria-label="Previous">&lt;</button>
-    <button class="manual-next" aria-label="Next">&gt;</button>
-  </div>
-</div>
+        <div class="carousel" data-carousel="manual">
 
-   </div>
-</section>
+          <button class="carousel-prev" aria-label="Previous">&lt;</button>
 
-  
-  <!-- FOOTER -->
+          <div
+            class="carousel-track locations-carousel-track"
+            id="about-locations-carousel-track"
+            aria-label="About page work carousel"
+          >
+
+            <div class="carousel-item">
+              <img src="images/about/work/work-01.jpg" alt="Work 1">
+              <p>Location 1</p>
+            </div>
+
+            <div class="carousel-item">
+              <img src="images/about/work/work-02.webp" alt="Work 2">
+              <p>Location 2</p>
+            </div>
+
+            <div class="carousel-item">
+              <img src="images/about/work/work-03.webp" alt="Work 3">
+              <p>Location 3</p>
+            </div>
+
+            <div class="carousel-item">
+              <img src="images/about/work/work-04.webp" alt="Work 4">
+              <p>Location 4</p>
+            </div>
+
+          </div>
+
+          <button class="carousel-next" aria-label="Next">&gt;</button>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
   <div id="footer"></div>
 
-  <!-- JS -->
+  <!-- ================= JS ================= -->
   <script src="js/include.js"></script>
   <script src="js/header.js"></script>
   <script src="js/manual-carousel.js"></script>
+
 </body>
 </html>
