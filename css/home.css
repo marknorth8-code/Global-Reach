@@ -291,8 +291,7 @@
 
 /* Single slide */
 .locations-carousel-track .carousel-item {
-  flex: 0 0 100%;       /* fill wrapper width */
-  max-width: 100%;
+  flex: 0 0 auto;
 }
 
 /* Image inside slide */
