@@ -260,64 +260,80 @@
   object-fit: cover;
 }
 
-/* ========= LOCATIONS CAROUSEL SINGLE-SLIDE MATCHING INTRO IMAGE ========= */
+/* ========= LOCATIONS CAROUSEL – MATCH SECTION 1 ========= */
+
+/* Container: keeps carousel in column layout */
 .locations-container {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  gap: 48px;
+  gap: 48px;            /* space between text and carousel */
   align-items: flex-start;
+  padding: 0 12px;      /* small margin left/right from page edge */
 }
 
-/* LEFT TEXT — 45% */
+/* LEFT TEXT — 45% width */
 .locations-text {
   flex: 0 0 45%;
 }
 
-/* RIGHT CAROUSEL — 55% */
+/* RIGHT CAROUSEL — 55% width */
 .locations-carousel-wrapper {
   flex: 0 0 55%;
-  max-width: 55%;      /* ensure wrapper does not exceed 55% of container */
   overflow: hidden;
   position: relative;
+  border-radius: 8px;
 }
 
-/* Track */
+/* Track: flex row with gap between slides */
 .locations-carousel-track {
   display: flex;
-  gap: 0;
-  overflow-x: hidden;
+  gap: 16px;            /* small gap between images */
+  overflow-x: auto;      /* horizontal scroll if needed */
+  scroll-behavior: smooth;
+  padding: 8px 0;       /* optional top/bottom padding inside track */
 }
 
-/* Single slide */
+/* Each slide */
 .locations-carousel-track .carousel-item {
-  flex: 0 0 auto;
+  flex: 0 0 auto;       /* natural width of image */
+  width: 100%;          /* take full wrapper width */
+  max-width: 100%;
+  height: 420px;        /* match intro image height */
+  overflow: hidden;
+  border-radius: 8px;
 }
 
-/* Image inside slide */
+/* Image inside slide: auto crop to fit container */
 .locations-carousel-track img {
   width: 100%;
-  height: auto;
-  max-height: 420px;    /* match intro image */
-  object-fit: cover;
-  border-radius: 8px;
+  height: 100%;
+  object-fit: cover;    /* crop if needed */
   display: block;
+  border-radius: 8px;
 }
 
-/* Mobile */
+/* Mobile adjustments */
 @media (max-width: 900px) {
+  .locations-container {
+    flex-direction: column;
+    padding: 0 12px;    /* margin from edges */
+  }
+
+  .locations-text {
+    flex: 0 0 100%;
+  }
+
   .locations-carousel-wrapper {
     flex: 0 0 100%;
-    max-width: 100%;
   }
 
-  .locations-carousel-track img {
-    max-height: 300px;
+  .locations-carousel-track .carousel-item {
+    height: 300px;      /* match mobile intro image height */
   }
 }
 
-
-/* TEXT BELOW IMAGE — LEFT ALIGNED */
+/* Text below image */
 .locations-carousel-track p {
   margin-top: 10px;
   text-align: left;
@@ -325,7 +341,7 @@
   font-size: 0.9rem;
 }
 
-/* ARROWS — BELOW CAROUSEL */
+/* Arrows below carousel */
 .locations-carousel-arrows {
   display: flex;
   justify-content: center;
@@ -349,3 +365,8 @@
   background: #111;
   color: #fff;
 }
+
+
+
+
+
