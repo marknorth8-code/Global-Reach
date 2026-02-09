@@ -8,10 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- CONFIG ---------- */
   const introImages = [
-    "images/home/hero-01.jpg",
-    "images/home/hero-02.jpg",
-    "images/home/hero-03.jpg",
-    "images/home/hero-04.jpg"
+    "images/home/hero-01.webp",
+    "images/home/hero-02.webp",
+    "images/home/hero-03.webp",
+    "images/home/hero-04.webp"
   ];
 
   const interval = 4000; // ms
