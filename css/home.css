@@ -167,8 +167,8 @@
 }
 
 .carousel-hero .carousel-item {
-  flex: 0 0 750px;        /* width of each slide */
-  max-width: 750px;
+  flex: 0 0 700px;        /* width of each slide */
+  max-width: 700px;
   aspect-ratio: 3 / 2;    /* maintain image ratio */
 }
 
