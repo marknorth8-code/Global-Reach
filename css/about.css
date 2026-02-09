@@ -105,71 +105,46 @@
   }
 }
 
-/* =========================================================
-   SECTION 3 – WORK / LOCATIONS CAROUSEL
-   ========================================================= */
-.locations-carousel-wrapper {
-  position: relative;
-}
-
-.locations-carousel-track {
+/* ================= SECTION 3 – WORK CAROUSEL ================= */
+#about-locations-carousel-track {
   display: flex;
   gap: 20px;
   overflow-x: auto;
   scroll-behavior: smooth;
 }
 
-.locations-carousel-track::-webkit-scrollbar {
+#about-locations-carousel-track::-webkit-scrollbar {
   display: none;
 }
 
-.locations-carousel-arrows {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.locations-carousel-arrows button {
-  background: #333;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.carousel-item {
-  min-width: 220px;
-  flex-shrink: 0;
+#about-locations-carousel-track .carousel-item {
+  flex: 0 0 auto; /* prevent shrinking */
+  max-width: 100%; /* constrain image width */
   text-align: center;
 }
 
-.carousel-item img {
-  width: 100%;
+#about-locations-carousel-track .carousel-item img {
+  width: 100%;  /* fit container */
   height: auto;
+  max-width: 250px; /* constrain size */
   border-radius: 12px;
   object-fit: cover;
 }
 
-/* Left text column in carousel */
-.locations-text {
-  flex: 0 0 40%;
-  padding-right: 20px;
-}
+/* Carousel arrows inherit locations-carousel styles, no changes needed */
 
-/* Right carousel column */
-.locations-carousel-wrapper {
-  flex: 0 0 60%;
-}
-
-/* Responsive carousel layout */
+/* Responsive: stack on mobile */
 @media (max-width: 767px) {
-  .locations-carousel-wrapper,
-  .locations-text {
+  .locations-container {
+    flex-direction: column;
+  }
+
+  .locations-text,
+  .locations-carousel-wrapper {
     flex: 1 1 100%;
-    padding: 0;
+  }
+
+  #about-locations-carousel-track .carousel-item img {
+    max-width: 100%;
   }
 }
