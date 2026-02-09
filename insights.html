@@ -25,59 +25,55 @@
 
   <main id="main-content">
 
-    <!-- ================= INSIGHTS INTRO ================= -->
-    <section class="insights-intro section">
-      <div class="container">
-        <h1>Insights</h1>
-        <p>
-          <!-- Intro text placeholder -->
-        </p>
-      </div>
-    </section>
+  <!-- PAGE CONTENT -->
+  <main class="insights-page">
 
-    <hr class="insights-divider">
+    <h1 class="insights-title">Our Insights</h1>
 
-    <!-- ================= INSIGHTS GRID ================= -->
-    <section class="insights-list section">
-      <div class="container">
-
-        <!-- Grid populated from insights JSON -->
-        <div
-          class="insights-grid"
-          aria-label="Insights articles"
-        >
-
-          <!-- Insight card placeholder -->
-          <article class="insight-card">
-            <div class="insight-image" aria-hidden="true"></div>
-
-            <div class="insight-content">
-              <h2>Insight title</h2>
-              <div class="insight-meta">
-                <!-- Date / category placeholder -->
-              </div>
-              <p class="insight-excerpt">
-                <!-- Short excerpt placeholder -->
-              </p>
-            </div>
-          </article>
-
-          <!-- Repeat cards via JS in Step 2 -->
-
-        </div>
-
-        <!-- ================= PAGINATION PLACEHOLDER ================= -->
-        <nav
-          class="insights-pagination"
-          aria-label="Insights pagination"
-        >
-          <!-- Pagination controls injected later -->
-        </nav>
-
+    <section class="insights-grid-section">
+      <div class="insights-grid" id="insightsGrid">
+        <!-- insight cards injected here -->
       </div>
     </section>
 
   </main>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+
+  <!-- INSIGHTS DATA LOAD -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('JS/insights-data.json')
+        .then(res => res.json())
+        .then(data => {
+          const grid = document.getElementById("insightsGrid");
+
+          data.forEach(item => {
+            const article = document.createElement("article");
+            article.className = "insight-card";
+
+            // Wrap summary+date in a container to allow button pinned
+            article.innerHTML = `
+  <a href="${item.link}" class="insight-card-link">
+    <img src="./${item.image}" alt="${item.title}" loading="lazy">
+    <div class="insight-content">
+      <h3>${item.title}</h3>
+      <div class="summary-container">
+        <p>${item.summary}</p>
+        <span class="insight-date">${item.date}</span>
+      </div>
+      <span class="read-more">Read me</span>
+    </div>
+  </a>
+`;
+
+            grid.appendChild(article);
+          });
+        })
+        .catch(err => console.error("Failed to load Insights JSON:", err));
+    });
+  </script>
 
   <!-- ================= FOOTER ================= -->
   <!-- Include footer.html -->
