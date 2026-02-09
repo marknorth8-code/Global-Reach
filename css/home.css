@@ -147,6 +147,7 @@
 /* =========================================================
    HOME – SERVICES CAROUSEL (Section 3)
    ========================================================= */
+
 .home-hero {
   margin-top: 60px;
   padding-bottom: 80px;
@@ -181,6 +182,13 @@
 }
 
 /* ----------------- ARROWS ----------------- */
+#services-carousel .locations-carousel-arrows {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
 #services-carousel .carousel-arrow {
   position: absolute;
   top: 50%;
