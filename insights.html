@@ -17,9 +17,39 @@
   <script src="js/include.js" defer></script>
   <script src="js/header.js" defer></script>
 
-  <!-- INSIGHTS PAGE LOGIC -->
-  <script src="insights/JS/main.js" defer></script>
-</head>
+  <!-- INSIGHTS DATA LOAD -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('insights/JS/insights-data.json')
+        .then(res => res.json())
+        .then(data => {
+          const grid = document.getElementById("insightsGrid");
+
+          data.forEach(item => {
+            const article = document.createElement("article");
+            article.className = "insight-card";
+
+            // Wrap summary+date in a container to allow button pinned
+            article.innerHTML = `
+  <a href="${item.link}" class="insight-card-link">
+    <img src="./${item.image}" alt="${item.title}" loading="lazy">
+    <div class="insight-content">
+      <h3>${item.title}</h3>
+      <div class="summary-container">
+        <p>${item.summary}</p>
+        <span class="insight-date">${item.date}</span>
+      </div>
+      <span class="read-more">Read me</span>
+    </div>
+  </a>
+`;
+
+            grid.appendChild(article);
+          });
+        })
+        .catch(err => console.error("Failed to load Insights JSON:", err));
+    });
+  </script>
 
 <body>
 
