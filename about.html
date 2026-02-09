@@ -6,161 +6,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="">
   <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/about.css">
 </head>
 
 <body>
 
-  <!-- HEADER (IDENTICAL ON ALL PAGES) -->
-    <div id="header"></div>
+  <!-- HEADER -->
+  <div id="header"></div>
 
-<section class="page-section section-1">
-  <div class="container section-1-inner">
-    <div class="text-content" style="flex: 0 0 45%;">
-      <h1>About</h1>
-      <p>Brief placeholder text.</p>
+  <!-- SECTION 1 – INTRO HERO -->
+  <section class="page-section section-1">
+    <div class="container section-1-inner">
+      <div class="text-content">
+        <h1>About</h1>
+        <p>Brief placeholder text.</p>
+      </div>
+      <div class="image-content">
+        <img src="images/about/about-hero.jpg" alt="About Image">
+      </div>
     </div>
-    <div class="image-content" style="flex: 0 0 55%;">
-      <img src="images/about/about-hero.jpg" alt="About Image">
-    </div>
-  </div>
-</section>
+  </section>
 
-<style>
-  /* SECTION 1 FLEX LAYOUT */
-  .section-1-inner {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* spacing between text and image */
-  }
-
-  .section-1 .image-content img {
-    width: 100%;
-    height: auto; /* preserves aspect ratio */
-    display: block;
-    object-fit: cover; /* ensures full coverage without distortion */
-    border-radius: 16px; /* rounded corners */
-  }
-
-  /* Responsive: stack on smaller screens */
-  @media (max-width: 767px) {
-    .section-1-inner {
-      flex-direction: column;
-    }
-    .text-content,
-    .image-content {
-      flex: 1 1 100%;
-    }
-  }
-</style>
-
-    <hr class="section-divider">
-
-   <!-- SECTION 2 (PROFILES) -->
-<section class="page-section section-2">
-  <div class="container section-2-inner">
-
-    <div class="images-column">
-
-      <div class="image-text-pair">
-        <img src="images/about/photo-1.jpg" alt="Photo 1">
-        <div class="image-text">
-          <h3>Photo 1 Title</h3>
-          <p>Some descriptive text for photo 1.</p>
-        </div>
-      </div>
-
-      <div class="image-text-pair">
-        <img src="images/about/photo-2.jpg" alt="Photo 2">
-        <div class="image-text">
-          <h3>Photo 2 Title</h3>
-          <p>Some descriptive text for photo 2.</p>
-        </div>
-      </div>
-
-      <div class="image-text-pair">
-        <img src="images/about/photo-3.jpg" alt="Photo 3">
-        <div class="image-text">
-          <h3>Photo 3 Title</h3>
-          <p>Some descriptive text for photo 3.</p>
-        </div>
-      </div>
-
-      <div class="image-text-pair">
-        <img src="images/about/photo-4.jpg" alt="Photo 4">
-        <div class="image-text">
-          <h3>Photo 4 Title</h3>
-          <p>Some descriptive text for photo 4.</p>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-  
-  
   <hr class="section-divider">
 
-<!-- ========= SECTION: ABOUT WORK CAROUSEL ========= -->
-<section class="locations-carousel page-section">
+  <!-- SECTION 2 – IMAGE + TEXT PROFILES -->
+  <section class="page-section section-2">
+    <div class="container">
 
-  <div class="locations-container">
+      <div class="images-column">
 
-    <!-- Left Text Column (40%) -->
-    <div class="locations-text">
-      <h2>Our Global Presence</h2>
-      <p>Discover the regions where we operate and invest, and explore our strategic locations worldwide.</p>
-    </div>
-
-    <!-- Right Carousel Column (60%) -->
-    <div class="locations-carousel-wrapper">
-
-      <!-- Track (manual scroll) -->
-      <div
-        class="locations-carousel-track"
-        id="about-locations-carousel-track"
-        aria-label="About page locations carousel"
-      >
-        <div class="carousel-item">
-          <img src="images/about/work-01.jpg" alt="Work 1">
-          <p>Location 1</p>
+        <div class="image-text-pair">
+          <img src="images/about/photo-1.jpg" alt="Photo 1">
+          <div class="image-text">
+            <h3>Photo 1 Title</h3>
+            <p>Some descriptive text for photo 1.</p>
+          </div>
         </div>
 
-        <div class="carousel-item">
-          <img src="images/about/work-02.webp" alt="Work 2">
-          <p>Location 2</p>
+        <div class="image-text-pair">
+          <img src="images/about/photo-2.jpg" alt="Photo 2">
+          <div class="image-text">
+            <h3>Photo 2 Title</h3>
+            <p>Some descriptive text for photo 2.</p>
+          </div>
         </div>
 
-        <div class="carousel-item">
-          <img src="images/about/work-03.webp" alt="Work 3">
-          <p>Location 3</p>
+        <div class="image-text-pair">
+          <img src="images/about/photo-3.jpg" alt="Photo 3">
+          <div class="image-text">
+            <h3>Photo 3 Title</h3>
+            <p>Some descriptive text for photo 3.</p>
+          </div>
         </div>
 
-        <div class="carousel-item">
-          <img src="images/about/work-04.webp" alt="Work 4">
-          <p>Location 4</p>
+        <div class="image-text-pair">
+          <img src="images/about/photo-4.jpg" alt="Photo 4">
+          <div class="image-text">
+            <h3>Photo 4 Title</h3>
+            <p>Some descriptive text for photo 4.</p>
+          </div>
         </div>
-      </div>
 
-      <!-- Manual scroll arrows -->
-      <div class="locations-carousel-arrows">
-        <button class="locations-prev" aria-label="Previous location">&lt;</button>
-        <button class="locations-next" aria-label="Next location">&gt;</button>
       </div>
 
     </div>
-  </div>
-</section>
-  
-  <!-- FOOTER (IDENTICAL ON ALL PAGES) -->
+  </section>
 
+  <hr class="section-divider">
+
+  <!-- SECTION 3 – WORK / LOCATIONS CAROUSEL -->
+  <section class="locations-carousel page-section">
+    <div class="container" style="display:flex; gap:20px; flex-wrap:wrap;">
+
+      <!-- Left text -->
+      <div class="locations-text">
+        <h2>Our Global Presence</h2>
+        <p>Discover the regions where we operate and invest, and explore our strategic locations worldwide.</p>
+      </div>
+
+      <!-- Right carousel -->
+      <div class="locations-carousel-wrapper">
+        <div class="locations-carousel-track" id="about-locations-carousel-track" aria-label="About page locations carousel">
+          <div class="carousel-item">
+            <img src="images/about/work-01.jpg" alt="Work 1">
+            <p>Location 1</p>
+          </div>
+          <div class="carousel-item">
+            <img src="images/about/work-02.webp" alt="Work 2">
+            <p>Location 2</p>
+          </div>
+          <div class="carousel-item">
+            <img src="images/about/work-03.webp" alt="Work 3">
+            <p>Location 3</p>
+          </div>
+          <div class="carousel-item">
+            <img src="images/about/work-04.webp" alt="Work 4">
+            <p>Location 4</p>
+          </div>
+        </div>
+
+        <!-- Arrows -->
+        <div class="locations-carousel-arrows">
+          <button class="locations-prev" aria-label="Previous location">&lt;</button>
+          <button class="locations-next" aria-label="Next location">&gt;</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <div id="footer"></div>
 
+  <!-- JS -->
   <script src="js/include.js"></script>
   <script src="js/header.js"></script>
-<script src="js/carousel.js"></script>
-<script src="js/carousel-locations.js"></script>
-  
+  <script src="js/carousel.js"></script>
+  <script src="js/carousel-locations.js"></script>
 </body>
 </html>
