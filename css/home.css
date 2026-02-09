@@ -235,6 +235,33 @@
   }
 }
 
+/* ===== SHARED MANUAL CAROUSEL BASE ===== */
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+}
+
+.carousel-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px; /* adjust to taste */
+  object-fit: cover;
+}
+
+
 /* =========================
    CAROUSEL – LOCATIONS (Section 4)
    ========================= */
