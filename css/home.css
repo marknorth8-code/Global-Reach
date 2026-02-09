@@ -154,25 +154,25 @@
   position: relative;
 }
 
-#services-carousel {
+.carousel-hero {
   position: relative;
   width: 100%;
   overflow: hidden;
 }
 
-#services-carousel .carousel-track {
+.carousel-hero .carousel-track {
   display: flex;
   gap: 32px;              /* space between slides */
   will-change: transform;
 }
 
-#services-carousel .carousel-item {
+.carousel-hero .carousel-item {
   flex: 0 0 420px;        /* width of each slide */
   max-width: 420px;
   aspect-ratio: 3 / 2;    /* maintain image ratio */
 }
 
-#services-carousel img {
+.carousel-hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -181,7 +181,7 @@
 }
 
 /* ----------------- ARROWS ----------------- */
-#services-carousel .carousel-arrow {
+.carousel-hero .carousel-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -195,20 +195,20 @@
   z-index: 2;
 }
 
-#services-carousel .carousel-arrow:hover {
+.carousel-hero .carousel-arrow:hover {
   opacity: 1;
 }
 
-#services-carousel .carousel-arrow.prev {
+.carousel-hero .carousel-arrow.prev {
   left: 16px;
 }
 
-#services-carousel .carousel-arrow.next {
+.carousel-hero .carousel-arrow.next {
   right: 16px;
 }
 
 /* ----------------- COUNTER ----------------- */
-#services-carousel .carousel-counter {
+.carousel-hero .carousel-counter {
   position: absolute;
   bottom: 24px;
   right: 24px;
@@ -220,17 +220,17 @@
 
 /* ----------------- RESPONSIVE ----------------- */
 @media (max-width: 1024px) {
-  #services-carousel .carousel-item {
+  .carousel-hero .carousel-item {
     flex: 0 0 320px;
     max-width: 320px;
   }
 }
 
 @media (max-width: 768px) {
-  #services-carousel .carousel-item {
+ .carousel-hero .carousel-item {
     flex: 0 0 80%;       /* nearly full width on mobile */
   }
-  #services-carousel .carousel-track {
+ .carousel-hero .carousel-track {
     gap: 16px;
   }
 }
@@ -256,8 +256,7 @@
 .carousel-item img {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: 420px; /* adjust to taste */
+  height: 100%;
   object-fit: cover;
 }
 
