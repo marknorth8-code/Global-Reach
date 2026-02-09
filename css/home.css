@@ -260,7 +260,7 @@
   object-fit: cover;
 }
 
-/* ========= LOCATIONS CAROUSEL – MATCH SECTION 1 ========= */
+/* ========= LOCATIONS CAROUSEL – CONSOLIDATED ========= */
 
 /* Container: keeps carousel aligned like Section 1 */
 .locations-container {
@@ -269,7 +269,7 @@
   display: flex;
   gap: 48px;              /* space between text and carousel */
   align-items: flex-start;
-  padding: 0 24px;        /* margin from page edges like Section 1 */
+  padding: 0 24px;        /* margin from page edges */
 }
 
 /* LEFT TEXT — 45% width */
@@ -288,17 +288,19 @@
 /* Track */
 .locations-carousel-track {
   display: flex;
-  gap: 24px;              /* space between images */
-  overflow: hidden;       /* hide extra from gaps */
+  gap: 24px;               /* space between images */
+  overflow: hidden;        /* hide extra from gaps */
+  padding: 0 12px;         /* small padding left/right so first/last image doesn't touch container */
+  box-sizing: content-box; /* keep padding outside flex calculation */
   width: 100%;
 }
 
 /* Single slide */
 .locations-carousel-track .carousel-item {
-  flex: 0 0 100%;         /* fill wrapper width */
-  max-width: 100%;
-  height: 420px;          /* match intro image height */
-  overflow: hidden;       /* crop inside each slide */
+  flex: 0 0 calc(100% - 24px);  /* slide width minus gap */
+  max-width: calc(100% - 24px);
+  height: 420px;                 /* desktop height */
+  overflow: hidden;              /* crop inside slide */
 }
 
 /* Image inside slide */
@@ -325,8 +327,14 @@
     flex: 0 0 100%;
   }
 
+  .locations-carousel-track {
+    padding: 0 12px;      /* small side padding on mobile */
+  }
+
   .locations-carousel-track .carousel-item {
-    height: 300px;        /* match mobile intro image */
+    height: 300px;        /* mobile height */
+    flex: 0 0 calc(100% - 24px);
+    max-width: calc(100% - 24px);
   }
 }
 
