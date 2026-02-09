@@ -129,3 +129,37 @@
 
 /* ================= PAGE PLACEHOLDER NOTES ================= */
 /* Step 1 placeholder for content-specific styles */
+/* Section 2 layout */
+.images-column {
+  display: flex;
+  flex-direction: column;
+  gap: 90px; /* vertical gap between each image-text pair */
+}
+
+.image-text-pair {
+  display: flex;
+  gap: 20px; /* horizontal gap between image and text */
+  align-items: flex-start;
+}
+
+.image-text-pair img {
+  width: 40%; /* image takes 40% of horizontal space */
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.image-text {
+  flex: 1; /* text takes remaining 60% */
+}
+@media (max-width: 767px) {
+  .image-text-pair {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .image-text-pair img {
+    width: 100%;
+  }
+}
+
