@@ -74,47 +74,50 @@
 
   <hr class="section-divider">
 
-  <!-- SECTION 3 – WORK / LOCATIONS CAROUSEL -->
-  <section class="locations-carousel page-section">
-    <div class="container" style="display:flex; gap:20px; flex-wrap:wrap;">
+<!-- ========= SECTION 3 – WORK CAROUSEL ========= -->
+<section class="locations-carousel page-section">
+  <div class="locations-container" style="display:flex; gap:20px; flex-wrap:nowrap; align-items:flex-start;">
 
-      <!-- Left text -->
-      <div class="locations-text">
-        <h2>Our Global Presence</h2>
-        <p>Discover the regions where we operate and invest, and explore our strategic locations worldwide.</p>
+    <!-- Left Text Column (45%) -->
+    <div class="locations-text" style="flex:0 0 45%;">
+      <h2>Our Global Presence</h2>
+      <p>Discover the regions where we operate and invest, and explore our strategic locations worldwide.</p>
+    </div>
+
+    <!-- Right Carousel Column (55%) -->
+    <div class="locations-carousel-wrapper" style="flex:0 0 55%;">
+
+      <!-- Track -->
+      <div class="locations-carousel-track" id="about-locations-carousel-track" aria-label="About page locations carousel">
+        <div class="carousel-item">
+          <img src="images/about/work/work-01.jpg" alt="Work 1">
+          <p>Location 1</p>
+        </div>
+        <div class="carousel-item">
+          <img src="images/about/work/work-02.webp" alt="Work 2">
+          <p>Location 2</p>
+        </div>
+        <div class="carousel-item">
+          <img src="images/about/work/work-03.webp" alt="Work 3">
+          <p>Location 3</p>
+        </div>
+        <div class="carousel-item">
+          <img src="images/about/work/work-04.webp" alt="Work 4">
+          <p>Location 4</p>
+        </div>
       </div>
 
-      <!-- Right carousel -->
-      <div class="locations-carousel-wrapper">
-        <div class="locations-carousel-track" id="about-locations-carousel-track" aria-label="About page locations carousel">
-          <div class="carousel-item">
-            <img src="images/about/work/work-01.jpg" alt="Work 1">
-            <p>Location 1</p>
-          </div>
-          <div class="carousel-item">
-            <img src="images/about/work/work-02.webp" alt="Work 2">
-            <p>Location 2</p>
-          </div>
-          <div class="carousel-item">
-            <img src="images/about/work/work-03.webp" alt="Work 3">
-            <p>Location 3</p>
-          </div>
-          <div class="carousel-item">
-            <img src="images/about/work/work-04.webp" alt="Work 4">
-            <p>Location 4</p>
-          </div>
-        </div>
-
-        <!-- Arrows -->
-        <div class="locations-carousel-arrows">
-          <button class="locations-prev" aria-label="Previous location">&lt;</button>
-          <button class="locations-next" aria-label="Next location">&gt;</button>
-        </div>
+      <!-- Arrows -->
+      <div class="locations-carousel-arrows">
+        <button class="locations-prev" aria-label="Previous location">&lt;</button>
+        <button class="locations-next" aria-label="Next location">&gt;</button>
       </div>
 
     </div>
-  </section>
+  </div>
+</section>
 
+  
   <!-- FOOTER -->
   <div id="footer"></div>
 
