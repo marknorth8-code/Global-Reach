@@ -44,6 +44,18 @@
     <!-- ========= SECTION 3: SERVICES (MANUAL CAROUSEL) ========= -->
     <section class="home-hero page-section">
 
+#services-carousel .carousel-track {
+  display: flex;
+  gap: 32px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+#services-carousel .carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
       <div class="carousel carousel-hero" id="services-carousel" aria-label="Our services">
 
         <!-- Track -->
