@@ -261,27 +261,45 @@
 }
 
 /* ========= LOCATIONS CAROUSEL SINGLE-SLIDE MATCHING INTRO IMAGE ========= */
+.locations-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+/* LEFT TEXT — 45% */
+.locations-text {
+  flex: 0 0 45%;
+}
+
+/* RIGHT CAROUSEL — 55% */
 .locations-carousel-wrapper {
-  flex: 0 0 55%;          /* same width as intro image */
+  flex: 0 0 55%;
+  max-width: 55%;      /* ensure wrapper does not exceed 55% of container */
   overflow: hidden;
   position: relative;
 }
 
+/* Track */
 .locations-carousel-track {
   display: flex;
   gap: 0;
   overflow-x: hidden;
 }
 
+/* Single slide */
 .locations-carousel-track .carousel-item {
-  flex: 0 0 100%;         /* full width of wrapper */
+  flex: 0 0 100%;       /* fill wrapper width */
   max-width: 100%;
 }
 
+/* Image inside slide */
 .locations-carousel-track img {
   width: 100%;
-  height: auto;           /* keep natural aspect ratio */
-  max-height: 420px;      /* limit height to intro image height */
+  height: auto;
+  max-height: 420px;    /* match intro image */
   object-fit: cover;
   border-radius: 8px;
   display: block;
@@ -291,10 +309,11 @@
 @media (max-width: 900px) {
   .locations-carousel-wrapper {
     flex: 0 0 100%;
+    max-width: 100%;
   }
 
   .locations-carousel-track img {
-    max-height: 300px;    /* match mobile intro image height */
+    max-height: 300px;
   }
 }
 
