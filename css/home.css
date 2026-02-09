@@ -291,7 +291,14 @@
   position: relative;
   flex: 0 0 55%;
   overflow: hidden; /* prevents bleed */
+  
 }
+
+.locations-carousel-wrapper {
+  overflow: hidden; /* keep the container clipped */
+  width: 100%;      /* ensure it’s full width */
+}
+
 
 /* TRACK */
 .locations-carousel-track {
@@ -302,14 +309,18 @@
   scrollbar-width: none;
 }
 
+
 .locations-carousel-track::-webkit-scrollbar {
   display: none;
 }
 
 /* SLIDE — exactly one visible */
+
 .locations-carousel-track .carousel-item {
-  flex: 0 0 100%;
+  flex: 0 0 320px;       /* fixed width for each slide */
+  max-width: 320px;      /* optional */
 }
+
 
 /* IMAGE — DO NOT CHANGE SIZE */
 .locations-carousel-track img {
