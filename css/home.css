@@ -260,72 +260,30 @@
   object-fit: cover;
 }
 
+/* ========= LOCATIONS CAROUSEL SINGLE-SLIDE STYLE ========= */
 
-/* =========================
-   CAROUSEL – LOCATIONS (Section 4)
-   ========================= */
-
-.locations-carousel {
-  width: 100%;
-  padding: 90px 0 60px; /* +60px height retained */
-}
-
-/* INNER WRAPPER — aligns with sections 1 & 2 */
-.locations-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-
-  display: flex;
-  gap: 48px;
-  align-items: flex-start; /* text sits at top */
-}
-
-/* LEFT TEXT — 45% */
-.locations-text {
-  flex: 0 0 45%;
-}
-
-/* RIGHT CAROUSEL — 55% */
 .locations-carousel-wrapper {
+  flex: 0 0 55%;          /* same as intro image */
+  overflow: hidden;       /* hide extra slides */
+  min-height: 420px;      /* match intro image height */
   position: relative;
-  flex: 0 0 55%;
-  overflow: hidden; /* prevents bleed */
-  
 }
 
-.locations-carousel-wrapper {
-  overflow: hidden; /* keep the container clipped */
-  width: 100%;      /* ensure it’s full width */
-}
-
-
-/* TRACK */
 .locations-carousel-track {
   display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
+  gap: 0;                 /* no gap, single image fills container */
+  overflow-x: hidden;
 }
-
-
-.locations-carousel-track::-webkit-scrollbar {
-  display: none;
-}
-
-/* SLIDE — exactly one visible */
 
 .locations-carousel-track .carousel-item {
-  flex: 0 0 320px;       /* fixed width for each slide */
-  max-width: 320px;      /* optional */
+  flex: 0 0 100%;         /* full width of wrapper, only one visible */
+  max-width: 100%;
+  aspect-ratio: 16 / 9;   /* or use same ratio as intro image */
 }
 
-
-/* IMAGE — DO NOT CHANGE SIZE */
 .locations-carousel-track img {
   width: 100%;
-  max-height: 420px;
+  height: 100%;
   object-fit: cover;
   border-radius: 8px;
   display: block;
