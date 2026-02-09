@@ -133,9 +133,14 @@ a:hover {
 }
 
 .primary-nav {
-  width: 60%;
+  width: 55%;                  /* constrain nav to right 55% of page */
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;  /* spread links evenly */
+  align-items: center;
+}
+
+.primary-nav {
+  padding-left: 16px;
 }
 
 .nav-link {
