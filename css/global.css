@@ -122,21 +122,22 @@ a:hover {
 /* =========================================================
    NAVIGATION
    ========================================================= */
-
 .nav-list {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 0px;
+  gap: 0;             /* remove if using space-between on parent */
   padding: 0;
   margin: 0;
+  width: 100%;        /* make nav-list span full width of primary-nav */
 }
 
 .primary-nav {
-  width: 55%;                  /* constrain nav to right 55% of page */
+  width: 55%;                  
   display: flex;
-  justify-content: space-between;  /* spread links evenly */
+  justify-content: space-between;  /* evenly spread links across 55% */
   align-items: center;
+  padding-left: 0;                 /* remove extra padding, let space-between do the work */
 }
 
 .primary-nav {
