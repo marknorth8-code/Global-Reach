@@ -178,6 +178,13 @@
   font-size: 0.9rem;
 }
 
+.locations-carousel-track img {
+  width: 100%;
+  height: 420px;
+  object-fit: contain; /* Shows the whole image, no zoom */
+  background-color: #f4f4f4; /* Optional: adds a subtle background to empty spaces */
+}
+
 /* Mobile */
 @media (max-width: 900px) {
   .locations-container {
