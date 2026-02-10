@@ -41,10 +41,9 @@
 }
 
 .section-1 .intro-image {
+  width: 100%;             /* fill parent flex width */
+  min-height: 420px;       /* ensures visible on desktop */
   background-image: url('images/about/about-hero.webp');
-  width: 100%;             /* fill parent flex item */
-  height: 100%;            /* fill parent flex item */
-  min-height: 420px;       /* ensures visible on short screens */
   background-size: cover;
   background-position: center;
   border-radius: 8px;
@@ -57,9 +56,10 @@
 
 /* Responsive */
 @media (max-width: 900px) {
-  .section-1-inner {
-    flex-direction: column;
+  .site-logo img {
+    max-height: 50px;
   }
+}
 
   .section-1 .text-content,
   .section-1 .image-content {
