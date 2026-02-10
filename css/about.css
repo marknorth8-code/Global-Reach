@@ -56,12 +56,10 @@
 .image-content.intro-image {
   flex: 0 0 55% !important;
   max-width: 55% !important;
-  height: 420px !important;   /* Matches Home min-height */
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
-  border-radius: 8px !important;
-  display: block !important;
+   display: block !important;
 }
 
 /* Mobile Adjustment */
