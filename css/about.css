@@ -1,7 +1,8 @@
 /* =========================================================
    ABOUT PAGE – LAYOUT & COMPONENTS ONLY
-   Depends on global.css for base styles
+   Fully isolated from global carousel rules
    ========================================================= */
+
 
 /* =========================================================
    SECTION 1 – HERO (45 / 55 SPLIT)
@@ -54,6 +55,7 @@
     min-height: 300px;
   }
 }
+
 
 /* =========================================================
    SECTION 2 – IMAGE + TEXT PROFILES
@@ -112,6 +114,7 @@
   }
 }
 
+
 /* =========================================================
    SECTION 3 – WORK / LOCATIONS CAROUSEL (45 / 55 SPLIT)
    ========================================================= */
@@ -135,29 +138,34 @@
   max-width: 45%;
 }
 
-/* Right carousel */
+/* Right carousel column */
 .about-carousel-media {
   flex: 0 0 55%;
   max-width: 55%;
+  position: relative;
 }
 
-/* Carousel window */
+/* Carousel window (hard stop) */
 .about-carousel-media .carousel {
+  width: 100%;
   overflow: hidden;
 }
 
-/* Track */
+/* CRITICAL OVERRIDE:
+   Defeats global max-content rules */
 .about-carousel-media .carousel-track {
   display: flex;
+  width: 100% !important;
 }
 
 /* Slides */
 .about-carousel-media .carousel-item {
   flex: 0 0 100%;
+  width: 100%;
 }
 
 /* Images */
-.about-carousel-media img {
+.about-carousel-media .carousel-item img {
   width: 100%;
   height: 400px;
   object-fit: cover;
@@ -166,7 +174,7 @@
 }
 
 /* Captions */
-.about-carousel-media p {
+.about-carousel-media .carousel-item p {
   margin-top: 10px;
   font-size: 0.9rem;
 }
@@ -183,7 +191,7 @@
     max-width: 100%;
   }
 
-  .about-carousel-media img {
+  .about-carousel-media .carousel-item img {
     height: 300px;
   }
 }
