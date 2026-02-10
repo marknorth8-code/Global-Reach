@@ -288,7 +288,9 @@ a:hover {
   overflow: hidden;
   position: relative;
 }
-
+.locations-carousel-wrapper .carousel {
+  width: 100%;
+}
 
 /* =========================================================
    CAROUSEL – SAFE GLOBAL BASE
