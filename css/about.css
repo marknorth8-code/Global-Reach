@@ -24,23 +24,28 @@
 /* =========================================================
    SECTION 1 – HERO IMAGE
    ========================================================= */
+/* SECTION 1 – HERO IMAGE FIX */
 .section-1-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  flex-wrap: wrap; /* allow stacking if needed */
+  flex-wrap: wrap;
+  max-width: 1200px;   /* constrain container width */
+  margin: 0 auto;      /* center it horizontally */
+  padding: 0 24px;     /* optional, match container padding */
+  box-sizing: border-box;
 }
 
 .section-1-inner .text-content {
-  flex: 1 1 45%;      /* flex-grow, flex-shrink, base width */
-  min-width: 250px;   /* prevents text from shrinking too small */
+  flex: 1 1 45%;
+  min-width: 250px;
   box-sizing: border-box;
 }
 
 .image-content.intro-image {
-  flex: 1 1 50%;      /* flex-grow, flex-shrink, base width */
-  min-width: 250px;   /* ensures image doesn’t disappear */
+  flex: 1 1 50%;
+  min-width: 250px;
   height: 400px;
   background-size: cover;
   background-position: center;
@@ -51,17 +56,17 @@
   .section-1-inner {
     flex-direction: column;
     gap: 20px;
+    max-width: 100%;   /* allow full width on mobile */
+    padding: 0 20px;
   }
-  .image-content.intro-image {
-    width: 100%;
-    height: 250px;
-    min-width: auto;
-  }
+
+  .image-content.intro-image,
   .section-1-inner .text-content {
     width: 100%;
     min-width: auto;
   }
 }
+
 
 /* =========================================================
    SECTION 2 – IMAGE + TEXT PROFILES
