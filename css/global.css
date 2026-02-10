@@ -281,6 +281,15 @@ a:hover {
   background: #fff;
 }
 
+/* Hard constraint: carousels live inside the right 55% column */
+.locations-carousel-wrapper {
+  flex: 0 0 55%;
+  max-width: 55%;
+  overflow: hidden;
+  position: relative;
+}
+
+
 /* =========================================================
    CAROUSEL – SAFE GLOBAL BASE
    ========================================================= */
