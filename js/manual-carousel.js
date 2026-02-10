@@ -3,38 +3,43 @@ document.addEventListener("DOMContentLoaded", () => {
     const track = carousel.querySelector('.carousel-track');
     const prev = carousel.querySelector('.carousel-prev');
     const next = carousel.querySelector('.carousel-next');
+    const items = track?.querySelectorAll('.carousel-item');
 
-    if (!track || !prev || !next) return;
+    if (!track || !prev || !next || !items.length) return;
 
-    let currentIndex = 0;
-    const items = track.querySelectorAll('.carousel-item');
-    const totalItems = items.length;
+    const type = carousel.dataset.carouselType || "full";
+    let index = 0;
 
-    function updateCarousel() {
-      // Moves the track left by 100% for every index
-      // (e.g., index 1 moves it -100%)
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    function slideWidth() {
+      return items[0].getBoundingClientRect().width;
+    }
 
-      // Disable buttons at the edges
-      prev.disabled = currentIndex === 0;
-      next.disabled = currentIndex === totalItems - 1;
+    function update() {
+      if (type === "strip") {
+        track.style.transform = `translateX(-${index * slideWidth()}px)`;
+        next.disabled = index >= items.length - 1;
+      } else {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        next.disabled = index >= items.length - 1;
+      }
+
+      prev.disabled = index === 0;
     }
 
     next.addEventListener("click", () => {
-      if (currentIndex < totalItems - 1) {
-        currentIndex++;
-        updateCarousel();
+      if (index < items.length - 1) {
+        index++;
+        update();
       }
     });
 
     prev.addEventListener("click", () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateCarousel();
+      if (index > 0) {
+        index--;
+        update();
       }
     });
 
-    // Initial button state
-    updateCarousel();
+    update();
   });
 });
