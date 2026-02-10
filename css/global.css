@@ -16,23 +16,19 @@ html {
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Arial, sans-serif;
   color: #111;
-  background: #ffffff;
+  background: #fff;
   line-height: 1.6;
-  padding-top: 90px;
-  overflow-x: clip;
+  padding-top: 90px; /* header offset */
+  overflow-x: hidden;
 }
 
 @media (max-width: 900px) {
   body {
     padding-top: 65px;
   }
-}
-
-html,
-body {
-  max-width: 100%;
 }
 
 /* =========================================================
@@ -95,8 +91,8 @@ a:hover {
   left: 0;
   width: 100%;
   background: #fff;
-  z-index: 1000;
   border-bottom: 1px solid #000;
+  z-index: 1000;
 }
 
 .header-inner {
@@ -112,49 +108,38 @@ a:hover {
 }
 
 .site-logo img {
-  max-height: 50px;  /* adjust smaller or larger as needed */
-  width: auto;       /* keeps aspect ratio */
-  display: block;    /* removes inline spacing issues */
+  max-height: 50px;
+  width: auto;
+  display: block;
 }
-
-@media (max-width: 900px) {
-  .site-logo img {
-    max-height: 50px;
-  }
-}
-
 
 /* =========================================================
-   NAVIGATION (The "Proven" Fix)
+   NAVIGATION
    ========================================================= */
+
 .primary-nav {
-  width: 55%;                  
+  width: 55%;
   display: flex;
-  /* This ensures the nav stays on the right side of the header */
 }
 
 .nav-list {
   list-style: none;
   display: flex;
-  width: 100% !important;     /* Force the list to span the whole 55% */
-  justify-content: space-between; 
+  width: 100%;
+  justify-content: space-between;
   align-items: center;
-  padding: 0;
-  margin: 0;
 }
 
 .nav-item {
-  flex-grow: 1;               /* This forces each LI to take up equal space */
-  text-align: center;         /* Centers the text within that space */
-  display: list-item;         /* Standard list behavior */
+  flex: 1;
+  text-align: center;
 }
 
 .nav-link {
   font-family: Georgia, serif;
   font-size: 15px;
-  cursor: pointer;
   white-space: nowrap;
-  display: inline-block;      /* Ensures the link is clickable and centered */
+  cursor: pointer;
 }
 
 .has-dropdown {
@@ -250,7 +235,7 @@ a:hover {
 }
 
 /* =========================================================
-   GENERIC IMAGE GRIDS
+   GENERIC GRIDS
    ========================================================= */
 
 .photo-grid {
@@ -265,10 +250,6 @@ a:hover {
   object-fit: cover;
 }
 
-/* =========================================================
-   CARD GRID
-   ========================================================= */
-
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -281,96 +262,66 @@ a:hover {
   background: #fff;
 }
 
-
 /* =========================================================
-   CAROUSEL – SAFE GLOBAL BASE
+   HERO / FEATURE IMAGE BASE (NO LAYOUT)
    ========================================================= */
 
-/* Neutral base only – NO scrolling or sizing assumptions */
+.hero-image {
+  height: 420px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-image--bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 420px;
+}
+
+@media (max-width: 900px) {
+  .hero-image,
+  .hero-image--bg {
+    height: 300px;
+    min-height: 300px;
+  }
+}
+
+/* =========================================================
+   CAROUSEL – NEUTRAL, SAFE BASE
+   ========================================================= */
+
+/* No width or layout assumptions */
 .carousel {
   position: relative;
+  width: 100%;
 }
 
-/* ---------- JS-driven carousels only ---------- */
-.carousel.js-carousel {
-  overflow: hidden;
-}
-
-.carousel.js-carousel .carousel-track {
-  display: flex;
-  width: max-content;
-  will-change: transform;
-}
+/* Track – JS will move this */
 .carousel-track {
-  width: max-content;
+  display: flex;
+  will-change: transform;
+  transition: transform 0.4s ease;
 }
 
-/* Hard constraint: carousels live inside the right 55% column */
-.locations-carousel-wrapper {
-  flex: 0 0 55%;
-  max-width: 55%;
-  overflow: hidden;
-  position: relative;
-}
-.locations-carousel-wrapper .carousel {
-  width: 100%;
-}
-/* Only strip-style carousels need max-content */
-.carousel[data-carousel-type="strip"] .carousel-track {
-  width: max-content;
+/* Items – page CSS controls sizing */
+.carousel-item {
+  box-sizing: border-box;
 }
 
-/* Full-width carousels must fill their container */
-.carousel[data-carousel-type="full"] .carousel-track {
-  width: 100%;
-}
-
-
-
-/* Items default ONLY for JS carousels */
-.carousel.js-carousel .carousel-item {
-  flex: 0 0 100%;
-}
-
-/* Cursor affordance */
-.carousel.js-carousel {
-  cursor: grab;
-}
-
-.carousel.js-carousel:active {
-  cursor: grabbing;
-}
-
-/* ---------- Generic arrow base ---------- */
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-
-.carousel-arrow:disabled {
-  opacity: 0.3;
-  cursor: default;
-}
-
-/* ---------- Generic counter base ---------- */
-.carousel-counter {
-  position: absolute;
-  pointer-events: none;
-}
-
-/* Prevent global carousel rules affecting ONLY scrolling carousels */
-.carousel.manual-carousel .carousel-track {
-  width: auto;
-}
-
-/* ---------- Unified arrows below carousel ---------- */
+/* Arrows (shared visual style) */
 .carousel-arrows {
   display: flex;
-  justify-content: flex-end;   /* right-aligned */
-  gap: 8px;                    /* space between buttons */
-  margin-top: 12px;            /* space below carousel */
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
 }
 
 .carousel-prev,
@@ -400,101 +351,3 @@ a:hover {
   opacity: 0.3;
   cursor: default;
 }
-
-/* =========================================================
-   UNIVERSAL HERO STRUCTURE (Home & About)
-   ========================================================= */
-
-/* Prevents the spurious horizontal scrollbar causing vertical bars */
-body {
-  overflow-x: hidden;
-}
-
-.intro-images-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  gap: 48px; /* Standardized gap to match Home Section 4 */
-  box-sizing: border-box;
-}
-
-.intro-text {
-  flex: 0 0 45%;
-}
-
-#intro-image, 
-.image-content.intro-image {
-  flex: 0 0 55%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 8px;
-}
-/* =========================================================
-   SHARED HERO / FEATURE IMAGE STANDARD
-   Home intro • About intro • About work carousel
-   ========================================================= */
-
-.hero-image {
-  height: 420px;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-/* For <img> based slides */
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* For background-image based heroes */
-.hero-image--bg {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Ensure hero background blocks always render */
-.hero-image.hero-image--bg {
-  display: block;
-}
-/* Background hero blocks must establish height in flex layouts */
-.hero-image--bg {
-  min-height: 420px;
-}
-
-
-/* Mobile */
-@media (max-width: 900px) {
-  .hero-image {
-    height: 300px;
-  }
-}
-
-
-/* Mobile - Stacked */
-@media (max-width: 900px) {
-  .intro-images-container {
-    flex-direction: column;
-    text-align: left;
-    gap: 20px;
-  }
-  
-  .intro-text, 
-  #intro-image, 
-  .image-content.intro-image {
-    flex: 0 0 100%;
-    width: 100%;
-  }
-
-  #intro-image, 
-  .image-content.intro-image {
-    height: 300px;
-  }
-}
-
