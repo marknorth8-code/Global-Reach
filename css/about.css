@@ -171,9 +171,7 @@
 
 .locations-carousel-track img {
   width: 100%;
-  max-height: 420px;   /* match hero */
   object-fit: cover;
-  border-radius: 8px;  /* match hero */
   display: block;
 }
 
