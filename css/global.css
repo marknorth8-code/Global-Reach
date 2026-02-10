@@ -374,4 +374,27 @@ a:hover {
   opacity: 0.3;
   cursor: default;
 }
+.section-1-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.image-content.intro-image {
+  width: 50%;            /* take half the section width */
+  height: 400px;         /* or adjust as needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (max-width: 900px) {
+  .section-1-inner {
+    flex-direction: column;
+  }
+  .image-content.intro-image {
+    width: 100%;
+    height: 250px; /* smaller for mobile */
+  }
+}
 
