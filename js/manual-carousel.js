@@ -1,45 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Target only carousels that have buttons
   document.querySelectorAll('.carousel[data-carousel="manual"]').forEach(carousel => {
-
     const track = carousel.querySelector('.carousel-track');
     const prev = carousel.querySelector('.carousel-prev');
     const next = carousel.querySelector('.carousel-next');
 
-    // If this specific carousel is missing buttons or track, skip it
     if (!track || !prev || !next) return;
 
-    const getSlideWidth = () => {
-      const firstItem = track.querySelector('.carousel-item');
-      // offsetWidth is the most reliable for flex-basis: 100% layouts
-      return firstItem ? firstItem.offsetWidth : 0;
-    };
+    let currentIndex = 0;
+    const items = track.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
+
+    function updateCarousel() {
+      // Moves the track left by 100% for every index
+      // (e.g., index 1 moves it -100%)
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      // Disable buttons at the edges
+      prev.disabled = currentIndex === 0;
+      next.disabled = currentIndex === totalItems - 1;
+    }
 
     next.addEventListener("click", () => {
-      track.scrollBy({
-        left: getSlideWidth(),
-        behavior: "smooth"
-      });
+      if (currentIndex < totalItems - 1) {
+        currentIndex++;
+        updateCarousel();
+      }
     });
 
     prev.addEventListener("click", () => {
-      track.scrollBy({
-        left: -getSlideWidth(),
-        behavior: "smooth"
-      });
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
     });
 
-    // Handle disabling buttons at the start/end
-    const updateArrows = () => {
-      const scrollPos = track.scrollLeft;
-      const maxScroll = track.scrollWidth - track.clientWidth;
-      
-      prev.disabled = scrollPos <= 5;
-      next.disabled = scrollPos >= maxScroll - 5;
-    };
-
-    track.addEventListener("scroll", updateArrows);
-    // Initial check after the page loads
-    setTimeout(updateArrows, 200);
+    // Initial button state
+    updateCarousel();
   });
 });
