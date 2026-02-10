@@ -1,45 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('.carousel[data-carousel="manual"]').forEach(carousel => {
+
     const track = carousel.querySelector('.carousel-track');
     const prev = carousel.querySelector('.carousel-prev');
     const next = carousel.querySelector('.carousel-next');
-    const items = track?.querySelectorAll('.carousel-item');
 
-    if (!track || !prev || !next || !items.length) return;
+    if (!track || !prev || !next) return;
 
-    const type = carousel.dataset.carouselType || "full";
-    let index = 0;
+    const items = track.children;
+    if (!items.length) return;
 
-    function slideWidth() {
-      return items[0].getBoundingClientRect().width;
-    }
+    const gap = parseInt(getComputedStyle(track).gap) || 24;
 
-    function update() {
-      if (type === "strip") {
-        track.style.transform = `translateX(-${index * slideWidth()}px)`;
-        next.disabled = index >= items.length - 1;
-      } else {
-        track.style.transform = `translateX(-${index * 100}%)`;
-        next.disabled = index >= items.length - 1;
-      }
-
-      prev.disabled = index === 0;
-    }
-
-    next.addEventListener("click", () => {
-      if (index < items.length - 1) {
-        index++;
-        update();
-      }
-    });
+    const step = () => items[0].offsetWidth + gap;
 
     prev.addEventListener("click", () => {
-      if (index > 0) {
-        index--;
-        update();
-      }
+      track.scrollBy({ left: -step(), behavior: "smooth" });
     });
 
-    update();
+    next.addEventListener("click", () => {
+      track.scrollBy({ left: step(), behavior: "smooth" });
+    });
+
   });
 });

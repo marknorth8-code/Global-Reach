@@ -1,14 +1,20 @@
 /* =========================================================
-   About Page CSS – Optimized & Consolidated
-   Matches Home page hero and stabilizes work carousel
+   About Page CSS – Full
+   ---------------------------------------------------------
+   Mobile-first, structural layout, responsive, no JS
    ========================================================= */
 
-/* --- GENERAL PAGE STYLING --- */
+/* ================= GENERAL PAGE STYLING ================= */
+.page-section {
+  padding: 60px 20px;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* ================= SECTION DIVIDER ================= */
 .section-divider {
   width: 90%;
   margin: 0 auto;
@@ -17,70 +23,89 @@
 }
 
 /* =========================================================
-   SECTION 1 – HERO (MATCH TO HOME PAGE)
+   SECTION 1 – INTRO HERO
    ========================================================= */
-.intro-images.page-section {
-  padding: 60px 0 90px !important; 
-}
-
-.intro-images-container {
+.section-1-inner {
   display: flex;
   align-items: center;
-  gap: 48px !important;
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 0 24px !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
+  gap: 20px;
 }
 
-.intro-text {
-  flex: 0 0 45% !important;
-  max-width: 45% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
+.section-1 .text-content {
+  flex: 0 0 45%;
 }
 
-/* About Hero Image - Matches Home Layout */
-.image-content.intro-image {
-  flex: 0 0 55% !important;
-  max-width: 55% !important;
-  min-height: 500px; /* Aligns visual weight with Home */
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  border-radius: 8px;
-  display: block !important;
+.section-1 .image-content {
+  flex: 0 0 55%;
 }
 
-/* Mobile Adjustment */
-@media (max-width: 900px) {
-  .intro-images-container { flex-direction: column !important; gap: 20px !important; }
-  .intro-text, .image-content.intro-image { 
-    flex: 0 0 100% !important; 
-    max-width: 100% !important; 
+.section-1 .image-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Responsive: stack text + image */
+@media (max-width: 767px) {
+  .section-1-inner {
+    flex-direction: column;
   }
-  .image-content.intro-image { height: 300px !important; min-height: 300px; }
+  .section-1 .text-content,
+  .section-1 .image-content {
+    flex: 1 1 100%;
+  }
 }
 
 /* =========================================================
    SECTION 2 – IMAGE + TEXT PROFILES
    ========================================================= */
-.images-column { display: flex; flex-direction: column; gap: 90px; }
-.image-text-pair { display: flex; gap: 20px; align-items: flex-start; }
-.image-text-pair img { width: 40%; min-height: 200px; object-fit: cover; border-radius: 8px; }
-.image-text { flex: 1; }
-.image-text h3 { margin-top: 0; margin-bottom: 8px; }
-
-@media (max-width: 767px) {
-  .image-text-pair { flex-direction: column; }
-  .image-text-pair img { width: 100%; }
+.images-column {
+  display: flex;
+  flex-direction: column;
+  gap: 90px; /* vertical gap between image-text pairs */
 }
 
-/* =========================================================
-   SECTION 3 – WORK CAROUSEL (FIXED FLASHING & ALIGNMENT)
-   ========================================================= */
+.image-text-pair {
+  display: flex;
+  gap: 20px; /* horizontal gap between image and text */
+  align-items: flex-start; /* or center if desired */
+}
+
+.image-text-pair img {
+  width: 40%; /* image width */
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.image-text {
+  flex: 1; /* text takes remaining space */
+}
+
+/* Optional padding inside text */
+.image-text h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.image-text p {
+  margin: 0;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 767px) {
+  .image-text-pair {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .image-text-pair img {
+    width: 100%;
+  }
+}
+
+/* ABOUT PAGE – WORK CAROUSEL MATCHING LOCATIONS CAROUSEL */
 .locations-carousel {
   width: 100%;
   padding: 90px 0 60px;
@@ -95,45 +120,67 @@
   align-items: flex-start;
 }
 
-.locations-text { flex: 0 0 45%; }
+.locations-text {
+  flex: 0 0 45%;
+}
 
 .locations-carousel-wrapper {
-  flex: 0 0 55%;
-  max-width: 55%;
-  overflow: hidden; /* The "Window" */
   position: relative;
+  flex: 0 0 55%;
+  overflow: hidden;
 }
 
 .locations-carousel-track {
   display: flex;
-  width: max-content !important; /* The "Film Strip" */
-  transition: transform 0.5s ease-in-out;
-  will-change: transform;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.locations-carousel-track::-webkit-scrollbar {
+  display: none;
 }
 
 .locations-carousel-track .carousel-item {
-  flex: 0 0 100% !important;
-  width: 100% !important;
-  flex-shrink: 0;
+  flex: 0 0 100%; /* full width of wrapper */
 }
 
 .locations-carousel-track img {
   width: 100%;
-  height: 400px; /* Balanced height to reduce zoom effect */
+  max-height: 420px;
   object-fit: cover;
-  display: block;
   border-radius: 8px;
+  display: block;
 }
 
 .locations-carousel-track p {
   margin-top: 10px;
-  font-size: 0.9rem;
+  text-align: left;
   padding-left: 4px;
+  font-size: 0.9rem;
 }
 
-/* Mobile */
-@media (max-width: 900px) {
-  .locations-container { flex-direction: column; }
-  .locations-text, .locations-carousel-wrapper { flex: 0 0 100%; max-width: 100%; }
-  .locations-carousel-track img { height: 300px; }
+.locations-carousel-arrows {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px; /* arrows below carousel */
+}
+
+.locations-prev,
+.locations-next {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.3);
+  background: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.locations-carousel-arrows button:hover {
+  background: #111;
+  color: #fff;
 }
