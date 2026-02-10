@@ -374,20 +374,56 @@ a:hover {
   opacity: 0.3;
   cursor: default;
 }
-.section-1-inner {
+
+/* Shared Hero Structure for Home & About */
+.intro-images-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  max-width: 1200px; /* Ensures alignment with the rest of your site content */
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
 }
 
+.intro-text {
+  flex: 0 0 45%;
+  padding-right: 40px; /* Creates the space between text and image */
+}
+
+#intro-image, 
 .image-content.intro-image {
-  width: 50%;            /* take half the section width */
-  height: 400px;         /* or adjust as needed */
+  flex: 0 0 55%;
+  height: 450px;       /* Set a consistent height for both */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 8px;
 }
+
+/* Mobile - Stacked */
+@media (max-width: 900px) {
+  .intro-images-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .intro-text, 
+  #intro-image, 
+  .image-content.intro-image {
+    flex: 0 0 100%;
+    width: 100%;
+    padding-right: 0;
+  }
+
+  #intro-image, 
+  .image-content.intro-image {
+    height: 300px;
+    margin-top: 20px;
+  }
+}
+
+
 @media (max-width: 900px) {
   .section-1-inner {
     flex-direction: column;
