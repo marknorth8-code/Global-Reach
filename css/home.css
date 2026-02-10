@@ -192,52 +192,54 @@
   }
 }
 
-
 /* =========================================================
-   SECTION 4 – LOCATIONS (FINAL, CORRECT)
+   SECTION 4 – LOCATIONS (FORCE CONTAINMENT FIX)
    ========================================================= */
 
+/* Treat the OUTER carousel as a layout wrapper, not a carousel */
 .locations-carousel > .carousel {
-  display: flex;
-  align-items: center;
-  gap: 48px;
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 24px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+
+  /* Kill carousel behaviour on outer shell */
+  overflow: visible;
 }
 
-/* LEFT TEXT — 45% */
-.locations-carousel .locations-text {
+/* Left column */
+.locations-carousel > .carousel > .locations-text {
   flex: 0 0 45%;
   max-width: 45%;
 }
 
-/* RIGHT CAROUSEL — 55% */
-.locations-carousel .locations-carousel-wrapper {
+/* Right column */
+.locations-carousel > .carousel > .locations-carousel-wrapper {
   flex: 0 0 55%;
   max-width: 55%;
   position: relative;
   overflow: hidden;
 }
 
-/* Inner carousel containment */
+/* Inner carousel ONLY */
 .locations-carousel .locations-carousel-wrapper .carousel {
   width: 100%;
   overflow: hidden;
 }
 
+/* Track must never exceed wrapper */
 .locations-carousel .locations-carousel-wrapper .carousel-track {
   width: 100%;
 }
 
+/* Slides */
 .locations-carousel .locations-carousel-wrapper .carousel-item {
   flex: 0 0 100%;
   width: 100%;
   height: 420px;
-}
-
-.locations-carousel .locations-carousel-wrapper img {
-  border-radius: 8px;
 }
 
 /* Mobile */
@@ -246,8 +248,8 @@
     flex-direction: column;
   }
 
-  .locations-carousel .locations-text,
-  .locations-carousel .locations-carousel-wrapper {
+  .locations-carousel > .carousel > .locations-text,
+  .locations-carousel > .carousel > .locations-carousel-wrapper {
     flex: 0 0 100%;
     max-width: 100%;
   }
@@ -256,3 +258,4 @@
     height: 300px;
   }
 }
+
