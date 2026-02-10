@@ -125,7 +125,8 @@ a:hover {
 .logo-wrapper {
   display: flex;
   align-items: center;
-  height: 60px;           /* adjust to header height */
+  height: auto;       /* allow wrapper to expand if image is bigger */
+  min-height: 60px;   /* keep minimum header height */
   position: relative;
   overflow: visible;      /* allow text to expand beyond globe */
   gap: 8px;               /* spacing between globes and text */
