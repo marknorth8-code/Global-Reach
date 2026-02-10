@@ -40,13 +40,14 @@
 }
 
 .section-1 .image-content img {
-/* Match Section 1 Home page image */
-  width: 100%;              /* fill flex container */
-  height: auto;             /* natural height */
-  border-radius: 16px;      /* match home page */
+/* Match Home page Section 1 image */
+.intro-image {
+  flex: 0 0 55%;         /* same as Home page */
+  width: 100%;           /* fill flex container */
+  height: auto;          /* natural scaling */
+  border-radius: 16px;   /* match Home page */
   object-fit: cover;
   display: block;
-  flex: 0 0 55%;            /* keep same flex ratio */
   overflow: hidden;
 }
 
@@ -54,9 +55,9 @@
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  gap: 20px;               /* match Home page .section-1-inner gap */
-  align-items: center;     /* match Home page */
-  padding: 0 24px;         /* container side padding */
+  gap: 20px;            /* match Home page .section-1-inner */
+  align-items: center;  /* vertical alignment */
+  padding: 0 24px;
 }
 
 /* Responsive: stack text + image */
