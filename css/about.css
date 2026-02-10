@@ -40,11 +40,14 @@
 }
 
 .section-1 .image-content img {
-  width: 100%;
-  height: auto;
-  display: block;
+/* Match Section 1 Home page image */
+  width: 100%;              /* fill flex container */
+  height: auto;             /* natural height */
+  border-radius: 16px;      /* match home page */
   object-fit: cover;
-  border-radius: 16px;
+  display: block;
+  flex: 0 0 55%;            /* keep same flex ratio */
+  overflow: hidden;
 }
 
 /* Responsive: stack text + image */
