@@ -257,9 +257,20 @@
   .locations-carousel .locations-carousel-wrapper .carousel-item {
     height: 300px;
   }
-.locations-carousel .carousel-item img {
-  border-radius: 8px;   /* Match Section 1 exactly */
-}
-   
 }
 
+/* =========================================================
+   LOCATIONS – IMAGE ROUNDING (MATCH SECTION 1)
+   ========================================================= */
+
+.locations-carousel .carousel-item img {
+  border-radius: 8px;
+}
+
+/* =========================================================
+   SECTION 3 – SERVICES CAROUSEL GAP
+   ========================================================= */
+
+.carousel-hero .carousel-track {
+  gap: 24px;
+}
