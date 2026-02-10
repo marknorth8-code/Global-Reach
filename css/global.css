@@ -142,90 +142,73 @@ a:hover {
   cursor: pointer;
 }
 
+/* Container Logic */
 .has-dropdown {
   position: relative;
 }
 
-.dropdown-menu {
+.locations-dropdown {
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 220px;
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 8px 0;
-  display: none;
-}
-
-.has-dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-.dropdown-menu li a {
-  display: block;
-  padding: 12px 18px;
-  font-size: 14px;
-    white-space: nowrap;
-  color: #111;
-}
-.dropdown-menu li a:hover {
-  background: #f5f5f5;       /* subtle hover highlight */
-  text-decoration: none;      /* remove underline on hover */
-}
-/* Optional: adjust dropdown width for better look */
-.dropdown-menu {
-  min-width: 240px;           /* slightly wider than default 220px */
-  border-radius: 6px;         /* subtle rounding for modern feel */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  z-index: 1001;
-}
-
-/* Keep current hover display logic */
-.has-dropdown:hover .dropdown-menu {
-  display: block;
-}
-/* Dropdown container specific to locations */
-.locations-dropdown {
-  background-color: #f9f9f9;  /* Replace with contact page background color */
-  min-width: 300px;            /* adjust as needed */
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 8px 0;
-  display: none;
-}
-
-/* Remove default bullets */
-.locations-dropdown li {
+  min-width: 280px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  padding: 10px 0;
   list-style: none;
+  display: none;
+  z-index: 1000;
 }
 
-/* Flex layout for icon + text, left aligned */
-.locations-dropdown li a {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;  /* left alignment */
-  gap: 8px;
-  padding: 10px 20px;
-  color: #111;
-  font-size: 14px;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-/* Hover effect for location text */
-.locations-dropdown li a:hover .location-text {
-  color: #007BFF; /* or your brand hover color */
-}
-
-/* Pin styling */
-.location-icon {
-  flex-shrink: 0;
-  font-size: 16px; /* adjust pin size */
-}
-
-/* Show dropdown on hover */
 .has-dropdown:hover .locations-dropdown {
   display: block;
+}
+
+/* Item Layout */
+.locations-dropdown li a {
+  display: flex;
+  align-items: center; /* Centers icon with the two-line text block */
+  padding: 12px 20px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+/* The Hover Effect */
+.locations-dropdown li a:hover {
+  background-color: #f0f7ff; /* Light blue highlight like the image */
+}
+
+/* Black Icon Styling */
+.location-icon {
+  color: #000; 
+  font-size: 18px;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+/* Text Alignment & Styling */
+.location-details {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.city {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1b;
+}
+
+.state {
+  font-size: 13px;
+  color: #5f6368;
+  margin-top: 2px;
+}
+
+/* Change text color on hover */
+.locations-dropdown li a:hover .city {
+  color: #007BFF; /* Brand color change on hover */
 }
 
 /* =========================================================
