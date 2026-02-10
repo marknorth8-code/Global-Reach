@@ -133,6 +133,7 @@ a:hover {
 
 .logo-text-reveal {
   max-width: 0;
+    width: 400px; /* full expanded width */
   opacity: 0;
   overflow: hidden;
   white-space: nowrap;
