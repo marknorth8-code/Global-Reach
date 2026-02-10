@@ -40,17 +40,19 @@
   justify-content: center;
 }
 
-.section-1 .image-content {
-  flex: 0 0 55%;
+.section-1 .intro-image {
+  background-image: url('images/about/about-hero.webp');
+  width: 100%;             /* fill parent flex item */
+  height: 100%;            /* fill parent flex item */
+  min-height: 420px;       /* ensures visible on short screens */
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.section-1 .image-content img {
-  width: 100%;
-  min-height: 420px;       /* match Home page */
-  object-fit: cover;       /* crop like Home hero */
-  border-radius: 8px;      /* match Home page */
-  display: block;
-  overflow: hidden;
+.section-1 .image-content {
+  flex: 0 0 55%;
 }
 
 /* Responsive */
