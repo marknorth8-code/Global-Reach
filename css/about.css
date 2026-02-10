@@ -22,63 +22,65 @@
 }
 
 /* =========================================================
-   SECTION 1 – HERO IMAGE FIX (45% Text / 55% Image)
+   SECTION 1 – HERO (EXACT MATCH TO HOME PAGE)
    ========================================================= */
-.section-1-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Centers the 1200px block */
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  gap: 0; /* Remove gap to ensure exact 45/55 math */
+.intro-images.page-section {
+  padding: 60px 0; /* Match home page vertical spacing */
 }
 
-.section-1-inner .text-content {
-  flex: 0 0 45%;         /* Locked 45% */
-  padding-right: 30px;    /* Adds space without breaking the 45% width */
-  box-sizing: border-box;
-}
-
-.image-content.intro-image {
-  flex: 0 0 55%;         /* Locked 55% */
-  width: 55% !important;  /* Overrides the 50% in global.css */
-  height: 400px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 8px;    /* Keeps it consistent with carousel images */
-}
-
+/* This is the main wrapper that controls position */
 .intro-images-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;       /* Add this */
-  max-width: 1200px; 
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+  width: 100%;
   box-sizing: border-box;
 }
 
-/* Mobile Adjustment */
+/* Left side - 45% */
+.intro-text, 
+.section-1-inner .text-content {
+  flex: 0 0 45%;
+  max-width: 45%;
+  padding-right: 40px; 
+  box-sizing: border-box;
+}
+
+/* Right side - 55% */
+#intro-image,
+.image-content.intro-image {
+  flex: 0 0 55%;
+  max-width: 55%;
+  height: 450px;       /* Adjusted to common home-hero height */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;  /* Match the site-wide rounding */
+  display: block;
+}
+
+/* Mobile Adjustment - Exact same as Home Page */
 @media (max-width: 900px) {
-  .section-1-inner {
+  .intro-images-container {
     flex-direction: column;
     padding: 0 20px;
   }
 
+  .intro-text,
   .image-content.intro-image,
-  .section-1-inner .text-content {
+  #intro-image {
     flex: 0 0 100%;
-    width: 100% !important;
+    max-width: 100%;
     padding-right: 0;
   }
   
-  .image-content.intro-image {
+  .image-content.intro-image, 
+  #intro-image {
     height: 300px;
-    order: -1; /* Optional: puts image on top for mobile */
-    margin-bottom: 20px;
+    margin-top: 20px;
   }
 }
 
