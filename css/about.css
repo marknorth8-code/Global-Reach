@@ -63,6 +63,7 @@
 
 .about-profiles {
   padding: 60px 0;
+  margin-top: 20px; /* Adjust this value (e.g., 10px, 20px, 30px) for the desired gap */
 }
 
 .about-profiles-inner {
@@ -88,7 +89,7 @@
 
 .profile-image img {
   width: 100%;
-  height: 450px;
+  height: 475px;
   object-fit: cover;
   border-radius: 8px;
   display: block;
