@@ -119,52 +119,48 @@ a:hover {
 }
 
 /* ==============================
-   LOGO HOVER – FULL REWRITE
+   LOGO HOVER – FIXED FOR BIGGER TEXT
    ============================== */
 
 .logo-wrapper {
   display: flex;
-  align-items: center;
-  height: auto;       /* allow wrapper to expand if image is bigger */
-  min-height: 60px;   /* keep minimum header height */
+  align-items: flex-start;   /* allows text to grow taller than globe */
+  min-height: 60px;          /* header min height */
+  height: auto;              /* wrapper grows with text */
   position: relative;
-  overflow: visible;      /* allow text to expand beyond globe */
-  gap: 8px;               /* spacing between globes and text */
+  overflow: visible;
+  gap: 8px;
 }
 
 .globe {
-  height: 100%;
+  height: 50px;              /* keep globes consistent */
   width: auto;
   flex-shrink: 0;
-  z-index: 2;             /* globes on top */
+  z-index: 2;
 }
 
-/* Text reveal container */
 .logo-text-reveal {
   display: flex;
-  align-items: center;
+  align-items: flex-start;   /* align top of text with globe top */
   opacity: 0;
-  transform: translateX(-20px);  /* start slightly behind left globe */
+  transform: translateX(-20px);
   white-space: nowrap;
   transition: transform 0.5s ease, opacity 0.5s ease;
-  max-width: none;        /* allow image to define its width */
-  z-index: 1;             /* behind globe */
+  z-index: 1;
 }
 
-/* Text image styling */
 .logo-text-reveal img {
-  height: 50px;           /* perfect size relative to globes */
+  height: 60px;              /* bigger text now works */
   width: auto;
   display: block;
-  object-fit: contain;    /* maintain aspect ratio */
+  object-fit: contain;
 }
 
 /* Hover effect */
 .site-logo-container:hover .logo-text-reveal {
   opacity: 1;
-  transform: translateX(0); /* slides fully into view */
+  transform: translateX(0);
 }
-
 
 /* =========================================================
    NAVIGATION
