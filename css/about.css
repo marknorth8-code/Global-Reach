@@ -86,6 +86,48 @@
 }
 
 /* =========================================================
+   SECTION 2 – IMAGE + TEXT PROFILES
+   ========================================================= */
+.images-column {
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+}
+
+.image-text-pair {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.image-text-pair img {
+  width: 40%;
+  min-height: 200px;
+  object-fit: cover;
+  border-radius: 8px; /* Matches hero radius */
+}
+
+.image-text {
+  flex: 1;
+}
+
+.image-text h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+/* Mobile Profiles */
+@media (max-width: 767px) {
+  .image-text-pair {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .image-text-pair img {
+    width: 100%;
+  }
+}
+
+/* =========================================================
    SECTION 3 – WORK CAROUSEL
    ========================================================= */
 .locations-carousel {
