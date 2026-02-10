@@ -119,33 +119,34 @@ a:hover {
   white-space: nowrap;
 }
 
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
+
 /* =========================================================
    NAVIGATION (Updated)
    ========================================================= */
+/* 1. Ensure the Nav container itself doesn't have extra padding/centering */
 .primary-nav {
   width: 55%;                  
   display: flex;
-  justify-content: flex-end; /* Keeps the container on the right */
+  justify-content: flex-end; 
+  padding: 0;                /* Remove the 16px padding you had before */
 }
 
+/* 2. Force the list to fill the entire 55% width */
 .nav-list {
   list-style: none;
   display: flex;
+  width: 100%;               /* CRITICAL: This fills the 55% area */
+  justify-content: space-between; 
   align-items: center;
-  width: 100%;               /* Fills the 55% container */
-  justify-content: space-between; /* Spreads links evenly */
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-.nav-link {
-  font-family: Georgia, serif;
-  font-size: 15px;
-  cursor: pointer;
-  white-space: nowrap;      /* Prevents links from snapping to two lines */
+/* 3. Fix the list items (the <li> tags) */
+.nav-item {
+  display: flex;
+  flex: 1;                   /* This gives each link equal "territory" */
+  justify-content: center;   /* Centers the link within its territory */
 }
 
 .has-dropdown {
