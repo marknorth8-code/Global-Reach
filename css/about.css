@@ -22,48 +22,52 @@
 }
 
 /* =========================================================
-   SECTION 1 – HERO IMAGE
+   SECTION 1 – HERO IMAGE FIX (45% Text / 55% Image)
    ========================================================= */
-/* SECTION 1 – HERO IMAGE FIX */
 .section-1-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  max-width: 1200px;   /* constrain container width */
-  margin: 0 auto;      /* center it horizontally */
-  padding: 0 24px;     /* optional, match container padding */
-  box-sizing: border-box;
+  justify-content: center; /* Centers the 1200px block */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  gap: 0; /* Remove gap to ensure exact 45/55 math */
 }
 
 .section-1-inner .text-content {
-  flex: 1 1 45%;
-  min-width: 250px;
+  flex: 0 0 45%;         /* Locked 45% */
+  padding-right: 30px;    /* Adds space without breaking the 45% width */
   box-sizing: border-box;
 }
 
 .image-content.intro-image {
-  flex: 1 1 50%;
-  min-width: 250px;
+  flex: 0 0 55%;         /* Locked 55% */
+  width: 55% !important;  /* Overrides the 50% in global.css */
   height: 400px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 8px;    /* Keeps it consistent with carousel images */
 }
 
+/* Mobile Adjustment */
 @media (max-width: 900px) {
   .section-1-inner {
     flex-direction: column;
-    gap: 20px;
-    max-width: 100%;   /* allow full width on mobile */
     padding: 0 20px;
   }
 
   .image-content.intro-image,
   .section-1-inner .text-content {
-    width: 100%;
-    min-width: auto;
+    flex: 0 0 100%;
+    width: 100% !important;
+    padding-right: 0;
+  }
+  
+  .image-content.intro-image {
+    height: 300px;
+    order: -1; /* Optional: puts image on top for mobile */
+    margin-bottom: 20px;
   }
 }
 
