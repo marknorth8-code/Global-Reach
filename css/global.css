@@ -150,7 +150,8 @@ a:hover {
 }
 
 .logo-text-reveal img {
-  height: 80%;
+  height: 40%;
+   max-height: 40px; /* optional: caps the size */
   width: auto;
   display: block;
 }
