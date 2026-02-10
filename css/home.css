@@ -73,13 +73,10 @@
 /* RIGHT IMAGE — 55% */
 .intro-image {
   flex: 0 0 55%;
-  min-height: 420px;
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  border-radius: 8px;
   overflow: hidden;
 }
 
