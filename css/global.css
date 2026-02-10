@@ -114,51 +114,60 @@ a:hover {
 }
 
 /* ==============================
-   LOGO HOVER – FIXED FOR BIGGER TEXT
+   LOGO HOVER – 5-IMAGE ACCORDION
    ============================== */
-.logo-wrapper {
+.site-logo-container {
+  text-decoration: none;
   display: flex;
-  align-items: center;       /* keep globes centered */
-  height: 60px;              /* fixed header height */
-  position: relative;
-  overflow: visible;         /* allow text to slide out */
-  gap: 0px;
+  align-items: center;
+  height: 100%;
 }
 
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  height: 60px;       /* Keeps logo contained in 90px header */
+  position: relative;
+  overflow: visible;
+  gap: 0;             /* Images 1, 3, 5 touch when collapsed */
+  cursor: pointer;
+}
+
+/* Static Images (1, 3, 5) */
 .globe {
-  height: 100%;              /* fixed globe size */
+  height: 100%;       /* Scaled to the 60px wrapper */
   width: auto;
   flex-shrink: 0;
   z-index: 2;
+  display: block;
 }
 
+/* Reveal Containers (2 and 4) */
 .logo-text-reveal {
- height: 100%;  /* Match wrapper height */
-   display: flex;
-  align-items: center;       /* vertical center with globe */
+  display: flex;
+  align-items: center;
+  height: 100%;
+  max-width: 0;       /* Start collapsed */
   opacity: 0;
-  transform: translateX(-10px);  /* small offset behind globe */
-  white-space: nowrap;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  max-width: 0;              /* hidden initially */
-  overflow: hidden;          /* clip the text until hover */
+  overflow: hidden;
   z-index: 1;
+  transition: max-width 0.6s ease, opacity 0.4s ease;
 }
 
+/* Images inside the reveal */
 .logo-text-reveal img {
-  height: 80%;              /* smaller than globe height */
-  max-height: 50px;          /* optional cap */
+  height: 80%;        /* Slightly smaller for a neat look */
   width: auto;
   display: block;
-  object-fit: contain;
+  padding: 0 10px;    /* Internal spacing when expanded */
 }
 
-/* Hover effect */
+/* Hover Effect: Expands both reveals at once */
 .site-logo-container:hover .logo-text-reveal {
   opacity: 1;
-  max-width: 300px;          /* adjust to fit text width */
-  transform: translateX(0);  /* slide fully into view */
+  max-width: 300px;   /* Enough room for your text/images */
 }
+
 
 /* =========================================================
    NAVIGATION
