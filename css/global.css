@@ -121,32 +121,36 @@ a:hover {
 
 
 /* =========================================================
-   NAVIGATION (Updated)
+   NAVIGATION (The "Proven" Fix)
    ========================================================= */
-/* 1. Ensure the Nav container itself doesn't have extra padding/centering */
 .primary-nav {
   width: 55%;                  
   display: flex;
-  justify-content: flex-end; 
-  padding: 0;                /* Remove the 16px padding you had before */
+  /* This ensures the nav stays on the right side of the header */
 }
 
-/* 2. Force the list to fill the entire 55% width */
 .nav-list {
   list-style: none;
   display: flex;
-  width: 100%;               /* CRITICAL: This fills the 55% area */
+  width: 100% !important;     /* Force the list to span the whole 55% */
   justify-content: space-between; 
   align-items: center;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
-/* 3. Fix the list items (the <li> tags) */
 .nav-item {
-  display: flex;
-  flex: 1;                   /* This gives each link equal "territory" */
-  justify-content: center;   /* Centers the link within its territory */
+  flex-grow: 1;               /* This forces each LI to take up equal space */
+  text-align: center;         /* Centers the text within that space */
+  display: list-item;         /* Standard list behavior */
+}
+
+.nav-link {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-block;      /* Ensures the link is clickable and centered */
 }
 
 .has-dropdown {
