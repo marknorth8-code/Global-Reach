@@ -1,7 +1,7 @@
 /* =========================================================
    About Page CSS – Full
-   ---------------------------------------------------------
-   Mobile-first, structural layout, responsive, no JS
+   --------------------------------------------------------
+   Matches Home page hero and constrains all images
    ========================================================= */
 
 /* ================= GENERAL PAGE STYLING ================= */
@@ -14,7 +14,6 @@
   margin: 0 auto;
 }
 
-/* ================= SECTION DIVIDER ================= */
 .section-divider {
   width: 90%;
   margin: 0 auto;
@@ -23,16 +22,22 @@
 }
 
 /* =========================================================
-   SECTION 1 – INTRO HERO
+   SECTION 1 – HERO IMAGE
    ========================================================= */
 .section-1-inner {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .section-1 .text-content {
   flex: 0 0 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .section-1 .image-content {
@@ -40,55 +45,27 @@
 }
 
 .section-1 .image-content img {
-/* Match Home page Section 1 image */
-.intro-image {
-  flex: 0 0 55%;         /* same as Home page */
-  width: 100%;           /* fill flex container */
-  height: auto;          /* natural scaling */
-  border-radius: 16px;   /* match Home page */
-  object-fit: cover;
-  display: block;
-  overflow: hidden;
-}
-
-/* ================= SECTION 1 – INTRO HERO ================= */
-.section-1-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  padding: 0 24px;
-}
-
-.section-1-container .text-content {
-  flex: 0 0 45%;
-  display: flex;
-  flex-direction: column;
-}
-
-.section-1-container .image-content {
-  flex: 0 0 55%;
-}
-
-.section-1-container .image-content img {
   width: 100%;
-  height: auto;
-  border-radius: 16px;
-  object-fit: cover;
+  min-height: 420px;       /* match Home page */
+  object-fit: cover;       /* crop like Home hero */
+  border-radius: 8px;      /* match Home page */
   display: block;
   overflow: hidden;
 }
 
 /* Responsive */
-@media (max-width: 767px) {
-  .section-1-container {
+@media (max-width: 900px) {
+  .section-1-inner {
     flex-direction: column;
   }
 
-  .section-1-container .text-content,
-  .section-1-container .image-content {
+  .section-1 .text-content,
+  .section-1 .image-content {
     flex: 0 0 100%;
+  }
+
+  .section-1 .image-content img {
+    min-height: 300px;
   }
 }
 
@@ -98,27 +75,26 @@
 .images-column {
   display: flex;
   flex-direction: column;
-  gap: 90px; /* vertical gap between image-text pairs */
+  gap: 90px;
 }
 
 .image-text-pair {
   display: flex;
-  gap: 20px; /* horizontal gap between image and text */
-  align-items: flex-start; /* or center if desired */
+  gap: 20px;
+  align-items: flex-start;
 }
 
 .image-text-pair img {
-  width: 40%; /* image width */
-  height: auto;
-  border-radius: 12px;
+  width: 40%;
+  min-height: 200px;       /* constrain height */
   object-fit: cover;
+  border-radius: 8px;      /* match hero radius */
 }
 
 .image-text {
-  flex: 1; /* text takes remaining space */
+  flex: 1;
 }
 
-/* Optional padding inside text */
 .image-text h3 {
   margin-top: 0;
   margin-bottom: 8px;
@@ -128,18 +104,21 @@
   margin: 0;
 }
 
-/* Responsive: stack on mobile */
+/* Mobile */
 @media (max-width: 767px) {
   .image-text-pair {
     flex-direction: column;
     gap: 10px;
   }
+
   .image-text-pair img {
     width: 100%;
   }
 }
 
-/* ABOUT PAGE – WORK CAROUSEL MATCHING LOCATIONS CAROUSEL */
+/* =========================================================
+   SECTION 3 – WORK CAROUSEL
+   ========================================================= */
 .locations-carousel {
   width: 100%;
   padding: 90px 0 60px;
@@ -159,9 +138,10 @@
 }
 
 .locations-carousel-wrapper {
-  position: relative;
   flex: 0 0 55%;
+  max-width: 55%;
   overflow: hidden;
+  position: relative;
 }
 
 .locations-carousel-track {
@@ -177,14 +157,14 @@
 }
 
 .locations-carousel-track .carousel-item {
-  flex: 0 0 100%; /* full width of wrapper */
+  flex: 0 0 100%;
 }
 
 .locations-carousel-track img {
   width: 100%;
-  max-height: 420px;
+  max-height: 420px;   /* match hero */
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 8px;  /* match hero */
   display: block;
 }
 
@@ -195,3 +175,18 @@
   font-size: 0.9rem;
 }
 
+/* Mobile */
+@media (max-width: 900px) {
+  .locations-container {
+    flex-direction: column;
+  }
+
+  .locations-text,
+  .locations-carousel-wrapper {
+    flex: 0 0 100%;
+  }
+
+  .locations-carousel-track .carousel-item {
+    max-height: 300px;
+  }
+}
