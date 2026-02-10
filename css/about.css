@@ -52,43 +52,45 @@
 }
 
 /* ================= SECTION 1 – INTRO HERO ================= */
-.intro-images-container {
+.section-1-container {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  gap: 20px;            /* match Home page gap */
-  align-items: center;  /* vertical alignment */
-  padding: 0 24px;      /* container side padding */
+  gap: 20px;
+  align-items: center;
+  padding: 0 24px;
 }
 
-.intro-text {
+.section-1-container .text-content {
   flex: 0 0 45%;
   display: flex;
   flex-direction: column;
 }
 
-.intro-image {
-  flex: 0 0 55%;         /* same as Home page */
-  width: 100%;           /* fill flex container */
-  height: auto;          /* natural scaling */
-  border-radius: 16px;   /* match Home page */
+.section-1-container .image-content {
+  flex: 0 0 55%;
+}
+
+.section-1-container .image-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
   object-fit: cover;
   display: block;
   overflow: hidden;
 }
 
-/* Responsive: stack text + image */
+/* Responsive */
 @media (max-width: 767px) {
-  .intro-images-container {
+  .section-1-container {
     flex-direction: column;
   }
 
-  .intro-text,
-  .intro-image {
+  .section-1-container .text-content,
+  .section-1-container .image-content {
     flex: 0 0 100%;
   }
 }
-
 
 /* =========================================================
    SECTION 2 – IMAGE + TEXT PROFILES
