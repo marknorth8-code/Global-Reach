@@ -206,22 +206,26 @@
   }
 }
 
-/* ===== SHARED MANUAL CAROUSEL BASE ===== */
+/* ===== SHARED MANUAL CAROUSEL BASE (CLEANED) ===== */
 
 .carousel {
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* Ensures no horizontal scrollbars appear */
+  width: 100%;
 }
 
 .carousel-track {
   display: flex;
-  gap: 24px;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+  transition: transform 0.4s ease-out; /* Smooth sliding for JS */
+  will-change: transform;
+  width: 100%;
 }
 
+/* Reset items so they don't inherit weird widths */
 .carousel-item {
-  flex: 0 0 auto;
+  flex: 0 0 100%; 
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .carousel-item img {
