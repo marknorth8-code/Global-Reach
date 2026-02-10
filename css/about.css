@@ -22,7 +22,7 @@
 }
 
 /* =========================================================
-   SECTION 1 – HERO (LOCKED TO MATCH HOME PAGE)
+   SECTION 1 – HERO (EXACT MATCH TO HOME PAGE)
    ========================================================= */
 .intro-images.page-section {
   /* Home page uses 60px top, 90px bottom */
@@ -31,9 +31,9 @@
 
 .intro-images-container {
   display: flex !important;
-  align-items: flex-start !important; /* Home uses flex-start, not center */
+  align-items: flex-start !important; /* Matches Home align-items */
   justify-content: space-between !important;
-  gap: 48px !important;               /* Home page uses a 48px gap */
+  gap: 48px !important;               /* Matches Home gap */
   max-width: 1200px !important;
   margin: 0 auto !important;
   padding: 0 24px !important;
@@ -45,7 +45,7 @@
 .intro-text {
   flex: 0 0 45% !important;
   max-width: 45% !important;
-  padding-right: 0 !important; /* Gap: 48px handles the spacing now */
+  padding-right: 0 !important; 
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
@@ -56,7 +56,7 @@
 .image-content.intro-image {
   flex: 0 0 55% !important;
   max-width: 55% !important;
-  height: 420px !important;   /* MATCHES HOME PAGE EXACTLY */
+  height: 420px !important;   /* Matches Home min-height */
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
@@ -76,65 +76,9 @@
   .image-content.intro-image {
     flex: 0 0 100% !important;
     max-width: 100% !important;
-  }
-  
-  #intro-image, 
-  .image-content.intro-image {
-    height: 300px !important;
-  }
-}
-
-/* =========================================================
-   SECTION 1 – HERO (LOCKED 45/55 SPLIT)
-   ========================================================= */
-.intro-images.page-section {
-  padding: 60px 0 !important;
-}
-
-.intro-images-container {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 0 24px !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-/* Left side - 45% */
-.intro-text {
-  flex: 0 0 45% !important;
-  max-width: 45% !important;
-  padding-right: 40px !important;
-  box-sizing: border-box !important;
-}
-
-/* Right side - 55% */
-#intro-image,
-.image-content.intro-image {
-  flex: 0 0 55% !important;
-  max-width: 55% !important;
-  height: 450px !important; /* Adjust this number to match Home Page height */
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  border-radius: 8px !important;
-  display: block !important;
-}
-
-/* Mobile */
-@media (max-width: 900px) {
-  .intro-images-container {
-    flex-direction: column !important;
-  }
-  .intro-text, 
-  #intro-image, 
-  .image-content.intro-image {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
     padding-right: 0 !important;
   }
+  
   #intro-image, 
   .image-content.intro-image {
     height: 300px !important;
