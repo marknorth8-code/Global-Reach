@@ -107,15 +107,10 @@ a:hover {
   height: 65px;
 }
 
-.site-logo img {
-  max-height: 50px;
-  width: auto;
-  display: block;
-}
-
 .site-logo-container {
   text-decoration: none;
   display: block;
+  height: 100%; /* Fill the header height to stay centered */
 }
 
 /* ==============================
@@ -127,18 +122,19 @@ a:hover {
   height: 60px;              /* fixed header height */
   position: relative;
   overflow: visible;         /* allow text to slide out */
-  gap: 8px;
+  gap: 0px;
 }
 
 .globe {
-  height: 50px;              /* fixed globe size */
+  height: 100%;              /* fixed globe size */
   width: auto;
   flex-shrink: 0;
   z-index: 2;
 }
 
 .logo-text-reveal {
-  display: flex;
+ height: 100%;  /* Match wrapper height */
+   display: flex;
   align-items: center;       /* vertical center with globe */
   opacity: 0;
   transform: translateX(-10px);  /* small offset behind globe */
@@ -150,7 +146,7 @@ a:hover {
 }
 
 .logo-text-reveal img {
-  height: 40px;              /* smaller than globe height */
+  height: 80%;              /* smaller than globe height */
   max-height: 50px;          /* optional cap */
   width: auto;
   display: block;
@@ -160,7 +156,7 @@ a:hover {
 /* Hover effect */
 .site-logo-container:hover .logo-text-reveal {
   opacity: 1;
-  max-width: 200px;          /* adjust to fit text width */
+  max-width: 300px;          /* adjust to fit text width */
   transform: translateX(0);  /* slide fully into view */
 }
 
