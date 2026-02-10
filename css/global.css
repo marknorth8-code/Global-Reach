@@ -332,3 +332,39 @@ a:hover {
   width: auto;
 }
 
+/* ---------- Unified arrows below carousel ---------- */
+.carousel-arrows {
+  display: flex;
+  justify-content: flex-end;   /* right-aligned */
+  gap: 8px;                    /* space between buttons */
+  margin-top: 12px;            /* space below carousel */
+}
+
+.carousel-prev,
+.carousel-next {
+  width: 36px;
+  height: 36px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 50%;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background: #111;
+  color: #fff;
+}
+
+.carousel-prev:disabled,
+.carousel-next:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
