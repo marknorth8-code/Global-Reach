@@ -61,6 +61,11 @@
   }
 }
 
+.section-1-inner .text-content {
+  width: 45%;  /* leaves space for the 50% image + 20px gap */
+  box-sizing: border-box; /* ensures padding doesn’t break layout */
+}
+
   .section-1 .text-content,
   .section-1 .image-content {
     flex: 0 0 100%;
