@@ -113,6 +113,46 @@ a:hover {
   display: block;
 }
 
+.site-logo-container {
+  text-decoration: none;
+  display: block;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  height: 60px; /* Adjust based on your header height */
+  overflow: hidden;
+}
+
+.globe {
+  height: 100%;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.logo-text-reveal {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  /* Smooth transition for the 'opening' effect */
+  transition: max-width 0.6s ease-in-out, opacity 0.4s ease;
+  display: flex;
+  align-items: center;
+}
+
+.logo-text-reveal img {
+  height: 80%; /* Adjust so text fits nicely between globes */
+  width: auto;
+}
+
+/* The Hover Trigger */
+.site-logo-container:hover .logo-text-reveal {
+  max-width: 400px; /* Adjust this value to match your full text width */
+  opacity: 1;
+}
+
 /* =========================================================
    NAVIGATION
    ========================================================= */
