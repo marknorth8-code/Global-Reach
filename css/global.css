@@ -152,7 +152,7 @@ a:hover {
 
 /* Text image styling */
 .logo-text-reveal img {
-  height: 40px;           /* perfect size relative to globes */
+  height: 50px;           /* perfect size relative to globes */
   width: auto;
   display: block;
   object-fit: contain;    /* maintain aspect ratio */
