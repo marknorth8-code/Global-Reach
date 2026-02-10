@@ -5,9 +5,6 @@
    ========================================================= */
 
 /* ================= GENERAL PAGE STYLING ================= */
-.page-section {
-  padding: 60px 20px;
-}
 
 .container {
   max-width: 1200px;
@@ -30,9 +27,6 @@
 }
 
 .intro-images-container {
-  display: flex !important;
-  align-items: flex-start !important; /* Matches Home align-items */
-  justify-content: space-between !important;
   gap: 48px !important;               /* Matches Home gap */
   max-width: 1200px !important;
   margin: 0 auto !important;
