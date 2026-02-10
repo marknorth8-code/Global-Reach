@@ -281,16 +281,6 @@ a:hover {
   background: #fff;
 }
 
-/* Hard constraint: carousels live inside the right 55% column */
-.locations-carousel-wrapper {
-  flex: 0 0 55%;
-  max-width: 55%;
-  overflow: hidden;
-  position: relative;
-}
-.locations-carousel-wrapper .carousel {
-  width: 100%;
-}
 
 /* =========================================================
    CAROUSEL – SAFE GLOBAL BASE
@@ -311,6 +301,31 @@ a:hover {
   width: max-content;
   will-change: transform;
 }
+.carousel-track {
+  width: max-content;
+}
+
+/* Hard constraint: carousels live inside the right 55% column */
+.locations-carousel-wrapper {
+  flex: 0 0 55%;
+  max-width: 55%;
+  overflow: hidden;
+  position: relative;
+}
+.locations-carousel-wrapper .carousel {
+  width: 100%;
+}
+/* Only strip-style carousels need max-content */
+.carousel[data-carousel-type="strip"] .carousel-track {
+  width: max-content;
+}
+
+/* Full-width carousels must fill their container */
+.carousel[data-carousel-type="full"] .carousel-track {
+  width: 100%;
+}
+
+
 
 /* Items default ONLY for JS carousels */
 .carousel.js-carousel .carousel-item {
