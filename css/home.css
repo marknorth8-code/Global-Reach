@@ -131,10 +131,12 @@
   overflow: hidden;
 }
 
-.carousel-hero .carousel-track {
+.carousel-track {
   display: flex;
-  gap: 32px;              /* space between slides */
+  /* Remove scroll-behavior and overflow-x if they are here */
+  transition: transform 0.5s ease-in-out; /* This makes it slide */
   will-change: transform;
+  width: max-content; /* Critical: allows the track to be wider than the screen */
 }
 
 .carousel-hero .carousel-item {
