@@ -1,11 +1,9 @@
 /* =========================================================
-   About Page CSS – Full
-   --------------------------------------------------------
-   Matches Home page hero and constrains all images
+   About Page CSS – Optimized & Consolidated
+   Matches Home page hero and stabilizes work carousel
    ========================================================= */
 
-/* ================= GENERAL PAGE STYLING ================= */
-
+/* --- GENERAL PAGE STYLING --- */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -19,15 +17,16 @@
 }
 
 /* =========================================================
-   SECTION 1 – HERO (EXACT MATCH TO HOME PAGE)
+   SECTION 1 – HERO (MATCH TO HOME PAGE)
    ========================================================= */
 .intro-images.page-section {
-  /* Home page uses 60px top, 90px bottom */
   padding: 60px 0 90px !important; 
 }
 
 .intro-images-container {
-  gap: 48px !important;               /* Matches Home gap */
+  display: flex;
+  align-items: center;
+  gap: 48px !important;
   max-width: 1200px !important;
   margin: 0 auto !important;
   padding: 0 24px !important;
@@ -35,96 +34,52 @@
   box-sizing: border-box !important;
 }
 
-/* LEFT TEXT — 45% */
 .intro-text {
   flex: 0 0 45% !important;
   max-width: 45% !important;
-  padding-right: 0 !important; 
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
 }
 
-/* RIGHT IMAGE — 55% */
-#intro-image,
+/* About Hero Image - Matches Home Layout */
 .image-content.intro-image {
   flex: 0 0 55% !important;
   max-width: 55% !important;
+  min-height: 500px; /* Aligns visual weight with Home */
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
-   display: block !important;
-}
-.image-content.intro-image {
-  min-height: 500px; /* Adjust this number to match the Home page's height */
-  width: 100%;
+  border-radius: 8px;
+  display: block !important;
 }
 
 /* Mobile Adjustment */
 @media (max-width: 900px) {
-  .intro-images-container {
-    flex-direction: column !important;
-    gap: 20px !important;
+  .intro-images-container { flex-direction: column !important; gap: 20px !important; }
+  .intro-text, .image-content.intro-image { 
+    flex: 0 0 100% !important; 
+    max-width: 100% !important; 
   }
-
-  .intro-text,
-  #intro-image,
-  .image-content.intro-image {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-    padding-right: 0 !important;
-  }
-  
-  #intro-image, 
-  .image-content.intro-image {
-    height: 300px !important;
-  }
+  .image-content.intro-image { height: 300px !important; min-height: 300px; }
 }
 
 /* =========================================================
    SECTION 2 – IMAGE + TEXT PROFILES
    ========================================================= */
-.images-column {
-  display: flex;
-  flex-direction: column;
-  gap: 90px;
-}
+.images-column { display: flex; flex-direction: column; gap: 90px; }
+.image-text-pair { display: flex; gap: 20px; align-items: flex-start; }
+.image-text-pair img { width: 40%; min-height: 200px; object-fit: cover; border-radius: 8px; }
+.image-text { flex: 1; }
+.image-text h3 { margin-top: 0; margin-bottom: 8px; }
 
-.image-text-pair {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-}
-
-.image-text-pair img {
-  width: 40%;
-  min-height: 200px;
-  object-fit: cover;
-  border-radius: 8px; /* Matches hero radius */
-}
-
-.image-text {
-  flex: 1;
-}
-
-.image-text h3 {
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-/* Mobile Profiles */
 @media (max-width: 767px) {
-  .image-text-pair {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .image-text-pair img {
-    width: 100%;
-  }
+  .image-text-pair { flex-direction: column; }
+  .image-text-pair img { width: 100%; }
 }
 
 /* =========================================================
-   SECTION 3 – WORK CAROUSEL
+   SECTION 3 – WORK CAROUSEL (FIXED FLASHING & ALIGNMENT)
    ========================================================= */
 .locations-carousel {
   width: 100%;
@@ -140,64 +95,45 @@
   align-items: flex-start;
 }
 
-.locations-text {
-  flex: 0 0 45%;
-}
+.locations-text { flex: 0 0 45%; }
 
 .locations-carousel-wrapper {
   flex: 0 0 55%;
   max-width: 55%;
-  overflow: hidden;
+  overflow: hidden; /* The "Window" */
   position: relative;
 }
 
 .locations-carousel-track {
   display: flex;
-  gap: 0px;
-  width: max-content !important;
+  width: max-content !important; /* The "Film Strip" */
   transition: transform 0.5s ease-in-out;
+  will-change: transform;
 }
 
 .locations-carousel-track .carousel-item {
-  flex: 0 0 100% !important; /* Force items to be exactly 1 slide wide */
+  flex: 0 0 100% !important;
   width: 100% !important;
-  flex-shrink: 0;           /* Prevents the 'vanishing' effect */
+  flex-shrink: 0;
 }
 
 .locations-carousel-track img {
   width: 100%;
-    height: 420px; 
+  height: 400px; /* Balanced height to reduce zoom effect */
   object-fit: cover;
   display: block;
-   border-radius: 8px;
+  border-radius: 8px;
 }
 
 .locations-carousel-track p {
   margin-top: 10px;
-  text-align: left;
-  padding-left: 4px;
   font-size: 0.9rem;
-}
-
-.locations-carousel-track img {
-  width: 100%;
-  height: 420px;
-  object-fit: contain; /* Shows the whole image, no zoom */
-  background-color: #f4f4f4; /* Optional: adds a subtle background to empty spaces */
+  padding-left: 4px;
 }
 
 /* Mobile */
 @media (max-width: 900px) {
-  .locations-container {
-    flex-direction: column;
-  }
-
-  .locations-text,
-  .locations-carousel-wrapper {
-    flex: 0 0 100%;
-  }
-
-  .locations-carousel-track .carousel-item {
-    max-height: 300px;
-  }
+  .locations-container { flex-direction: column; }
+  .locations-text, .locations-carousel-wrapper { flex: 0 0 100%; max-width: 100%; }
+  .locations-carousel-track img { height: 300px; }
 }
