@@ -15,7 +15,7 @@
 .insight-card-link {
   display: flex;
   flex-direction: column;
-  background: #F9F6EE !important;
+  background: #f5f5f5 !important;
   border-radius: 12px;
   text-decoration: none;
   color: #09126a;
