@@ -73,13 +73,10 @@
 /* RIGHT IMAGE — 55% */
 .intro-image {
   flex: 0 0 55%;
-  min-height: 420px;
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -114,35 +111,6 @@
   pointer-events: none;
 }
 
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  background: transparent;
-  cursor: pointer;
-  opacity: 0.5;
-  transition: opacity 0.2s ease;
-}
-
-.carousel-arrow:hover {
-  opacity: 1;
-}
-
-.carousel-arrow.prev {
-  left: 16px;
-}
-
-.carousel-arrow.next {
-  right: 16px;
-}
-
-.carousel-arrow:disabled {
-  opacity: 0.2;
-  cursor: default;
-}
 
 /* =========================================================
    HOME – SERVICES CAROUSEL (Section 3)
@@ -160,15 +128,17 @@
   overflow: hidden;
 }
 
-.carousel-hero .carousel-track {
+.carousel-track {
   display: flex;
-  gap: 32px;              /* space between slides */
+  /* Remove scroll-behavior and overflow-x if they are here */
+  transition: transform 0.5s ease-in-out; /* This makes it slide */
   will-change: transform;
+  width: max-content; /* Critical: allows the track to be wider than the screen */
 }
 
 .carousel-hero .carousel-item {
-  flex: 0 0 420px;        /* width of each slide */
-  max-width: 420px;
+  flex: 0 0 480px;        /* width of each slide */
+  max-width: 480px;
   aspect-ratio: 3 / 2;    /* maintain image ratio */
 }
 
@@ -235,22 +205,26 @@
   }
 }
 
-/* ===== SHARED MANUAL CAROUSEL BASE ===== */
+/* ===== SHARED MANUAL CAROUSEL BASE (CLEANED) ===== */
 
 .carousel {
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* Ensures no horizontal scrollbars appear */
+  width: 100%;
 }
 
 .carousel-track {
   display: flex;
-  gap: 24px;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+  transition: transform 0.4s ease-out; /* Smooth sliding for JS */
+  will-change: transform;
+  width: 100%;
 }
 
+/* Reset items so they don't inherit weird widths */
 .carousel-item {
-  flex: 0 0 auto;
+  flex: 0 0 100%; 
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .carousel-item img {
@@ -260,106 +234,80 @@
   object-fit: cover;
 }
 
+/* ========= LOCATIONS CAROUSEL – FIXED ALIGNMENT ========= */
 
-/* =========================
-   CAROUSEL – LOCATIONS (Section 4)
-   ========================= */
-
-.locations-carousel {
-  width: 100%;
-  padding: 90px 0 60px; /* +60px height retained */
-}
-
-/* INNER WRAPPER — aligns with sections 1 & 2 */
 .locations-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
-
   display: flex;
-  gap: 48px;
-  align-items: flex-start; /* text sits at top */
+  gap: 48px;              /* Matches Section 1 Gap exactly */
+  align-items: flex-start;
+  padding: 0 24px;
 }
 
-/* LEFT TEXT — 45% */
 .locations-text {
-  flex: 0 0 45%;
+  flex: 0 0 45%;          /* Matches Section 1 Text width */
 }
 
-/* RIGHT CAROUSEL — 55% */
 .locations-carousel-wrapper {
+  flex: 0 0 55%;          /* Matches Section 1 Image width */
+  overflow: hidden;       /* Hides the next slides */
   position: relative;
-  flex: 0 0 55%;
-  overflow: hidden; /* prevents bleed */
-  
-}
-
-.locations-carousel-wrapper {
-  overflow: hidden; /* keep the container clipped */
-  width: 100%;      /* ensure it’s full width */
 }
 
 
-/* TRACK */
+
+/* ========= LOCATIONS CAROUSEL – FIXED ALIGNMENT & GAPS ========= */
+
+/* (Keep the locations-container, text, and wrapper exactly as they were in the last step) */
+
 .locations-carousel-track {
   display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
+  gap: 0;                 
+  width: 100%;
 }
-
-
-.locations-carousel-track::-webkit-scrollbar {
-  display: none;
-}
-
-/* SLIDE — exactly one visible */
 
 .locations-carousel-track .carousel-item {
-  flex: 0 0 320px;       /* fixed width for each slide */
-  max-width: 320px;      /* optional */
+  flex: 0 0 100%;         
+  max-width: 100%;
+  height: 420px;          
+  box-sizing: border-box;
+  
+  /* Add the gap back as padding, but only on the right side */
+  padding-right: 24px; /* Adjust this value for your desired gap size */
 }
 
-
-/* IMAGE — DO NOT CHANGE SIZE */
+/* Image inside slide needs to ignore that padding */
 .locations-carousel-track img {
   width: 100%;
-  max-height: 420px;
+  height: 100%;
   object-fit: cover;
   border-radius: 8px;
   display: block;
 }
 
-/* TEXT BELOW IMAGE — LEFT ALIGNED */
-.locations-carousel-track p {
-  margin-top: 10px;
-  text-align: left;
-  padding-left: 4px;
-  font-size: 0.9rem;
+/* ... rest of Section 4 mobile adjustments ... */
+
+
+
+
+/* Mobile adjustments */
+@media (max-width: 900px) {
+  .locations-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .locations-text,
+  .locations-carousel-wrapper {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .locations-carousel-track .carousel-item {
+    height: 300px;
+  }
 }
 
-/* ARROWS — BELOW CAROUSEL */
-.locations-carousel-arrows {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 24px;
-}
 
-.locations-prev,
-.locations-next {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid rgba(0,0,0,0.3);
-  background: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 1;
-}
 
-.locations-carousel-arrows button:hover {
-  background: #111;
-  color: #fff;
-}
