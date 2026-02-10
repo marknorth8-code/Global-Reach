@@ -50,6 +50,15 @@
   overflow: hidden;
 }
 
+.intro-images-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;               /* match Home page .section-1-inner gap */
+  align-items: center;     /* match Home page */
+  padding: 0 24px;         /* container side padding */
+}
+
 /* Responsive: stack text + image */
 @media (max-width: 767px) {
   .section-1-inner {
