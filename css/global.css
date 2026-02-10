@@ -402,7 +402,6 @@ body {
 #intro-image, 
 .image-content.intro-image {
   flex: 0 0 55%;
-  height: 420px; /* Matched to Home Page exact height */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
