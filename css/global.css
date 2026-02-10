@@ -408,6 +408,39 @@ body {
   background-repeat: no-repeat;
   border-radius: 8px;
 }
+/* =========================================================
+   SHARED HERO / FEATURE IMAGE STANDARD
+   Home intro • About intro • About work carousel
+   ========================================================= */
+
+.hero-image {
+  height: 420px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* For <img> based slides */
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* For background-image based heroes */
+.hero-image--bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .hero-image {
+    height: 300px;
+  }
+}
+
 
 /* Mobile - Stacked */
 @media (max-width: 900px) {
@@ -429,3 +462,4 @@ body {
     height: 300px;
   }
 }
+
