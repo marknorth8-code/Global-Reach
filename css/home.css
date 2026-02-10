@@ -316,3 +316,8 @@
   padding-left: 4px;
   font-size: 0.9rem;
 }
+
+.locations-carousel-wrapper,
+.locations-carousel-track {
+  box-sizing: border-box;
+}
