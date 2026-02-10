@@ -1,63 +1,21 @@
-/* Intro Images Section */
-
-.intro-text {
-  padding: 4%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* =========================
-   INTRO IMAGES (Section 1) TYPOGRAPHY
-   ========================= */
-
-.intro-text h1 {
-  font-size: 3rem;        /* large, eye-catching heading */
-  line-height: 1.2;       /* tighter spacing for a bold look */
-  margin-bottom: 1.5rem;  /* space below heading */
-  font-weight: 600;       /* slightly bolder than normal */
-}
-
-.intro-text p {
-  font-size: 1.125rem;    /* slightly larger paragraph text */
-  line-height: 1.6;       /* readable line spacing */
-  margin-bottom: 1rem;
-  color: #222;            /* optional: slightly darker than default for contrast */
-}
-
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .intro-text h1 {
-    font-size: 2rem;      /* smaller heading for mobile */
-  }
-
-  .intro-text p {
-    font-size: 1rem;
-  }
-}
+/* =========================================================
+   HOME.CSS – CLEAN, CONSOLIDATED
+   ========================================================= */
 
 
-.intro-image {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: background-image 1s ease-in-out;
-}
-
-/* =========================
-   INTRO IMAGES (Section 1)
-   ========================= */
+/* =========================================================
+   SECTION 1 – INTRO IMAGES
+   ========================================================= */
 
 .intro-images {
   width: 100%;
-  padding: 60px 0 90px; /* bottom space added */
+  padding: 60px 0 90px;
 }
 
 .intro-images-container {
   display: flex;
   gap: 48px;
   align-items: flex-start;
-
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
@@ -66,18 +24,34 @@
 /* LEFT TEXT — 45% */
 .intro-text {
   flex: 0 0 45%;
+  padding: 4%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+.intro-text h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.intro-text p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #222;
 }
 
 /* RIGHT IMAGE — 55% */
 .intro-image {
   flex: 0 0 55%;
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
+  transition: background-image 1s ease-in-out;
 }
 
 /* Mobile */
@@ -94,12 +68,45 @@
   .intro-image {
     min-height: 300px;
   }
+
+  .intro-text h1 {
+    font-size: 2rem;
+  }
+
+  .intro-text p {
+    font-size: 1rem;
+  }
 }
 
 
 /* =========================================================
-   CAROUSEL UI
+   SHARED CAROUSEL UI
    ========================================================= */
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-out;
+  will-change: transform;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 .carousel-counter {
   position: absolute;
@@ -113,8 +120,9 @@
 
 
 /* =========================================================
-   HOME – SERVICES CAROUSEL (Section 3)
+   SECTION 3 – SERVICES CAROUSEL
    ========================================================= */
+
 .home-hero {
   margin-top: 60px;
   padding-bottom: 80px;
@@ -128,29 +136,22 @@
   overflow: hidden;
 }
 
-.carousel-track {
-  display: flex;
-  /* Remove scroll-behavior and overflow-x if they are here */
-  transition: transform 0.5s ease-in-out; /* This makes it slide */
-  will-change: transform;
-  width: max-content; /* Critical: allows the track to be wider than the screen */
+.carousel-hero .carousel-track {
+  width: max-content;
+  transition: transform 0.5s ease-in-out;
 }
 
 .carousel-hero .carousel-item {
-  flex: 0 0 480px;        /* width of each slide */
+  flex: 0 0 480px;
   max-width: 480px;
-  aspect-ratio: 3 / 2;    /* maintain image ratio */
+  aspect-ratio: 3 / 2;
 }
 
 .carousel-hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
   border-radius: 8px;
 }
 
-/* ----------------- ARROWS ----------------- */
+/* Arrows */
 .carousel-hero .carousel-arrow {
   position: absolute;
   top: 50%;
@@ -177,18 +178,7 @@
   right: 16px;
 }
 
-/* ----------------- COUNTER ----------------- */
-.carousel-hero .carousel-counter {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-/* ----------------- RESPONSIVE ----------------- */
+/* Responsive */
 @media (max-width: 1024px) {
   .carousel-hero .carousel-item {
     flex: 0 0 320px;
@@ -197,117 +187,72 @@
 }
 
 @media (max-width: 768px) {
- .carousel-hero .carousel-item {
-    flex: 0 0 80%;       /* nearly full width on mobile */
-  }
- .carousel-hero .carousel-track {
-    gap: 16px;
+  .carousel-hero .carousel-item {
+    flex: 0 0 80%;
   }
 }
 
-/* ===== SHARED MANUAL CAROUSEL BASE (CLEANED) ===== */
 
-.carousel {
-  position: relative;
-  overflow: hidden; /* Ensures no horizontal scrollbars appear */
-  width: 100%;
-}
+/* =========================================================
+   SECTION 4 – LOCATIONS (FINAL, CORRECT)
+   ========================================================= */
 
-.carousel-track {
+.locations-carousel > .carousel {
   display: flex;
-  transition: transform 0.4s ease-out; /* Smooth sliding for JS */
-  will-change: transform;
+  align-items: center;
+  gap: 48px;
   width: 100%;
-}
-
-/* Reset items so they don't inherit weird widths */
-.carousel-item {
-  flex: 0 0 100%; 
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.carousel-item img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ========= LOCATIONS CAROUSEL – FIXED ALIGNMENT ========= */
-
-.locations-container {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  gap: 48px;              /* Matches Section 1 Gap exactly */
-  align-items: flex-start;
-  padding: 0 24px;
 }
 
-.locations-text {
-  flex: 0 0 45%;          /* Matches Section 1 Text width */
+/* LEFT TEXT — 45% */
+.locations-carousel .locations-text {
+  flex: 0 0 45%;
+  max-width: 45%;
 }
 
-.locations-carousel-wrapper {
-  flex: 0 0 55%;          /* Matches Section 1 Image width */
-  overflow: hidden;       /* Hides the next slides */
+/* RIGHT CAROUSEL — 55% */
+.locations-carousel .locations-carousel-wrapper {
+  flex: 0 0 55%;
+  max-width: 55%;
   position: relative;
+  overflow: hidden;
 }
 
+/* Inner carousel containment */
+.locations-carousel .locations-carousel-wrapper .carousel {
+  width: 100%;
+  overflow: hidden;
+}
 
-
-/* ========= LOCATIONS CAROUSEL – FIXED ALIGNMENT & GAPS ========= */
-
-/* (Keep the locations-container, text, and wrapper exactly as they were in the last step) */
-
-.locations-carousel-track {
-  display: flex;
-  gap: 0;                 
+.locations-carousel .locations-carousel-wrapper .carousel-track {
   width: 100%;
 }
 
-.locations-carousel-track .carousel-item {
-  flex: 0 0 100%;         
-  max-width: 100%;
-  height: 420px;          
-  box-sizing: border-box;
-  
-  /* Add the gap back as padding, but only on the right side */
-  padding-right: 24px; /* Adjust this value for your desired gap size */
+.locations-carousel .locations-carousel-wrapper .carousel-item {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 420px;
 }
 
-/* Image inside slide needs to ignore that padding */
-.locations-carousel-track img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.locations-carousel .locations-carousel-wrapper img {
   border-radius: 8px;
-  display: block;
 }
 
-/* ... rest of Section 4 mobile adjustments ... */
-
-
-
-
-/* Mobile adjustments */
+/* Mobile */
 @media (max-width: 900px) {
-  .locations-container {
+  .locations-carousel > .carousel {
     flex-direction: column;
-    gap: 20px;
   }
 
-  .locations-text,
-  .locations-carousel-wrapper {
+  .locations-carousel .locations-text,
+  .locations-carousel .locations-carousel-wrapper {
     flex: 0 0 100%;
     max-width: 100%;
   }
 
-  .locations-carousel-track .carousel-item {
+  .locations-carousel .locations-carousel-wrapper .carousel-item {
     height: 300px;
   }
 }
-
-
-
