@@ -257,5 +257,9 @@
   .locations-carousel .locations-carousel-wrapper .carousel-item {
     height: 300px;
   }
+.locations-carousel .carousel-item img {
+  border-radius: 8px;   /* Match Section 1 exactly */
+}
+   
 }
 
