@@ -10,28 +10,34 @@ document.addEventListener("DOMContentLoaded", () => {
     const items = Array.from(track.children);
     if (!items.length) return;
 
-    // Compute the width of a single slide including gap
-    const style = getComputedStyle(track);
-    const gap = parseInt(style.gap) || 16; // match CSS gap
-    const slideWidth = items[0].offsetWidth + gap;
+    // FIX: Instead of calculating gap, we get the full width of the item.
+    // Since flex-basis is 100%, offsetWidth is exactly one full slide.
+    const getSlideWidth = () => items[0].offsetWidth;
 
     prev.addEventListener("click", () => {
-      track.scrollBy({ left: -slideWidth, behavior: "smooth" });
+      track.scrollTo({
+        left: track.scrollLeft - getSlideWidth(),
+        behavior: "smooth"
+      });
     });
 
     next.addEventListener("click", () => {
-      track.scrollBy({ left: slideWidth, behavior: "smooth" });
+      track.scrollTo({
+        left: track.scrollLeft + getSlideWidth(),
+        behavior: "smooth"
+      });
     });
 
-    // Optional: hide arrows when at start/end
+    // Handle button disabling logic
     const updateArrows = () => {
-      prev.disabled = track.scrollLeft <= 0;
-      next.disabled = track.scrollLeft + track.offsetWidth >= track.scrollWidth - 1;
+      // Small 5px buffer to handle sub-pixel rounding issues
+      prev.disabled = track.scrollLeft <= 5;
+      next.disabled = (track.scrollLeft + track.offsetWidth) >= (track.scrollWidth - 5);
     };
 
-    // Update on scroll
     track.addEventListener("scroll", updateArrows);
-    updateArrows(); // initial check
+    // Initial check after a tiny delay to ensure layout is painted
+    setTimeout(updateArrows, 100); 
 
   });
 });
