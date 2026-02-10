@@ -13,6 +13,7 @@
 
 .contact-intro .container {
   padding-top: var(--section-spacing-mobile);
+   margin-top: 20px; 
   padding-bottom: var(--section-spacing-mobile);
 }
 
