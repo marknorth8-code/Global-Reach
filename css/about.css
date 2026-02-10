@@ -55,6 +55,10 @@
   background-repeat: no-repeat !important;
    display: block !important;
 }
+.image-content.intro-image {
+  min-height: 500px; /* Adjust this number to match the Home page's height */
+  width: 100%;
+}
 
 /* Mobile Adjustment */
 @media (max-width: 900px) {
