@@ -122,32 +122,30 @@ a:hover {
 /* =========================================================
    NAVIGATION
    ========================================================= */
+/* =========================================================
+   NAVIGATION (Updated)
+   ========================================================= */
+.primary-nav {
+  width: 55%;                  
+  display: flex;
+  justify-content: flex-end; /* Keeps the container on the right */
+}
+
 .nav-list {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 0;             /* remove if using space-between on parent */
+  width: 100%;               /* Fills the 55% container */
+  justify-content: space-between; /* Spreads links evenly */
   padding: 0;
   margin: 0;
-  width: 100%;        /* make nav-list span full width of primary-nav */
-}
-
-.primary-nav {
-  width: 55%;                  
-  display: flex;
-  justify-content: space-between;  /* evenly spread links across 55% */
-  align-items: center;
-  padding-left: 0;                 /* remove extra padding, let space-between do the work */
-}
-
-.primary-nav {
-  padding-left: 16px;
 }
 
 .nav-link {
   font-family: Georgia, serif;
   font-size: 15px;
   cursor: pointer;
+  white-space: nowrap;      /* Prevents links from snapping to two lines */
 }
 
 .has-dropdown {
