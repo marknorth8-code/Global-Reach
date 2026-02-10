@@ -118,48 +118,50 @@ a:hover {
   display: block;
 }
 
-
 /* ==============================
-   LOGO HOVER – TEXT REVEAL FIX
+   LOGO HOVER – FULL REWRITE
    ============================== */
 
 .logo-wrapper {
   display: flex;
   align-items: center;
-  height: 60px;
-  gap: 8px;
-  overflow: visible;   /* allow text to be visible */
+  height: 60px;           /* adjust to header height */
   position: relative;
+  overflow: visible;      /* allow text to expand beyond globe */
+  gap: 8px;               /* spacing between globes and text */
 }
 
 .globe {
   height: 100%;
   width: auto;
   flex-shrink: 0;
-  z-index: 2;
+  z-index: 2;             /* globes on top */
 }
 
+/* Text reveal container */
 .logo-text-reveal {
   display: flex;
   align-items: center;
   opacity: 0;
-  max-width: 0;            /* start hidden */
-  overflow: hidden;
+  transform: translateX(-20px);  /* start slightly behind left globe */
   white-space: nowrap;
-  transition: max-width 0.6s ease, opacity 0.4s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  max-width: none;        /* allow image to define its width */
+  z-index: 1;             /* behind globe */
 }
 
+/* Text image styling */
 .logo-text-reveal img {
-  height: 40%;
-   max-height: 40px; /* optional: caps the size */
+  height: 40px;           /* perfect size relative to globes */
   width: auto;
   display: block;
+  object-fit: contain;    /* maintain aspect ratio */
 }
 
-/* Hover to reveal the text */
+/* Hover effect */
 .site-logo-container:hover .logo-text-reveal {
-  max-width: 400px;        /* fully reveal text */
   opacity: 1;
+  transform: translateX(0); /* slides fully into view */
 }
 
 
