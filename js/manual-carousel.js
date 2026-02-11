@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const type = carousel.dataset.carouselType || "full";
     let index = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
     function slideWidth() {
       return items[0].getBoundingClientRect().width;
@@ -17,15 +19,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function update() {
       if (type === "strip") {
-        track.style.transform = `translateX(-${index * slideWidth()}px)`;
-        next.disabled = index >= items.length - 1;
+        // For partial-view carousels (Section 3)
+        track.style.transform = `translateX(-${index * (slideWidth() + 24)}px)`; 
       } else {
+        // For full-width carousels (Section 4 / About Page)
         track.style.transform = `translateX(-${index * 100}%)`;
-        next.disabled = index >= items.length - 1;
       }
+      
+      // Update button states
       prev.disabled = index === 0;
+      next.disabled = index >= items.length - 1;
+      
+      // Update counter if it exists
+      const counter = carousel.querySelector('.carousel-counter');
+      if (counter) {
+        counter.textContent = `${index + 1} / ${items.length}`;
+      }
     }
 
+    // CLICK EVENTS
     next.addEventListener("click", () => {
       if (index < items.length - 1) {
         index++;
@@ -40,31 +52,34 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    // TOUCH EVENTS (FINGER SCROLLING)
+    carousel.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const swipeThreshold = 50; // Sensitivity: pixels moved before trigger
+      if (touchStartX - touchEndX > swipeThreshold) {
+        // Swipe Left -> Next Slide
+        if (index < items.length - 1) {
+          index++;
+          update();
+        }
+      } else if (touchEndX - touchStartX > swipeThreshold) {
+        // Swipe Right -> Previous Slide
+        if (index > 0) {
+          index--;
+          update();
+        }
+      }
+    }
+
+    // Initialize
     update();
   });
-});
-
-const tracks = document.querySelectorAll('.carousel-track');
-
-tracks.forEach(track => {
-  let isDragging = false;
-  let startX;
-  let scrollLeft;
-
-  track.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    startX = e.touches[0].pageX - track.offsetLeft;
-    scrollLeft = track.parentElement.scrollLeft; // Scroll the parent 'carousel' container
-  }, { passive: true });
-
-  track.addEventListener('touchend', () => {
-    isDragging = false;
-  });
-
-  track.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    const x = e.touches[0].pageX - track.offsetLeft;
-    const walk = (x - startX) * 2; // Adjust scroll speed multiplier
-    track.parentElement.scrollLeft = scrollLeft - walk;
-  }, { passive: true });
 });
