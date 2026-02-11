@@ -476,3 +476,15 @@ a:hover {
   cursor: default;
   opacity: 1;
 }
+
+.carousel-container {
+  display: flex;
+  overflow-x: auto;            /* Enables horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Makes slides "stick" to the edges */
+  -webkit-overflow-scrolling: touch; /* Ensures smooth momentum on iOS */
+}
+
+.carousel-slide {
+  flex: 0 0 100%;             /* Ensures each slide takes full width */
+  scroll-snap-align: start;    /* Aligns slide to the start of the container */
+}
