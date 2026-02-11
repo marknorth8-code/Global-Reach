@@ -12,7 +12,15 @@
     if (!track || slides.length === 0) return;
 
     let index = 0;
-    let slideWidth = slides[0].getBoundingClientRect().width;
+    let slideWidth;
+
+function updateSlideWidth() {
+  const slideRect = slides[0].getBoundingClientRect();
+  const gap = parseFloat(getComputedStyle(track).gap) || 0;
+  slideWidth = slideRect.width + gap;
+  moveToSlide(index);
+}
+
 
     function updateSlideWidth() {
       slideWidth = slides[0].getBoundingClientRect().width;
