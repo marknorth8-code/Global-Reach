@@ -497,5 +497,12 @@ a:hover {
     min-height: 350px;         /* Force a height so the background is visible */
     background-size: cover;
     background-position: center;
+
+     .carousel-track {
+  touch-action: pan-y !important; /* Forces horizontal gestures to be handled by JS */
+  user-select: none;             /* Prevents image highlighting while swiping */
+  -webkit-user-drag: none;
+}
+
   }
 }
