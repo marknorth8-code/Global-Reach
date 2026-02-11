@@ -397,10 +397,16 @@ a:hover {
   transition: transform 0.4s ease;
 }
 
+/* Default slide behaviour */
 .carousel-slide {
-  min-width: 100%;
   flex-shrink: 0;
 }
+
+/* Full width single-slide carousels */
+.carousel-full .carousel-slide {
+  min-width: 100%;
+}
+
 
 .carousel-slide img {
   width: 100%;
