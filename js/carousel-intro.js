@@ -8,14 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- CONFIG ---------- */
   const introImages = [
-    "images/home/hero-01.webp",
-    "images/home/hero-02.webp",
-    "images/home/hero-03.webp",
-    "images/home/hero-04.webp",
-    "images/home/hero-05.webp",
-    "images/home/hero-06.webp",
-    "images/home/hero-07.webp"
-  ];
+/* ---------- CONFIG ---------- */
+const introImages = [
+  { src: "images/home/hero-01.webp", alt: "Description of work type image" },
+  { src: "images/home/hero-02.webp", alt: "Description of work type image" },
+  { src: "images/home/hero-03.webp", alt: "Description of work type image" },
+  { src: "images/home/hero-04.webp", alt: "Description of work type image" },
+  { src: "images/home/hero-05.webp", alt: "Description of work type image" },
+  { src: "images/home/hero-06.webp", alt: "Description of work type image" },
+  { src: "images/home/hero-07.webp", alt: "Description of work type image" }
+];
 
   const interval = 4000; // ms
   let currentIndex = 0;
