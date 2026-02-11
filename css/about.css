@@ -1,6 +1,6 @@
 /* =========================================================
-   ABOUT PAGE – LAYOUT & COMPONENTS ONLY
-   Fully isolated from global carousel rules
+   ABOUT PAGE – LAYOUT & COMPONENTS
+   Fully aligned with global carousel system
    ========================================================= */
 
 
@@ -9,7 +9,7 @@
    ========================================================= */
 
 .about-hero {
-  padding: 60px 0 90px;
+  padding: 90px 0;
 }
 
 .about-hero-inner {
@@ -17,7 +17,7 @@
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
-  gap: 48px;
+  gap: 60px;
   align-items: center;
 }
 
@@ -42,7 +42,7 @@
 @media (max-width: 900px) {
   .about-hero-inner {
     flex-direction: column;
-    gap: 24px;
+    gap: 30px;
   }
 
   .about-hero-text,
@@ -52,18 +52,17 @@
   }
 
   .about-hero-image {
-    min-height: 300px;
+    min-height: 320px;
   }
 }
 
 
 /* =========================================================
-   SECTION 2 – IMAGE + TEXT PROFILES
+   SECTION 2 – PROFILES
    ========================================================= */
 
 .about-profiles {
-  padding: 60px 0 60px;
-  margin-top: 10px; /* Adjust this value (e.g., 10px, 20px, 30px) for the desired gap */
+  padding: 90px 0;
 }
 
 .about-profiles-inner {
@@ -74,7 +73,7 @@
 
 .profile-pair {
   display: flex;
-  gap: 32px;
+  gap: 40px;
   align-items: flex-start;
   margin-bottom: 120px;
 }
@@ -101,13 +100,14 @@
 
 .profile-text h3 {
   margin-top: 0;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 /* Mobile */
 @media (max-width: 767px) {
   .profile-pair {
     flex-direction: column;
+    gap: 25px;
   }
 
   .profile-image img {
@@ -117,11 +117,12 @@
 
 
 /* =========================================================
-   SECTION 3 – WORK / LOCATIONS CAROUSEL (45 / 55 SPLIT)
+   SECTION 3 – ABOUT CAROUSEL (45 / 55 SPLIT)
+   Fully isolated layout, uses global carousel engine
    ========================================================= */
 
 .about-carousel {
-  padding: 90px 0 60px;
+  padding: 90px 0;
 }
 
 .about-carousel-inner {
@@ -129,7 +130,7 @@
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
-  gap: 48px;
+  gap: 60px;
   align-items: flex-start;
 }
 
@@ -146,27 +147,18 @@
   position: relative;
 }
 
-/* Carousel window (hard stop) */
+/* Ensure carousel fills column */
 .about-carousel-media .carousel {
   width: 100%;
-  overflow: hidden;
-}
-
-/* CRITICAL OVERRIDE:
-   Defeats global max-content rules */
-.about-carousel-media .carousel-track {
-  display: flex;
-  width: 100% !important;
 }
 
 /* Slides */
-.about-carousel-media .carousel-item {
+.about-carousel-media .carousel-slide {
   flex: 0 0 100%;
-  width: 100%;
 }
 
 /* Images */
-.about-carousel-media .carousel-item img {
+.about-carousel-media .carousel-slide img {
   width: 100%;
   height: 400px;
   object-fit: cover;
@@ -174,16 +166,17 @@
   display: block;
 }
 
-/* Captions */
-.about-carousel-media .carousel-item p {
-  margin-top: 10px;
-  font-size: 0.9rem;
+/* Caption */
+.about-carousel-media .carousel-slide p {
+  margin-top: 12px;
+  font-size: 0.95rem;
 }
 
 /* Mobile */
 @media (max-width: 900px) {
   .about-carousel-inner {
     flex-direction: column;
+    gap: 30px;
   }
 
   .about-carousel-text,
@@ -192,7 +185,7 @@
     max-width: 100%;
   }
 
-  .about-carousel-media .carousel-item img {
+  .about-carousel-media .carousel-slide img {
     height: 300px;
   }
 }
