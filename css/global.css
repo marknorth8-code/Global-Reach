@@ -451,52 +451,71 @@ a:hover {
   opacity: 0.3;
   cursor: default;
 }
-
 /* =========================================================
-   CAROUSEL ARROWS - LOWERED & RIGHT-ALIGNED
+   CAROUSEL – UNIFIED GLOBAL CONTROLS (SAFE DROP)
    ========================================================= */
 
+.carousel {
+  position: relative;
+  width: 100%;
+  /* This ensures the 'scissor' doesn't cut off our lowered arrows */
+  overflow: visible !important; 
+}
+
+.carousel-track {
+  display: flex;
+  will-change: transform;
+  transition: transform 0.4s ease;
+}
+
+/* Container: Pushed 40px below the image to be 100% visible */
 .carousel-arrows {
   display: flex !important;
   justify-content: flex-end !important;
-  gap: 25px !important;
+  margin-top: 40px !important; 
+  gap: 30px !important;
   
-  /* POSITIONING: Moves them below the container's cut-off point */
-  position: absolute !important;
-  bottom: -50px !important; /* Drops them 50px below the image area */
-  right: 0 !important;
-  
-  /* ALIGNMENT: 90px from the screen edge */
+  /* Alignment: 90px from the right edge of the page */
+  padding-right: 90px !important;
   width: 100vw !important;
+  position: relative !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  padding-right: 90px !important;
   box-sizing: border-box !important;
-  
   z-index: 100 !important;
 }
 
-/* Character Styling (< and >) */
+/* Arrows: Character only (< and >) */
 .carousel-prev,
 .carousel-next {
   background: transparent !important;
   border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
   cursor: pointer;
-  font-size: 30px !important;
-  font-family: serif !important;
+  font-size: 32px !important;
+  font-family: "Georgia", serif !important;
   color: #111 !important;
-  opacity: 0.6;
+  opacity: 0.7;
   line-height: 1;
+  width: auto !important;
+  height: auto !important;
+  display: inline-block !important;
 }
 
-.carousel-prev:hover, .carousel-next:hover { opacity: 1; }
-.carousel-prev:disabled, .carousel-next:disabled { opacity: 0.1; }
-
-/* IMPORTANT: Add space below carousels so arrows don't overlap next section */
-.carousel[data-carousel="manual"] {
-  margin-bottom: 60px !important; 
+.carousel-prev:hover,
+.carousel-next:hover {
+  opacity: 1;
 }
 
+.carousel-prev:disabled,
+.carousel-next:disabled {
+  opacity: 0.1 !important;
+  cursor: default;
+}
 
-
+/* Ensure the next section on the page doesn't overlap the arrows */
+.page-section {
+  overflow: visible !important;
+}
 
