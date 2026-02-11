@@ -475,9 +475,9 @@ a:hover {
 
    .carousel-prev,
 .carousel-next {
-  font-weight: 900;   /* Makes arrows bold */
+  font-weight: 500;   /* Makes arrows bold */
   font-size: 35px;    /* Keeps them large enough to see */
-  color: #000;        /* Optional: change color if you want */
+  color: #8B8680;        /* Optional: change color if you want */
 }
   
   /* The 90px Right-Edge logic */
