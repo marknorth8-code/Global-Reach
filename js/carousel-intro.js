@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!introImageDiv) return;
 
   /* ---------- CONFIG ---------- */
-  // Keep your structure exactly as it was: a list of strings
   const introImages = [
     "images/home/hero-01.webp",
     "images/home/hero-02.webp",
@@ -15,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "images/home/hero-07.webp"
   ];
 
-  // Parallel array: matches descriptions to the images by index
   const introAlts = [
     "Description of work 1",
     "Description of work 2",
@@ -26,45 +24,25 @@ document.addEventListener("DOMContentLoaded", () => {
     "Description of work 7"
   ];
 
-  const interval = 4000; 
-  let currentIndex = 0;
-
-  /* ---------- PRELOAD ---------- */
-  introImages.forEach(src => {
-    const img = new Image();
+  /* ---------- GENERATION ---------- */
+  introImages.forEach((src, index) => {
+    const img = document.createElement("img");
     img.src = src;
+    img.alt = introAlts[index] || "";
+    
+    // Set the dimensions here globally for all images
+    img.width = 1200;
+    img.height = 800;
+
+    // Apply Lazy Loading
+    // We load the first image "eagerly" so the site feels fast,
+    // and the rest "lazy" to save data.
+    if (index === 0) {
+      img.loading = "eager"; 
+    } else {
+      img.loading = "lazy";
+    }
+
+    introImageDiv.appendChild(img);
   });
-
-  /* ---------- INITIAL STATE ---------- */
-  introImageDiv.style.backgroundSize = "cover";
-  introImageDiv.style.backgroundPosition = "center";
-  introImageDiv.style.backgroundRepeat = "no-repeat";
-  introImageDiv.style.transition = "opacity 0.6s ease";
-  introImageDiv.style.opacity = "0";
-  
-  // Set accessibility role once
-  introImageDiv.setAttribute("role", "img");
-
-  /* ---------- SHOW IMAGE FUNCTION ---------- */
-  function showImage(index) {
-    introImageDiv.style.opacity = "0";
-
-    setTimeout(() => {
-      // Set the background image
-      introImageDiv.style.backgroundImage = `url("${introImages[index]}")`;
-      
-      // Update the "alt" text equivalent using the parallel array
-      introImageDiv.setAttribute("aria-label", introAlts[index]);
-      
-      introImageDiv.style.opacity = "1";
-    }, 300);
-  }
-
-  /* ---------- START ---------- */
-  showImage(currentIndex);
-
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % introImages.length;
-    showImage(currentIndex);
-  }, interval);
 });
