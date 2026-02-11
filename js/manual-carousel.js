@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('.carousel[data-carousel="manual"]').forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');
-    const prev = carousel.querySelector('.carousel-prev');
-    const next = carousel.querySelector('.carousel-next');
+    const arrows = carousel.querySelector('.carousel-arrows');
+    const prev = arrows?.querySelector('.carousel-prev');
+    const next = arrows?.querySelector('.carousel-next');
     const items = track?.querySelectorAll('.carousel-item');
 
     if (!track || !prev || !next || !items.length) return;
@@ -22,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
         track.style.transform = `translateX(-${index * 100}%)`;
         next.disabled = index >= items.length - 1;
       }
-
       prev.disabled = index === 0;
     }
 
