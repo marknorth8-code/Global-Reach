@@ -453,7 +453,7 @@ a:hover {
 }
 
 /* =========================================================
-   CAROUSEL – UNIFIED GLOBAL CONTROLS
+   CAROUSEL – UNIFIED GLOBAL CONTROLS (90px Right Align)
    ========================================================= */
 
 .carousel {
@@ -467,53 +467,53 @@ a:hover {
   transition: transform 0.4s ease;
 }
 
-/* Container: Positioned below image and 90px from right of page */
+/* Forces the arrow container to align with the screen edge, not the image */
 .carousel-arrows {
-  display: flex;
-  justify-content: flex-end;
-  gap: 20px;
-  margin-top: 15px; /* Space below the image */
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 20px !important;
+  margin-top: 20px !important; /* Distance below the image */
   
-  /* Alignment logic to ignore parent containers and hit 90px from screen edge */
-  padding-right: 90px;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  box-sizing: border-box;
+  /* Alignment: 90px from the literal right edge of the browser */
+  padding-right: 90px !important;
+  width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  box-sizing: border-box !important;
 }
 
-/* Buttons: Character only (< and >) */
+/* Arrows: Character only (< and >) */
 .carousel-prev,
 .carousel-next {
-  background: none !important;
+  appearance: none;
+  background: transparent !important;
   border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
   padding: 0 !important;
   margin: 0 !important;
   cursor: pointer;
-  font-size: 24px;      /* Adjust size of arrows here */
-  font-family: serif;   /* Classic look for characters */
-  color: #111;
+  font-size: 32px !important; /* Larger characters for better visibility */
+  font-family: "Georgia", serif !important;
+  color: #000 !important;
   opacity: 0.7;
   transition: opacity 0.2s ease;
   line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: auto !important;
+  height: auto !important;
 }
 
 .carousel-prev:hover,
 .carousel-next:hover {
   opacity: 1;
-  background: none;
-  color: #000;
+  background: transparent !important;
 }
 
-/* Visual feedback for the end of the carousel */
+/* Ends of the carousel */
 .carousel-prev:disabled,
 .carousel-next:disabled {
-  opacity: 0.15;
+  opacity: 0.1 !important;
   cursor: default;
 }
+
