@@ -167,6 +167,10 @@
   border-radius: 8px;
 }
 
+.carousel-strip .carousel-item {
+  flex: 0 0 480px;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .carousel-hero .carousel-item {
@@ -201,6 +205,9 @@
 .locations-text {
   flex: 0 0 45%;
   max-width: 45%;
+}
+.carousel-full .carousel-item {
+  flex: 0 0 100%;
 }
 
 /* Right column */
