@@ -45,7 +45,7 @@
 
 <!-- ========= SECTION 3: SERVICES CAROUSEL ========= -->
 <section class="home-hero page-section">
-  <div class="carousel carousel-full" data-carousel>
+<div class="carousel carousel-multi" data-carousel="multi">
 
     <button class="carousel-arrow left" data-carousel-prev>
       &#10094;
@@ -97,7 +97,7 @@
 
 <!-- ========= SECTION 4: LOCATIONS ========= -->
 <section class="locations-carousel page-section">
-<div class="carousel carousel-full">
+<div class="locations-container">
 
 
     <div class="locations-text">
@@ -111,7 +111,7 @@
 
     <div class="locations-carousel-wrapper">
 
-      <div class="carousel" data-carousel="manual">
+      <div class="carousel carousel-single" data-carousel="single">
 
         <div class="carousel-track locations-carousel-track">
           <div class="carousel-item"><img src="images/locations/brazil.webp" alt="Office location image"><p>Brazil</p></div>
@@ -120,10 +120,11 @@
           <div class="carousel-item"><img src="images/locations/uk.webp" alt="Office location image"><p>United Kingdom</p></div>
         </div>
 
-    <div class="carousel-arrows">
-  <button class="carousel-prev">&lt;</button>
-  <button class="carousel-next">&gt;</button>
+<div class="carousel-arrows">
+  <button data-carousel-prev>&lt;</button>
+  <button data-carousel-next>&gt;</button>
 </div>
+
 
       </div>
 
