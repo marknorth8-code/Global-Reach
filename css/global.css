@@ -488,3 +488,14 @@ a:hover {
   flex: 0 0 100%;             /* Ensures each slide takes full width */
   scroll-snap-align: start;    /* Aligns slide to the start of the container */
 }
+
+/* Mobile Fix for Home and About Hero Images */
+@media (max-width: 900px) {
+  .intro-image, .about-hero-image {
+    display: block !important; /* Ensure it's not hidden */
+    width: 100%;
+    min-height: 350px;         /* Force a height so the background is visible */
+    background-size: cover;
+    background-position: center;
+  }
+}
