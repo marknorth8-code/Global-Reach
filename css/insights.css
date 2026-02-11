@@ -1,6 +1,14 @@
-/* ================= INSIGHTS PAGE LAYOUT ================= */
+/* =========================================================
+   INSIGHTS PAGE – LAYOUT
+   Fully isolated from carousel system
+   ========================================================= */
+
 .insights-page {
-  padding: 20px 40px;
+  padding: 60px 40px;
+}
+
+.insights-grid-section {
+  padding: 60px 0;
 }
 
 .insights-grid {
@@ -11,18 +19,22 @@
   gap: 30px;
 }
 
-/* ================= INSIGHT CARD ================= */
+
+/* =========================================================
+   INSIGHT CARD
+   ========================================================= */
+
 .insight-card-link {
   display: flex;
   flex-direction: column;
-  background: #f5f5f5 !important;
+  background: #f5f5f5;
   border-radius: 12px;
   text-decoration: none;
   color: #09126a;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
-  height: 500px;        /* fixed height for all cards */
-   overflow: hidden; /* ensures card content doesn’t spill */
+  height: 500px;
+  overflow: hidden;
 }
 
 .insight-card-link:hover {
@@ -30,6 +42,7 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
+/* Image */
 .insight-card-link img {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -37,80 +50,72 @@
   display: block;
 }
 
+/* Content wrapper */
 .insight-card-link .insight-content {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  justify-content: flex-start; /* don't stretch */
+  flex: 1;
 }
 
-/* Wrap summary+date to allow button pinned */
-.insight-card-link .summary-container {
-   display: flex;
-  flex-direction: column;
-}
-
-/* TITLE */
+/* TITLE (2 line clamp) */
 .insight-card-link h3 {
   font-size: 20px;
   font-weight: 800;
-  margin-bottom: 2px;
-  line-height: 1.1;
-    display: -webkit-box;
-  -webkit-line-clamp: 2;        /* show 2 lines */
+  margin-bottom: 6px;
+  line-height: 1.2;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal;  /* only one line */
 }
 
-/* SUMMARY (3 lines max) */
+/* SUMMARY (3 line clamp) */
 .insight-card-link p {
   font-size: 15px;
-  line-height: 1.2;
+  line-height: 1.4;
   color: #444;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
+
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-/* ARTICLE DATE */
+/* DATE */
 .insight-card-link .insight-date {
-  color: #09126a;         /* brand blue */
   font-size: 14px;
   font-weight: 500;
-  margin-bottom: 8px;     /* spacing before button */
+  color: #09126a;
+  margin-bottom: 14px;
 }
 
 /* READ MORE BUTTON */
 .insight-card-link .read-more {
+  margin-top: auto; /* pushes button to bottom */
   display: inline-block;
-  margin: 0 auto 0;        /* center horizontally */
-  padding: 6px 14px;
+  padding: 8px 16px;
   background-color: #09126a;
   color: #ffffff;
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   border-radius: 6px;
-  transition: background-color 0.25s ease;
   text-align: center;
+  transition: background-color 0.25s ease;
 }
 
 .insight-card-link .read-more:hover {
   background-color: #101f9c;
 }
 
-/* ================= INSIGHTS GRID SECTION ================= */
-.insights-grid-section {
-  padding: 60px 0;
-}
 
-/* ================= RESPONSIVE ================= */
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
 @media (max-width: 900px) {
   .insights-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -118,8 +123,9 @@
 }
 
 @media (max-width: 600px) {
+
   .insights-page {
-    padding: 0 15px;
+    padding: 40px 20px;
   }
 
   .insights-grid {
@@ -127,12 +133,16 @@
     gap: 24px;
   }
 
-  .insight-card-link p {
-    font-size: 15px;
+  .insight-card-link {
+    height: auto; /* allow natural height on mobile */
   }
 }
 
-/* HIDE MAIN INSIGHTS PAGE TITLE */
+
+/* =========================================================
+   HIDE MAIN INSIGHTS PAGE TITLE (if exists globally)
+   ========================================================= */
+
 .insights-page .insights-title {
-  display: none !important;
+  display: none;
 }
