@@ -199,7 +199,7 @@
   flex: 0 0 55%;
   max-width: 55%;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* Inner carousel ONLY */
