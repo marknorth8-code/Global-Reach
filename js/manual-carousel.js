@@ -1,63 +1,61 @@
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll('.carousel[data-carousel="manual"]').forEach(carousel => {
-    const track = carousel.querySelector('.carousel-track');
-    const arrows = carousel.querySelector('.carousel-arrows');
-    const prev = arrows?.querySelector('.carousel-prev');
-    const next = arrows?.querySelector('.carousel-next');
-    const items = track?.querySelectorAll('.carousel-item');
+  /* ---------- 1. LOCATIONS CAROUSEL CONFIG ---------- */
+  const locationsContainer = document.getElementById("locations-image-div");
+  const locationImages = [
+    "images/locations/city-01.webp",
+    "images/locations/city-02.webp",
+    "images/locations/city-03.webp"
+  ];
+  const locationAlts = [
+    "Global property investment consultancy in London",
+    "Modern architectural project in Dubai",
+    "Professional surveying services in Singapore"
+  ];
 
-    if (!track || !prev || !next || !items.length) return;
+  /* ---------- 2. SERVICES CAROUSEL CONFIG ---------- */
+  const servicesContainer = document.getElementById("services-image-div");
+  const serviceImages = [
+    "images/services/consultancy.webp",
+    "images/services/surveying.webp",
+    "images/services/management.webp"
+  ];
+  const serviceAlts = [
+    "Strategic property investment advice",
+    "Chartered surveyors performing site inspection",
+    "Expert project management for overseas markets"
+  ];
 
-    // FIX 1: Tell the browser to allow horizontal swipes on this container
-    track.style.touchAction = 'pan-y'; 
+  /* ---------- INITIALIZE CAROUSELS ---------- */
+  if (locationsContainer) {
+    generateImages(locationsContainer, locationImages, locationAlts, 1200, 800);
+  }
 
-    const type = carousel.dataset.carouselType || "full";
-    let index = 0;
-    let touchStartX = 0;
-
-    function slideWidth() {
-      return items[0].getBoundingClientRect().width;
-    }
-
-    function update() {
-      // Use the existing logic for buttons and layout
-      if (type === "strip") {
-        track.style.transform = `translateX(-${index * (slideWidth() + 24)}px)`; 
-      } else {
-        track.style.transform = `translateX(-${index * 100}%)`;
-      }
-      
-      prev.disabled = index === 0;
-      next.disabled = index >= items.length - 1;
-      
-      const counter = carousel.querySelector('.carousel-counter');
-      if (counter) counter.textContent = `${index + 1} / ${items.length}`;
-    }
-
-    // CLICK EVENTS
-    next.addEventListener("click", () => { if (index < items.length - 1) { index++; update(); } });
-    prev.addEventListener("click", () => { if (index > 0) { index--; update(); } });
-
-    // TOUCH EVENTS (SWIPE)
-    carousel.addEventListener('touchstart', e => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    carousel.addEventListener('touchend', e => {
-      const touchEndX = e.changedTouches[0].screenX;
-      const swipeDistance = touchStartX - touchEndX;
-      const threshold = 50; // pixels moved
-
-      if (Math.abs(swipeDistance) > threshold) {
-        if (swipeDistance > 0 && index < items.length - 1) {
-          index++; // Swipe Left -> Next
-        } else if (swipeDistance < 0 && index > 0) {
-          index--; // Swipe Right -> Prev
-        }
-        update();
-      }
-    }, { passive: true });
-
-    update();
-  });
+  if (servicesContainer) {
+    generateImages(servicesContainer, serviceImages, serviceAlts, 800, 533);
+  }
 });
+
+/**
+ * Optimized Image Generator
+ * Sets exact dimensions to prevent Layout Shift (CLS)
+ * Sets first image to 'eager' for speed (LCP) and others to 'lazy'
+ */
+function generateImages(container, images, alts, width, height) {
+  images.forEach((src, index) => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = alts[index] || "Global Reach Property Consultancy";
+    img.width = width;   // Your requested exact width
+    img.height = height; // Your requested exact height
+    
+    // SEO Optimization: First image in any carousel must load immediately
+    if (index === 0) {
+      img.loading = "eager"; 
+      img.classList.add("active");
+    } else {
+      img.loading = "lazy"; 
+    }
+
+    container.appendChild(img);
+  });
+}
