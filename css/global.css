@@ -453,46 +453,31 @@ a:hover {
 }
 
 /* =========================================================
-   CAROUSEL – UNIFIED GLOBAL CONTROLS
+   CAROUSEL – FINAL GLOBAL ALIGNMENT
    ========================================================= */
 
-.carousel {
-  position: relative;
-  width: 100%;
-  /* Crucial: ensures arrows aren't clipped on Home/Locations */
-  overflow: visible !important; 
+/* Ensure the arrows can 'break out' of the 55% column boxes */
+.carousel, 
+.locations-carousel-wrapper, 
+.about-carousel-media {
+  overflow: visible !important;
 }
 
-.carousel-track {
-  display: flex;
-  transition: transform 0.4s ease;
-  /* Keep the images clipped inside the track */
-  overflow: hidden; 
-}
-
-/* Container: Pushed below the image */
+/* Container: Positioned 90px from the screen edge */
 .carousel-arrows {
   display: flex !important;
   justify-content: flex-end !important;
-  margin-top: 20px !important; 
+  margin-top: 15px !important; /* Tightens the gap below the image */
   gap: 25px !important;
   
-  /* Alignment: Positioned 90px from the right of the page */
-  position: absolute !important;
-  right: calc(-100vw + 100% + 90px); 
-  /* The math above calculates the distance to the screen edge */
-  
-  width: auto !important;
+  /* Precision alignment 90px from screen right edge */
+  position: relative !important;
+  width: 100vw !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  padding-right: 90px !important;
+  box-sizing: border-box !important;
   z-index: 100 !important;
-}
-
-/* About/Locations Split Fix: If parent is small, ensure container doesn't shrink */
-@media (min-width: 1200px) {
-  .about-carousel-media .carousel-arrows,
-  .locations-carousel-wrapper .carousel-arrows {
-     /* Adjusts position when inside the 55% column */
-     right: calc((100vw - 1200px) / -2 + 90px) !important;
-  }
 }
 
 /* Arrows: Character only (< and >) */
@@ -507,6 +492,9 @@ a:hover {
   color: #111 !important;
   opacity: 0.7;
   line-height: 1;
+  width: auto !important;
+  height: auto !important;
+  display: inline-block !important;
 }
 
 .carousel-prev:hover, .carousel-next:hover { opacity: 1; }
