@@ -432,6 +432,8 @@ a:hover {
   border: 1px solid rgba(0,0,0,0.3);
   border-radius: 50%;
   font-size: 18px;
+  color: #000;             /* Black arrow icon/text */
+  font-weight: 900;  
   line-height: 1;
   cursor: pointer;
   display: flex;
@@ -442,8 +444,9 @@ a:hover {
 
 .carousel-prev:hover,
 .carousel-next:hover {
-  background: #111;
-  color: #fff;
+   background: transparent; /* Keeps the background consistent */
+  color: #808080;          /* Hex grey for the arrow */
+  border-color: #808080;   /* Hex grey for the border */
 }
 
 .carousel-prev:disabled,
