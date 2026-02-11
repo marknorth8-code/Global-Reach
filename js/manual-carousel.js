@@ -43,3 +43,28 @@ document.addEventListener("DOMContentLoaded", () => {
     update();
   });
 });
+
+const tracks = document.querySelectorAll('.carousel-track');
+
+tracks.forEach(track => {
+  let isDragging = false;
+  let startX;
+  let scrollLeft;
+
+  track.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    startX = e.touches[0].pageX - track.offsetLeft;
+    scrollLeft = track.parentElement.scrollLeft; // Scroll the parent 'carousel' container
+  }, { passive: true });
+
+  track.addEventListener('touchend', () => {
+    isDragging = false;
+  });
+
+  track.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    const x = e.touches[0].pageX - track.offsetLeft;
+    const walk = (x - startX) * 2; // Adjust scroll speed multiplier
+    track.parentElement.scrollLeft = scrollLeft - walk;
+  }, { passive: true });
+});
