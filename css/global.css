@@ -451,3 +451,64 @@ a:hover {
   opacity: 0.3;
   cursor: default;
 }
+
+/* =========================================================
+   GLOBAL CAROUSEL ARROW CONTROL
+   ========================================================= */
+:root {
+  /* EDIT THESE TO CHANGE ALL CAROUSELS AT ONCE */
+  --arrow-vertical-pos: 50%;    /* 50% for middle, or use 'bottom: 20px' */
+  --arrow-horizontal-gap: 15px; /* Distance from the edges */
+  --arrow-size: 40px;
+  --arrow-bg: rgba(255, 255, 255, 0.8);
+  --arrow-color: #000;
+}
+
+/* Ensure the container is the reference point */
+.carousel[data-carousel="manual"] {
+  position: relative; 
+}
+
+/* Force arrows to sit ON TOP of the images */
+.carousel-arrows {
+  position: absolute;
+  top: var(--arrow-vertical-pos);
+  left: 0;
+  right: 0;
+  transform: translateY(-50%); /* Keeps them perfectly centered vertically */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  pointer-events: none; /* Prevents the invisible box from blocking image clicks */
+  z-index: 10;
+}
+
+.carousel-prev,
+.carousel-next {
+  pointer-events: auto; /* Re-enable clicks for the buttons */
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  background: var(--arrow-bg);
+  color: var(--arrow-color);
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  margin: 0 var(--arrow-horizontal-gap);
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background: #000;
+  color: #fff;
+}
+
+.carousel-prev:disabled,
+.carousel-next:disabled {
+  opacity: 0; /* Hide them when they can't be used */
+  cursor: default;
+}
+
