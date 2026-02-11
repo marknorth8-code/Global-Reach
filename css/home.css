@@ -136,6 +136,25 @@
   transition: transform 0.5s ease-in-out;
 }
 
+
+/* Home – Services Carousel sizing */
+.home-hero .carousel {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-hero .carousel-slide img {
+  height: 420px;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .home-hero .carousel-slide img {
+    height: 300px;
+  }
+}
+
+
 /* SECTION 3 – SERVICES CAROUSEL GAP (WORKING FIX) */
 .carousel-hero .carousel-item {
   margin-right: 24px;
