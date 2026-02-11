@@ -98,8 +98,7 @@
 }
 
 .carousel-item {
-  flex: 0 0 100%;
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .carousel-item img {
