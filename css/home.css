@@ -17,6 +17,7 @@
 }
 
 /* LEFT COLUMN – 45% */
+
 .intro-text {
   flex: 0 0 45%;
   padding: 4%;
@@ -46,6 +47,7 @@
 }
 
 /* RIGHT COLUMN – 55% */
+
 .intro-image {
   flex: 0 0 55%;
   min-height: 420px;
@@ -57,7 +59,9 @@
 }
 
 /* Mobile */
+
 @media (max-width: 900px) {
+
   .intro-images-container {
     flex-direction: column;
   }
@@ -82,7 +86,7 @@
 
 
 /* =========================================================
-   SHARED CAROUSEL BASE (USED BY ALL CAROUSELS)
+   SHARED CAROUSEL BASE
    ========================================================= */
 
 .carousel {
@@ -97,51 +101,50 @@
   will-change: transform;
 }
 
-.carousel-item {
-    box-sizing: border-box;
+.carousel-slide {
+  flex-shrink: 0;
+  box-sizing: border-box;
 }
 
-.carousel-item img {
+.carousel-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* Arrows */
-.carousel-arrows {
+/* Arrow styling */
+
+.carousel-arrow {
   position: absolute;
   top: 50%;
-  left: 0;
-  width: 100%;
   transform: translateY(-50%);
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
-  pointer-events: none;
-}
-
-.carousel-arrows button {
-  pointer-events: all;
   background: #fff;
   border: 2px solid #000;
   color: #000;
-  font-weight: bold;
-  font-size: 20px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 10px 14px;
   cursor: pointer;
+  border-radius: 50%;
   transition: background 0.2s ease;
 }
 
-.carousel-arrows button:hover {
+.carousel-arrow.left {
+  left: 15px;
+}
+
+.carousel-arrow.right {
+  right: 15px;
+}
+
+.carousel-arrow:hover {
   background: #eee;
 }
 
 
 /* =========================================================
-   SECTION 3 – SERVICES CAROUSEL (STRIP STYLE)
+   SECTION 3 – SERVICES (MULTI-ITEM STRIP)
    ========================================================= */
 
 .home-hero {
@@ -154,39 +157,37 @@
 }
 
 /* Horizontal strip layout */
-.carousel-hero .carousel-track {
+
+.carousel-strip .carousel-track {
   gap: 24px;
 }
 
-.carousel-hero .carousel-item {
+.carousel-strip .carousel-slide {
   flex: 0 0 480px;
   aspect-ratio: 3 / 2;
 }
 
-.carousel-hero img {
+.carousel-strip img {
   border-radius: 8px;
 }
 
-.carousel-strip .carousel-item {
-  flex: 0 0 480px;
-}
-
 /* Responsive */
+
 @media (max-width: 1024px) {
-  .carousel-hero .carousel-item {
+  .carousel-strip .carousel-slide {
     flex: 0 0 320px;
   }
 }
 
 @media (max-width: 768px) {
-  .carousel-hero .carousel-item {
+  .carousel-strip .carousel-slide {
     flex: 0 0 80%;
   }
 }
 
 
 /* =========================================================
-   SECTION 4 – LOCATIONS (TEXT + INNER CAROUSEL)
+   SECTION 4 – LOCATIONS (SINGLE FULL WIDTH SLIDE)
    ========================================================= */
 
 .locations-carousel > .carousel {
@@ -202,37 +203,40 @@
 }
 
 /* Left column */
+
 .locations-text {
   flex: 0 0 45%;
   max-width: 45%;
 }
-.carousel-full .carousel-item {
-  flex: 0 0 100%;
-}
 
 /* Right column */
+
 .locations-carousel-wrapper {
   flex: 0 0 55%;
   max-width: 55%;
   position: relative;
 }
 
-/* Inner carousel only */
+/* Inner carousel */
+
 .locations-carousel-wrapper .carousel {
   width: 100%;
   overflow: hidden;
 }
 
-.locations-carousel-wrapper .carousel-item {
+/* Full width slides */
+
+.carousel-full .carousel-slide {
   flex: 0 0 100%;
   height: 420px;
 }
 
-.locations-carousel-wrapper img {
+.carousel-full img {
   border-radius: 8px;
 }
 
 /* Mobile */
+
 @media (max-width: 900px) {
 
   .locations-carousel > .carousel {
@@ -245,7 +249,7 @@
     max-width: 100%;
   }
 
-  .locations-carousel-wrapper .carousel-item {
+  .carousel-full .carousel-slide {
     height: 300px;
   }
 }
