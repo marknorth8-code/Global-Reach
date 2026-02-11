@@ -417,54 +417,60 @@ a:hover {
 }
 
 /* =========================================================
-   CAROUSEL ARROWS – BOLD BLACK / GREY ON HOVER
+   CAROUSEL ARROWS – FINAL VERSION
    ========================================================= */
+
+/* The 'window' that keeps images from jumping across the page */
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* prevents image-jumping */
+}
+
+/* Arrow container */
 .carousel-arrows {
   display: flex !important;
   justify-content: flex-end !important;
-  gap: 16px !important;         /* spacing between arrows */
+  gap: 25px !important;
   margin-top: 15px !important;
   width: 100% !important;
-  padding-right: 90px !important; /* aligns with page layout */
+  padding-right: 90px !important;
   box-sizing: border-box !important;
   position: relative !important;
   z-index: 10 !important;
 }
 
+/* Arrow buttons */
 .carousel-prev,
 .carousel-next {
   width: 36px;
   height: 36px;
   background: transparent !important;
-  border: 1px solid #000;       /* black border */
-  border-radius: 50%;
-  font-size: 30px !important;
+  border: none !important;
+  cursor: pointer;
+  font-size: 35px !important;
   font-family: serif !important;
-  font-weight: 900 !important;   /* bold arrows */
-  color: #000 !important;        /* black arrow text */
+  font-weight: 900 !important;      /* bold */
+  color: #000 !important;           /* active color */
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
-  cursor: pointer;
-  opacity: 1;                    /* fully visible */
-  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  opacity: 1;
+  transition: color 0.2s ease;
 }
 
-/* Hover state: mid grey */
+/* Hover state */
 .carousel-prev:hover,
 .carousel-next:hover {
-  color: #808080 !important;
-  border-color: #808080 !important;
-  background: transparent !important;
+  color: #999 !important;           /* medium grey on hover */
 }
 
-/* Disabled state: lighter but visible */
+/* Disabled arrows */
 .carousel-prev:disabled,
 .carousel-next:disabled {
-  color: #000 !important;
-  border-color: #000 !important;
-  opacity: 0.3;
+  color: #000 !important;           /* same as active */
+  font-weight: 900 !important;
   cursor: default;
+  opacity: 1;
 }
-
