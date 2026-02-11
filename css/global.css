@@ -453,62 +453,67 @@ a:hover {
 }
 
 /* =========================================================
-   GLOBAL CAROUSEL ARROW CONTROL
+   CAROUSEL – UNIFIED GLOBAL CONTROLS
    ========================================================= */
-:root {
-  /* EDIT THESE TO CHANGE ALL CAROUSELS AT ONCE */
-  --arrow-vertical-pos: 50%;    /* 50% for middle, or use 'bottom: 20px' */
-  --arrow-horizontal-gap: 15px; /* Distance from the edges */
-  --arrow-size: 40px;
-  --arrow-bg: rgba(255, 255, 255, 0.8);
-  --arrow-color: #000;
-}
 
-/* Ensure the container is the reference point */
-.carousel[data-carousel="manual"] {
-  position: relative; 
-}
-
-/* Force arrows to sit ON TOP of the images */
-.carousel-arrows {
-  position: absolute;
-  top: var(--arrow-vertical-pos);
-  left: 0;
-  right: 0;
-  transform: translateY(-50%); /* Keeps them perfectly centered vertically */
-  display: flex;
-  justify-content: space-between;
+.carousel {
+  position: relative;
   width: 100%;
-  pointer-events: none; /* Prevents the invisible box from blocking image clicks */
-  z-index: 10;
 }
 
+.carousel-track {
+  display: flex;
+  will-change: transform;
+  transition: transform 0.4s ease;
+}
+
+/* Container: Positioned below image and 90px from right of page */
+.carousel-arrows {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-top: 15px; /* Space below the image */
+  
+  /* Alignment logic to ignore parent containers and hit 90px from screen edge */
+  padding-right: 90px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+}
+
+/* Buttons: Character only (< and >) */
 .carousel-prev,
 .carousel-next {
-  pointer-events: auto; /* Re-enable clicks for the buttons */
-  width: var(--arrow-size);
-  height: var(--arrow-size);
-  background: var(--arrow-bg);
-  color: var(--arrow-color);
-  border: 1px solid rgba(0,0,0,0.2);
-  border-radius: 50%;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
   cursor: pointer;
+  font-size: 24px;      /* Adjust size of arrows here */
+  font-family: serif;   /* Classic look for characters */
+  color: #111;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
-  margin: 0 var(--arrow-horizontal-gap);
 }
 
 .carousel-prev:hover,
 .carousel-next:hover {
-  background: #000;
-  color: #fff;
+  opacity: 1;
+  background: none;
+  color: #000;
 }
 
+/* Visual feedback for the end of the carousel */
 .carousel-prev:disabled,
 .carousel-next:disabled {
-  opacity: 0; /* Hide them when they can't be used */
+  opacity: 0.15;
   cursor: default;
 }
-
