@@ -1,5 +1,5 @@
 /* =========================================================
-   SECTION 1 – INTRO IMAGES
+   SECTION 1 – INTRO (TEXT + IMAGE)
    ========================================================= */
 
 .intro-images {
@@ -16,7 +16,7 @@
   padding: 0 24px;
 }
 
-/* LEFT TEXT — 45% */
+/* LEFT COLUMN – 45% */
 .intro-text {
   flex: 0 0 45%;
   padding: 4%;
@@ -32,6 +32,12 @@
   font-weight: 600;
 }
 
+.intro-text h2 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
 .intro-text p {
   font-size: 1.125rem;
   line-height: 1.6;
@@ -39,13 +45,14 @@
   color: #222;
 }
 
-/* RIGHT IMAGE — 55% */
+/* RIGHT COLUMN – 55% */
 .intro-image {
   flex: 0 0 55%;
+  min-height: 420px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  overflow: hidden;
+  border-radius: 8px;
   transition: background-image 1s ease-in-out;
 }
 
@@ -75,24 +82,23 @@
 
 
 /* =========================================================
-   SHARED CAROUSEL UI
+   SHARED CAROUSEL BASE (USED BY ALL CAROUSELS)
    ========================================================= */
 
 .carousel {
   position: relative;
-  overflow: hidden;
   width: 100%;
+  overflow: hidden;
 }
 
 .carousel-track {
   display: flex;
-  transition: transform 0.4s ease-out;
+  transition: transform 0.5s ease;
   will-change: transform;
 }
 
 .carousel-item {
   flex: 0 0 100%;
-  width: 100%;
   box-sizing: border-box;
 }
 
@@ -103,71 +109,58 @@
   display: block;
 }
 
-.carousel-counter {
+/* Arrows */
+.carousel-arrows {
   position: absolute;
-  bottom: 24px;
-  right: 24px;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  opacity: 0.6;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
   pointer-events: none;
+}
+
+.carousel-arrows button {
+  pointer-events: all;
+  background: #fff;
+  border: 2px solid #000;
+  color: #000;
+  font-weight: bold;
+  font-size: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.carousel-arrows button:hover {
+  background: #eee;
 }
 
 
 /* =========================================================
-   SECTION 3 – SERVICES CAROUSEL
+   SECTION 3 – SERVICES CAROUSEL (STRIP STYLE)
    ========================================================= */
 
 .home-hero {
-  margin-top: 10px;
   padding-bottom: 80px;
-  overflow: hidden;
-  position: relative;
 }
 
-.carousel-hero {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel-hero .carousel-track {
-  width: max-content;
-  transition: transform 0.5s ease-in-out;
-}
-
-
-/* Home – Services Carousel sizing */
 .home-hero .carousel {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.home-hero .carousel-slide img {
-  height: 420px;
-  object-fit: cover;
-}
-
-@media (max-width: 900px) {
-  .home-hero .carousel-slide img {
-    height: 300px;
-  }
-}
-
-
-/* SECTION 3 – SERVICES CAROUSEL GAP (WORKING FIX) */
-.carousel-hero .carousel-item {
-  margin-right: 24px;
-}
-
-/* Optional: avoid extra space after the last slide */
-.carousel-hero .carousel-item:last-child {
-  margin-right: 0;
+/* Horizontal strip layout */
+.carousel-hero .carousel-track {
+  gap: 24px;
 }
 
 .carousel-hero .carousel-item {
   flex: 0 0 480px;
-  max-width: 480px;
   aspect-ratio: 3 / 2;
 }
 
@@ -179,7 +172,6 @@
 @media (max-width: 1024px) {
   .carousel-hero .carousel-item {
     flex: 0 0 320px;
-    max-width: 320px;
   }
 }
 
@@ -189,11 +181,11 @@
   }
 }
 
+
 /* =========================================================
-   SECTION 4 – LOCATIONS (FORCE CONTAINMENT FIX)
+   SECTION 4 – LOCATIONS (TEXT + INNER CAROUSEL)
    ========================================================= */
 
-/* Treat the OUTER carousel as a layout wrapper, not a carousel */
 .locations-carousel > .carousel {
   max-width: 1200px;
   margin: 0 auto;
@@ -203,71 +195,62 @@
   align-items: flex-start;
   gap: 48px;
 
-  /* Kill carousel behaviour on outer shell */
-  overflow: visible;
+  overflow: visible; /* outer wrapper only */
 }
 
 /* Left column */
-.locations-carousel > .carousel > .locations-text {
+.locations-text {
   flex: 0 0 45%;
   max-width: 45%;
 }
 
 /* Right column */
-.locations-carousel > .carousel > .locations-carousel-wrapper {
+.locations-carousel-wrapper {
   flex: 0 0 55%;
   max-width: 55%;
   position: relative;
-  overflow: visible;
 }
 
-/* Inner carousel ONLY */
-.locations-carousel .locations-carousel-wrapper .carousel {
+/* Inner carousel only */
+.locations-carousel-wrapper .carousel {
   width: 100%;
   overflow: hidden;
 }
 
-/* Track must never exceed wrapper */
-.locations-carousel .locations-carousel-wrapper .carousel-track {
-  width: 100%;
+.locations-carousel-wrapper .carousel-item {
+  flex: 0 0 100%;
+  height: 420px;
 }
 
-/* Slides */
-.locations-carousel .locations-carousel-wrapper .carousel-item {
-  flex: 0 0 100%;
-  width: 100%;
-  height: 420px;
+.locations-carousel-wrapper img {
+  border-radius: 8px;
 }
 
 /* Mobile */
 @media (max-width: 900px) {
+
   .locations-carousel > .carousel {
     flex-direction: column;
   }
 
-  .locations-carousel > .carousel > .locations-text,
-  .locations-carousel > .carousel > .locations-carousel-wrapper {
+  .locations-text,
+  .locations-carousel-wrapper {
     flex: 0 0 100%;
     max-width: 100%;
   }
 
-  .locations-carousel .locations-carousel-wrapper .carousel-item {
+  .locations-carousel-wrapper .carousel-item {
     height: 300px;
   }
 }
 
-/* =========================================================
-   LOCATIONS – IMAGE ROUNDING (MATCH SECTION 1)
-   ========================================================= */
-
-.locations-carousel .carousel-item img {
-  border-radius: 8px;
-}
 
 /* =========================================================
-   SECTION 3 – SERVICES CAROUSEL GAP
+   SECTION DIVIDER
    ========================================================= */
 
-.carousel-hero .carousel-track {
-  gap: 24px;
+.section-divider {
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 0;
 }
