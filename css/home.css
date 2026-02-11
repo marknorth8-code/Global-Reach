@@ -1,5 +1,10 @@
 /* =========================================================
-   SECTION 1 – INTRO (TEXT + IMAGE)
+   HOME.CSS
+   ========================================================= */
+
+
+/* =========================================================
+   SECTION 1 – INTRO IMAGES
    ========================================================= */
 
 .intro-images {
@@ -9,258 +14,212 @@
 
 .intro-images-container {
   display: flex;
-  gap: 48px;
+  gap: 60px;
   align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* LEFT COLUMN – 45% */
-
 .intro-text {
-  flex: 0 0 45%;
-  padding: 4%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex: 1;
 }
 
-.intro-text h1 {
-  font-size: 3rem;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-}
-
-.intro-text h2 {
-  font-size: 1.4rem;
-  font-weight: 400;
-  margin-bottom: 1.5rem;
-}
-
-.intro-text p {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  color: #222;
-}
-
-/* RIGHT COLUMN – 55% */
-
-.intro-image {
-  flex: 0 0 55%;
-  min-height: 420px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 8px;
-  transition: background-image 1s ease-in-out;
-}
-
-/* Mobile */
-
-@media (max-width: 900px) {
-
-  .intro-images-container {
-    flex-direction: column;
-  }
-
-  .intro-text,
-  .intro-image {
-    flex: 0 0 100%;
-  }
-
-  .intro-image {
-    min-height: 300px;
-  }
-
-  .intro-text h1 {
-    font-size: 2rem;
-  }
-
-  .intro-text p {
-    font-size: 1rem;
-  }
-}
-
-
-/* =========================================================
-   SHARED CAROUSEL BASE
-   ========================================================= */
-
-.carousel {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease;
-  will-change: transform;
-}
-
-.carousel-slide {
-  flex-shrink: 0;
-  box-sizing: border-box;
-}
-
-.carousel-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Arrow styling */
-
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #fff;
-  border: 2px solid #000;
-  color: #000;
-  font-weight: 700;
-  font-size: 18px;
-  padding: 10px 14px;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background 0.2s ease;
-}
-
-.carousel-arrow.left {
-  left: 15px;
-}
-
-.carousel-arrow.right {
-  right: 15px;
-}
-
-.carousel-arrow:hover {
-  background: #eee;
-}
-
-
-/* =========================================================
-   SECTION 3 – SERVICES (MULTI-ITEM STRIP)
-   ========================================================= */
-
-.home-hero {
-  padding-bottom: 80px;
-}
-
-.home-hero .carousel {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Horizontal strip layout */
-
-.carousel-strip .carousel-track {
+.intro-images-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 
-.carousel-strip .carousel-slide {
-  flex: 0 0 480px;
+.intro-images-grid img {
+  width: 100%;
   aspect-ratio: 3 / 2;
-}
-
-.carousel-strip img {
+  object-fit: cover;
   border-radius: 8px;
+  display: block;
 }
 
-/* Responsive */
-
-@media (max-width: 1024px) {
-  .carousel-strip .carousel-slide {
-    flex: 0 0 320px;
-  }
-}
-
-@media (max-width: 768px) {
-  .carousel-strip .carousel-slide {
-    flex: 0 0 80%;
+@media (max-width: 900px) {
+  .intro-images-container {
+    flex-direction: column;
   }
 }
 
 
 /* =========================================================
-   SECTION 4 – LOCATIONS (SINGLE FULL WIDTH SLIDE)
+   SECTION 2 – SERVICES CAROUSEL
+   Multi-card horizontal strip
    ========================================================= */
 
-.locations-carousel > .carousel {
+.services-carousel {
+  background: #f9f9f9;
+  padding: 90px 0;
+}
+
+.services-carousel-wrapper {
+  position: relative;
+  margin-top: 40px;
+}
+
+.services-carousel .carousel-track {
+  gap: 30px;
+}
+
+.services-carousel .carousel-slide {
+  flex: 0 0 33.333%;
+}
+
+.service-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  padding: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 8px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.service-card h3 {
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  flex-grow: 1;
+}
+
+.service-card a {
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+  .services-carousel .carousel-slide {
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 700px) {
+  .services-carousel .carousel-slide {
+    flex: 0 0 100%;
+  }
+}
+
+
+/* =========================================================
+   SECTION 3 – ABOUT PREVIEW
+   ========================================================= */
+
+.home-about {
+  padding: 90px 0;
+}
+
+.home-about-container {
+  display: flex;
+  gap: 60px;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
-
-  display: flex;
-  align-items: flex-start;
-  gap: 48px;
-
-  overflow: visible; /* outer wrapper only */
 }
 
-/* Left column */
+.home-about-text {
+  flex: 1;
+}
+
+.home-about-image {
+  flex: 1;
+}
+
+.home-about-image img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .home-about-container {
+    flex-direction: column;
+  }
+}
+
+
+/* =========================================================
+   SECTION 4 – LOCATIONS CAROUSEL
+   Single full-width slide
+   ========================================================= */
+
+.locations-carousel {
+  background: #f9f9f9;
+  padding: 90px 0;
+}
+
+.locations-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
 .locations-text {
-  flex: 0 0 45%;
-  max-width: 45%;
+  max-width: 700px;
+  margin-bottom: 40px;
 }
 
-/* Right column */
-
 .locations-carousel-wrapper {
-  flex: 0 0 55%;
-  max-width: 55%;
   position: relative;
 }
 
-/* Inner carousel */
-
-.locations-carousel-wrapper .carousel {
-  width: 100%;
-  overflow: hidden;
-}
-
-/* Full width slides */
-
-.carousel-full .carousel-slide {
+.locations-carousel .carousel-slide {
   flex: 0 0 100%;
+  position: relative;
+}
+
+.locations-carousel .carousel-slide img {
+  width: 100%;
   height: 420px;
-}
-
-.carousel-full img {
+  object-fit: cover;
   border-radius: 8px;
+  display: block;
 }
 
-/* Mobile */
+.locations-carousel .carousel-slide p {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 14px;
+  border-radius: 4px;
+}
 
 @media (max-width: 900px) {
-
-  .locations-carousel > .carousel {
-    flex-direction: column;
-  }
-
-  .locations-text,
-  .locations-carousel-wrapper {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-
-  .carousel-full .carousel-slide {
+  .locations-carousel .carousel-slide img {
     height: 300px;
   }
 }
 
 
 /* =========================================================
-   SECTION DIVIDER
+   SHARED CAROUSEL ARROWS (HOME ONLY POSITIONING)
    ========================================================= */
 
-.section-divider {
-  border: none;
-  border-top: 1px solid #e5e5e5;
-  margin: 0;
+.services-carousel .carousel-arrow,
+.locations-carousel .carousel-arrow {
+  background: #fff;
+}
+
+.services-carousel .carousel-arrow:hover,
+.locations-carousel .carousel-arrow:hover {
+  background: #eee;
 }
