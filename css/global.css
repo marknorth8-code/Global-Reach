@@ -456,31 +456,31 @@ a:hover {
    CAROUSEL – UNIFIED GLOBAL CONTROLS (90px RIGHT)
    ========================================================= */
 
-.carousel {
-  position: relative;
-  width: 100%;
+/* 1. Prevent the container from cutting off the arrows */
+.locations-carousel-wrapper, 
+.about-carousel-media,
+.carousel[data-carousel="manual"] {
+  overflow: visible !important;
 }
 
-.carousel-track {
-  display: flex;
-  will-change: transform;
-  transition: transform 0.4s ease;
-}
-
-/* 1. This container stacks naturally below the image */
+/* 2. Arrow Container: Breaks out of the column to hit the page edge */
 .carousel-arrows {
   display: flex !important;
-  justify-content: flex-end !important; /* Pushes arrows to the right */
-  gap: 25px !important;                 /* Space between < and > */
-  margin-top: 20px !important;          /* Space below the image */
+  justify-content: flex-end !important;
+  margin-top: 25px !important; /* Space below images */
+  gap: 30px !important;        /* Space between < and > */
   
-  /* 2. Alignment Logic: Matches your 90px request */
+  /* Alignment: Forces 90px from the literal right edge of the screen */
+  position: relative !important;
+  width: 100vw !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
   padding-right: 90px !important;
-  width: 100% !important;
   box-sizing: border-box !important;
+  z-index: 100 !important;
 }
 
-/* 3. Strip away the circles and boxes to leave only < and > */
+/* 3. Strip circles: Character only (< and >) */
 .carousel-prev,
 .carousel-next {
   background: transparent !important;
@@ -488,11 +488,8 @@ a:hover {
   box-shadow: none !important;
   padding: 0 !important;
   margin: 0 !important;
-  width: auto !important;
-  height: auto !important;
   cursor: pointer;
   
-  /* Character Styling */
   font-size: 32px !important;
   font-family: "Georgia", serif !important;
   color: #111 !important;
@@ -504,10 +501,9 @@ a:hover {
 .carousel-prev:hover, 
 .carousel-next:hover {
   opacity: 1;
-  background: transparent !important;
 }
 
-/* End of slide feedback */
+/* End-of-slide feedback */
 .carousel-prev:disabled, 
 .carousel-next:disabled {
   opacity: 0.1 !important;
