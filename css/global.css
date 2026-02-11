@@ -453,67 +453,50 @@ a:hover {
 }
 
 /* =========================================================
-   CAROUSEL – UNIFIED GLOBAL CONTROLS (90px Right Align)
+   CAROUSEL ARROWS - LOWERED & RIGHT-ALIGNED
    ========================================================= */
 
-.carousel {
-  position: relative;
-  width: 100%;
-}
-
-.carousel-track {
-  display: flex;
-  will-change: transform;
-  transition: transform 0.4s ease;
-}
-
-/* Forces the arrow container to align with the screen edge, not the image */
 .carousel-arrows {
   display: flex !important;
   justify-content: flex-end !important;
-  gap: 20px !important;
-  margin-top: 20px !important; /* Distance below the image */
+  gap: 25px !important;
   
-  /* Alignment: 90px from the literal right edge of the browser */
-  padding-right: 90px !important;
+  /* POSITIONING: Moves them below the container's cut-off point */
+  position: absolute !important;
+  bottom: -50px !important; /* Drops them 50px below the image area */
+  right: 0 !important;
+  
+  /* ALIGNMENT: 90px from the screen edge */
   width: 100vw !important;
-  position: relative !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
+  padding-right: 90px !important;
   box-sizing: border-box !important;
+  
+  z-index: 100 !important;
 }
 
-/* Arrows: Character only (< and >) */
+/* Character Styling (< and >) */
 .carousel-prev,
 .carousel-next {
-  appearance: none;
   background: transparent !important;
   border: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
   cursor: pointer;
-  font-size: 32px !important; /* Larger characters for better visibility */
-  font-family: "Georgia", serif !important;
-  color: #000 !important;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
+  font-size: 30px !important;
+  font-family: serif !important;
+  color: #111 !important;
+  opacity: 0.6;
   line-height: 1;
-  width: auto !important;
-  height: auto !important;
 }
 
-.carousel-prev:hover,
-.carousel-next:hover {
-  opacity: 1;
-  background: transparent !important;
+.carousel-prev:hover, .carousel-next:hover { opacity: 1; }
+.carousel-prev:disabled, .carousel-next:disabled { opacity: 0.1; }
+
+/* IMPORTANT: Add space below carousels so arrows don't overlap next section */
+.carousel[data-carousel="manual"] {
+  margin-bottom: 60px !important; 
 }
 
-/* Ends of the carousel */
-.carousel-prev:disabled,
-.carousel-next:disabled {
-  opacity: 0.1 !important;
-  cursor: default;
-}
+
+
 
