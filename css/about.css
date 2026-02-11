@@ -149,7 +149,7 @@
 /* Carousel window (hard stop) */
 .about-carousel-media .carousel {
   width: 100%;
-  overflow: visible;
+  overflow: hidden;
 }
 
 /* CRITICAL OVERRIDE:
