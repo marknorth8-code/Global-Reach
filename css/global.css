@@ -416,6 +416,57 @@ a:hover {
   box-sizing: border-box;
 }
 
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-wrapper {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+.carousel-slide img {
+  width: 100%;
+  display: block;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 1px solid #000;
+  cursor: pointer;
+  padding: 10px 14px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.carousel-arrow.left {
+  left: 15px;
+}
+
+.carousel-arrow.right {
+  right: 15px;
+}
+
+.carousel-arrow:hover {
+  background: #eee;
+}
+
+
+
 /* =========================================================
    CAROUSEL ARROWS – BLACK & BOLD WITH HOVER CIRCLE
    ========================================================= */
