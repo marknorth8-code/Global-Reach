@@ -107,7 +107,7 @@ a:hover {
   height: 65px;
 }
 
-/* Logo Container */
+/* Logo */
 
 .site-logo-container {
   display: flex;
@@ -116,15 +116,12 @@ a:hover {
   text-decoration: none;
 }
 
-/* Logo Accordion Hover */
-
 .logo-wrapper {
   display: flex;
   align-items: center;
   height: 60px;
   position: relative;
   overflow: visible;
-  gap: 0;
   cursor: pointer;
 }
 
@@ -132,7 +129,6 @@ a:hover {
   height: 100%;
   width: auto;
   flex-shrink: 0;
-  z-index: 2;
   display: block;
 }
 
@@ -143,15 +139,14 @@ a:hover {
   max-width: 0;
   opacity: 0;
   overflow: hidden;
-  z-index: 1;
   transition: max-width 0.6s ease, opacity 0.4s ease;
 }
 
 .logo-text-reveal img {
   height: 80%;
   width: auto;
-  display: block;
   padding: 0 10px;
+  display: block;
 }
 
 .site-logo-container:hover .logo-text-reveal {
@@ -214,7 +209,6 @@ a:hover {
   display: flex;
   align-items: center;
   padding: 12px 20px;
-  text-decoration: none;
   transition: background 0.2s ease;
 }
 
@@ -379,7 +373,7 @@ a:hover {
 }
 
 /* =========================================================
-   CAROUSEL – STABLE GLOBAL ENGINE
+   GLOBAL CAROUSEL ENGINE (STRUCTURE ONLY)
    ========================================================= */
 
 .carousel {
@@ -397,16 +391,9 @@ a:hover {
   transition: transform 0.4s ease;
 }
 
-/* Default slide behaviour */
 .carousel-slide {
   flex-shrink: 0;
 }
-
-/* Full width single-slide carousels */
-.carousel-full .carousel-slide {
-  min-width: 100%;
-}
-
 
 .carousel-slide img {
   width: 100%;
@@ -418,11 +405,14 @@ a:hover {
   top: 50%;
   transform: translateY(-50%);
   background: #fff;
-  border: 1px solid #000;
-  cursor: pointer;
-  padding: 10px 14px;
-  font-size: 18px;
+  border: 2px solid #000;
+  color: #000;
   font-weight: 700;
+  font-size: 18px;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.2s ease;
 }
 
 .carousel-arrow.left {
