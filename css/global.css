@@ -407,33 +407,31 @@ a:hover {
 }
 
 /* =========================================================
-   ARROWS
+   ARROWS (UPDATED TO BOTTOM RIGHT STYLE)
    ========================================================= */
 
 .carousel-arrows {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  transform: translateY(-50%);
+  position: relative; /* Changed from absolute to place below the image */
   display: flex;
-  justify-content: space-between;
-  pointer-events: none; /* prevents layout interference */
+  justify-content: flex-end; /* Aligns arrows to the right */
+  gap: 15px; /* Adds space between the two arrows */
+  padding-top: 10px; /* Space between the image/date and arrows */
+  pointer-events: none;
 }
 
 .carousel-arrow {
-  pointer-events: all; /* re-enable click */
-  background: #fff;
-  border: 2px solid #000;
+  pointer-events: all;
+  background: transparent; /* Removes background */
+  border: none; /* Removes circle border */
   color: #000;
-  font-weight: 700;
-  font-size: 18px;
-  padding: 10px 14px;
+  font-family: inherit; /* Ensures it matches your site text */
+  font-size: 24px; /* Adjust size of < and > here */
+  padding: 0;
   cursor: pointer;
-  border-radius: 50%;
-  transition: background 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .carousel-arrow:hover {
-  background: #eee;
+  background: transparent;
+  opacity: 0.6; /* Subtle fade effect on hover instead of background change */
 }
