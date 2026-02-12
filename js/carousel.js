@@ -2,29 +2,25 @@
 
   function initCarousel(carousel) {
     if (!carousel) return;
-    if (carousel.dataset.initialised) return;
+    if (carousel.dataset.initialised === "true") return;
 
     const track = carousel.querySelector('.carousel-track');
-    const slides = Array.from(track.children);
+    if (!track) return;
+
+    const slides = Array.from(track.querySelectorAll('.carousel-slide'));
+    if (slides.length === 0) return;
+
     const prevBtn = carousel.querySelector('[data-carousel-prev]');
     const nextBtn = carousel.querySelector('[data-carousel-next]');
 
-    if (!track || slides.length === 0) return;
-
     let index = 0;
-    let slideWidth;
+    let slideWidth = 0;
 
-function updateSlideWidth() {
-  const slideRect = slides[0].getBoundingClientRect();
-  const gap = parseFloat(getComputedStyle(track).gap) || 0;
-  slideWidth = slideRect.width + gap;
-  moveToSlide(index);
-}
-
-
-    function updateSlideWidth() {
-      slideWidth = slides[0].getBoundingClientRect().width;
-      moveToSlide(index);
+    function calculateSlideWidth() {
+      const slideRect = slides[0].getBoundingClientRect();
+      const styles = window.getComputedStyle(track);
+      const gap = parseFloat(styles.columnGap || styles.gap || 0);
+      slideWidth = slideRect.width + gap;
     }
 
     function moveToSlide(i) {
@@ -41,10 +37,19 @@ function updateSlideWidth() {
       moveToSlide(index);
     }
 
+    function handleResize() {
+      calculateSlideWidth();
+      moveToSlide(index);
+    }
+
+    // Init
+    calculateSlideWidth();
+    moveToSlide(index);
+
+    // Events
     if (nextBtn) nextBtn.addEventListener('click', goNext);
     if (prevBtn) prevBtn.addEventListener('click', goPrev);
-
-    window.addEventListener('resize', updateSlideWidth);
+    window.addEventListener('resize', handleResize);
 
     carousel.dataset.initialised = "true";
   }
