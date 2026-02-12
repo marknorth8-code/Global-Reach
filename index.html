@@ -119,35 +119,37 @@
 
     <div class="locations-carousel-wrapper">
 
-      <div class="carousel" data-carousel="manual">
+      <div class="carousel carousel-multi locations-carousel-engine" data-carousel="manual">
 
-        <div class="carousel-track" aria-label="Locations carousel">
+        <div class="carousel-viewport">
+          <div class="carousel-track" aria-label="Locations carousel">
 
-          <div class="carousel-item">
-            <img src="images/locations/brazil.webp" alt="Global Reach office in Brazil" loading="lazy">
-            <p>Brazil</p>
+            <div class="carousel-slide">
+              <img src="images/locations/brazil.webp" alt="Global Reach office in Brazil" loading="lazy">
+              <p>Brazil</p>
+            </div>
+
+            <div class="carousel-slide">
+              <img src="images/locations/japan.webp" alt="Global Reach office in Japan" loading="lazy">
+              <p>Japan</p>
+            </div>
+
+            <div class="carousel-slide">
+              <img src="images/locations/nz.webp" alt="Global Reach office in New Zealand" loading="lazy">
+              <p>New Zealand</p>
+            </div>
+
+            <div class="carousel-slide">
+              <img src="images/locations/uk.webp" alt="Global Reach office in United Kingdom" loading="lazy">
+              <p>United Kingdom</p>
+            </div>
+
           </div>
-
-          <div class="carousel-item">
-            <img src="images/locations/japan.webp" alt="Global Reach office in Japan" loading="lazy">
-            <p>Japan</p>
-          </div>
-
-          <div class="carousel-item">
-            <img src="images/locations/nz.webp" alt="Global Reach office in New Zealand" loading="lazy">
-            <p>New Zealand</p>
-          </div>
-
-          <div class="carousel-item">
-            <img src="images/locations/uk.webp" alt="Global Reach office in United Kingdom" loading="lazy">
-            <p>United Kingdom</p>
-          </div>
-
         </div>
 
         <div class="carousel-arrows">
-          <button data-carousel-prev aria-label="Previous slide">&lt;</button>
-          <button data-carousel-next aria-label="Next slide">&gt;</button>
+          <button class="carousel-arrow left" data-carousel-prev aria-label="Previous slide">&lt;</button>
+          <button class="carousel-arrow right" data-carousel-next aria-label="Next slide">&gt;</button>
         </div>
 
       </div>
@@ -156,6 +158,7 @@
 
   </div>
 </section>
+
 
 <hr class="section-divider">
 
