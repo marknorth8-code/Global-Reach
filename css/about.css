@@ -150,12 +150,12 @@
 }
 
 /* Slides */
-.about-carousel-media .carousel-item {
+.about-carousel-media .carousel-slide {
   flex: 0 0 100%;
 }
 
 /* Images */
-.about-carousel-media .carousel-item {
+.about-carousel-media .carousel-slide {
   width: 100%;
   aspect-ratio: 3 / 2;
   height: auto;
@@ -165,7 +165,7 @@
 }
 
 /* Caption */
-.about-carousel-media .carousel-item p {
+.about-carousel-media .carousel-slide p {
   margin-top: 12px;
   font-size: 0.95rem;
 }
