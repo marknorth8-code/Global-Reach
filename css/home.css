@@ -168,7 +168,7 @@
 
 /* =========================================================
    SECTION 4 – LOCATIONS CAROUSEL
-   Single full-width slide
+   
    ========================================================= */
 
 .locations-carousel {
@@ -177,18 +177,20 @@
 }
 
 .locations-container {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 .locations-text {
-  max-width: 700px;
-  margin-bottom: 40px;
+   flex: 0 0 40%;
 }
 
 .locations-carousel-wrapper {
-  position: relative;
+  flex: 0 0 60%;
 }
 
 .locations-carousel .carousel-slide {
@@ -218,8 +220,13 @@
 }
 
 @media (max-width: 900px) {
-  .locations-carousel .carousel-slide img {
-    height: 300px;
+  .locations-container {
+    flex-direction: column;
+  }
+
+  .locations-text,
+  .locations-carousel-wrapper {
+    flex: 0 0 100%;
   }
 }
 
