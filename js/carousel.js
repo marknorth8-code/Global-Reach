@@ -56,6 +56,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('[data-carousel]').forEach(initCarousel);
+
   });
 
 })();
