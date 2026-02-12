@@ -26,7 +26,7 @@
 }
 
 .intro-images-grid {
-  flex: 0 0 40%;
+  flex: 0 0 60%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
