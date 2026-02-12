@@ -116,7 +116,7 @@
 
 @media (max-width: 1100px) {
   .services-carousel .carousel-slide {
-    flex: 0 0 50%;
+    flex: 0 0 calc((100% - 30px) / 2);
   }
 }
 
