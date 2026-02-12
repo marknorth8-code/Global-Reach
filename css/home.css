@@ -45,11 +45,11 @@
 .intro-image {
   flex: 1;
   min-height: 420px;
-  background-image: url("/images/hero.jpg"); /* update filename */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 8px;
+  transition: background-image 0.6s ease-in-out;
 }
 
 
