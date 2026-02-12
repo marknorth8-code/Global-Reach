@@ -62,7 +62,7 @@
 
 
 /* =========================================================
-   SECTION 2 – SERVICES CAROUSEL
+   SECTION 3 – SERVICES CAROUSEL
    Multi-card horizontal strip
    ========================================================= */
 
@@ -81,7 +81,7 @@
 }
 
 .services-carousel .carousel-slide {
-  flex: 0 0 33.333%;
+    flex: 0 0 calc((100% - 60px) / 3);
 }
 
 .service-card {
