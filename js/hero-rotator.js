@@ -6,7 +6,7 @@
     if (!hero) return;
 
     const images = [
-      "images/home/hero-01.WEBP",
+      "images/home/hero-01.webp",
       "images/home/hero-02.webp",
       "images/home/hero-03.webp"
     ];
