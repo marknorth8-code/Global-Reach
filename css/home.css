@@ -40,11 +40,25 @@
   display: block;
 }
 
+/* Hero Image (Static) */
+
+.intro-image {
+  flex: 1;
+  min-height: 420px;
+  background-image: url("/images/hero.jpg"); /* update filename */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+}
+
+
 @media (max-width: 900px) {
   .intro-images-container {
     flex-direction: column;
   }
 }
+
 
 
 /* =========================================================
