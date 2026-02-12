@@ -373,37 +373,56 @@ a:hover {
 }
 
 /* =========================================================
-   GLOBAL CAROUSEL ENGINE (STRUCTURE ONLY)
+   GLOBAL CAROUSEL ENGINE (STRUCTURE ONLY – CLEAN & FUTURE SAFE)
    ========================================================= */
 
 .carousel {
   position: relative;
   width: 100%;
-  overflow: hidden;
 }
 
-.carousel-wrapper {
+/* Dedicated clipping layer */
+.carousel-viewport {
   overflow: hidden;
+  width: 100%;
 }
 
+/* Moving track */
 .carousel-track {
   display: flex;
   transition: transform 0.4s ease;
+  will-change: transform;
 }
 
+/* Individual slide */
 .carousel-slide {
-  flex-shrink: 0;
+  flex: 0 0 auto;
 }
 
+/* Images inside slides */
 .carousel-slide img {
   width: 100%;
+  height: auto;
   display: block;
 }
 
-.carousel-arrow {
+/* =========================================================
+   ARROWS
+   ========================================================= */
+
+.carousel-arrows {
   position: absolute;
   top: 50%;
+  left: 0;
+  width: 100%;
   transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none; /* prevents layout interference */
+}
+
+.carousel-arrow {
+  pointer-events: all; /* re-enable click */
   background: #fff;
   border: 2px solid #000;
   color: #000;
@@ -413,14 +432,6 @@ a:hover {
   cursor: pointer;
   border-radius: 50%;
   transition: background 0.2s ease;
-}
-
-.carousel-arrow.left {
-  left: 15px;
-}
-
-.carousel-arrow.right {
-  right: 15px;
 }
 
 .carousel-arrow:hover {
