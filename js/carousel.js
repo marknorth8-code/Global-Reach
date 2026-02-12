@@ -16,12 +16,10 @@
     let index = 0;
     let slideWidth = 0;
 
-    function calculateSlideWidth() {
-      const slideRect = slides[0].getBoundingClientRect();
-      const styles = window.getComputedStyle(track);
-      const gap = parseFloat(styles.columnGap || styles.gap || 0);
-      slideWidth = slideRect.width + gap;
-    }
+function calculateSlideWidth() {
+  const viewport = carousel.querySelector('.carousel-viewport');
+  slideWidth = viewport.offsetWidth;
+}
 
     function moveToSlide(i) {
       track.style.transform = `translateX(-${i * slideWidth}px)`;
