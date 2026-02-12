@@ -6,9 +6,9 @@
     if (!hero) return;
 
     const images = [
-      "/images/hero1.jpg",
-      "/images/hero2.jpg",
-      "/images/hero3.jpg"
+      "/images/home/hero01.webp",
+      "/images/home/hero02.webp",
+      "/images/home/hero03.webp"
     ];
 
     let current = 0;
