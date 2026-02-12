@@ -22,11 +22,11 @@
 }
 
 .intro-text {
-  flex: 1;
+  flex: 0 0 40%;
 }
 
 .intro-images-grid {
-  flex: 1;
+  flex: 0 0 40%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
