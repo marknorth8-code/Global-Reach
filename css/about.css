@@ -5,7 +5,7 @@
 
 
 /* =========================================================
-   SECTION 1 – HERO (45 / 55 SPLIT)
+   SECTION 1 – HERO (40 / 60 SPLIT)
    ========================================================= */
 
 .about-hero {
@@ -23,14 +23,14 @@
 
 /* Left text */
 .about-hero-text {
-  flex: 0 0 45%;
-  max-width: 45%;
+  flex: 0 0 40%;
+  max-width: 40%;
 }
 
 /* Right image */
 .about-hero-image {
-  flex: 0 0 55%;
-  max-width: 55%;
+  flex: 0 0 60%;
+  max-width: 60%;
   min-height: 500px;
   border-radius: 8px;
   background-size: cover;
@@ -117,7 +117,7 @@
 
 
 /* =========================================================
-   SECTION 3 – ABOUT CAROUSEL (45 / 55 SPLIT)
+   SECTION 3 – ABOUT CAROUSEL (40 / 60 SPLIT)
    Fully isolated layout, uses global carousel engine
    ========================================================= */
 
@@ -126,25 +126,22 @@
 }
 
 .about-carousel-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
   display: flex;
   gap: 60px;
   align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 /* Left text */
 .about-carousel-text {
-  flex: 0 0 45%;
-  max-width: 45%;
+  flex: 0 0 40%;
 }
 
 /* Right carousel column */
 .about-carousel-media {
-  flex: 0 0 55%;
-  max-width: 55%;
-  position: relative;
+  flex: 0 0 60%;
 }
 
 /* Ensure carousel fills column */
@@ -176,16 +173,15 @@
 @media (max-width: 900px) {
   .about-carousel-inner {
     flex-direction: column;
-    gap: 30px;
   }
 
   .about-carousel-text,
   .about-carousel-media {
     flex: 0 0 100%;
-    max-width: 100%;
   }
 
   .about-carousel-media .carousel-slide img {
     height: 300px;
   }
 }
+
