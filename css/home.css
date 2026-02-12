@@ -170,13 +170,11 @@
    SECTION 4 – LOCATIONS CAROUSEL
    
    ========================================================= */
-
-.locations-carousel {
-  background: #f9f9f9;
+.locations {
   padding: 90px 0;
 }
 
-.locations-container {
+.locations-inner {
   display: flex;
   gap: 60px;
   align-items: flex-start;
@@ -186,46 +184,37 @@
 }
 
 .locations-text {
-   flex: 0 0 40%;
+  flex: 0 0 40%;
 }
 
-.locations-carousel-wrapper {
+.locations-media {
   flex: 0 0 60%;
 }
 
-.locations-carousel .carousel-slide {
-  flex: 0 0 100%;
-  position: relative;
+.locations-media .carousel {
+  width: 100%;
 }
 
-.locations-carousel .carousel-slide img {
+.locations-media .carousel-slide img {
   width: 100%;
-  height: 420px;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   border-radius: 8px;
   display: block;
 }
 
-.locations-carousel .carousel-slide p {
-  position: absolute;
-  bottom: 25px;
-  left: 25px;
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 8px 14px;
-  border-radius: 4px;
+.locations-media .carousel-slide p {
+  margin-top: 12px;
+  font-size: 0.95rem;
 }
 
 @media (max-width: 900px) {
-  .locations-container {
+  .locations-inner {
     flex-direction: column;
   }
 
   .locations-text,
-  .locations-carousel-wrapper {
+  .locations-media {
     flex: 0 0 100%;
   }
 }
