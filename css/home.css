@@ -196,6 +196,11 @@
 .locations-media {
   flex: 0 0 60%;
 }
+.locations-media {
+  flex: 0 0 60%;
+  max-width: 60%; /* Forces the container to respect the 60% limit */
+  min-width: 0;   /* Allows the 'overflow: hidden' to actually work */
+}
 
 .locations-media .carousel {
   width: 100%;
