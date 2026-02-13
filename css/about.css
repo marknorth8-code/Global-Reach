@@ -8,7 +8,7 @@
    SECTION 1 – HERO (40 / 60 SPLIT)
    ========================================================= */
 .about-hero {
-  padding: 90px 0;
+  padding: 90px 24px;
 }
 
 .about-hero-inner {
@@ -163,7 +163,7 @@
   font-size: 0.95rem;
 }
 
-/* Mobile */
+/* Section 3 Mobile Fix */
 @media (max-width: 900px) {
   .about-carousel-inner {
     flex-direction: column;
@@ -180,4 +180,34 @@
     width: 100%;
     object-fit: cover;
   }
+} /* <--- THIS BRACKET WAS MISSING */
+
+/* =========================================================
+   SECTION 4 – WORK CAROUSEL (Or whatever you call it)
+   ========================================================= */
+.about-work-inner {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px; /* <--- RESTORES THE RIGHT GAP */
+}
+
+.about-work-text {
+  flex: 0 0 40%;
+}
+
+.about-work-media {
+  flex: 0 0 60%;
+}
+
+@media (max-width: 900px) {
+  .about-work-inner {
+    flex-direction: column;
   }
+  .about-work-text,
+  .about-work-media {
+    flex: 0 0 100%;
+  }
+}
