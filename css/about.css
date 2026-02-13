@@ -116,15 +116,15 @@
 
 
 /* =========================================================
-   SECTION 3 – ABOUT CAROUSEL (40 / 60 SPLIT)
+   SECTION 3 – ABOUT WORK (Containing CAROUSEL) (40 / 60 SPLIT)
    Fully isolated layout, uses global carousel engine
    ========================================================= */
 
-.about-carousel {
+.about-work {
   padding: 90px 0px;
 }
 
-.about-carousel-inner {
+.about-work-inner {
   display: flex;
   gap: 60px;
   align-items: flex-start;
@@ -134,22 +134,22 @@
 }
 
 /* Left text */
-.about-carousel-text {
+.about-work-text {
   flex: 0 0 40%;
 }
 
 /* Right carousel column */
-.about-carousel-media {
+.about-work-media {
   flex: 0 0 60%;
 }
 
 /* Ensure carousel fills column */
-.about-carousel-media .carousel {
+.about-work-media .carousel {
   width: 100%;
 }
 
 /* Images */
-.about-carousel-media .carousel-slide img {
+.about-work-media .carousel-slide img {
   width: 100%;
   aspect-ratio: 3 / 2;
   object-fit: cover;
@@ -158,24 +158,24 @@
 }
 
 /* Caption */
-.about-carousel-media .carousel-slide p {
+.about-work-media .carousel-slide p {
   margin-top: 12px;
   font-size: 0.95rem;
 }
 
 /* Section 3 Mobile Fix */
 @media (max-width: 900px) {
-  .about-carousel-inner {
+  .about-work-inner {
     flex-direction: column;
   }
 
-  .about-carousel-text,
-  .about-carousel-media {
+  .about-work-text,
+  .about-work-media {
     flex: 0 0 100%;
     max-width: 100%;
   }
 
-  .about-carousel-media .carousel-slide img {
+  .about-work-media .carousel-slide img {
     height: 300px;
     width: 100%;
     object-fit: cover;
@@ -183,8 +183,8 @@
 } /* <--- THIS BRACKET WAS MISSING */
 
 /* =========================================================
-   SECTION 4 – WORK CAROUSEL (Or whatever you call it)
-   ========================================================= */
+   SECTION 4? – WORK CAROUSEL 
+========================================================= */
 .about-work-inner {
   display: flex;
   gap: 60px;
