@@ -310,7 +310,19 @@ a:hover {
 
 .footer-right a {
   display: block;
+     text-decoration: underline;
+  margin-bottom: 8px;
+  color: #5f6368; /* Subtle grey for a clean look */
+  font-size: 0.85rem;
+  transition: color 0.2s ease;   
 }
+
+@media (max-width: 600px) {
+  .footer-right {
+    text-align: left; /* Aligns left on mobile for better readability */
+  }
+}
+
 
 /* =========================================================
    GENERIC GRIDS
