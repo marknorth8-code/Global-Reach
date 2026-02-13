@@ -1,94 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Site</title>
-</head>
-<body>
+<script>
+// ================= INCLUDE.JS =================
+function includeHTML() {
+  const includes = [
+    { id: "header", file: "partials/header.html" },
+    { id: "footer", file: "partials/footer.html" }
+  ];
 
-    <div id="header"></div>
-    <main>
-        <h1>Welcome to the Site</h1>
-        <p>This content is always visible.</p>
-    </main>
-    <div id="footer"></div>
+  const loadPromises = includes.map(item => {
+    const el = document.getElementById(item.id);
+    if (!el) return Promise.resolve();
 
-    <script>
-    // ================= INCLUDE.JS =================
-    function includeHTML() {
-      const includes = [
-        { id: "header", file: "partials/header.html" },
-        { id: "footer", file: "partials/footer.html" }
-      ];
+    return fetch(item.file)
+      .then(response => {
+        if (!response.ok) throw new Error(`Failed to load ${item.file}`);
+        return response.text();
+      })
+      .then(html => {
+        el.innerHTML = html;
 
-      const loadPromises = includes.map(item => {
-        const el = document.getElementById(item.id);
-        if (!el) return Promise.resolve();
+        if (item.id === "header") {
+          initHeader();
+        }
 
-        return fetch(item.file)
-          .then(response => {
-            if (!response.ok) throw new Error(`Failed to load ${item.file}: ${response.status}`);
-            return response.text();
-          })
-          .then(html => {
-            el.innerHTML = html;
+        if (item.id === "footer") {
+          checkInitialConsent();
+        }
+      })
+      .catch(err => console.error(err));
+  });
 
-            // If this is the header, run header.js initialization
-            if (item.id === "header") {
-              initHeader();
-            }
-            
-            // Check for existing consent once the footer (which contains the banner) is loaded
-            if (item.id === "footer") {
-                checkInitialConsent();
-            }
-          })
-          .catch(err => console.error(err));
-      });
+  return Promise.all(loadPromises);
+}
 
-      return Promise.all(loadPromises);
-    }
 
-    // ================= HEADER.JS LOGIC =================
-    function initHeader() {
-      const header = document.querySelector(".site-header");
-      const toggle = document.querySelector(".nav-toggle");
-      const mobileNav = document.querySelector(".mobile-nav");
+// ================= HEADER LOGIC =================
+function initHeader() {
 
-      if (!header) return;
+  const header = document.querySelector(".site-header");
+  const toggle = document.querySelector(".nav-toggle");
+  const mobileNav = document.querySelector(".mobile-nav");
 
-      // Shrink on scroll
-      window.addEventListener("scroll", () => {
-        header.classList.toggle("is-shrunk", window.scrollY > 80);
-      });
+  if (!header) return;
 
-      // Mobile menu toggle
-      toggle?.addEventListener("click", () => {
-        const open = mobileNav.style.display === "block";
-        mobileNav.style.display = open ? "none" : "block";
-        toggle.setAttribute("aria-expanded", String(!open));
-      });
-    }
+  /* ========================================
+     1. ACTIVE LINK MATCHING
+     ======================================== */
+  const currentPath = window.location.pathname.split("/").pop() || "index.html";
 
-    // ================= COOKIE LOGIC (GLOBAL SCOPE) =================
-    // 1. Function to show/hide the banner
-    function toggleCookieBanner(show) {
-      const banner = document.getElementById('cookie-banner');
-      if (banner) {
-          banner.style.display = show ? 'block' : 'none';
+  const allLinks = document.querySelectorAll(
+    ".nav-link, .mobile-nav a, .locations-dropdown a"
+  );
+
+  allLinks.forEach(link => {
+    const linkPath = link.getAttribute("href");
+    if (!linkPath) return;
+
+    if (linkPath === currentPath) {
+      link.classList.add("active");
+
+      const dropdown = link.closest(".locations-dropdown");
+      if (dropdown) {
+        const parentLink = dropdown.parentElement.querySelector(".nav-link");
+        if (parentLink) parentLink.classList.add("active");
       }
     }
+  });
 
-    // 2. Function for your footer link: "Cookie Settings"
-    function openCookieSettings() {
-      toggleCookieBanner(true);
-    }
 
-    // 3. Handle user choice
-    function setConsent(consented) {
-      localStorage.setItem('cookie-consent', consented ? 'accepted' : 'declined');
-      toggleCookieBanner(false);
-      if (consented) {
-        console.log("Cookies accepted. Load analytics here.");
-        // Insert 
+  /* ========================================
+     2. SHRINK ON SCROLL
+     ======================================== */
+  window.addEventListener("scroll", () => {
+    header.classList.toggle("is-shrunk", window.scrollY > 80);
+  });
+
+
+  /* ========================================
+     3. MOBILE MENU
+     ======================================== */
+  if (toggle && mobileNav) {
+    toggle.addEventListener("click", () => {
+      const isOpen = mobileNav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
+}
+
+
+// ================= COOKIE LOGIC =================
+
+function toggleCookieBanner(show) {
+  const banner = document.getElementById('cookie-banner');
+  if (banner) {
+    banner.style.display = show ? 'block' : 'none';
+  }
+}
+
+function openCookieSettings() {
+  toggleCookieBanner(true);
+}
+
+function setConsent(consented) {
+  localStorage.setItem('cookie-consent', consented ? 'accepted' : 'declined');
+  toggleCookieBanner(false);
+
+  if (consented) {
+    console.log("Cookies accepted. Load analytics here.");
+  }
+}
+
+function checkInitialConsent() {
+  const savedConsent = localStorage.getItem('cookie-consent');
+  if (!savedConsent) {
+    toggleCookieBanner(true);
+  }
+}
+
+
+// Start everything after DOM loads
+document.addEventListener("DOMContentLoaded", includeHTML);
+
+</script>
