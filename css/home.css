@@ -175,6 +175,9 @@
    SECTION 4 – LOCATIONS CAROUSEL
    
    ========================================================= */
+.locations {
+  padding: 60px 0; /* Matches the "home-about" and "services" sections */
+}
 
 .locations-inner {
   max-width: 1200px;
@@ -233,6 +236,6 @@
 }
 
 .services-carousel .carousel-arrow:hover,
-.locations-carousel .carousel-arrow:hover {
+.locations-inner .carousel-arrow:hover {
   background: #eee;
 }
