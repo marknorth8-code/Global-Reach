@@ -57,6 +57,11 @@
   .intro-images-container {
     flex-direction: column;
   }
+     /* Add these: */
+  .intro-text, .intro-images-grid {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 
 
@@ -223,7 +228,7 @@
    ========================================================= */
 
 .services-carousel .carousel-arrow,
-.locations-carousel .carousel-arrow {
+.locations-inner .carousel-arrow {
   background: #fff;
 }
 
