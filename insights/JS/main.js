@@ -3,23 +3,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.getElementById("header");
   const footer = document.getElementById("footer");
 
+  // FIX: Using "/" ensures it always looks at the root folder
   if (header) {
-    fetch("../header.html")
-      .then(res => res.text())
+    fetch("/header.html") 
+      .then(res => {
+        if (!res.ok) throw new Error('Header file not found at root');
+        return res.text();
+      })
       .then(html => {
         header.innerHTML = html;
         initMobileNav();
-      });
+      })
+      .catch(err => console.error("Header Error:", err));
   }
 
   if (footer) {
-    fetch("../footer.html")
-      .then(res => res.text())
+    fetch("/footer.html")
+      .then(res => {
+        if (!res.ok) throw new Error('Footer file not found at root');
+        return res.text();
+      })
       .then(html => {
         footer.innerHTML = html;
         const yearEl = document.getElementById("year");
         if (yearEl) yearEl.textContent = new Date().getFullYear();
-      });
+      })
+      .catch(err => console.error("Footer Error:", err));
   }
 });
 
@@ -40,16 +49,16 @@ function initCarousel() {
  
   if (!carousel || carousel.dataset.initialised) return;
 
-const track = carousel.querySelector('.carousel-track');
-const items = carousel.querySelectorAll('.project-box');
-const left = carousel.querySelector('.carousel-arrow.left');
-const right = carousel.querySelector('.carousel-arrow.right');
-const wrapper = carousel.querySelector('.carousel-wrapper');
+  const track = carousel.querySelector('.carousel-track');
+  const items = carousel.querySelectorAll('.project-box');
+  const left = carousel.querySelector('.carousel-arrow.left');
+  const right = carousel.querySelector('.carousel-arrow.right');
+  const wrapper = carousel.querySelector('.carousel-wrapper');
 
-if (!track || !items.length || !left || !right || !wrapper) return;
+  if (!track || !items.length || !left || !right || !wrapper) return;
 
-// ✅ mark as initialised ONLY when ready
-carousel.dataset.initialised = "true";
+  // ✅ mark as initialised ONLY when ready
+  carousel.dataset.initialised = "true";
   
   let currentTranslate = 0;
   const gap = parseInt(getComputedStyle(track).gap) || 40;
