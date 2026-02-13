@@ -9,7 +9,7 @@
 
 .intro-images {
   width: 100%;
-  padding: 60px 0 60px;
+  padding: 20px 0 60px;
 }
 
 .intro-images-container {
@@ -18,7 +18,7 @@
   align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0 0 0 24px;
 }
 
 .intro-text {
