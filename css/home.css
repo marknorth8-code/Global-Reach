@@ -172,14 +172,14 @@
 
 
 /* =========================================================
-   SECTION 4 – LOCATIONS CAROUSEL
+   SECTION 4 – OOFFICES CAROUSEL
    
    ========================================================= */
-.locations {
+.offices {
   padding: 60px 0; /* Matches the "home-about" and "services" sections */
 }
 
-.locations-inner {
+.offices-inner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
@@ -189,24 +189,24 @@
   align-items: flex-start;
 }
 
-.locations-text {
+.offices-text {
   flex: 0 0 40%;
 }
 
-.locations-media {
+.offices-media {
   flex: 0 0 60%;
 }
-.locations-media {
+.officess-media {
   flex: 0 0 60%;
   max-width: 60%; /* Forces the container to respect the 60% limit */
   min-width: 0;   /* Allows the 'overflow: hidden' to actually work */
 }
 
-.locations-media .carousel {
+.offices-media .carousel {
   width: 100%;
 }
 
-.locations-media .carousel-slide img {
+.offices-media .carousel-slide img {
   width: 100%;
   aspect-ratio: 3 / 2;
   object-fit: cover;
@@ -214,18 +214,18 @@
   display: block;
 }
 
-.locations-media .carousel-slide p {
+.offices-media .carousel-slide p {
   margin-top: 12px;
   font-size: 0.95rem;
 }
 
 @media (max-width: 900px) {
-  .locations-inner {
+  .offices-inner {
     flex-direction: column;
   }
 
-  .locations-text,
-  .locations-media {
+  .offices-text,
+  .offices-media {
     flex: 0 0 100%;
       max-width: 100%; /* Reset to 100% for mobile stacking */
   }
@@ -237,11 +237,11 @@
    ========================================================= */
 
 .services-carousel .carousel-arrow,
-.locations-inner .carousel-arrow {
+.offices-inner .carousel-arrow {
   background: #fff;
 }
 
 .services-carousel .carousel-arrow:hover,
-.locations-inner .carousel-arrow:hover {
+.offices-inner .carousel-arrow:hover {
   background: #eee;
 }
