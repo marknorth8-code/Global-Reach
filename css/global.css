@@ -416,13 +416,13 @@ a:hover {
   justify-content: flex-end; /* Aligns arrows to the right */
   gap: 25px; /* Adds space between the two arrows */
   padding-top: 20px; /* Space between the image/date and arrows */
-  padding-right: 40px; 
+  padding-right: 60px; 
   pointer-events: none;
 }
 
 .carousel-arrow {
   pointer-events: all;
-  background: transparent; /* Removes background */
+  background: #BBBBBB; /* Removes background */
   border: none; /* Removes circle border */
   color: #000;
   font-family: inherit; /* Ensures it matches your site text */
