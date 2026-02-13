@@ -21,7 +21,7 @@
   <!-- INSIGHTS DATA LOAD -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      fetch('insights/JS/insights-data.json')
+      fetch('./insights/JS/insights-data.json')
         .then(res => res.json())
         .then(data => {
           const grid = document.getElementById("insightsGrid");
