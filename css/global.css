@@ -422,7 +422,7 @@ a:hover {
 
 .carousel-arrow {
   pointer-events: all;
-  background: #BBBBBB; /* Removes background */
+  background: #fff; /* Removes background */
   border: none; /* Removes circle border */
   color: #000;
   font-family: inherit; /* Ensures it matches your site text */
@@ -433,6 +433,6 @@ a:hover {
 }
 
 .carousel-arrow:hover {
-  background: transparent;
-  opacity: 0.6; /* Subtle fade effect on hover instead of background change */
+  background: #BBBBBB;
+  opacity: 1; /* Subtle fade effect on hover instead of background change */
 }
