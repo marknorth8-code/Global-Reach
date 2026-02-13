@@ -5,7 +5,7 @@
   <title>Insights | Global Reach</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Global property development, market insights, research and investment commentary across Brazil, Japan, New Zealand and the UK.">
+  <meta name="description" content="Global property development, market insights, research and investment commentary across Brazil, Japan, New Zealand and the UK.">
 
   <!-- CANONICAL -->
   <link rel="canonical" href="https://www.yoursite.com/insights">
@@ -21,6 +21,7 @@
   <!-- INSIGHTS DATA LOAD -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Fetching from the root into the insights subfolder
       fetch('./insights/JS/insights-data.json')
         .then(res => res.json())
         .then(data => {
@@ -30,20 +31,23 @@
             const article = document.createElement("article");
             article.className = "insight-card";
 
-            // Wrap summary+date in a container to allow button pinned
+            // Correcting paths: prepend 'insights/' because this file is in the root
+            const correctedLink = `insights/${item.link}`;
+            const correctedImage = `insights/${item.image}`;
+
             article.innerHTML = `
-  <a href="${item.link}" class="insight-card-link">
-    <img src="./${item.image}" alt="${item.title}" loading="lazy">
-    <div class="insight-content">
-      <h3>${item.title}</h3>
-      <div class="summary-container">
-        <p>${item.summary}</p>
-        <span class="insight-date">${item.date}</span>
-      </div>
-      <span class="read-more">Read me</span>
-    </div>
-  </a>
-`;
+              <a href="${correctedLink}" class="insight-card-link">
+                <img src="${correctedImage}" alt="${item.title}" loading="lazy">
+                <div class="insight-content">
+                  <h3>${item.title}</h3>
+                  <div class="summary-container">
+                    <p>${item.summary}</p>
+                    <span class="insight-date">${item.date}</span>
+                  </div>
+                  <span class="read-more">Read more</span>
+                </div>
+              </a>
+            `;
 
             grid.appendChild(article);
           });
@@ -51,6 +55,7 @@
         .catch(err => console.error("Failed to load Insights JSON:", err));
     });
   </script>
+</head>
 
 <body>
 
@@ -74,7 +79,8 @@
   <!-- ================= FOOTER ================= -->
   <div id="footer"></div>
 
-<script src="/insights/JS/main.js" defer></script>
+  <!-- Corrected JS path: removed leading slash to keep it relative to root -->
+  <script src="insights/JS/main.js" defer></script>
   
 </body>
 </html>
