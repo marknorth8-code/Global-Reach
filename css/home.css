@@ -227,6 +227,7 @@
   .locations-text,
   .locations-media {
     flex: 0 0 100%;
+      max-width: 100%; /* Reset to 100% for mobile stacking */
   }
 }
 
