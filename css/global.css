@@ -428,7 +428,7 @@ a:hover {
   justify-content: flex-end; /* Aligns arrows to the right */
   gap: 25px; /* Adds space between the two arrows */
   padding-top: 20px; /* Space between the image/date and arrows */
-  padding-right: 60px; 
+  padding-right: 0px; 
   pointer-events: none;
 }
 
