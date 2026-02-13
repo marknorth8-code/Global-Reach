@@ -165,20 +165,19 @@
 
 /* Mobile */
 @media (max-width: 900px) {
-  .about-carousel-media .carousel-slide img {
-    aspect-ratio: 3 / 2;
-    height: auto;
+  .about-carousel-inner {
+    flex-direction: column;
   }
-}
-
 
   .about-carousel-text,
   .about-carousel-media {
     flex: 0 0 100%;
+    max-width: 100%;
   }
 
   .about-carousel-media .carousel-slide img {
     height: 300px;
+    width: 100%;
+    object-fit: cover;
   }
-}
 
