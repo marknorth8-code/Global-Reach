@@ -8,7 +8,7 @@
   padding: 60px 0;
 }
 
-.intro-images-container .offices-inner {
+.intro-images-container.offices-inner {
   display: flex;
   gap: 60px;
   align-items: flex-start;
