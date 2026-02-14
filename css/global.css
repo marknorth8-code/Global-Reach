@@ -1,59 +1,44 @@
-/* 1. ADD THE HOME HERO (intro-images-container) AND SERVICES SECTION */
-.container, 
+/* 1. THE UNIVERSAL EDGE LOCK (1200px Max + 24px Gaps) */
+.intro-images-container, 
 .about-hero-inner, 
 .offices-inner, 
 .about-work-inner, 
-.intro-images-container { /* Added Home Hero container */
-  max-width: 1200px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-left: 24px !important;
-  padding-right: 24px !important;
-  width: 100% !important;
-}
-
-/* 2. FIX THE IMAGE BLOWOUT FOR BOTH PAGES */
-.carousel-slide img, 
-.about-hero-image, 
-.intro-image { /* Added Home Intro Image */
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-/* 3. FIX THE SERVICES CAROUSEL OVERSIZE */
+.container,
 .services-carousel {
   max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 0 24px !important; /* Forces the edge gap on Home Section 3 */
+  padding: 0 24px !important;
+  width: 100% !important;
+  display: flex !important; 
 }
 
+/* 2. THE IMAGE BEHAVIOR LOCK (Prevents Blowouts) */
+.carousel-slide img, 
+.about-hero-image, 
+.intro-image {
+  width: 100% !important;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  min-width: 0 !important;
+}
 
+/* 3. THE 60% WINDOW LOCK (Forces the Split & Clipping) */
+.offices-media, 
+.about-work-media, 
+.about-hero-image, 
+.intro-image {
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
 
-/* THE CLIPPING WINDOW */
+/* 4. CAROUSEL SPECIFIC VIEWPORT */
 .carousel-viewport {
   overflow: hidden !important;
   width: 100% !important;
   position: relative;
-}
-
-/* STOP THE BULGE */
-.offices-media, .about-work-media {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  min-width: 0 !important;
-}
-
-
-
-/* Fix the flex containers from expanding beyond 60% */
-.offices-media, .about-work-media, .about-hero-image {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  min-width: 0 !important; /* CRITICAL: Allows the box to shrink */
-  overflow: hidden !important; /* Clips any sub-pixel bleed */
 }
 
 
