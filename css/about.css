@@ -3,40 +3,39 @@
    ========================================================= */
 
 /* 1. UNIVERSAL CONTAINER LOCK (Matches Home.css .intro-images-container) */
-.about-hero-inner, 
-.about-work-inner {
+.about-hero-inner {
   display: flex !important;
+  flex-direction: row;
   gap: 60px;
-  align-items: flex-start;
+  align-items: center;
   max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 0 24px !important; /* THE MANDATORY GAP */
+  padding: 0 24px !important; /* THE GAP */
   width: 100% !important;
-  box-sizing: border-box !important;
+  box-sizing: border-box !important; /* This is the key */
 }
 
 /* 2. UNIVERSAL MEDIA LOCK (Matches Home.css .intro-image) */
 /* Targets the Hero image div and the Work carousel container */
-.about-hero-image, 
-.about-work-media {
-  /* CHANGE: Removed 'width: 60%' and replaced with 'flex' logic */
-  flex: 0 0 60% !important; 
+.about-hero-image {
+  flex: 0 0 60% !important;
   max-width: 60% !important;
-  min-width: 0 !important;   /* Force field from global.css */
+  min-width: 0 !important; /* Forces it to shrink into the 1200px limit */
   min-height: 420px;
   background-size: cover;
   background-position: center;
   border-radius: 8px;
-  overflow: hidden;         
 }
 
 /* 3. SECTION 1 – HERO SPECIFIC */
 .about-hero {
   padding: 90px 0;
+  width: 100%;
+  overflow: hidden; 
+  position: relative;
 }
 
-.about-hero-text, 
-.about-work-text {
+.about-hero-text {
   flex: 0 0 40% !important;
   max-width: 40% !important;
 }
