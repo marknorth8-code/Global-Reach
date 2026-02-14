@@ -95,6 +95,13 @@
   display: block;
 }
 
+   .about-work-media, .offices-media, .about-hero-image, .intro-image {
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important;
+  /* Remove 'width: 0' - it's confusing the JS calculation */
+}
+
 /* SHARED CAROUSEL ARROWS */
 .services-carousel .carousel-arrow,
 .offices-carousel .carousel-arrow {
