@@ -1,5 +1,5 @@
 /* =========================================================
-   ABOUT PAGE – OPTIMIZED
+   ABOUT PAGE – Restored & Optimized
    ========================================================= */
 
 /* SECTION 1 – HERO (40/60 Split) */
@@ -8,7 +8,10 @@
 }
 
 .about-hero-inner {
-  display: flex !important; /* Ensures the side-by-side layout */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px; /* THIS IS YOUR GAP */
+  display: flex;
   gap: 60px;
   align-items: center;
 }
@@ -18,15 +21,35 @@
 }
 
 .about-hero-image {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  min-width: 0 !important; /* Allows the gap to appear */
-  width: 0;
+  flex: 0 0 60%;
+  max-width: 60%;
+  min-width: 0; /* THE FIX: Allows the div to shrink into the gap */
   height: 500px;
+  border-radius: 8px;
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* SECTION 2 – PROFILES (Standard Layout) */
+@media (max-width: 900px) {
+  .about-hero-inner {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .about-hero-text, .about-hero-image {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .about-hero-image {
+    height: 320px;
+  }
+}
+
+/* SECTION 2 – PROFILES */
+.about-profiles {
+  padding: 90px 0;
+}
+
 .about-profiles-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -40,6 +63,10 @@
   margin-bottom: 120px;
 }
 
+.profile-pair:last-child {
+  margin-bottom: 0;
+}
+
 .profile-image {
   flex: 0 0 40%;
 }
@@ -51,14 +78,28 @@
   border-radius: 8px;
 }
 
-/* SECTION 3 – ABOUT WORK (Carousel Containment) */
+@media (max-width: 767px) {
+  .profile-pair {
+    flex-direction: column;
+    gap: 25px;
+  }
+  .profile-image img {
+    height: auto;
+  }
+}
+
+/* SECTION 3 – ABOUT WORK (Carousel) */
+.about-work {
+  padding: 90px 0;
+}
+
 .about-work-inner {
   display: flex;
   gap: 60px;
   align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 24px; /* THIS IS YOUR GAP */
 }
 
 .about-work-text {
@@ -66,18 +107,10 @@
 }
 
 .about-work-media {
-    flex: 0 0 60% !important;
-  max-width: 60% !important;
-  min-width: 0 !important;
-  /* Remove 'width: 0' - it's confusing the JS calculation */
-}
-.carousel-viewport {
-  overflow: hidden !important;
-  width: 100% !important; /* Stays locked to the 60% parent */
-}
-
-.about-work-media .carousel-slide {
-  flex: 0 0 100%;
+  flex: 0 0 60%;
+  max-width: 60%;
+  min-width: 0; /* THE FIX */
+  overflow: hidden; /* Clips images to the window */
 }
 
 .about-work-media .carousel-slide img {
@@ -88,27 +121,17 @@
   display: block;
 }
 
-/* RESPONSIVE DESIGN */
+.about-work-media .carousel-slide p {
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+
 @media (max-width: 900px) {
-  .about-hero-inner,
-  .about-work-inner,
-  .profile-pair {
+  .about-work-inner {
     flex-direction: column;
-    gap: 30px;
   }
-
-  .about-hero-text, .about-hero-image,
-  .about-work-text, .about-work-media,
-  .profile-image {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-  }
-
-  .about-hero-image {
-    height: 320px;
-  }
-  
-  .profile-image img {
-    height: auto;
+  .about-work-text, .about-work-media {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
