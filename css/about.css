@@ -11,8 +11,10 @@
 }
 
 /* --- 2. THE INNER CONTAINERS (FORCING THE 24px GAPS) --- */
-.intro-images-container {
+.intro-images-container, 
+.about-work-inner {
   display: flex !important;
+  flex-direction: row !important; /* Forces side-by-side on desktop */
   gap: 60px;
   align-items: flex-start;
   max-width: 1200px !important;
@@ -61,13 +63,19 @@
 .profile-image img { width: 100%; height: 475px; object-fit: cover; border-radius: 8px; }
 
 /* --- 7. RESPONSIVE --- */
+
 @media (max-width: 900px) {
-  .about-hero-inner, .about-work-inner {
-    flex-direction: column;
-    width: calc(100% - 40px) !important;
+  /* CHANGE: Use .intro-images-container here too */
+  .intro-images-container, 
+  .about-work-inner {
+    flex-direction: column !important; /* Stack only on mobile */
     gap: 30px;
   }
-  .about-hero-text, .about-hero-image, .about-work-text, .about-work-media {
+  
+  .about-hero-text, 
+  .about-hero-image, 
+  .about-work-text, 
+  .about-work-media {
     flex: 0 0 100% !important;
     max-width: 100% !important;
     width: 100% !important;
