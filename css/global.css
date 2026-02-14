@@ -392,7 +392,7 @@ header nav {
   right: 40px;          /* Adjusted from 60px to 20px to ensure visibility */
   display: flex;        /* Keeps arrows side-by-side */
   flex-direction: row;  /* Explicitly horizontal */
-  gap: 15px;            /* Gap between the two buttons */
+  gap: 10px;            /* Gap between the two buttons */
   pointer-events: none;
   z-index: 100;         /* High z-index to stay on top */
   width: auto;          /* Only as wide as the two buttons */
