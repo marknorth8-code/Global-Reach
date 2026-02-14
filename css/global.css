@@ -371,6 +371,13 @@ header nav {
   min-width: 100%;
 }
 
+.carousel {
+  position: relative;
+  width: 100%;
+  /* Add 70px of space at the bottom (50px arrow height + 20px gap) */
+  padding-bottom: 70px; 
+}
+
 .carousel-slide img {
   width: 100% !important;
   max-width: 100% !important;
@@ -381,7 +388,7 @@ header nav {
 
 .carousel-arrows {
   position: absolute;
-  bottom: 60px;         /* Distance from bottom */
+  bottom: 0px;         /* Distance from bottom */
   right: 40px;          /* Adjusted from 60px to 20px to ensure visibility */
   display: flex;        /* Keeps arrows side-by-side */
   flex-direction: row;  /* Explicitly horizontal */
