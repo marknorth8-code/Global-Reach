@@ -361,7 +361,9 @@ a:hover {
 }
 
 .carousel-arrows {
-  position: relative;
+  position: absolute;
+     bottom: 20px;         /* Anchors it to the bottom of the container */
+  right: 60px;          /* Anchors it to the right */
   display: flex;
   justify-content: flex-end;
   gap: 25px;
@@ -369,12 +371,13 @@ a:hover {
   padding-right: 60px; /* Adjust the value as needed */
   pointer-events: none;
   width: 100%;  /* Ensures the container spans the full width to allow right-alignment */
+  z-index: 10;        /* Pulls arrows to the front */
 }
  
 .carousel-arrow {
   pointer-events: all;
   background: #fff;
-  border: none solid #ddd;
+  border: none;
   color: #000;
   font-size: 24px;
   cursor: pointer;
