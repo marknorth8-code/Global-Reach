@@ -21,7 +21,6 @@ body {
   color: #111;
   background: #fff;
   line-height: 1.6;
-
   overflow-x: hidden;
 }
 
@@ -73,319 +72,8 @@ a:hover {
   padding: 60px 0;
 }
 
-.page-section--tight {
-  padding: 30px 0;
-}
-
-.text-center {
-  text-align: center;
-}
-
 /* =========================================================
-   HEADER
-   ========================================================= */
-
-.site-header {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #000;
-  z-index: 1000;
-}
-
-.header-inner {
-  height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: height 0.3s ease;
-}
-
-.site-header.is-shrunk .header-inner {
-  height: 65px;
-}
-
-/* Logo */
-
-.site-logo-container {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  text-decoration: none;
-}
-
-.logo-wrapper {
-  display: flex;
-  align-items: center;
-  height: 60px;
-  position: relative;
-  overflow: visible;
-  cursor: pointer;
-}
-
-.globe {
-  height: 100%;
-  width: auto;
-  flex-shrink: 0;
-  display: block;
-}
-
-.logo-text-reveal {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  max-width: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: max-width 0.6s ease, opacity 0.4s ease;
-}
-
-.logo-text-reveal img {
-  height: 80%;
-  width: auto;
-  padding: 0 10px;
-  display: block;
-}
-
-.site-logo-container:hover .logo-text-reveal {
-  opacity: 1;
-  max-width: 300px;
-}
-
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
-
-.primary-nav {
-  width: 60%;
-  display: flex;
-}
-
-.nav-list {
-  list-style: none;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-item {
-  flex: 1;
-  text-align: center;
-}
-
-.nav-link {
-  font-family: Georgia, serif;
-  font-size: 15px;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.has-dropdown {
-  position: relative;
-}
-
-.locations-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 280px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  padding: 10px 0;
-  list-style: none;
-  display: none;
-  z-index: 1000;
-}
-
-.has-dropdown:hover .locations-dropdown {
-  display: block;
-}
-
-.locations-dropdown li a {
-  display: flex;
-  align-items: center;
-  padding: 12px 20px;
-  transition: background 0.2s ease;
-}
-
-.locations-dropdown li a:hover {
-  background-color: #f0f7ff;
-}
-
-.location-icon {
-  color: #000;
-  font-size: 18px;
-  margin-right: 15px;
-  flex-shrink: 0;
-}
-
-.location-details {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.city {
-  font-size: 15px;
-  font-weight: 600;
-  color: #1a1a1b;
-}
-
-.state {
-  font-size: 13px;
-  color: #5f6368;
-  margin-top: 2px;
-}
-
-.locations-dropdown li a:hover .city {
-  color: #007BFF;
-}
-
-/* =========================================================
-   MOBILE NAV
-   ========================================================= */
-
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-}
-
-.mobile-nav {
-  display: none;
-  position: fixed;
-  top: 65px;
-  left: 0;
-  width: 100%;
-  background: #fff;
-  border-top: 1px solid #ddd;
-}
-
-.mobile-nav ul {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-@media (max-width: 900px) {
-  .primary-nav {
-    display: none;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-}
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-.site-footer {
-  border-top: 1px solid #e5e5e5;
-  padding: 40px 0;
-  font-size: 0.85rem;
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.footer-left {
-  max-width: 500px;
-}
-
-.footer-right {
-  text-align: right;
-}
-
-.footer-right a {
-  display: block;
-     text-decoration: underline;
-  margin-bottom: 8px;
-  color: #5f6368; /* Subtle grey for a clean look */
-  font-size: 0.85rem;
-  transition: color 0.2s ease;   
-}
-
-@media (max-width: 600px) {
-  .footer-right {
-    text-align: left; /* Aligns left on mobile for better readability */
-  }
-}
-
-
-/* =========================================================
-   GENERIC GRIDS
-   ========================================================= */
-
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-.photo-grid img {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-.card {
-  border: 1px solid #e5e5e5;
-  padding: 20px;
-  background: #fff;
-}
-
-/* =========================================================
-   HERO IMAGE BASE
-   ========================================================= */
-
-.hero-image {
-  height: 420px;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.hero-image--bg {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 420px;
-}
-
-@media (max-width: 900px) {
-  .hero-image,
-  .hero-image--bg {
-    height: 300px;
-    min-height: 300px;
-  }
-}
-
-/* =========================================================
-   GLOBAL CAROUSEL ENGINE (STRUCTURE ONLY – CLEAN & FUTURE SAFE)
+   GLOBAL CAROUSEL ENGINE (FIXED FOR GAPS)
    ========================================================= */
 
 .carousel {
@@ -395,8 +83,9 @@ a:hover {
 
 /* Dedicated clipping layer */
 .carousel-viewport {
-  overflow: hidden !important;
-  width: 100% !important; /* Stays locked to the 60% parent */
+  overflow: hidden;
+  width: 100%;
+  border-radius: 8px; /* Added for clean clipping */
 }
 
 /* Moving track */
@@ -409,70 +98,59 @@ a:hover {
 /* Individual slide */
 .carousel-slide {
   flex: 0 0 100%;
+  min-width: 100%; /* Force the slide to match the viewport width */
 }
 
 /* Images inside slides */
 .carousel-slide img {
-  width: 100% !important;
-  max-width: 100% !important;
+  width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
-}
-
-.intro-image, 
-.about-hero-image, 
-.offices-media, 
-.about-work-media {
-  min-width: 0 !important;
+  object-fit: cover; /* Prevents distortion */
 }
 
 /* =========================================================
-   ARROWS (UPDATED TO BOTTOM RIGHT STYLE)
+   ARROWS
    ========================================================= */
 
 .carousel-arrows {
-  position: relative; /* Changed from absolute to place below the image */
+  position: relative; 
   display: flex;
-  justify-content: flex-end; /* Aligns arrows to the right */
-  gap: 25px; /* Adds space between the two arrows */
-  padding-top: 20px; /* Space between the image/date and arrows */
-  padding-right: 0px; 
+  justify-content: flex-end; 
+  gap: 25px; 
+  padding-top: 20px; 
   pointer-events: none;
 }
 
 .carousel-arrow {
   pointer-events: all;
-  background: #fff; /* Removes background */
-  border: none; /* Removes circle border */
+  background: #fff; 
+  border: 1px solid #ddd;
   color: #000;
-  font-family: inherit; /* Ensures it matches your site text */
-  font-size: 24px; /* Adjust size of < and > here */
+  font-size: 24px; 
   padding: 0;
   cursor: pointer;
-  transition: opacity 0.2s ease;
-     width: 50px;
+  width: 50px;
   height: 50px;
-    /* 2. Turn the square into a circle */
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
 }
 
 .carousel-arrow:hover {
-  background: #BBBBBB;
-  opacity: 1; /* Subtle fade effect on hover instead of background change */
+  background: #eee;
 }
 
-/* This forces every media container to stay inside the 1200px limit */
-.about-work-media, .offices-media, .about-hero-image, .intro-image {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  min-width: 0 !important;
-  /* Remove 'width: 0' - it's confusing the JS calculation */
-}
+/* =========================================================
+   UNIVERSAL MEDIA FIX
+   ========================================================= */
 
-/* Ensure the images themselves don't push the slides wide */
-.carousel-slide img {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto;
+/* Allows flex items to shrink below the 1200px image size */
+.intro-image, 
+.about-hero-image, 
+.offices-media, 
+.about-work-media {
+  min-width: 0;
 }
