@@ -1,47 +1,56 @@
 /* =========================================================
-   ABOUT PAGE – Final Combined Fix (Section 1 & 3)
+   ABOUT PAGE – Final Fix (Visible Image & Right Gap)
    ========================================================= */
 
-/* --- 1. GLOBAL GUARD RAIL --- */
+/* --- 1. THE OUTER SECTION --- */
 .about-hero, .about-work {
   padding: 90px 0;
   width: 100%;
-  overflow: hidden; /* Stops images from pushing the page wider than the screen */
+  overflow: hidden;
   box-sizing: border-box;
 }
 
-/* --- 2. THE INNER CONTAINERS (FORCING THE 24px GAPS) --- */
+/* --- 2. THE INNER CONTAINER (POSITIONING) --- */
 .intro-images-container, 
 .about-work-inner {
   display: flex !important;
   flex-direction: row !important;
   align-items: flex-start !important;    /* FIX: Moves text to the TOP */
-  justify-content: flex-start !important; /* FIX: Moves everything to the LEFT */
+  justify-content: flex-start !important; /* FIX: Pushes content to the LEFT */
   
   gap: 60px;
   max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 0 24px !important; 
+  padding: 0 24px !important; /* THE 24px SIDE GAP */
   width: 100% !important;
   box-sizing: border-box !important;
 }
 
-/* --- 3. THE TEXT BLOCKS (40%) --- */
-..about-hero-text, 
+/* --- 3. THE TEXT (Reduced to 35% to allow space for the gap) --- */
+.about-hero-text, 
 .about-work-text {
-  flex: 0 0 35% !important; /* Reduced to allow the image to move left */
+  flex: 0 0 35% !important;
   max-width: 35% !important;
   margin: 0 !important;
-  padding-top: 0 !important; /* Ensures text starts at the very top */
 }
 
-/* --- 4. THE MEDIA BLOCKS (60%) --- */
+/* --- 4. THE IMAGE (FIX: Added Mandatory Height) --- */
 .about-hero-image, 
 .about-work-media {
   flex: 0 0 60% !important;
   max-width: 60% !important;
   min-width: 0 !important;
-  /* This margin ensures the image doesn't "lean" on the right edge */
+  
+  /* THIS BRINGS THE IMAGE BACK */
+  height: 500px !important; 
+  min-height: 500px !important;
+  
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  overflow: hidden;
+  
+  /* Forces any extra space to the RIGHT side */
   margin-right: auto !important; 
 }
 
@@ -50,36 +59,25 @@
 .about-work-media .carousel-viewport {
   width: 100% !important;
   max-width: 100% !important;
+  height: 100% !important;
 }
 
-/* --- 6. PROFILES (Section 2) --- */
-.about-profiles { padding: 90px 0; }
-.about-profiles-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
+/* --- 6. PROFILES (Section 2 - Unchanged) --- */
+.about-profiles-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .profile-pair { display: flex; gap: 40px; margin-bottom: 120px; }
-.profile-image { flex: 0 0 40%; }
 .profile-image img { width: 100%; height: 475px; object-fit: cover; border-radius: 8px; }
 
 /* --- 7. RESPONSIVE --- */
-
 @media (max-width: 900px) {
-  /* CHANGE: Use .intro-images-container here too */
-  .intro-images-container, 
-  .about-work-inner {
-    flex-direction: column !important; /* Stack only on mobile */
+  .intro-images-container, .about-work-inner {
+    flex-direction: column !important;
+    width: 100% !important;
     gap: 30px;
   }
-  
-  .about-hero-text, 
-  .about-hero-image, 
-  .about-work-text, 
-  .about-work-media {
+  .about-hero-text, .about-hero-image, .about-work-text, .about-work-media {
     flex: 0 0 100% !important;
     max-width: 100% !important;
     width: 100% !important;
-    min-height: 300px;
+    min-height: 350px !important;
   }
 }
