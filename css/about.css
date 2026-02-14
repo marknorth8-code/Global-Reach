@@ -8,19 +8,17 @@
    SECTION 1 – HERO (40 / 60 SPLIT)
    ========================================================= */
 .about-hero {
-  padding: 60px 0px;
+  padding: 90px 0px;
 }
 
 .about-hero-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px !important; /* THE GAP */
+  padding: 0 24px;
   display: flex;
   gap: 60px;
   align-items: center;
-  min-width: 0; /* Crucial for preventing flex expansion */
 }
-
 
 /* Left text */
 .about-hero-text {
@@ -30,16 +28,14 @@
 
 /* Right image */
 .about-hero-image {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  width: 0; /* Forces the flex-basis to be the absolute width driver */
-  min-width: 0 !important; 
-  height: 500px;
+  flex: 0 0 60%;
+  max-width: 60%;
+    min-width: 0; 
+  min-height: 500px;
   border-radius: 8px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  overflow: hidden; /* Clips any sub-pixel bleed */
 }
 
 /* Mobile */
@@ -143,20 +139,9 @@
 
 /* Right carousel column */
 .about-work-media {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  min-width: 0 !important;
-}
-
-.about-work-media .carousel-viewport {
-  overflow: hidden !important;
-  width: 100%;
-  border-radius: 8px;
-}
-.about-work-media .carousel-slide {
-  flex: 0 0 100% !important;
-  min-width: 0 !important; /* Stops the 1200px blowout */
-  width: 100%;
+  flex: 0 0 60%;
+     max-width: 60%; /* <--- ADD THIS: Hard limit for the 60% split */
+  min-width: 0;
 }
 
 /* Ensure carousel fills column */
@@ -177,12 +162,6 @@
 .about-work-media .carousel-slide p {
   margin-top: 12px;
   font-size: 0.95rem;
-   min-width: 0;
-   width: 100%;
-}
-.about-work-media .carousel-slide {
-  flex: 0 0 100%;
-   min-width: 0;
 }
 
 /* Mobile Fix */
@@ -203,4 +182,3 @@
     object-fit: cover;
   }
 }
-
