@@ -1,11 +1,15 @@
 /* =========================================================
-   HOME.CSS - FULL COMPLETED VERSION
+   HOME.CSS
    ========================================================= */
 
-/* SECTION 1 – INTRO IMAGES */
+
+/* =========================================================
+   SECTION 1 – INTRO IMAGES
+   ========================================================= */
+
 .intro-images {
   width: 100%;
-  padding: 60px 0;
+  padding: 60px 0 60px;
 }
 
 .intro-images-container {
@@ -21,41 +25,68 @@
   flex: 0 0 40%;
 }
 
+.intro-images-grid {
+  flex: 0 0 60%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.intro-images-grid img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Hero Image (Static) */
+
 .intro-image {
-  flex: 0 0 60% !important; /* Changed from 'flex: 1' to stop the blowout */
-  max-width: 60% !important;
-  min-width: 0 !important;
+  flex: 1;
   min-height: 420px;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   border-radius: 8px;
+  transition: background-image 0.6s ease-in-out;
 }
+
 
 @media (max-width: 900px) {
-  .intro-images-container { flex-direction: column; }
-  .intro-text { flex: 0 0 100%; max-width: 100%; }
+  .intro-images-container {
+    flex-direction: column;
+  }
+     /* Add these: */
+  .intro-text, .intro-images-grid {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 
-/* SECTION 2 – SERVICES INTRO (The text block before carousel) */
-.home-intro {
+
+
+/* =========================================================
+   SECTION 3 – SERVICES CAROUSEL
+   Multi-card horizontal strip
+   ========================================================= */
+
+.services-carousel {
+  background: #fff;
   padding: 60px 0;
 }
 
-/* SECTION 3 – SERVICES CAROUSEL (3-Card Layout) */
-.services-carousel {
-  background: #fff;
-  padding: 60px 24px; /* Added 24px padding here to create the side gap */
-  max-width: 1200px;
-  margin: 0 auto;
+.services-carousel-wrapper {
+  position: relative;
+  margin-top: 40px;
 }
 
 .services-carousel .carousel-track {
-  gap: 30px; /* Space between cards */
+  gap: 30px;
 }
 
-/* Force 3 cards on desktop */
 .services-carousel .carousel-slide {
-  flex: 0 0 calc((100% - 60px) / 3) !important;
+    flex: 0 0 calc((100% - 60px) / 3);
 }
 
 .service-card {
@@ -75,19 +106,36 @@
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
+.service-card h3 {
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  flex-grow: 1;
+}
+
+.service-card a {
+  margin-top: 20px;
+  font-weight: 600;
+}
+
 @media (max-width: 1100px) {
   .services-carousel .carousel-slide {
-    flex: 0 0 calc((100% - 30px) / 2) !important;
+    flex: 0 0 calc((100% - 30px) / 2);
   }
 }
 
 @media (max-width: 700px) {
   .services-carousel .carousel-slide {
-    flex: 0 0 100% !important;
+    flex: 0 0 100%;
   }
 }
 
-/* SECTION 4 – ABOUT PREVIEW (Restored) */
+
+/* =========================================================
+   SECTION 3 – ABOUT PREVIEW
+   ========================================================= */
+
 .home-about {
   padding: 60px 0;
 }
@@ -101,7 +149,11 @@
   padding: 0 24px;
 }
 
-.home-about-text, .home-about-image {
+.home-about-text {
+  flex: 1;
+}
+
+.home-about-image {
   flex: 1;
 }
 
@@ -113,10 +165,14 @@
 }
 
 @media (max-width: 900px) {
-  .home-about-container { flex-direction: column; }
+  .home-about-container {
+    flex-direction: column;
+  }
 }
 
-/* SECTION 5 – OFFICES (Fixed Gap and Containment) */
+/* =========================================================
+   SECTION 4 – OFFICES (Home Page Layout)
+   ========================================================= */
 .offices {
   padding: 60px 0;
 }
@@ -135,13 +191,15 @@
 }
 
 .offices-media {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  min-width: 0 !important;
-  overflow: hidden; 
+  flex: 0 0 60%;
+  max-width: 60%; 
+  min-width: 0;   /* Crucial for carousel functionality */
+}
 
-.carousel-offices .carousel-slide {
-  flex: 0 0 100%;
+/* Ensure the carousel inside the media box fills the space */
+.carousel-offices {
+  width: 100%;
+  position: relative;
 }
 
 .carousel-offices .carousel-slide img {
@@ -154,31 +212,52 @@
 
 .carousel-offices .carousel-slide p {
   margin-top: 12px;
+  font-size: 0.95rem;
   font-weight: 600;
 }
 
-@media (max-width: 900px) {
-  .offices-inner { flex-direction: column; }
-  .offices-text, .offices-media {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-  }
+/* =========================================================
+   CAROUSEL ARROWS (Shared Styles)
+   ========================================================= */
+
+/* This targets arrows in both the Services and Offices carousels */
+.services-carousel .carousel-arrow,
+.carousel-offices .carousel-arrow {
+  background: #fff;
+  border: 1px solid #ddd;
+  /* Add positioning here if they aren't showing up correctly */
 }
 
-/* SHARED CAROUSEL ARROWS */
+.services-carousel .carousel-arrow:hover,
+.carousel-offices .carousel-arrow:hover {
+  background: #eee;
+}
 .services-carousel .carousel-arrow,
 .carousel-offices .carousel-arrow {
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid #ddd;
-  position: absolute;
+  position: absolute; /* Essential */
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
   cursor: pointer;
   padding: 10px 15px;
-  border-radius: 50%;
-  pointer-events: all;
+  border-radius: 50%; /* Makes them circular */
 }
 
 .carousel-arrow.left { left: 10px; }
 .carousel-arrow.right { right: 10px; }
+
+
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .offices-inner {
+    flex-direction: column;
+  }
+  .offices-text,
+  .offices-media {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
