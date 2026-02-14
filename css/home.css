@@ -8,7 +8,7 @@
   padding: 60px 0;
 }
 
-.intro-images-container {
+.intro-images-container .offices-inner {
   display: flex;
   gap: 60px;
   align-items: flex-start;
@@ -22,7 +22,7 @@
   flex: 0 0 40%;
 }
 
-.intro-image {
+.intro-image .offices-media {
   flex: 0 0 60% !important;
   max-width: 60% !important;
   width: 60% !important;    /* THE LOCK: Stops the 1200px blowout */
