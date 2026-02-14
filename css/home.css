@@ -2,6 +2,11 @@
    HOME.CSS - Final Corrected Naming & Gaps
    ========================================================= */
 
+.intro-images-container {
+  padding-top: 90px !important;
+  padding-bottom: 60px !important;
+}
+
 /* 1. UNIVERSAL CONTAINER LOCK (Fixes Section 1 & 4 Gaps) */
 .intro-images-container, 
 .offices-inner {
