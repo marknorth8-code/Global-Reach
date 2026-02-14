@@ -1,18 +1,6 @@
 /* =========================================================
-   HOME.CSS - Optimized
+   HOME.CSS - FINAL OPTIMIZED
    ========================================================= */
-
-.intro-image {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  min-width: 0 !important;
-  min-height: 420px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 8px;
-  background-image: url('../images/home/intro-hero.webp'); /* Ensure path is correct */
-}
 
 /* GLOBAL SECTION SPACING */
 .intro-images, 
@@ -22,7 +10,7 @@
   width: 100%;
 }
 
-/* CONTAINERS */
+/* CONTAINERS - The 24px side gap starts here */
 .intro-images-container, 
 .offices-inner {
   display: flex;
@@ -33,51 +21,45 @@
   padding: 0 24px;
 }
 
-/* TEXT & MEDIA WIDTHS */
+/* TEXT & MEDIA WIDTHS (40/60 Split) */
 .intro-text, .offices-text {
   flex: 0 0 40%;
 }
 
-.intro-images-grid, .offices-media {
-  flex: 0 0 60%;
-  max-width: 60%;
-  min-width: 0;
+/* MEDIA SLOTS - The 'Force Field' that keeps the gap */
+.intro-image, .offices-media {
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important;
+  overflow: hidden;
 }
 
-/* SECTION 1 – INTRO IMAGES */
-.intro-images-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-.intro-images-grid img {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
+/* SECTION 1 – INTRO IMAGE (Matches <div class="intro-image">) */
+.intro-image {
+  min-height: 420px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 8px;
-  display: block;
+  /* Image is handled by hero-rotator.js or global.css */
 }
 
-/* SECTION 3 – SERVICES CAROUSEL */
-.services-carousel { background: #fff; }
-
-.services-carousel-wrapper {
-  position: relative;
-  margin-top: 40px;
+/* SECTION 3 – SERVICES CAROUSEL (Multi-card) */
+.services-carousel { 
+  background: #fff;
+  position: relative; /* Anchor for arrows */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.carousel-track {
-  display: flex; /* Added to ensure gap works */
+.services-carousel .carousel-track {
+  display: flex;
   gap: 30px;
+  width: auto; /* Allows track to grow wide for slides */
 }
 
 .services-carousel .carousel-slide {
   flex: 0 0 calc((100% - 60px) / 3);
-}
-
-.services-carousel .carousel-track {
-  width: auto; /* Allows the track to grow wide enough for all 7 slides */
 }
 
 .service-card {
@@ -89,19 +71,9 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: 8px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-}
-
-/* SECTION 4 – OFFICES */
-.offices-media {
-  overflow: hidden;
-}
-
+/* SECTION 4 – OFFICES (Matches <div class="offices-carousel">) */
 .offices-carousel {
   width: 100%;
   position: relative;
@@ -116,6 +88,7 @@
   aspect-ratio: 3 / 2;
   object-fit: cover;
   border-radius: 8px;
+  display: block;
 }
 
 /* SHARED CAROUSEL ARROWS */
@@ -130,17 +103,6 @@
   cursor: pointer;
   padding: 10px 15px;
   border-radius: 50%;
-  transition: background 0.2s;
-}
-
-.services-carousel { 
-  background: #fff; 
-  position: relative; /* Add this to anchor the arrows */
-}
-
-.services-carousel .carousel-arrow:hover,
-.offices-carousel .carousel-arrow:hover {
-  background: #eee;
 }
 
 .carousel-arrow.left { left: 10px; }
@@ -148,34 +110,25 @@
 
 /* RESPONSIVE DESIGN */
 
-/* RESPONSIVE DESIGN */
-
-/* Tablet: Services 2-up */
 @media (max-width: 1100px) {
   .services-carousel .carousel-slide {
     flex: 0 0 calc((100% - 30px) / 2);
   }
 }
 
-/* Mobile Stack: Shared for Intro and Offices */
 @media (max-width: 900px) {
   .intro-images-container, 
   .offices-inner {
     flex-direction: column;
   }
   
-  /* Forces everything to 100% width on mobile */
-  .intro-text, 
-  .intro-image,
-  .intro-images-grid,
-  .offices-text, 
-  .offices-media {
+  .intro-text, .intro-image,
+  .offices-text, .offices-media {
     flex: 0 0 100% !important;
     max-width: 100% !important;
   }
 }
 
-/* Small Mobile: Services 1-up */
 @media (max-width: 700px) {
   .services-carousel .carousel-slide {
     flex: 0 0 100%;
