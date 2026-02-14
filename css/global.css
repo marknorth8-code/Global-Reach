@@ -391,12 +391,14 @@ a:hover {
 .carousel {
   position: relative;
   width: 100%;
+   min-width: 0;
 }
 
 /* Dedicated clipping layer */
 .carousel-viewport {
   overflow: hidden;
   width: 100%;
+   border-radius: 8px;
 }
 
 /* Moving track */
