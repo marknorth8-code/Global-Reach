@@ -11,16 +11,14 @@
 }
 
 /* --- 2. THE INNER CONTAINERS (FORCING THE 24px GAPS) --- */
-.about-hero-inner, 
-.about-work-inner {
+.intro-images-container {
   display: flex !important;
-  max-width: 1200px !important;
-  /* This math ensures 24px on left and 24px on right */
-  width: calc(100% - 48px) !important; 
-  margin: 0 auto !important;
   gap: 60px;
   align-items: flex-start;
-  padding: 0 !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important; /* THE 24px SIDE GAP */
+  width: 100% !important;
   box-sizing: border-box !important;
 }
 
