@@ -196,8 +196,9 @@
   min-width: 0;   /* Crucial for carousel functionality */
    }
 
-.carousel-offices .carousel-slide {
-  flex: 0 0 100%;
+.services-carousel .carousel-slide {
+  /* (100% minus gaps) divided by 3 */
+  flex: 0 0 calc((100% - 60px) / 3); 
 }
 /* Ensure the carousel inside the media box fills the space */
 .carousel-offices {
@@ -220,8 +221,6 @@
 }
 
 /* =========================================================
-   CAROUSEL ARROWS (Shared Styles)
-   ========================================================= */
    CAROUSEL ARROWS (Shared Styles)
    ========================================================= */
 
@@ -254,12 +253,20 @@
 .carousel-arrow.right { right: 10px; }
 
 
-
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .offices-inner {
-    flex-direction: column;
+@media (max-width: 1100px) {
+  .services-carousel .carousel-slide {
+    flex: 0 0 calc((100% - 30px) / 2);
   }
+}
+
+@media (max-width: 700px) {
+  .services-carousel .carousel-slide {
+    flex: 0 0 100%;
+  }
+}
+
+
+
   .offices-text,
   .offices-media {
     flex: 0 0 100%;
