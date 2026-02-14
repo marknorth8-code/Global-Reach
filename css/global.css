@@ -395,8 +395,8 @@ a:hover {
 
 /* Dedicated clipping layer */
 .carousel-viewport {
-  overflow: hidden;
-  width: 100%;
+  overflow: hidden !important;
+  width: 100% !important; /* Stays locked to the 60% parent */
 }
 
 /* Moving track */
