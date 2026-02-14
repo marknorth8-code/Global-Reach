@@ -426,8 +426,8 @@ header nav {
 
 .section-divider {
   border: 0;
-  border-top: 1px solid #ddd; /* Set your desired line color/thickness */
-  width: 90%;                /* Controls the length of the line (gap on both sides) */
+  border-top: 1px solid #bbb; /* Set your desired line color/thickness */
+  width: 95%;                /* Controls the length of the line (gap on both sides) */
   margin: 40px auto;         /* 40px vertical spacing, 'auto' centers it horizontally */
   max-width: 1200px;         /* Optional: keeps the line from getting too long on wide screens */
 }
