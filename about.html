@@ -26,7 +26,7 @@
 
     <!-- ================= SECTION 1: HERO ================= -->
     <section class="about-hero page-section">
-      <!-- Removed 'container' to prevent layout conflict with about-hero-inner -->
+      <!-- Logic mirrored from home.css (no .container class here) -->
       <div class="about-hero-inner">
 
         <div class="about-hero-text">
@@ -39,9 +39,8 @@
           </p>
         </div>
 
-        <!-- Changed from background-div to img tag for consistent side gaps -->
-        <div class="about-hero-image">
-          <img src="images/about/about-hero.webp" alt="Global Reach team working together" loading="eager">
+        <!-- Structure mirrored from home.css .intro-image -->
+        <div class="about-hero-image" style="background-image: url('images/about/about-hero.webp');">
         </div>
 
       </div>
@@ -169,4 +168,3 @@
 
 </body>
 </html>
-
