@@ -411,6 +411,8 @@ a:hover {
 /* Individual slide */
 .carousel-slide {
   flex: 0 0 100%;
+     min-width: 100%;
+  max-width: 100%;
 }
 
 /* Images inside slides */
@@ -418,6 +420,7 @@ a:hover {
   width: 100%;
   height: auto;
   display: block;
+    object-fit: cover;
 }
 
 /* Force the flex engine to ignore image size and use the 60% slot */
@@ -436,6 +439,7 @@ a:hover {
 
 .carousel-track {
   display: flex;
+    transition: transform 0.4s ease;
   width: 100%; /* Ensures the track understands its 100% is the PARENT'S 60% */
 }
 
