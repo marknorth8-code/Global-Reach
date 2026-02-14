@@ -1,70 +1,35 @@
 /* =========================================================
-   ABOUT PAGE – LAYOUT & COMPONENTS
-   Fully aligned with global carousel system
+   ABOUT PAGE – OPTIMIZED
    ========================================================= */
 
-
-/* =========================================================
-   SECTION 1 – HERO (40 / 60 SPLIT)
-   ========================================================= */
+/* SECTION 1 – HERO (40/60 Split) */
 .about-hero {
-  padding: 90px 0px;
+  padding: 90px 0;
 }
 
 .about-hero-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
   display: flex;
   gap: 60px;
   align-items: center;
 }
 
-/* Left text */
 .about-hero-text {
   flex: 0 0 40%;
-  max-width: 40%;
 }
 
-/* Right image */
 .about-hero-image {
-  flex: 0 0 60%;
-  max-width: 60%;
-    min-width: 0; 
-  min-height: 500px;
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important;
+  height: 500px;
   border-radius: 8px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow: hidden; /* Clips any sub-pixel bleed to keep the gap */
 }
 
-/* Mobile */
-@media (max-width: 900px) {
-  .about-hero-inner {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .about-hero-text,
-  .about-hero-image {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-
-  .about-hero-image {
-    min-height: 320px;
-  }
-}
-
-
-/* =========================================================
-   SECTION 2 – PROFILES
-   ========================================================= */
-
-.about-profiles {
-  padding: 90px 0px;
-}
-
+/* SECTION 2 – PROFILES (Standard Layout) */
 .about-profiles-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -78,10 +43,6 @@
   margin-bottom: 120px;
 }
 
-.profile-pair:last-child {
-  margin-bottom: 0;
-}
-
 .profile-image {
   flex: 0 0 40%;
 }
@@ -91,38 +52,9 @@
   height: 475px;
   object-fit: cover;
   border-radius: 8px;
-  display: block;
 }
 
-.profile-text {
-  flex: 1;
-}
-
-.profile-text h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-/* Mobile */
-@media (max-width: 767px) {
-  .profile-pair {
-    flex-direction: column;
-    gap: 25px;
-  }
-
-  .profile-image img {
-    height: auto;
-  }
-}
-
-/* =========================================================
-   SECTION 3 – ABOUT WORK (Containing CAROUSEL)
-   ========================================================= */
-
-.about-work {
-  padding: 90px 0px;
-}
-
+/* SECTION 3 – ABOUT WORK (Carousel Containment) */
 .about-work-inner {
   display: flex;
   gap: 60px;
@@ -132,24 +64,21 @@
   padding: 0 24px;
 }
 
-/* Left text */
 .about-work-text {
   flex: 0 0 40%;
 }
 
-/* Right carousel column */
 .about-work-media {
-  flex: 0 0 60%;
-     max-width: 60%; /* <--- ADD THIS: Hard limit for the 60% split */
-  min-width: 0;
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important;
+  overflow: hidden; /* This is the "Force Field" for the Work carousel */
 }
 
-/* Ensure carousel fills column */
-.about-work-media .carousel {
-  width: 100%;
+.about-work-media .carousel-slide {
+  flex: 0 0 100%;
 }
 
-/* Images */
 .about-work-media .carousel-slide img {
   width: 100%;
   aspect-ratio: 3 / 2;
@@ -158,37 +87,27 @@
   display: block;
 }
 
-/* Caption */
-.about-work-media .carousel-slide p {
-  margin-top: 12px;
-  font-size: 0.95rem;
-}
-/* This matches the EXACT name in your HTML */
-.about-hero-image {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  min-width: 0 !important; /* This stops the 1200px blowout */
-  height: 500px;
-  border-radius: 8px;
-  background-size: cover;
-}
-
-
-/* Mobile Fix */
+/* RESPONSIVE DESIGN */
 @media (max-width: 900px) {
-  .about-work-inner {
+  .about-hero-inner,
+  .about-work-inner,
+  .profile-pair {
     flex-direction: column;
+    gap: 30px;
   }
 
-  .about-work-text,
-  .about-work-media {
-    flex: 0 0 100%;
-    max-width: 100%;
+  .about-hero-text, .about-hero-image,
+  .about-work-text, .about-work-media,
+  .profile-image {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
   }
 
-  .about-work-media .carousel-slide img {
-    height: 300px;
-    width: 100%;
-    object-fit: cover;
+  .about-hero-image {
+    height: 320px;
+  }
+  
+  .profile-image img {
+    height: auto;
   }
 }
