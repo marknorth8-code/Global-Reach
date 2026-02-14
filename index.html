@@ -127,11 +127,11 @@
 <hr class="section-divider">
 
 <!-- ========= SECTION 4: Offices ========= -->
+<!-- ========= SECTION 4: Offices ========= -->
 <section class="offices page-section">
+  <div class="container offices-inner"> <!-- Added .container for alignment -->
 
-  <div class="offices-inner">
-
-    <!-- LEFT SIDE (40%) -->
+    <!-- LEFT SIDE (Text) -->
     <div class="offices-text">
       <h2>Our Offices</h2>
       <p>
@@ -144,55 +144,43 @@
       </p>
     </div>
 
-    <!-- RIGHT SIDE (60%) -->
+    <!-- RIGHT SIDE (Carousel) -->
     <div class="offices-media">
-
+      <!-- This wrapper ensures arrows stay relative to the image area -->
       <div class="carousel offices-carousel" data-carousel="manual">
-
+        
         <div class="carousel-viewport">
           <div class="carousel-track" aria-label="offices-carousel">
-
             <div class="carousel-slide">
-              <img src="images/locations/brazil.webp"
-                   alt="Brazil office location"
-                   loading="lazy">
-              <p>Brazil</p>
+              <img src="images/locations/brazil.webp" alt="Brazil" loading="lazy">
+              <p class="location-label">Brazil</p>
             </div>
-
             <div class="carousel-slide">
-              <img src="images/locations/japan.webp"
-                   alt="Japan office location"
-                   loading="lazy">
-              <p>Japan</p>
+              <img src="images/locations/japan.webp" alt="Japan" loading="lazy">
+              <p class="location-label">Japan</p>
             </div>
-
             <div class="carousel-slide">
-              <img src="images/locations/nz.webp"
-                   alt="New Zealand office location"
-                   loading="lazy">
-              <p>New Zealand</p>
+              <img src="images/locations/nz.webp" alt="New Zealand" loading="lazy">
+              <p class="location-label">New Zealand</p>
             </div>
-
             <div class="carousel-slide">
-              <img src="images/locations/uk.webp"
-                   alt="United Kingdom office location"
-                   loading="lazy">
-              <p>United Kingdom</p>
+              <img src="images/locations/uk.webp" alt="UK" loading="lazy">
+              <p class="location-label">United Kingdom</p>
             </div>
-
           </div>
-        </div> <!-- Added missing closing viewport div -->
-      
+        </div>
+
+        <!-- Arrows are now inside the .offices-carousel div -->
         <div class="carousel-arrows">
           <button class="carousel-arrow left" data-carousel-prev aria-label="Previous slide">&lt;</button>
           <button class="carousel-arrow right" data-carousel-next aria-label="Next slide">&gt;</button>
         </div>
       </div>
-
     </div>
-  </div>
 
+  </div>
 </section>
+
 
 <hr class="section-divider">
 
