@@ -365,13 +365,13 @@ a:hover {
 
 .carousel-viewport {
   overflow: hidden !important;
-  width: 100% !important;
+  width: 100% !important; /* Forces it to stay 100% of the 60% slot */
+  max-width: 100% !important;
 }
 
 .carousel-track {
-  display: flex;
-  transition: transform 0.4s ease;
-  will-change: transform;
+  display: flex !important;
+  /* Do NOT set a width on the track in CSS; let the JS handle the transform only */
 }
 
 .carousel-slide {
