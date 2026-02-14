@@ -420,6 +420,13 @@ a:hover {
   display: block;
 }
 
+/* Force the flex engine to ignore image size and use the 60% slot */
+.offices-media, .about-work-media {
+  flex: 0 0 60% !important;
+  min-width: 0 !important; /* Forces the container to be able to shrink */
+  width: 0; /* A classic hack: forces flex-basis to start from 0 instead of 'auto' */
+}
+
 /* =========================================================
    ARROWS (UPDATED TO BOTTOM RIGHT STYLE)
    ========================================================= */
