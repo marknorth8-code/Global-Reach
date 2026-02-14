@@ -75,22 +75,7 @@
   display: block;
 }
 
-/* 5. SHARED ARROWS */
-.services-carousel .carousel-arrow,
-.offices-carousel .carousel-arrow {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid #ddd;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  cursor: pointer;
-  padding: 10px 15px;
-  border-radius: 50%;
-}
 
-.carousel-arrow.left { left: 10px; }
-.carousel-arrow.right { right: 10px; }
 
 /* 6. RESPONSIVE */
 @media (max-width: 900px) {
