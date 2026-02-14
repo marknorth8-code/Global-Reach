@@ -10,7 +10,7 @@
   align-items: flex-start;
   max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 0 24px !important; /* THE GAP */
+  padding: 0 24px !important; /* THE MANDATORY GAP */
   width: 100% !important;
   box-sizing: border-box !important;
 }
@@ -19,11 +19,11 @@
 /* Targets the Hero image div and the Work carousel container */
 .about-hero-image, 
 .about-work-media {
-  flex: 0 0 60% !important;
+  /* CHANGE: Removed 'width: 60%' and replaced with 'flex' logic */
+  flex: 0 0 60% !important; 
   max-width: 60% !important;
-  width: 60% !important;    
-  min-width: 0 !important;   /* THE FIX */
-  min-height: 420px;         /* Match Home Hero height */
+  min-width: 0 !important;   /* Force field from global.css */
+  min-height: 420px;
   background-size: cover;
   background-position: center;
   border-radius: 8px;
@@ -35,8 +35,10 @@
   padding: 90px 0;
 }
 
-.about-hero-text {
-  flex: 0 0 40%;
+.about-hero-text, 
+.about-work-text {
+  flex: 0 0 40% !important;
+  max-width: 40% !important;
 }
 
 /* 4. SECTION 2 – PROFILES (Standard Container) */
@@ -71,10 +73,6 @@
 /* 5. SECTION 3 – WORK CAROUSEL SPECIFICS */
 .about-work {
   padding: 90px 0;
-}
-
-.about-work-text {
-  flex: 0 0 40%;
 }
 
 /* Ensure the carousel doesn't blow out the side gap */
