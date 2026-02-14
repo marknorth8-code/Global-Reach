@@ -194,8 +194,11 @@
   flex: 0 0 60%;
   max-width: 60%; 
   min-width: 0;   /* Crucial for carousel functionality */
-}
+   }
 
+.carousel-offices .carousel-slide {
+  flex: 0 0 100%;
+}
 /* Ensure the carousel inside the media box fills the space */
 .carousel-offices {
   width: 100%;
