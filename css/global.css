@@ -359,22 +359,23 @@ a:hover {
   object-fit: cover;
 }
 
-/* CLEANED ARROWS CONTAINER */
 .carousel-arrows {
   position: absolute;
-  bottom: 20px;         /* Distance from bottom edge of image */
-  right: 60px;          /* Distance from right edge of image */
-  display: flex;
-  gap: 25px;
-  pointer-events: none; /* Allows clicking through the container */
-  z-index: 10;
+  bottom: 20px;         /* Distance from bottom */
+  right: 20px;          /* Adjusted from 60px to 20px to ensure visibility */
+  display: flex;        /* Keeps arrows side-by-side */
+  flex-direction: row;  /* Explicitly horizontal */
+  gap: 15px;            /* Gap between the two buttons */
+  pointer-events: none;
+  z-index: 100;         /* High z-index to stay on top */
+  width: auto;          /* Only as wide as the two buttons */
 }
- 
-/* INDIVIDUAL ARROW BUTTONS */
+
 .carousel-arrow {
-  pointer-events: all;  /* Re-enables clicking on the buttons */
+  pointer-events: all;
+  flex-shrink: 0;       /* Prevents the arrows from squishing */
   background: #fff;
-  border: 1px solid #ddd; 
+  border: none;
   color: #000;
   font-size: 24px;
   cursor: pointer;
@@ -385,8 +386,9 @@ a:hover {
   align-items: center;
   justify-content: center;
   transition: background 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Adds slight depth against images */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Makes them pop */
 }
+
 
 .carousel-arrow:hover { 
   background: #eee; 
