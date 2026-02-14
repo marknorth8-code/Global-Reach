@@ -163,6 +163,16 @@
   margin-top: 12px;
   font-size: 0.95rem;
 }
+/* This matches the EXACT name in your HTML */
+.about-hero-image {
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important; /* This stops the 1200px blowout */
+  height: 500px;
+  border-radius: 8px;
+  background-size: cover;
+}
+
 
 /* Mobile Fix */
 @media (max-width: 900px) {
