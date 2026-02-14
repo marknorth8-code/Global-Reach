@@ -15,9 +15,8 @@
 .about-work-inner {
   display: flex !important;
   flex-direction: row !important;
-  align-items: flex-start !important;    /* FIX: Moves text to the TOP */
-  justify-content: flex-start !important; /* FIX: Pushes content to the LEFT */
-  
+  align-items: flex-start !important; /* SNAPS TEXT TO TOP */
+  justify-content: flex-start !important;
   gap: 60px;
   max-width: 1200px !important;
   margin: 0 auto !important;
@@ -29,9 +28,8 @@
 /* --- 3. THE TEXT (Reduced to 35% to allow space for the gap) --- */
 .about-hero-text, 
 .about-work-text {
-  flex: 0 0 35% !important;
+  flex: 0 0 35% !important; 
   max-width: 35% !important;
-  margin: 0 !important;
 }
 
 /* --- 4. THE IMAGE (FIX: Added Mandatory Height) --- */
@@ -41,7 +39,7 @@
   max-width: 60% !important;
   min-width: 0 !important;
   
-  /* THIS BRINGS THE IMAGE BACK */
+  /* THIS BRINGS THE HERO IMAGE BACK */
   height: 500px !important; 
   min-height: 500px !important;
   
@@ -49,9 +47,7 @@
   background-position: center;
   border-radius: 8px;
   overflow: hidden;
-  
-  /* Forces any extra space to the RIGHT side */
-  margin-right: auto !important; 
+  margin-right: auto !important; /* PUSHES SPACE TO THE RIGHT */
 }
 
 /* --- 5. CAROUSEL ENGINE FIX --- */
