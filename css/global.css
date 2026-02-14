@@ -22,6 +22,24 @@
   min-width: 0 !important;
 }
 
+/* Force images to respect the box width, not their file size */
+.carousel-slide img, .about-hero-image {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto;
+  display: block;
+  object-fit: cover; /* Maintains aspect ratio without stretching */
+}
+
+/* Fix the flex containers from expanding beyond 60% */
+.offices-media, .about-work-media, .about-hero-image {
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important; /* CRITICAL: Allows the box to shrink */
+  overflow: hidden !important; /* Clips any sub-pixel bleed */
+}
+
+
 
 /* =========================================================
    GLOBAL RESET & BASE
