@@ -19,18 +19,21 @@
     function calculateSlideWidth() {
       const viewport = carousel.querySelector('.carousel-viewport');
       
-      // Measure the width established by your CSS (the 60% slot)
-      // getBoundingClientRect is more precise than offsetWidth
+      // 1. Measure the width of the 60% slot established by your CSS
       const rect = viewport.getBoundingClientRect();
       slideWidth = rect.width;
 
-      // DO NOT set slide.style.width here. 
-      // Letting the CSS (flex: 0 0 100% or calc) handle the width 
-      // is what preserves the 24px side gap.
+      // 2. THE GAP FIX: Force each slide to be exactly one viewport wide.
+      // This stops high-res images from "bulging" the track and eating the side gap.
+      // We skip this for 'services-carousel' because it shows 3 items at once via CSS math.
+      if (!carousel.classList.contains('services-carousel')) {
+        slides.forEach(slide => {
+          slide.style.width = slideWidth + 'px';
+        });
+      }
     }
 
     function moveToSlide(i) {
-      // Ensure we have a valid width before moving
       if (slideWidth > 0) {
         track.style.transform = `translateX(-${i * slideWidth}px)`;
       }
@@ -51,7 +54,7 @@
       moveToSlide(index);
     }
 
-    // Initialize width after a tiny delay to ensure CSS is painted
+    // Init - 50ms delay ensures CSS layout is ready for measurement
     setTimeout(() => {
       calculateSlideWidth();
       moveToSlide(index);
@@ -63,7 +66,7 @@
     
     window.addEventListener('resize', handleResize);
     
-    // Recalculate once images are fully loaded to ensure correct alignment
+    // Recalculate once images are fully loaded to ensure gaps are perfect
     window.addEventListener('load', handleResize);
 
     carousel.dataset.initialised = "true";
