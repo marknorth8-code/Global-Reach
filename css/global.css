@@ -495,6 +495,36 @@ a:hover {
   background: #eee;
 }
 
+/* This is the most important rule to fix the "Oversize" and "No Gap" issues */
+
+/* 1. Lock the 60% Column */
+.offices-media, .about-work-media {
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important;
+  overflow: hidden !important; /* This creates the "window" */
+}
+
+/* 2. Lock the Slides to the Window */
+.carousel-slide {
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* 3. Force Images to Fit (Stops the 1200px blowout) */
+.carousel-slide img, .about-hero-image {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* 4. Fix the Hero Image specifically */
+.about-hero-image {
+  height: 500px !important; /* Restore your height */
+}
 
 
 
