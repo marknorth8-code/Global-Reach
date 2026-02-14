@@ -36,12 +36,15 @@
 
 /* SECTION 1 – INTRO IMAGE (Matches <div class="intro-image">) */
 .intro-image {
+.intro-image {
+  flex: 0 0 60% !important; /* Force the 60% split */
+  max-width: 60% !important;
+  min-width: 0 !important;   /* THE FIX: Allows the image to shrink into the gap */
+  width: 0;                  /* Forces calculation to start from 0 */
   min-height: 420px;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   border-radius: 8px;
-  /* Image is handled by hero-rotator.js or global.css */
 }
 
 /* SECTION 3 – SERVICES CAROUSEL (Multi-card) */
