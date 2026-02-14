@@ -24,6 +24,10 @@ body {
   overflow-x: hidden;
 }
 
+body {
+  padding-top: 90px; /* Match your header-inner height */
+}
+
 @media (max-width: 900px) {
   body {
     padding-top: 65px;
@@ -120,7 +124,7 @@ header nav {
 /* Active Page Color */
 .nav-link.current-page, 
 .mobile-nav a.current-page {
-  color: #007bff !important; /* Replace with your specific color */
+  color: #bbb !important; /* Replace with your specific color */
   font-weight: bold;
 }
 
