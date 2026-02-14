@@ -14,10 +14,11 @@
 .about-hero-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px !important; /* This creates the 24px edge gap */
+  padding: 0 24px !important; /* THE GAP */
   display: flex;
   gap: 60px;
   align-items: center;
+  min-width: 0; /* Crucial for preventing flex expansion */
 }
 
 
@@ -29,14 +30,16 @@
 
 /* Right image */
 .about-hero-image {
-  flex: 0 0 60%;
-  max-width: 60%;
-    min-width: 0; 
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  width: 0; /* Forces the flex-basis to be the absolute width driver */
+  min-width: 0 !important; 
   height: 500px;
   border-radius: 8px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow: hidden; /* Clips any sub-pixel bleed */
 }
 
 /* Mobile */
@@ -140,10 +143,20 @@
 
 /* Right carousel column */
 .about-work-media {
- flex: 0 0 60% !important;
+  flex: 0 0 60% !important;
   max-width: 60% !important;
   min-width: 0 !important;
-  overflow: hidden; /* This is the 'Force Field' that keeps images inside */
+}
+
+.about-work-media .carousel-viewport {
+  overflow: hidden !important;
+  width: 100%;
+  border-radius: 8px;
+}
+.about-work-media .carousel-slide {
+  flex: 0 0 100% !important;
+  min-width: 0 !important; /* Stops the 1200px blowout */
+  width: 100%;
 }
 
 /* Ensure carousel fills column */
