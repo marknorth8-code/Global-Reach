@@ -99,10 +99,10 @@
 }
 
 .offices-media {
-  flex: 0 0 60%;
-  max-width: 60%; 
-  min-width: 0;   /* THE FIX */
-  overflow: hidden; /* Clips the 1200px images to the 60% window */
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important; /* THE KEY */
+  overflow: hidden;         /* Clips the oversized images to the 60% window */
 }
 
 .offices-carousel {
