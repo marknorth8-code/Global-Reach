@@ -71,6 +71,10 @@
   min-width: 0 !important;
   /* Remove 'width: 0' - it's confusing the JS calculation */
 }
+.carousel-viewport {
+  overflow: hidden !important;
+  width: 100% !important; /* Stays locked to the 60% parent */
+}
 
 .about-work-media .carousel-slide {
   flex: 0 0 100%;
