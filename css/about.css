@@ -8,18 +8,16 @@
    SECTION 1 – HERO (40 / 60 SPLIT)
    ========================================================= */
 .about-hero {
-  padding: 60px 0; /* Vertical spacing only */
-  width: 100%;
+  padding: 90px 0px;
 }
 
 .about-hero-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px !important; /* FORCES the 24px side gap */
+  padding: 0 24px;
   display: flex;
   gap: 60px;
   align-items: center;
-  width: 100%;
 }
 
 /* Left text */
@@ -30,11 +28,10 @@
 
 /* Right image */
 .about-hero-image {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  min-width: 0 !important; /* CRITICAL: Allows the div to be smaller than the image */
-  width: 0; /* Forces flex-basis to dictate the width */
-  height: 500px;
+  flex: 0 0 60%;
+  max-width: 60%;
+    min-width: 0; 
+  min-height: 500px;
   border-radius: 8px;
   background-size: cover;
   background-position: center;
@@ -167,14 +164,6 @@
   font-size: 0.95rem;
 }
 
-/* Force the Hero Image to stay inside the 1200px container */
-.about-hero-image {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  min-width: 0 !important;
-}
-
-
 /* Mobile Fix */
 @media (max-width: 900px) {
   .about-work-inner {
@@ -193,4 +182,3 @@
     object-fit: cover;
   }
 }
-
