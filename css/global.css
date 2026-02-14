@@ -225,7 +225,7 @@ header nav {
 .city {
   font-size: 15px;
   font-weight: 600;
-  color: #1a1a1b;
+  color: #bbb;
 }
 
 .state {
@@ -410,7 +410,7 @@ header nav {
 
 
 .carousel-arrow:hover { 
-  background: #eee; 
+  background: #bbb; 
 }
 
 /* =========================================================
