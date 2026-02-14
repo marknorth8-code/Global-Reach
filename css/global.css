@@ -1,5 +1,9 @@
-/* FORCE CONTAINMENT */
-.container, .about-hero-inner, .offices-inner, .about-work-inner {
+/* 1. ADD THE HOME HERO (intro-images-container) AND SERVICES SECTION */
+.container, 
+.about-hero-inner, 
+.offices-inner, 
+.about-work-inner, 
+.intro-images-container { /* Added Home Hero container */
   max-width: 1200px !important;
   margin-left: auto !important;
   margin-right: auto !important;
@@ -7,6 +11,26 @@
   padding-right: 24px !important;
   width: 100% !important;
 }
+
+/* 2. FIX THE IMAGE BLOWOUT FOR BOTH PAGES */
+.carousel-slide img, 
+.about-hero-image, 
+.intro-image { /* Added Home Intro Image */
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* 3. FIX THE SERVICES CAROUSEL OVERSIZE */
+.services-carousel {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important; /* Forces the edge gap on Home Section 3 */
+}
+
+
 
 /* THE CLIPPING WINDOW */
 .carousel-viewport {
@@ -22,14 +46,7 @@
   min-width: 0 !important;
 }
 
-/* Force images to respect the box width, not their file size */
-.carousel-slide img, .about-hero-image {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto;
-  display: block;
-  object-fit: cover; /* Maintains aspect ratio without stretching */
-}
+
 
 /* Fix the flex containers from expanding beyond 60% */
 .offices-media, .about-work-media, .about-hero-image {
