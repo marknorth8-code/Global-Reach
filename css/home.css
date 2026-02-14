@@ -62,7 +62,8 @@
 }
 
 .services-carousel .carousel-slide {
-  flex: 0 0 calc((100% - 60px) / 3);
+  flex: 0 0 calc((100% - 60px) / 3) !important;
+  min-width: calc((100% - 60px) / 3) !important; /* Forces the 3-up layout */
 }
 
 .service-card {
