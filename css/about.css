@@ -46,6 +46,14 @@
   background-size: cover;
   background-position: center;
 }
+   
+   .about-hero-image img {
+  width: 100% !important;
+  display: block;
+  height: auto;
+      
+}
+
 }
 
 /* SECTION 2 – PROFILES */
@@ -116,12 +124,18 @@
   overflow: hidden; /* Clips images to the window */
 }
 
-.about-work-media .carousel-slide img {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  border-radius: 8px;
-  display: block;
+.about-work-media {
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important; /* Critical fix */
+  position: relative; 
+  overflow: hidden;
+}
+
+.about-work-media .carousel,
+.about-work-media .carousel-viewport {
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .about-work-media .carousel-slide p {
