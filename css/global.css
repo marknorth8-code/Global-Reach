@@ -442,6 +442,10 @@ a:hover {
     transition: transform 0.4s ease;
   width: 100%; /* Ensures the track understands its 100% is the PARENT'S 60% */
 }
+.carousel-slide {
+  flex-shrink: 0;
+  min-width: 0;
+}
 
 
 /* =========================================================
