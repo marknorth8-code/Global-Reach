@@ -462,3 +462,17 @@ a:hover {
   opacity: 1; /* Subtle fade effect on hover instead of background change */
 }
 
+/* This forces every media container to stay inside the 1200px limit */
+.offices-media, 
+.about-work-media, 
+.about-hero-image,
+.intro-image {
+  min-width: 0 !important; /* Breaks the 1200px "natural size" lock */
+}
+
+/* Ensure the images themselves don't push the slides wide */
+.carousel-slide img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto;
+}
