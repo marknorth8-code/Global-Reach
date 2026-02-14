@@ -1,3 +1,28 @@
+/* FORCE CONTAINMENT */
+.container, .about-hero-inner, .offices-inner, .about-work-inner {
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  width: 100% !important;
+}
+
+/* THE CLIPPING WINDOW */
+.carousel-viewport {
+  overflow: hidden !important;
+  width: 100% !important;
+  position: relative;
+}
+
+/* STOP THE BULGE */
+.offices-media, .about-work-media {
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important;
+}
+
+
 /* =========================================================
    GLOBAL RESET & BASE
    ========================================================= */
