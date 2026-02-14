@@ -1,47 +1,45 @@
 /* =========================================================
-   ABOUT PAGE – Fixed & Optimized
+   ABOUT PAGE – Mirroring Home.css Logic for Gaps
    ========================================================= */
 
-/* --- 1. GLOBAL IMAGE LOCK (Fixed: Moved out of media query) --- */
-.about-hero-image img, 
-.about-work-media img {
+/* 1. UNIVERSAL CONTAINER LOCK (Matches Home.css .intro-images-container) */
+.about-hero-inner, 
+.about-work-inner {
+  display: flex !important;
+  gap: 60px;
+  align-items: flex-start;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important; /* THE GAP */
   width: 100% !important;
-  height: auto !important;
-  display: block;
-  border-radius: 8px;
-  object-fit: cover;
+  box-sizing: border-box !important;
 }
 
-/* SECTION 1 – HERO */
+/* 2. UNIVERSAL MEDIA LOCK (Matches Home.css .intro-image) */
+/* Targets the Hero image div and the Work carousel container */
+.about-hero-image, 
+.about-work-media {
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  width: 60% !important;    
+  min-width: 0 !important;   /* THE FIX */
+  min-height: 420px;         /* Match Home Hero height */
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  overflow: hidden;         
+}
+
+/* 3. SECTION 1 – HERO SPECIFIC */
 .about-hero {
   padding: 90px 0;
-}
-
-.about-hero-inner {
-  display: flex !important;
-  flex-direction: row; 
-  gap: 60px;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px !important; 
-  box-sizing: border-box;
 }
 
 .about-hero-text {
   flex: 0 0 40%;
 }
 
-.about-hero-image {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  width: 60% !important;    
-  min-width: 0 !important;   /* THE FIX */
-  overflow: hidden !important; 
-  border-radius: 8px;
-}
-
-/* SECTION 2 – PROFILES */
+/* 4. SECTION 2 – PROFILES (Standard Container) */
 .about-profiles {
   padding: 90px 0;
 }
@@ -70,33 +68,16 @@
   border-radius: 8px;
 }
 
-/* SECTION 3 – ABOUT WORK (Carousel) */
+/* 5. SECTION 3 – WORK CAROUSEL SPECIFICS */
 .about-work {
   padding: 90px 0;
-}
-
-.about-work-inner {
-  display: flex;
-  gap: 60px;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px !important; /* THE SIDE GAP */
-  box-sizing: border-box;
 }
 
 .about-work-text {
   flex: 0 0 40%;
 }
 
-.about-work-media {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  min-width: 0 !important; /* THE FIX */
-  position: relative; 
-  overflow: hidden;
-}
-
+/* Ensure the carousel doesn't blow out the side gap */
 .about-work-media .carousel,
 .about-work-media .carousel-viewport {
   width: 100% !important;
@@ -108,10 +89,7 @@
   font-size: 0.95rem;
 }
 
-/* =========================================================
-   RESPONSIVE (MOBILE)
-   ========================================================= */
-
+/* 6. RESPONSIVE (Matches Home.css) */
 @media (max-width: 900px) {
   .about-hero-inner, 
   .about-work-inner {
@@ -120,8 +98,8 @@
   }
   
   .about-hero-text, 
-  .about-hero-image,
-  .about-work-text,
+  .about-hero-image, 
+  .about-work-text, 
   .about-work-media {
     flex: 0 0 100% !important;
     max-width: 100% !important;
@@ -133,8 +111,9 @@
     gap: 25px;
     margin-bottom: 60px;
   }
-  
-  .profile-image, .profile-text {
+
+  .profile-image, 
+  .profile-text {
     flex: 0 0 100%;
   }
 
