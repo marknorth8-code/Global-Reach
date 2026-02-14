@@ -133,44 +133,6 @@
 
 
 /* =========================================================
-   SECTION 3 – ABOUT PREVIEW
-   ========================================================= */
-
-.home-about {
-  padding: 60px 0;
-}
-
-.home-about-container {
-  display: flex;
-  gap: 60px;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.home-about-text {
-  flex: 1;
-}
-
-.home-about-image {
-  flex: 1;
-}
-
-.home-about-image img {
-  width: 100%;
-  border-radius: 8px;
-  display: block;
-  object-fit: cover;
-}
-
-@media (max-width: 900px) {
-  .home-about-container {
-    flex-direction: column;
-  }
-}
-
-/* =========================================================
    SECTION 4 – OFFICES (Home Page Layout)
    ========================================================= */
 .offices {
