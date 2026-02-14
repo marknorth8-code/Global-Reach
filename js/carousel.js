@@ -18,20 +18,22 @@
 
     function calculateSlideWidth() {
       const viewport = carousel.querySelector('.carousel-viewport');
-      // FIX 1: Use getBoundingClientRect for sub-pixel accuracy
-      slideWidth = viewport.getBoundingClientRect().width;
+      
+      // Measure the width established by your CSS (the 60% slot)
+      // getBoundingClientRect is more precise than offsetWidth
+      const rect = viewport.getBoundingClientRect();
+      slideWidth = rect.width;
 
-      // FIX 2: Explicitly tell the slides to match the viewport width
-      // This stops the 1200px images from "bulging" the container
-      if (!carousel.classList.contains('services-carousel')) {
-        slides.forEach(slide => {
-          slide.style.width = slideWidth + 'px';
-        });
-      }
+      // DO NOT set slide.style.width here. 
+      // Letting the CSS (flex: 0 0 100% or calc) handle the width 
+      // is what preserves the 24px side gap.
     }
 
     function moveToSlide(i) {
-      track.style.transform = `translateX(-${i * slideWidth}px)`;
+      // Ensure we have a valid width before moving
+      if (slideWidth > 0) {
+        track.style.transform = `translateX(-${i * slideWidth}px)`;
+      }
     }
 
     function goNext() {
@@ -49,7 +51,7 @@
       moveToSlide(index);
     }
 
-    // Init - added a small delay to ensure CSS is loaded
+    // Initialize width after a tiny delay to ensure CSS is painted
     setTimeout(() => {
       calculateSlideWidth();
       moveToSlide(index);
@@ -58,8 +60,10 @@
     // Events
     if (nextBtn) nextBtn.addEventListener('click', goNext);
     if (prevBtn) prevBtn.addEventListener('click', goPrev);
+    
     window.addEventListener('resize', handleResize);
-    // Recalculate on 'load' to ensure image sizes are known
+    
+    // Recalculate once images are fully loaded to ensure correct alignment
     window.addEventListener('load', handleResize);
 
     carousel.dataset.initialised = "true";
