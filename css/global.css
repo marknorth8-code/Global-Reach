@@ -22,9 +22,6 @@ body {
   background: #fff;
   line-height: 1.6;
   overflow-x: hidden;
-}
-
-body {
   padding-top: 90px; /* Match your header-inner height */
 }
 
