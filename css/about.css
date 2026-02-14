@@ -2,6 +2,11 @@
    ABOUT PAGE – Final Fix (Visible Image & Right Gap)
    ========================================================= */
 
+.about-hero {
+  padding-top: 90px !important;
+  padding-bottom: 60px !important;
+}
+
 /* --- 1. THE OUTER SECTION --- */
 .about-hero, .about-work {
   padding: 60px 0;
