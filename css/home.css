@@ -22,11 +22,12 @@
 }
 
 .intro-image {
-  flex: 1;
+  flex: 0 0 60% !important; /* Changed from 'flex: 1' to stop the blowout */
+  max-width: 60% !important;
+  min-width: 0 !important;
   min-height: 420px;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   border-radius: 8px;
 }
 
@@ -43,7 +44,9 @@
 /* SECTION 3 – SERVICES CAROUSEL (3-Card Layout) */
 .services-carousel {
   background: #fff;
-  padding: 60px 0;
+  padding: 60px 24px; /* Added 24px padding here to create the side gap */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .services-carousel .carousel-track {
@@ -135,8 +138,7 @@
   flex: 0 0 60% !important;
   max-width: 60% !important;
   min-width: 0 !important;
-  overflow: hidden; /* Force field: keeps the gap! */
-}
+  overflow: hidden; 
 
 .carousel-offices .carousel-slide {
   flex: 0 0 100%;
