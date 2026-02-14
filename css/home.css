@@ -1,69 +1,60 @@
 /* =========================================================
-   HOME.CSS - FINAL OPTIMIZED
+   HOME.CSS - Restored & Optimized
    ========================================================= */
 
-/* GLOBAL SECTION SPACING */
-.intro-images, 
-.services-carousel, 
-.offices {
-  padding: 60px 0;
+/* SECTION 1 – INTRO IMAGES */
+.intro-images {
   width: 100%;
+  padding: 60px 0;
 }
 
-/* CONTAINERS - The 24px side gap starts here */
-.intro-images-container, 
-.offices-inner {
+.intro-images-container {
   display: flex;
   gap: 60px;
   align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 24px; /* THIS IS YOUR GAP */
 }
 
-/* TEXT & MEDIA WIDTHS (40/60 Split) */
-.intro-text, .offices-text {
+.intro-text {
   flex: 0 0 40%;
 }
 
-/* MEDIA SLOTS - The 'Force Field' that keeps the gap */
-.intro-image, .offices-media {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  min-width: 0 !important;
-  overflow: hidden;
-}
-
-/* SECTION 1 – INTRO IMAGE (Matches <div class="intro-image">) */
 .intro-image {
-.intro-image {
-  flex: 0 0 60% !important; /* Force the 60% split */
-  max-width: 60% !important;
-  min-width: 0 !important;   /* THE FIX: Allows the image to shrink into the gap */
-  width: 0;                  /* Forces calculation to start from 0 */
+  flex: 0 0 60%; /* Locked to the split */
+  max-width: 60%;
+  min-width: 0;   /* THE FIX: Allows the box to shrink into the gap */
   min-height: 420px;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   border-radius: 8px;
 }
 
-/* SECTION 3 – SERVICES CAROUSEL (Multi-card) */
-.services-carousel { 
+@media (max-width: 900px) {
+  .intro-images-container {
+    flex-direction: column;
+  }
+  .intro-text, .intro-image {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* SECTION 3 – SERVICES CAROUSEL */
+.services-carousel {
   background: #fff;
-  position: relative; /* Anchor for arrows */
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 60px 0;
+  position: relative; /* Added to anchor arrows */
 }
 
 .services-carousel .carousel-track {
-  display: flex;
   gap: 30px;
-  width: auto; /* Allows track to grow wide for slides */
 }
 
 .services-carousel .carousel-slide {
-  flex: 0 0 calc((100% - 60px) / 3) !important;
-  min-width: calc((100% - 60px) / 3) !important; /* Forces the 3-up layout */
+    flex: 0 0 calc((100% - 60px) / 3);
 }
 
 .service-card {
@@ -77,14 +68,46 @@
   border-radius: 8px;
 }
 
-/* SECTION 4 – OFFICES (Matches <div class="offices-carousel">) */
+@media (max-width: 1100px) {
+  .services-carousel .carousel-slide {
+    flex: 0 0 calc((100% - 30px) / 2);
+  }
+}
+
+@media (max-width: 700px) {
+  .services-carousel .carousel-slide {
+    flex: 0 0 100%;
+  }
+}
+
+/* SECTION 4 – OFFICES */
+.offices {
+  padding: 60px 0;
+}
+
+.offices-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px; /* THIS IS YOUR GAP */
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.offices-text {
+  flex: 0 0 40%;
+}
+
+.offices-media {
+  flex: 0 0 60%;
+  max-width: 60%; 
+  min-width: 0;   /* THE FIX */
+  overflow: hidden; /* Clips the 1200px images to the 60% window */
+}
+
 .offices-carousel {
   width: 100%;
   position: relative;
-}
-
-.offices-carousel .carousel-slide {
-  flex: 0 0 100%;
 }
 
 .offices-carousel .carousel-slide img {
@@ -95,8 +118,7 @@
   display: block;
 }
 
-
-/* SHARED CAROUSEL ARROWS */
+/* CAROUSEL ARROWS */
 .services-carousel .carousel-arrow,
 .offices-carousel .carousel-arrow {
   background: rgba(255, 255, 255, 0.9);
@@ -113,29 +135,13 @@
 .carousel-arrow.left { left: 10px; }
 .carousel-arrow.right { right: 10px; }
 
-/* RESPONSIVE DESIGN */
-
-@media (max-width: 1100px) {
-  .services-carousel .carousel-slide {
-    flex: 0 0 calc((100% - 30px) / 2);
-  }
-}
-
 @media (max-width: 900px) {
-  .intro-images-container, 
   .offices-inner {
     flex-direction: column;
   }
-  
-  .intro-text, .intro-image,
-  .offices-text, .offices-media {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-  }
-}
-
-@media (max-width: 700px) {
-  .services-carousel .carousel-slide {
+  .offices-text,
+  .offices-media {
     flex: 0 0 100%;
+    max-width: 100%;
   }
 }
