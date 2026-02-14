@@ -463,11 +463,11 @@ a:hover {
 }
 
 /* This forces every media container to stay inside the 1200px limit */
-.offices-media, 
-.about-work-media, 
-.about-hero-image,
-.intro-image {
-  min-width: 0 !important; /* Breaks the 1200px "natural size" lock */
+.about-work-media, .offices-media, .about-hero-image, .intro-image {
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important;
+  /* Remove 'width: 0' - it's confusing the JS calculation */
 }
 
 /* Ensure the images themselves don't push the slides wide */
