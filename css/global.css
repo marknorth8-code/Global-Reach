@@ -374,7 +374,7 @@ a:hover {
 .carousel-arrow {
   pointer-events: all;
   background: #fff;
-  border: 1px solid #ddd;
+  border: none solid #ddd;
   color: #000;
   font-size: 24px;
   cursor: pointer;
