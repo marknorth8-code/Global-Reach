@@ -21,14 +21,12 @@
 }
 
 .about-hero-image {
-  flex: 0 0 60%;
-  max-width: 60%;
-  min-width: 0; /* THE FIX: Allows the div to shrink into the gap */
+  flex: 0 0 60% !important;
+  width: 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important;
   height: 500px;
-  border-radius: 8px;
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 @media (max-width: 900px) {
