@@ -7,15 +7,15 @@
   padding: 90px 0;
 }
 
-.about-hero-inner, 
-.about-work-inner {
+.about-hero-inner {
   display: flex !important;
+  flex-direction: row; /* Force side-by-side on desktop */
   gap: 60px;
-  align-items: center; /* Hero alignment */
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 0 24px !important; /* FORCES THE SIDE GAP */
-  width: 100% !important;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px !important; 
+  box-sizing: border-box;
 }
 
 .about-hero-text {
@@ -47,11 +47,12 @@
   background-position: center;
 }
    
-   .about-hero-image img {
+.about-hero-image img, 
+.about-work-media img {
   width: 100% !important;
+  height: auto !important;
   display: block;
-  height: auto;
-      
+  border-radius: 8px;
 }
 
 }
