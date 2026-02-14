@@ -45,6 +45,11 @@
   min-width: 0 !important;
 }
 
+.services-carousel .carousel-track { 
+  display: flex;
+  gap: 30px; /* This creates the physical space between cards */
+}
+
 .service-card {
   background: #fff;
   border: 1px solid #e5e5e5;
