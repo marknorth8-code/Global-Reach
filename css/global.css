@@ -59,6 +59,11 @@ a:hover {
   text-decoration: underline;
 }
 
+.page-section h1, 
+.page-section h2 {
+  margin-top: 0 !important; /* Removes the hidden extra gap above titles */
+}
+
 /* =========================================================
    LAYOUT UTILITIES
    ========================================================= */
