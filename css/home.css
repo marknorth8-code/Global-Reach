@@ -191,10 +191,11 @@
 }
 
 .offices-media {
-  flex: 0 0 60%;
-  max-width: 60%; 
-  min-width: 0;   /* Crucial for carousel functionality */
-   }
+ flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important;
+  overflow: hidden; /* This is the 'Force Field' that keeps images inside */
+}
 
 .services-carousel .carousel-slide {
   /* (100% minus gaps) divided by 3 */
