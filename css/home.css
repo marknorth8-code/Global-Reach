@@ -2,6 +2,18 @@
    HOME.CSS - Optimized
    ========================================================= */
 
+.intro-image {
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important;
+  min-height: 420px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  background-image: url('../images/home/intro-hero.webp'); /* Ensure path is correct */
+}
+
 /* GLOBAL SECTION SPACING */
 .intro-images, 
 .services-carousel, 
@@ -64,6 +76,10 @@
   flex: 0 0 calc((100% - 60px) / 3);
 }
 
+.services-carousel .carousel-track {
+  width: auto; /* Allows the track to grow wide enough for all 7 slides */
+}
+
 .service-card {
   background: #fff;
   border: 1px solid #e5e5e5;
@@ -117,6 +133,11 @@
   transition: background 0.2s;
 }
 
+.services-carousel { 
+  background: #fff; 
+  position: relative; /* Add this to anchor the arrows */
+}
+
 .services-carousel .carousel-arrow:hover,
 .offices-carousel .carousel-arrow:hover {
   background: #eee;
@@ -124,6 +145,8 @@
 
 .carousel-arrow.left { left: 10px; }
 .carousel-arrow.right { right: 10px; }
+
+/* RESPONSIVE DESIGN */
 
 /* RESPONSIVE DESIGN */
 
@@ -141,10 +164,14 @@
     flex-direction: column;
   }
   
-  .intro-text, .intro-images-grid,
-  .offices-text, .offices-media {
-    flex: 0 0 100%;
-    max-width: 100%;
+  /* Forces everything to 100% width on mobile */
+  .intro-text, 
+  .intro-image,
+  .intro-images-grid,
+  .offices-text, 
+  .offices-media {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
   }
 }
 
