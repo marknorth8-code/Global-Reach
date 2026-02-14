@@ -166,7 +166,8 @@
    min-width: 0;
 }
 .about-work-media .carousel-slide {
-  flex: 0 0 100%; /* Ensures only one image shows at a time in the 60% slot */
+  flex: 0 0 100%;
+  width: 100%;
 }
 
 /* Mobile Fix */
