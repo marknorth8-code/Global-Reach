@@ -7,26 +7,29 @@
   padding: 90px 0;
 }
 
-.about-hero-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px; /* THIS IS YOUR GAP */
-  display: flex;
+.about-hero-inner, 
+.about-work-inner {
+  display: flex !important;
   gap: 60px;
-  align-items: center;
+  align-items: center; /* Hero alignment */
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important; /* FORCES THE SIDE GAP */
+  width: 100% !important;
 }
 
 .about-hero-text {
   flex: 0 0 40%;
 }
 
-.about-hero-image {
+.about-hero-image, 
+.about-work-media {
   flex: 0 0 60% !important;
-  width: 60% !important;
   max-width: 60% !important;
-  min-width: 0 !important;
-  height: 500px;
-  background-size: cover;
+  width: 60% !important;    
+  min-width: 0 !important;   
+  overflow: hidden !important; /* Clips blowout */
+  border-radius: 8px;
 }
 
 @media (max-width: 900px) {
@@ -38,9 +41,11 @@
     flex: 0 0 100%;
     max-width: 100%;
   }
-  .about-hero-image {
-    height: 320px;
-  }
+.about-hero-image {
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+}
 }
 
 /* SECTION 2 – PROFILES */
