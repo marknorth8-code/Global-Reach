@@ -170,20 +170,17 @@
   }
 }
 
-
 /* =========================================================
-   SECTION 4 – OFFICES CAROUSEL
-   
+   SECTION 4 – OFFICES (Home Page Layout)
    ========================================================= */
 .offices {
-  padding: 60px 0; /* Matches the "home-about" and "services" sections */
+  padding: 60px 0;
 }
 
 .offices-inner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
-  box-sizing: border-box;
   display: flex;
   gap: 60px;
   align-items: flex-start;
@@ -195,18 +192,17 @@
 
 .offices-media {
   flex: 0 0 60%;
-}
-.offices-media {
-  flex: 0 0 60%;
-  max-width: 60%; /* Forces the container to respect the 60% limit */
-  min-width: 0;   /* Allows the 'overflow: hidden' to actually work */
+  max-width: 60%; 
+  min-width: 0;   /* Crucial for carousel functionality */
 }
 
-.offices-media .carousel {
+/* Ensure the carousel inside the media box fills the space */
+.carousel-offices {
   width: 100%;
+  position: relative;
 }
 
-.offices-media .carousel-slide img {
+.carousel-offices .carousel-slide img {
   width: 100%;
   aspect-ratio: 3 / 2;
   object-fit: cover;
@@ -214,34 +210,38 @@
   display: block;
 }
 
-.offices-media .carousel-slide p {
+.carousel-offices .carousel-slide p {
   margin-top: 12px;
   font-size: 0.95rem;
+  font-weight: 600;
 }
 
+/* =========================================================
+   CAROUSEL ARROWS (Shared Styles)
+   ========================================================= */
+
+/* This targets arrows in both the Services and Offices carousels */
+.services-carousel .carousel-arrow,
+.carousel-offices .carousel-arrow {
+  background: #fff;
+  border: 1px solid #ddd;
+  /* Add positioning here if they aren't showing up correctly */
+}
+
+.services-carousel .carousel-arrow:hover,
+.carousel-offices .carousel-arrow:hover {
+  background: #eee;
+}
+
+/* Responsive adjustments */
 @media (max-width: 900px) {
   .offices-inner {
     flex-direction: column;
   }
-
   .offices-text,
   .offices-media {
     flex: 0 0 100%;
-      max-width: 100%; /* Reset to 100% for mobile stacking */
+    max-width: 100%;
   }
 }
 
-
-/* =========================================================
-   SHARED CAROUSEL ARROWS (HOME ONLY POSITIONING)
-   ========================================================= */
-
-.services-carousel .carousel-arrow,
-.offices-inner .carousel-arrow {
-  background: #fff;
-}
-
-.services-carousel .carousel-arrow:hover,
-.offices-inner .carousel-arrow:hover {
-  background: #eee;
-}
