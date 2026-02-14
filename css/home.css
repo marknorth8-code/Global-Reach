@@ -12,9 +12,10 @@
   display: flex;
   gap: 60px;
   align-items: flex-start;
-  max-width: 1200px;
+  max-width: 1200px; /* Lock the max width */
   margin: 0 auto;
-  padding: 0 24px; /* THIS IS YOUR GAP */
+  padding: 0 24px !important; /* FORCES the side gap */
+  width: 100%;
 }
 
 .intro-text {
@@ -23,12 +24,14 @@
 
 .intro-image {
   flex: 0 0 60% !important;
-  width: 60% !important; /* Hard lock */
   max-width: 60% !important;
-  min-width: 0 !important;
+  width: 60% !important;    /* THE LOCK: Stops the 1200px blowout */
+  min-width: 0 !important;   /* Allows the box to shrink */
   min-height: 420px;
   background-size: cover;
-  overflow: hidden; /* Prevent sub-pixel bleed */
+  background-position: center;
+  border-radius: 8px;
+  overflow: hidden;          /* Clips sub-pixel bleed */
 }
 
 @media (max-width: 900px) {
