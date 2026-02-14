@@ -1,48 +1,3 @@
-/* 1. THE UNIVERSAL EDGE LOCK (1200px Max + 24px Gaps) */
-.intro-images-container, 
-.about-hero-inner, 
-.offices-inner, 
-.about-work-inner, 
-.container,
-.services-carousel {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 0 24px !important;
-  width: 100% !important;
-  display: flex !important; 
-}
-
-/* 2. THE IMAGE BEHAVIOR LOCK (Prevents Blowouts) */
-.carousel-slide img, 
-.about-hero-image, 
-.intro-image {
-  width: 100% !important;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  min-width: 0 !important;
-}
-
-/* 3. THE 60% WINDOW LOCK (Forces the Split & Clipping) */
-.offices-media, 
-.about-work-media, 
-.about-hero-image, 
-.intro-image {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  min-width: 0 !important;
-  overflow: hidden !important;
-}
-
-/* 4. CAROUSEL SPECIFIC VIEWPORT */
-.carousel-viewport {
-  overflow: hidden !important;
-  width: 100% !important;
-  position: relative;
-}
-
-
-
 /* =========================================================
    GLOBAL RESET & BASE
    ========================================================= */
@@ -429,23 +384,19 @@ a:hover {
   }
 }
 
-
 /* =========================================================
-   GLOBAL CAROUSEL ENGINE
+   GLOBAL CAROUSEL ENGINE (STRUCTURE ONLY – CLEAN & FUTURE SAFE)
    ========================================================= */
 
 .carousel {
   position: relative;
   width: 100%;
-  min-width: 0; 
 }
 
 /* Dedicated clipping layer */
 .carousel-viewport {
   overflow: hidden;
   width: 100%;
-  position: relative;
-  border-radius: 8px;
 }
 
 /* Moving track */
@@ -453,98 +404,52 @@ a:hover {
   display: flex;
   transition: transform 0.4s ease;
   will-change: transform;
-  width: 100%; /* Keeps track width relative to viewport */
 }
 
-/* Individual slide - DEFAULT: 1 Slide per view */
+/* Individual slide */
 .carousel-slide {
   flex: 0 0 100%;
-  min-width: 100%;
-  max-width: 100%;
 }
 
 /* Images inside slides */
 .carousel-slide img {
   width: 100%;
-  aspect-ratio: 3 / 2; /* Keeps all carousel images consistent */
+  height: auto;
   display: block;
-  object-fit: cover;
-  border-radius: 8px;
 }
 
 /* =========================================================
-   CAROUSEL CONTAINER FIXES (Force 60% split)
-   ========================================================= */
-
-.offices-media, .about-work-media {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  min-width: 0 !important;
-}
-
-/* =========================================================
-   ARROWS
+   ARROWS (UPDATED TO BOTTOM RIGHT STYLE)
    ========================================================= */
 
 .carousel-arrows {
-  position: relative; 
+  position: relative; /* Changed from absolute to place below the image */
   display: flex;
-  justify-content: flex-end; 
-  gap: 25px; 
-  padding-top: 20px; 
+  justify-content: flex-end; /* Aligns arrows to the right */
+  gap: 25px; /* Adds space between the two arrows */
+  padding-top: 20px; /* Space between the image/date and arrows */
+  padding-right: 0px; 
   pointer-events: none;
 }
 
 .carousel-arrow {
   pointer-events: all;
-  background: #fff;
-  border: 1px solid #ddd;
+  background: #fff; /* Removes background */
+  border: none; /* Removes circle border */
   color: #000;
-  font-size: 24px; 
+  font-family: inherit; /* Ensures it matches your site text */
+  font-size: 24px; /* Adjust size of < and > here */
+  padding: 0;
   cursor: pointer;
-  transition: background 0.2s ease;
-  width: 50px;
+  transition: opacity 0.2s ease;
+     width: 50px;
   height: 50px;
+    /* 2. Turn the square into a circle */
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .carousel-arrow:hover {
-  background: #eee;
+  background: #BBBBBB;
+  opacity: 1; /* Subtle fade effect on hover instead of background change */
 }
-
-/* This is the most important rule to fix the "Oversize" and "No Gap" issues */
-
-/* 1. Lock the 60% Column */
-.offices-media, .about-work-media {
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
-  min-width: 0 !important;
-  overflow: hidden !important; /* This creates the "window" */
-}
-
-/* 2. Lock the Slides to the Window */
-.carousel-slide {
-  flex: 0 0 100% !important;
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-/* 3. Force Images to Fit (Stops the 1200px blowout) */
-.carousel-slide img, .about-hero-image {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-/* 4. Fix the Hero Image specifically */
-.about-hero-image {
-  height: 500px !important; /* Restore your height */
-}
-
-
 
