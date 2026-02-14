@@ -89,6 +89,13 @@
     flex: 0 0 calc((100% - 60px) / 3);
 }
 
+/* 1. Services Carousel (Show 3 cards with gaps) */
+.services-carousel .carousel-slide {
+  /* (100% minus the two 30px gaps) divided by 3 */
+  flex: 0 0 calc((100% - 60px) / 3); 
+}
+
+
 .service-card {
   background: #fff;
   border: 1px solid #e5e5e5;
@@ -195,12 +202,7 @@
   max-width: 60% !important;
   min-width: 0 !important;
   overflow: hidden; /* This is the 'Force Field' that keeps images inside */
-}
-
-/* 1. Services Carousel (Show 3 cards with gaps) */
-.services-carousel .carousel-slide {
-  /* (100% minus the two 30px gaps) divided by 3 */
-  flex: 0 0 calc((100% - 60px) / 3); 
+    min-height: 300px; 
 }
 
 /* 2. Office & Work Carousels (Show 1 image at a time) */
@@ -208,7 +210,7 @@
 .about-work-media .carousel-slide {
   flex: 0 0 100%;
   width: 100%;
-}
+   }
 
 
 /* Ensure the carousel inside the media box fills the space */
