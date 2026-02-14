@@ -381,8 +381,8 @@ header nav {
 
 .carousel-arrows {
   position: absolute;
-  bottom: 40px;         /* Distance from bottom */
-  right: 20px;          /* Adjusted from 60px to 20px to ensure visibility */
+  bottom: 60px;         /* Distance from bottom */
+  right: 40px;          /* Adjusted from 60px to 20px to ensure visibility */
   display: flex;        /* Keeps arrows side-by-side */
   flex-direction: row;  /* Explicitly horizontal */
   gap: 15px;            /* Gap between the two buttons */
@@ -406,7 +406,6 @@ header nav {
   align-items: center;
   justify-content: center;
   transition: background 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Makes them pop */
 }
 
 
