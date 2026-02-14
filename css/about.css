@@ -1,134 +1,78 @@
 /* =========================================================
-   SECTION 1 – HERO (FORCE 24px GAP)
+   ABOUT PAGE – Final Combined Fix (Section 1 & 3)
    ========================================================= */
 
-.about-hero {
+/* --- 1. GLOBAL GUARD RAIL --- */
+.about-hero, .about-work {
   padding: 90px 0;
   width: 100%;
-  overflow: hidden;
+  overflow: hidden; /* Stops images from pushing the page wider than the screen */
   box-sizing: border-box;
 }
 
-.about-hero-inner {
+/* --- 2. THE INNER CONTAINERS (FORCING THE 24px GAPS) --- */
+.about-hero-inner, 
+.about-work-inner {
   display: flex !important;
-  /* Use 1200px max, but ensure it never exceeds the screen minus the gaps */
-  max-width: 1200px !important; 
-  width: calc(100% - 48px) !important; /* Forces exactly 24px on each side */
-  margin-left: auto !important;
-  margin-right: auto !important;
-  
+  max-width: 1200px !important;
+  /* This math ensures 24px on left and 24px on right */
+  width: calc(100% - 48px) !important; 
+  margin: 0 auto !important;
   gap: 60px;
-  align-items: center;
-  padding: 0 !important; /* We use the Margin/Calc above for the gap instead */
+  align-items: flex-start;
+  padding: 0 !important;
+  box-sizing: border-box !important;
 }
 
-.about-hero-text {
+/* --- 3. THE TEXT BLOCKS (40%) --- */
+.about-hero-text, 
+.about-work-text {
   flex: 0 0 40% !important;
   max-width: 40% !important;
 }
 
-.about-hero-image {
-  /* THE MEDIA LOCK */
+/* --- 4. THE MEDIA BLOCKS (60%) --- */
+.about-hero-image, 
+.about-work-media {
   flex: 0 0 60% !important;
   max-width: 60% !important;
-  min-width: 0 !important;   /* Critical: allows shrinking */
-  height: 420px;             /* Fixed height like home.css */
-  
+  min-width: 0 !important;   /* CRITICAL: Allows shrinking inside the 1200px limit */
+  min-height: 420px;
   background-size: cover;
   background-position: center;
   border-radius: 8px;
   overflow: hidden;
 }
 
-@media (max-width: 900px) {
-  .about-hero-inner {
-    flex-direction: column;
-    width: calc(100% - 40px) !important; /* Slightly smaller gap for mobile */
-    gap: 30px;
-  }
-  .about-hero-text, 
-  .about-hero-image {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-  }
-}
-
-
-/* 4. SECTION 2 – PROFILES (Standard Container) */
-.about-profiles {
-  padding: 90px 0;
-}
-
-.about-profiles-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.profile-pair {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  margin-bottom: 120px;
-}
-
-.profile-image {
-  flex: 0 0 40%;
-}
-
-.profile-image img {
-  width: 100%;
-  height: 475px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-/* 5. SECTION 3 – WORK CAROUSEL SPECIFICS */
-.about-work {
-  padding: 90px 0;
-}
-
-/* Ensure the carousel doesn't blow out the side gap */
+/* --- 5. CAROUSEL ENGINE FIX --- */
 .about-work-media .carousel,
 .about-work-media .carousel-viewport {
   width: 100% !important;
   max-width: 100% !important;
 }
 
-.about-work-media .carousel-slide p {
-  margin-top: 12px;
-  font-size: 0.95rem;
+/* --- 6. PROFILES (Section 2) --- */
+.about-profiles { padding: 90px 0; }
+.about-profiles-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
+.profile-pair { display: flex; gap: 40px; margin-bottom: 120px; }
+.profile-image { flex: 0 0 40%; }
+.profile-image img { width: 100%; height: 475px; object-fit: cover; border-radius: 8px; }
 
-/* 6. RESPONSIVE (Matches Home.css) */
+/* --- 7. RESPONSIVE --- */
 @media (max-width: 900px) {
-  .about-hero-inner, 
-  .about-work-inner {
+  .about-hero-inner, .about-work-inner {
     flex-direction: column;
+    width: calc(100% - 40px) !important;
     gap: 30px;
   }
-  
-  .about-hero-text, 
-  .about-hero-image, 
-  .about-work-text, 
-  .about-work-media {
+  .about-hero-text, .about-hero-image, .about-work-text, .about-work-media {
     flex: 0 0 100% !important;
     max-width: 100% !important;
     width: 100% !important;
-  }
-
-  .profile-pair {
-    flex-direction: column;
-    gap: 25px;
-    margin-bottom: 60px;
-  }
-
-  .profile-image, 
-  .profile-text {
-    flex: 0 0 100%;
-  }
-
-  .profile-image img {
-    height: auto;
+    min-height: 300px;
   }
 }
