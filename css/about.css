@@ -1,15 +1,25 @@
 /* =========================================================
-   ABOUT PAGE – Restored & Optimized
+   ABOUT PAGE – Fixed & Optimized
    ========================================================= */
 
-/* SECTION 1 – HERO (40/60 Split) */
+/* --- 1. GLOBAL IMAGE LOCK (Fixed: Moved out of media query) --- */
+.about-hero-image img, 
+.about-work-media img {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* SECTION 1 – HERO */
 .about-hero {
   padding: 90px 0;
 }
 
 .about-hero-inner {
   display: flex !important;
-  flex-direction: row; /* Force side-by-side on desktop */
+  flex-direction: row; 
   gap: 60px;
   align-items: center;
   max-width: 1200px;
@@ -22,39 +32,13 @@
   flex: 0 0 40%;
 }
 
-.about-hero-image, 
-.about-work-media {
+.about-hero-image {
   flex: 0 0 60% !important;
   max-width: 60% !important;
   width: 60% !important;    
-  min-width: 0 !important;   
-  overflow: hidden !important; /* Clips blowout */
+  min-width: 0 !important;   /* THE FIX */
+  overflow: hidden !important; 
   border-radius: 8px;
-}
-
-@media (max-width: 900px) {
-  .about-hero-inner {
-    flex-direction: column;
-    gap: 30px;
-  }
-  .about-hero-text, .about-hero-image {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-.about-hero-image {
-  height: 500px;
-  background-size: cover;
-  background-position: center;
-}
-   
-.about-hero-image img, 
-.about-work-media img {
-  width: 100% !important;
-  height: auto !important;
-  display: block;
-  border-radius: 8px;
-}
-
 }
 
 /* SECTION 2 – PROFILES */
@@ -75,10 +59,6 @@
   margin-bottom: 120px;
 }
 
-.profile-pair:last-child {
-  margin-bottom: 0;
-}
-
 .profile-image {
   flex: 0 0 40%;
 }
@@ -88,16 +68,6 @@
   height: 475px;
   object-fit: cover;
   border-radius: 8px;
-}
-
-@media (max-width: 767px) {
-  .profile-pair {
-    flex-direction: column;
-    gap: 25px;
-  }
-  .profile-image img {
-    height: auto;
-  }
 }
 
 /* SECTION 3 – ABOUT WORK (Carousel) */
@@ -111,7 +81,8 @@
   align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px; /* THIS IS YOUR GAP */
+  padding: 0 24px !important; /* THE SIDE GAP */
+  box-sizing: border-box;
 }
 
 .about-work-text {
@@ -119,16 +90,9 @@
 }
 
 .about-work-media {
-  flex: 0 0 60%;
-  max-width: 60%;
-  min-width: 0; /* THE FIX */
-  overflow: hidden; /* Clips images to the window */
-}
-
-.about-work-media {
   flex: 0 0 60% !important;
   max-width: 60% !important;
-  min-width: 0 !important; /* Critical fix */
+  min-width: 0 !important; /* THE FIX */
   position: relative; 
   overflow: hidden;
 }
@@ -144,12 +108,37 @@
   font-size: 0.95rem;
 }
 
+/* =========================================================
+   RESPONSIVE (MOBILE)
+   ========================================================= */
+
 @media (max-width: 900px) {
+  .about-hero-inner, 
   .about-work-inner {
     flex-direction: column;
+    gap: 30px;
   }
-  .about-work-text, .about-work-media {
+  
+  .about-hero-text, 
+  .about-hero-image,
+  .about-work-text,
+  .about-work-media {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .profile-pair {
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 60px;
+  }
+  
+  .profile-image, .profile-text {
     flex: 0 0 100%;
-    max-width: 100%;
+  }
+
+  .profile-image img {
+    height: auto;
   }
 }
