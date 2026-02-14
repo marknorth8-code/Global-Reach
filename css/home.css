@@ -197,12 +197,12 @@
 }
 
 /* Ensure the carousel inside the media box fills the space */
-.carousel-offices {
+.offices-carousel {
   width: 100%;
   position: relative;
 }
 
-.carousel-offices .carousel-slide img {
+.offices-carousel .carousel-slide img {
   width: 100%;
   aspect-ratio: 3 / 2;
   object-fit: cover;
@@ -210,7 +210,7 @@
   display: block;
 }
 
-.carousel-offices .carousel-slide p {
+.offices-carousel .carousel-slide p {
   margin-top: 12px;
   font-size: 0.95rem;
   font-weight: 600;
@@ -222,18 +222,18 @@
 
 /* This targets arrows in both the Services and Offices carousels */
 .services-carousel .carousel-arrow,
-.carousel-offices .carousel-arrow {
+.offices-carousel .carousel-arrow {
   background: #fff;
   border: 1px solid #ddd;
   /* Add positioning here if they aren't showing up correctly */
 }
 
 .services-carousel .carousel-arrow:hover,
-.carousel-offices .carousel-arrow:hover {
+.offices-carousel .carousel-arrow:hover {
   background: #eee;
 }
 .services-carousel .carousel-arrow,
-.carousel-offices .carousel-arrow {
+.offices-carousel .carousel-arrow {
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid #ddd;
   position: absolute; /* Essential */
