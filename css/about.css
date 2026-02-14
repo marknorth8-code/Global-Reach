@@ -14,11 +14,12 @@
 .about-hero-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px !important; /* This creates the 24px gap from the screen edge */
+  padding: 0 24px !important; /* This creates the 24px edge gap */
   display: flex;
   gap: 60px;
   align-items: center;
 }
+
 
 /* Left text */
 .about-hero-text {
