@@ -25,7 +25,7 @@
   overflow: hidden;      /* Kills any horizontal scrollbars */
 }
 
-.hero-image-wrapper {
+.location-hero-image-wrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -33,7 +33,7 @@
   height: 100%;
 }
 
-.hero-image {
+.location-hero-image {
   width: 100%;
   height: 100%;
   display: block;
@@ -66,7 +66,7 @@
   overflow: hidden;
 }
 
-.hero-image-wrapper {
+.location-hero-image-wrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -75,7 +75,7 @@
   z-index: 1;
 }
 
-.hero-image {
+.location-hero-image {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Crops the sides of the thin image to fill the 400px height */
@@ -114,13 +114,13 @@
       margin-bottom: 12px;
     }
 
-    .property-grid {
+    .location-property-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
 
-    .property-card {
+    .location-property-card {
       display: flex;
       flex-direction: column;
       border: 1px solid #ddd;
@@ -129,7 +129,7 @@
       background: #fff;
     }
 
-    .property-image {
+    .location-property-image {
       width: 100%;
       height: 0;
       padding-top: 75%;
@@ -137,7 +137,7 @@
       background-position: center;
     }
 
-    .property-title {
+    .location-property-title {
       padding: 10px;
       font-weight: bold;
       text-align: center;
@@ -151,7 +151,7 @@
       .location-hero h1 {
         font-size: 2rem;
       }
-      .property-grid {
+      .location-property-grid {
         grid-template-columns: 1fr;
       }
       .location-hero .hero-content {
@@ -194,22 +194,22 @@
   </section>
 
   <!-- ================= PROPERTY GRID ================= -->
-  <section class="property-grid container">
-    <div class="property-card">
-      <div class="property-image" style="background-image:url('images/locations/br/property1.jpg');"></div>
+  <section class="location-property-grid container">
+    <div class="location-property-card">
+      <div class="location-property-image" style="background-image:url('images/locations/br/property1.jpg');"></div>
       <div class="property-title">Property 1</div>
     </div>
-    <div class="property-card">
-      <div class="property-image" style="background-image:url('images/locations/br/property2.jpg');"></div>
+    <div class="location-property-card">
+      <div class="location-property-image" style="background-image:url('images/locations/br/property2.jpg');"></div>
       <div class="property-title">Property 2</div>
     </div>
-    <div class="property-card">
-      <div class="property-image" style="background-image:url('images/locations/br/property3.jpg');"></div>
-      <div class="property-title">Property 3</div>
+    <div class="location-property-card">
+      <div class="location-property-image" style="background-image:url('images/locations/br/property3.jpg');"></div>
+      <div class="location-property-title">Property 3</div>
     </div>
-    <div class="property-card">
-      <div class="property-image" style="background-image:url('images/locations/br/property4.jpg');"></div>
-      <div class="property-title">Property 4</div>
+    <div class="location-property-card">
+      <div class="location-property-image" style="background-image:url('images/locations/br/property4.jpg');"></div>
+      <div class="location-property-title">Property 4</div>
     </div>
   </section>
 
