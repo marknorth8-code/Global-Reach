@@ -125,34 +125,7 @@ a:hover {
   cursor: pointer;
 }
 
-.globe {
-  height: 100%;
-  width: auto;
-  flex-shrink: 0;
-  display: block;
-}
 
-.logo-text-reveal {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  max-width: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: max-width 0.6s ease, opacity 0.4s ease;
-}
-
-.logo-text-reveal img {
-  height: 80%;
-  width: auto;
-  padding: 0 10px;
-  display: block;
-}
-
-.site-logo-container:hover .logo-text-reveal {
-  opacity: 1;
-  max-width: 300px;
-}
 
 /* =========================================================
    NAVIGATION & DROPDOWNS
