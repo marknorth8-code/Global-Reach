@@ -219,6 +219,8 @@
 /* =========================================================
    CAROUSEL ARROWS (Shared Styles)
    ========================================================= */
+   CAROUSEL ARROWS (Shared Styles)
+   ========================================================= */
 
 /* This targets arrows in both the Services and Offices carousels */
 .services-carousel .carousel-arrow,
@@ -232,6 +234,23 @@
 .carousel-offices .carousel-arrow:hover {
   background: #eee;
 }
+.services-carousel .carousel-arrow,
+.carousel-offices .carousel-arrow {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  position: absolute; /* Essential */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 50%; /* Makes them circular */
+}
+
+.carousel-arrow.left { left: 10px; }
+.carousel-arrow.right { right: 10px; }
+
+
 
 /* Responsive adjustments */
 @media (max-width: 900px) {
@@ -244,4 +263,6 @@
     max-width: 100%;
   }
 }
+
+
 
