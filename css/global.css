@@ -420,6 +420,25 @@ header nav {
   background: #bbb; 
 }
 
+/* Target only the arrows in the offices section */
+.offices-carousel {
+  /* Reduce this if the gap between image and arrows is too large */
+  padding-bottom: 50px !important; 
+}
+
+.offices-carousel .carousel-arrows {
+  /* 'bottom: 0' puts them at the very bottom of the 50px padding above */
+  bottom: 0 !important; 
+  right: 0;
+}
+
+/* If the "Brazil/Japan" text is pushing the arrows too far down: */
+.location-label {
+  margin-bottom: 0; /* Remove extra space below the city name */
+  line-height: 1;   /* Tighten the text height */
+}
+
+
 /* =========================================================
    THE FINAL GAP FIX (THE FORCE FIELD)
    ========================================================= */
