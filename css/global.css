@@ -109,6 +109,12 @@ a:hover {
   height: 65px;
 }
 
+header nav {
+  display: flex;
+  justify-content: space-around; /* Distributes links with space on both sides */
+  width: 100%;
+}
+
 .site-logo-container {
   display: flex;
   align-items: center;
