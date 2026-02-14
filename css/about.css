@@ -60,7 +60,7 @@
 
 /* --- 6. PROFILES (Section 2 - Unchanged) --- */
 .about-profiles-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-.profile-pair { display: flex; gap: 40px; margin-bottom: 120px; }
+.profile-pair { display: flex; gap: 40px; margin-bottom: 60px; }
 .profile-image img { width: 100%; height: 475px; object-fit: cover; border-radius: 8px; }
 
 /* --- 7. RESPONSIVE --- */
