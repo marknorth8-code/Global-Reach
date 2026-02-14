@@ -172,7 +172,7 @@
 
 
 /* =========================================================
-   SECTION 4 – OOFFICES CAROUSEL
+   SECTION 4 – OFFICES CAROUSEL
    
    ========================================================= */
 .offices {
@@ -196,7 +196,7 @@
 .offices-media {
   flex: 0 0 60%;
 }
-.officess-media {
+.offices-media {
   flex: 0 0 60%;
   max-width: 60%; /* Forces the container to respect the 60% limit */
   min-width: 0;   /* Allows the 'overflow: hidden' to actually work */
