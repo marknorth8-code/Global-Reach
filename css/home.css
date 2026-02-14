@@ -21,7 +21,7 @@
   flex: 0 0 40%;
 }
 
-.intro-image {
+.intro-images {
   flex: 0 0 60%; /* Locked to the split */
   max-width: 60%;
   min-width: 0;   /* THE FIX: Allows the box to shrink into the gap */
@@ -36,7 +36,7 @@
   .intro-images-container {
     flex-direction: column;
   }
-  .intro-text, .intro-image {
+  .intro-text, .intro-images {
     flex: 0 0 100%;
     max-width: 100%;
   }
