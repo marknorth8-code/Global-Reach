@@ -23,13 +23,12 @@
 
 .intro-image {
   flex: 0 0 60% !important;
+  width: 60% !important; /* Hard lock */
   max-width: 60% !important;
-  min-width: 0 !important; /* THE KEY: Allows the box to shrink into the gap */
-  width: 0;                /* Forces flex-basis to be the driver */
+  min-width: 0 !important;
   min-height: 420px;
   background-size: cover;
-  background-position: center;
-  border-radius: 8px;
+  overflow: hidden; /* Prevent sub-pixel bleed */
 }
 
 @media (max-width: 900px) {
@@ -100,9 +99,10 @@
 
 .offices-media {
   flex: 0 0 60% !important;
+  width: 60% !important; /* Hard lock */
   max-width: 60% !important;
-  min-width: 0 !important; /* THE KEY */
-  overflow: hidden;         /* Clips the oversized images to the 60% window */
+  min-width: 0 !important;
+  overflow: hidden;
 }
 
 .offices-carousel {
