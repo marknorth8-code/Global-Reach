@@ -197,10 +197,20 @@
   overflow: hidden; /* This is the 'Force Field' that keeps images inside */
 }
 
+/* 1. Services Carousel (Show 3 cards with gaps) */
 .services-carousel .carousel-slide {
-  /* (100% minus gaps) divided by 3 */
+  /* (100% minus the two 30px gaps) divided by 3 */
   flex: 0 0 calc((100% - 60px) / 3); 
 }
+
+/* 2. Office & Work Carousels (Show 1 image at a time) */
+.carousel-offices .carousel-slide,
+.about-work-media .carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+
 /* Ensure the carousel inside the media box fills the space */
 .carousel-offices {
   width: 100%;
@@ -214,6 +224,7 @@
   border-radius: 8px;
   display: block;
 }
+
 
 .carousel-offices .carousel-slide p {
   margin-top: 12px;
