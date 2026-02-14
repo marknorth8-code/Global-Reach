@@ -1,118 +1,99 @@
 /* =========================================================
-   ABOUT PAGE – Mirroring Home.css Logic for Gaps
+   HOME.CSS - Final Corrected Naming & Gaps
    ========================================================= */
 
-/* 1. UNIVERSAL CONTAINER LOCK (Matches .offices-inner from Home) */
-.about-hero-inner, 
-.about-work-inner {
+/* 1. UNIVERSAL CONTAINER LOCK (Fixes Section 1 & 4 Gaps) */
+.intro-images-container, 
+.offices-inner {
   display: flex !important;
   gap: 60px;
-  align-items: flex-start; /* Matches home.css */
+  align-items: flex-start;
   max-width: 1200px !important;
   margin: 0 auto !important;
   padding: 0 24px !important; /* FORCES THE SIDE GAP */
   width: 100% !important;
-  box-sizing: border-box !important;
 }
 
-/* 2. UNIVERSAL MEDIA LOCK (Matches .offices-media from Home) */
-/* This is what prevents the blowout and keeps the right-side gap */
-.about-hero-image, 
-.about-work-media {
+/* 2. UNIVERSAL MEDIA LOCK (Fixes 1200px blowout) */
+/* Targets .intro-image (singular) and .offices-media */
+.intro-image, 
+.offices-media {
   flex: 0 0 60% !important;
   max-width: 60% !important;
   width: 60% !important;    
-  min-width: 0 !important;   /* THE FIX */
+  min-width: 0 !important;   
+  min-height: 420px;
+  background-size: cover;
+  background-position: center;
   border-radius: 8px;
   overflow: hidden;         
 }
 
-/* Ensure images inside these containers behave like the Home page */
-.about-hero-image img, 
-.about-work-media img {
-  width: 100% !important;
-  display: block;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-/* 3. SECTION 1 – HERO SPECIFIC */
-.about-hero {
-  padding: 90px 0;
-}
-
-.about-hero-text {
-  flex: 0 0 40%;
-}
-
-/* 4. SECTION 2 – PROFILES (Standard Container) */
-.about-profiles {
-  padding: 90px 0;
-}
-
-.about-profiles-inner {
+/* 3. SECTION 3 – SERVICES CAROUSEL (Fixes Oversize) */
+.services-carousel {
+  background: #fff;
+  padding: 60px 0;
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
 }
 
-.profile-pair {
+.services-carousel .carousel-slide {
+  /* Forces 3-up layout even with large images */
+  flex: 0 0 calc((100% - 60px) / 3) !important;
+  max-width: calc((100% - 60px) / 3) !important;
+  min-width: 0 !important;
+}
+
+.service-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  padding: 30px;
+  height: 100%;
   display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  margin-bottom: 120px;
-}
-
-.profile-image {
-  flex: 0 0 40%;
-}
-
-.profile-image img {
-  width: 100%;
-  height: 475px;
-  object-fit: cover;
+  flex-direction: column;
+  justify-content: space-between;
   border-radius: 8px;
 }
 
-/* 5. SECTION 3 – WORK CAROUSEL SPECIFICS */
-.about-work {
-  padding: 90px 0;
+/* 4. OFFICE CAROUSEL SPECIFICS */
+.offices-carousel {
+  width: 100%;
+  position: relative;
 }
 
-.about-work-text {
-  flex: 0 0 40%;
+.offices-carousel .carousel-slide img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
 }
 
-.about-work-media .carousel,
-.about-work-media .carousel-viewport {
-  width: 100% !important;
-  max-width: 100% !important;
+/* 5. SHARED ARROWS */
+.services-carousel .carousel-arrow,
+.offices-carousel .carousel-arrow {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 50%;
 }
 
-.about-work-media .carousel-slide p {
-  margin-top: 12px;
-  font-size: 0.95rem;
-}
+.carousel-arrow.left { left: 10px; }
+.carousel-arrow.right { right: 10px; }
 
-/* 6. RESPONSIVE (Matches Home.css Media Queries) */
+/* 6. RESPONSIVE */
 @media (max-width: 900px) {
-  .about-hero-inner, 
-  .about-work-inner {
+  .intro-images-container, .offices-inner {
     flex-direction: column;
   }
-  
-  .about-hero-text, 
-  .about-hero-image, 
-  .about-work-text, 
-  .about-work-media {
+  .intro-text, .intro-image, .offices-text, .offices-media {
     flex: 0 0 100% !important;
     max-width: 100% !important;
-    width: 100% !important;
-  }
-
-  .profile-pair {
-    flex-direction: column;
-    gap: 25px;
   }
 }
