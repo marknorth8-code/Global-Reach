@@ -164,6 +164,14 @@
   font-size: 0.95rem;
 }
 
+/* Force the Hero Image to stay inside the 1200px container */
+.about-hero-image {
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important;
+}
+
+
 /* Mobile Fix */
 @media (max-width: 900px) {
   .about-work-inner {
@@ -182,3 +190,4 @@
     object-fit: cover;
   }
 }
+
