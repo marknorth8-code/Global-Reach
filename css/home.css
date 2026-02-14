@@ -22,13 +22,13 @@
 }
 
 .intro-image {
-  flex: 0 0 60%; /* Locked to the split */
-  max-width: 60%;
-  min-width: 0;   /* THE FIX: Allows the box to shrink into the gap */
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important; /* THE KEY: Allows the box to shrink into the gap */
+  width: 0;                /* Forces flex-basis to be the driver */
   min-height: 420px;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   border-radius: 8px;
 }
 
