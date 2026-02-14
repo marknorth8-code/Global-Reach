@@ -8,7 +8,7 @@
 }
 
 .about-hero-inner {
-  display: flex;
+  display: flex !important; /* Ensures the side-by-side layout */
   gap: 60px;
   align-items: center;
 }
@@ -20,13 +20,10 @@
 .about-hero-image {
   flex: 0 0 60% !important;
   max-width: 60% !important;
-  min-width: 0 !important;
+  min-width: 0 !important; /* Allows the gap to appear */
+  width: 0;
   height: 500px;
-  border-radius: 8px;
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden; /* Clips any sub-pixel bleed to keep the gap */
 }
 
 /* SECTION 2 – PROFILES (Standard Layout) */
