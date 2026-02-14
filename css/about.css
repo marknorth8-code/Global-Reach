@@ -139,9 +139,10 @@
 
 /* Right carousel column */
 .about-work-media {
-  flex: 0 0 60%;
-     max-width: 60%; /* <--- ADD THIS: Hard limit for the 60% split */
-  min-width: 0;
+ flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important;
+  overflow: hidden; /* This is the 'Force Field' that keeps images inside */
 }
 
 /* Ensure carousel fills column */
