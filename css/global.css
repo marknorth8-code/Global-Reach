@@ -453,9 +453,14 @@ header nav {
 
 .section-divider {
   border: 0;
-  border-top: 1px solid #5D5D5D; /* Set your desired line color/thickness */
-  width: 95%;                /* Controls the length of the line (gap on both sides) */
-  margin: 40px auto;         /* 40px vertical spacing, 'auto' centers it horizontally */
-  max-width: 1200px;         /* Optional: keeps the line from getting too long on wide screens */
+  border-top: 1px solid #eee;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto !important; /* Forces 0 vertical margin */
+}
+
+/* Remove default top margin from the first heading in a section */
+.page-section h2:first-child {
+  margin-top: 0;
 }
 
