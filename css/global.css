@@ -115,6 +115,20 @@ header nav {
   width: 100%;
 }
 
+
+
+/* Active Page Color */
+.nav-link.current-page, 
+.mobile-nav a.current-page {
+  color: #007bff !important; /* Replace with your specific color */
+  font-weight: bold;
+}
+
+/* Nudge links slightly left */
+.nav-list {
+  margin-right: 40px; 
+}
+
 .site-logo-container {
   display: flex;
   align-items: center;
