@@ -364,9 +364,8 @@ a:hover {
 }
 
 .carousel-viewport {
-  overflow: hidden;
-  width: 100%;
-  border-radius: 8px;
+  overflow: hidden !important;
+  width: 100% !important;
 }
 
 .carousel-track {
@@ -381,7 +380,8 @@ a:hover {
 }
 
 .carousel-slide img {
-  width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
   height: auto;
   display: block;
   object-fit: cover;
