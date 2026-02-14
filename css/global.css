@@ -361,7 +361,7 @@ a:hover {
 
 .carousel-arrows {
   position: absolute;
-  bottom: 20px;         /* Distance from bottom */
+  bottom: 40px;         /* Distance from bottom */
   right: 20px;          /* Adjusted from 60px to 20px to ensure visibility */
   display: flex;        /* Keeps arrows side-by-side */
   flex-direction: row;  /* Explicitly horizontal */
