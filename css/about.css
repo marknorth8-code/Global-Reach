@@ -16,7 +16,8 @@
   display: flex !important;
   flex-direction: row !important; /* Forces side-by-side on desktop */
   gap: 60px;
-  align-items: flex-start;
+  justify-content: flex-start !important; 
+  align-items: flex-start !important;
   max-width: 1200px !important;
   margin: 0 auto !important;
   padding: 0 24px !important; /* THE 24px SIDE GAP */
