@@ -384,21 +384,23 @@ a:hover {
   }
 }
 
+
 /* =========================================================
-   GLOBAL CAROUSEL ENGINE (STRUCTURE ONLY – CLEAN & FUTURE SAFE)
+   GLOBAL CAROUSEL ENGINE
    ========================================================= */
 
 .carousel {
   position: relative;
   width: 100%;
-   min-width: 0;
+  min-width: 0; 
 }
 
 /* Dedicated clipping layer */
 .carousel-viewport {
   overflow: hidden;
   width: 100%;
-   border-radius: 8px;
+  position: relative;
+  border-radius: 8px;
 }
 
 /* Moving track */
@@ -406,79 +408,68 @@ a:hover {
   display: flex;
   transition: transform 0.4s ease;
   will-change: transform;
+  width: 100%; /* Keeps track width relative to viewport */
 }
 
-/* Individual slide */
+/* Individual slide - DEFAULT: 1 Slide per view */
 .carousel-slide {
   flex: 0 0 100%;
-     min-width: 100%;
+  min-width: 100%;
   max-width: 100%;
 }
 
 /* Images inside slides */
 .carousel-slide img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 3 / 2; /* Keeps all carousel images consistent */
   display: block;
-    object-fit: cover;
-}
-
-/* Force the flex engine to ignore image size and use the 60% slot */
-.offices-media, .about-work-media {
-  flex: 0 0 60% !important;
-  min-width: 0 !important; /* Forces the container to be able to shrink */
-  width: 0; /* A classic hack: forces flex-basis to start from 0 instead of 'auto' */
-}
-
-.carousel-viewport {
-  overflow: hidden;
-  width: 100%;
-  position: relative; /* Ensures it acts as a boundary */
+  object-fit: cover;
   border-radius: 8px;
 }
 
-.carousel-track {
-  display: flex;
-    transition: transform 0.4s ease;
-  width: 100%; /* Ensures the track understands its 100% is the PARENT'S 60% */
-}
-.carousel-slide {
-  flex-shrink: 0;
-  min-width: 0;
-}
+/* =========================================================
+   CAROUSEL CONTAINER FIXES (Force 60% split)
+   ========================================================= */
 
+.offices-media, .about-work-media {
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  min-width: 0 !important;
+}
 
 /* =========================================================
-   ARROWS (UPDATED TO BOTTOM RIGHT STYLE)
+   ARROWS
    ========================================================= */
 
 .carousel-arrows {
-  position: relative; /* Changed from absolute to place below the image */
+  position: relative; 
   display: flex;
-  justify-content: flex-end; /* Aligns arrows to the right */
-  gap: 25px; /* Adds space between the two arrows */
-  padding-top: 20px; /* Space between the image/date and arrows */
-  padding-right: 0px; 
+  justify-content: flex-end; 
+  gap: 25px; 
+  padding-top: 20px; 
   pointer-events: none;
 }
 
 .carousel-arrow {
   pointer-events: all;
-  background: #fff; /* Removes background */
-  border: none; /* Removes circle border */
+  background: #fff;
+  border: 1px solid #ddd;
   color: #000;
-  font-family: inherit; /* Ensures it matches your site text */
-  font-size: 24px; /* Adjust size of < and > here */
-  padding: 0;
+  font-size: 24px; 
   cursor: pointer;
-  transition: opacity 0.2s ease;
-     width: 50px;
+  transition: background 0.2s ease;
+  width: 50px;
   height: 50px;
-    /* 2. Turn the square into a circle */
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel-arrow:hover {
-  background: #BBBBBB;
-  opacity: 1; /* Subtle fade effect on hover instead of background change */
+  background: #eee;
 }
+
+
+
+
