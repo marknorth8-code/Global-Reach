@@ -14,22 +14,25 @@
 .intro-images-container, 
 .about-work-inner {
   display: flex !important;
-  flex-direction: row !important; /* Forces side-by-side on desktop */
+  flex-direction: row !important;
+  align-items: flex-start !important;    /* FIX: Moves text to the TOP */
+  justify-content: flex-start !important; /* FIX: Moves everything to the LEFT */
+  
   gap: 60px;
-  justify-content: flex-start !important; 
-  align-items: flex-start !important;
   max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 0 24px !important; /* THE 24px SIDE GAP */
+  padding: 0 24px !important; 
   width: 100% !important;
   box-sizing: border-box !important;
 }
 
 /* --- 3. THE TEXT BLOCKS (40%) --- */
-.about-hero-text, 
+..about-hero-text, 
 .about-work-text {
-  flex: 0 0 40% !important;
-  max-width: 40% !important;
+  flex: 0 0 35% !important; /* Reduced to allow the image to move left */
+  max-width: 35% !important;
+  margin: 0 !important;
+  padding-top: 0 !important; /* Ensures text starts at the very top */
 }
 
 /* --- 4. THE MEDIA BLOCKS (60%) --- */
@@ -37,12 +40,9 @@
 .about-work-media {
   flex: 0 0 60% !important;
   max-width: 60% !important;
-  min-width: 0 !important;   /* CRITICAL: Allows shrinking inside the 1200px limit */
-  min-height: 420px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-  overflow: hidden;
+  min-width: 0 !important;
+  /* This margin ensures the image doesn't "lean" on the right edge */
+  margin-right: auto !important; 
 }
 
 /* --- 5. CAROUSEL ENGINE FIX --- */
