@@ -413,9 +413,18 @@ a:hover {
 
 /* Images inside slides */
 .carousel-slide img {
-  width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
   height: auto;
   display: block;
+  object-fit: cover;
+}
+
+.intro-image, 
+.about-hero-image, 
+.offices-media, 
+.about-work-media {
+  min-width: 0 !important;
 }
 
 /* =========================================================
