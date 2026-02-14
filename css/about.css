@@ -66,10 +66,10 @@
 }
 
 .about-work-media {
-  flex: 0 0 60% !important;
+    flex: 0 0 60% !important;
   max-width: 60% !important;
   min-width: 0 !important;
-  overflow: hidden; /* This is the "Force Field" for the Work carousel */
+  /* Remove 'width: 0' - it's confusing the JS calculation */
 }
 
 .about-work-media .carousel-slide {
