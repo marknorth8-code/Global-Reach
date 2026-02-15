@@ -1,11 +1,10 @@
 (function () {
-
   function initCarousel(carousel) {
-    if (!carousel) return;
-    if (carousel.dataset.initialised === "true") return;
+    if (!carousel || carousel.dataset.initialised === "true") return;
 
     const track = carousel.querySelector('.carousel-track');
-    if (!track) return;
+    const viewport = carousel.querySelector('.carousel-viewport');
+    if (!track || !viewport) return;
 
     const slides = Array.from(track.querySelectorAll('.carousel-slide'));
     if (slides.length === 0) return;
@@ -14,59 +13,59 @@
     const nextBtn = carousel.querySelector('[data-carousel-next]');
 
     let index = 0;
-    let slideWidth = 0;
+    let scrollStep = 0;
 
-    function calculateSlideWidth() {
-      const viewport = carousel.querySelector('.carousel-viewport');
+    function calculateMetrics() {
+      const viewportWidth = viewport.getBoundingClientRect().width;
       
-      // 1. Measure the width of the 60% slot established by your CSS
-      const rect = viewport.getBoundingClientRect();
-      slideWidth = rect.width;
-
-      // 2. THE GAP FIX: Force each slide to be exactly one viewport wide.
-      // This stops high-res images from "bulging" the track and eating the side gap.
-      // We skip this for 'services-carousel' because it shows 3 items at once via CSS math.
-      if (!carousel.classList.contains('services-carousel')) {
+      if (carousel.classList.contains('services-carousel')) {
+        // Measure exactly one card
+        const firstSlide = slides[0].getBoundingClientRect();
+        // Step = Card Width + 30px Gap (defined in CSS)
+        scrollStep = firstSlide.width + 30;
+      } else {
+        // Standard full-width behavior
+        scrollStep = viewportWidth;
         slides.forEach(slide => {
-          slide.style.width = slideWidth + 'px';
+          slide.style.width = scrollStep + 'px';
         });
       }
     }
 
     function moveToSlide(i) {
-      if (slideWidth > 0) {
-        track.style.transform = `translateX(-${i * slideWidth}px)`;
+      if (scrollStep > 0) {
+        // Prevent scrolling past the end for multi-carousels
+        if (carousel.classList.contains('services-carousel')) {
+            const maxIndex = slides.length - 3; // Stop when the last 3 are visible
+            index = Math.max(0, Math.min(i, maxIndex));
+        } else {
+            index = (i + slides.length) % slides.length;
+        }
+        track.style.transform = `translateX(-${index * scrollStep}px)`;
       }
     }
 
     function goNext() {
-      index = (index + 1) % slides.length;
-      moveToSlide(index);
+      moveToSlide(index + 1);
     }
 
     function goPrev() {
-      index = (index - 1 + slides.length) % slides.length;
-      moveToSlide(index);
+      moveToSlide(index - 1);
     }
 
     function handleResize() {
-      calculateSlideWidth();
+      calculateMetrics();
       moveToSlide(index);
     }
 
-    // Init - 50ms delay ensures CSS layout is ready for measurement
     setTimeout(() => {
-      calculateSlideWidth();
+      calculateMetrics();
       moveToSlide(index);
-    }, 50);
+    }, 100);
 
-    // Events
     if (nextBtn) nextBtn.addEventListener('click', goNext);
     if (prevBtn) prevBtn.addEventListener('click', goPrev);
-    
     window.addEventListener('resize', handleResize);
-    
-    // Recalculate once images are fully loaded to ensure gaps are perfect
     window.addEventListener('load', handleResize);
 
     carousel.dataset.initialised = "true";
@@ -75,5 +74,4 @@
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('[data-carousel]').forEach(initCarousel);
   });
-
 })();
