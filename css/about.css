@@ -3,7 +3,7 @@
    ========================================================= */
 
 .about-hero {
-  padding-top: 90px !important;
+  padding-top: 60px !important;
   padding-bottom: 60px !important;
 }
 
@@ -64,7 +64,7 @@
 }
 
 /* --- 6. PROFILES (Section 2 - Unchanged) --- */
-.about-profiles-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.about-profiles-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px 60px 24px; }
 .profile-pair { display: flex; gap: 40px; margin-bottom: 60px; }
 .profile-image img { width: 100%; height: 475px; object-fit: cover; border-radius: 8px; }
 
