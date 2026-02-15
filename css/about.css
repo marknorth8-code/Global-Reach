@@ -56,12 +56,19 @@
 }
 
 /* --- 5. CAROUSEL ENGINE FIX --- */
-.about-work-media .carousel,
 .about-work-media .carousel-viewport {
-  width: 100% !important;
-  max-width: 100% !important;
   height: 100% !important;
+  border-radius: 8px;
+  overflow: hidden; /* Keep the IMAGES clipped, but let the container show the ARROWS */
 }
+
+.about-work-media {
+  /* Existing height from Page 3 */
+  height: 500px !important; 
+  position: relative !important; /* This anchors the global arrows to THIS box */
+  overflow: visible !important;   /* STOP cutting off the arrows if they sit on the edge */
+}
+
 
 /* --- 6. PROFILES (Section 2 - Unchanged) --- */
 .about-profiles-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px 60px 24px; }
