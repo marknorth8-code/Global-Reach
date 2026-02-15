@@ -458,7 +458,7 @@ header nav {
 
 .section-divider {
   border: 0;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #5D5D5D;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto !important; /* Forces 0 vertical margin */
