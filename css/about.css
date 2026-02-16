@@ -109,6 +109,10 @@
   margin-bottom: 0;
 }
 
+.profile-text {
+  flex: 0 0 60%;
+  max-width: 60%;
+}
 
 
 /* --- 7. RESPONSIVE --- */
