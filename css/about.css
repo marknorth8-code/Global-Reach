@@ -18,7 +18,7 @@
 .about-work {
   padding: 60px 0;
   width: 100%;
-  overflow: visible; /* allow arrows */
+  overflow: hidden; /* allow arrows */
   box-sizing: border-box;
 }
 
@@ -70,8 +70,6 @@
 }
 
 .about-work-media {
-  height: 420px !important; 
-  min-height: 420px !important;
   position: relative !important;
   overflow: visible !important;
 }
@@ -79,6 +77,10 @@
 .about-work-media .carousel-slide img {
   height: 100% !important;
   object-fit: cover;
+}
+
+.about-work .carousel {
+  padding-bottom: 0 !important;
 }
 
 /* --- 6. PROFILES (Section 2 - Unchanged) --- */
