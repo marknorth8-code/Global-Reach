@@ -109,12 +109,7 @@
   margin-bottom: 0;
 }
 
-.profile-image {
-  flex: 0 0 40%;
-  max-width: 40%;
-  display: flex;
-  align-items: flex-start; /* or center */
-}
+
 
 /* --- 7. RESPONSIVE --- */
 @media (max-width: 900px) {
