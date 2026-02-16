@@ -275,6 +275,7 @@ header nav {
 .nav-button:focus {
   outline: none;
 }
+
 .nav-button {
   background: transparent;
   border: none;
@@ -283,6 +284,10 @@ header nav {
   font: inherit;
   color: inherit;
   cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 
