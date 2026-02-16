@@ -63,10 +63,10 @@
 }
 
 .about-work-media {
-  /* Existing height from Page 3 */
-  height: 500px !important; 
-  position: relative !important; /* This anchors the global arrows to THIS box */
-  overflow: visible !important;   /* STOP cutting off the arrows if they sit on the edge */
+  height: 420px !important; 
+  min-height: 420px !important;
+  position: relative !important;
+  overflow: visible !important;
 }
 
 
