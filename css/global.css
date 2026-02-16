@@ -272,6 +272,20 @@ header nav {
   gap: 16px;
 }
 
+.nav-button:focus {
+  outline: none;
+}
+.nav-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+
 @media (max-width: 900px) {
   .primary-nav { display: none; }
   .nav-toggle { display: block; }
@@ -469,12 +483,3 @@ header nav {
   margin-top: 0;
 }
 
-.nav-button {
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
-}
