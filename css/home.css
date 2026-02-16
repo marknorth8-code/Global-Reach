@@ -27,7 +27,7 @@
   max-width: 60% !important;
   width: 60% !important;    
   min-width: 0 !important;   
-  min-height: 420px;
+  height: 420px;
   background-size: cover;
   background-position: center;
   border-radius: 8px;
@@ -75,7 +75,7 @@
 
 .offices-carousel .carousel-slide img {
   width: 100%;
-  aspect-ratio: 3 / 2;
+  height: 420px;
   object-fit: cover;
   border-radius: 8px;
   display: block;
