@@ -106,12 +106,12 @@
 .profile-pair:last-child {
   margin-bottom: 0;
 }
-.profile-image img {
-  width: 100%;
-  height: 350px;          /* Set the size you want */
-  object-fit: cover;      /* Prevent stretching */
-  border-radius: 8px;
-  display: block;
+
+.profile-image {
+  flex: 0 0 40%;
+  max-width: 40%;
+  display: flex;
+  align-items: flex-start; /* or center */
 }
 
 /* --- 7. RESPONSIVE --- */
