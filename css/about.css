@@ -93,6 +93,10 @@
   padding: 0 24px 60px 24px;  /* Final 60px bottom space */
 }
 
+.profile-image {
+  flex: 0 0 40%;
+  max-width: 40%;
+}
 .profile-pair { 
   display: flex; 
   gap: 40px; 
