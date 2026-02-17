@@ -86,46 +86,39 @@
   padding-bottom: 0 !important;
 }
 
-/* --- 6. PROFILES (Section 2 - Unchanged) --- */
-.about-profiles-inner { 
-  max-width: 1200px; 
-  margin: 0 auto; 
-  padding: 0 24px 60px 24px;  /* Final 60px bottom space */
-}
+/* --- SECTION 2: PROFILES IMAGE SHRINK --- */
 
 .profile-image {
-  flex: 0 0 32%;
-  max-width: 32%;
-  display: flex;
-  align-items: flex-start;
-}
-.profile-pair { 
-  display: flex; 
-  gap: 40px; 
-  margin-bottom: 60px;
+  flex: 0 0 32% !important; /* Locks the container to 32% width */
+  max-width: 32% !important;
+  display: block;           /* Simplified from flex */
 }
 
-.profile-pair:last-child {
-  margin-bottom: 0;
+.profile-image img {
+  width: 100% !important;    /* This forces the image to scale down to the 32% container */
+  height: auto !important;   /* Keeps the headshot from looking squashed */
+  border-radius: 8px;
+  display: block;
+  object-fit: cover;
 }
 
+/* Ensure the text section behaves */
 .profile-text {
-  flex: 0 0 60%;
+  flex: 1;                  /* Allows text to fill the remaining 60-68% space */
   max-width: 60%;
 }
 
-
-/* --- 7. RESPONSIVE --- */
-@media (max-width: 900px) {
-  .intro-images-container, .about-work-inner {
+/* MOBILE FIX: Stack them so they don't get too tiny on phones */
+@media (max-width: 768px) {
+  .profile-pair {
     flex-direction: column !important;
-    width: 100% !important;
-    gap: 30px;
+    gap: 20px;
   }
-  .about-hero-text, .about-hero-image, .about-work-text, .about-work-media {
+  .profile-image, 
+  .profile-text {
     flex: 0 0 100% !important;
     max-width: 100% !important;
-    width: 100% !important;
-    min-height: 350px !important;
   }
 }
+
+
