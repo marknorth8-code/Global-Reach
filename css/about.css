@@ -86,39 +86,77 @@
   padding-bottom: 0 !important;
 }
 
-/* --- SECTION 2: PROFILES IMAGE SHRINK --- */
+/* =========================================================
+   SECTION 2: PROFILES (The Fix)
+   ========================================================= */
+
+.about-profiles-inner { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 24px 60px 24px;
+}
+
+.profile-pair {
+  display: flex !important;
+  flex-direction: row !important; /* side-by-side */
+  align-items: flex-start;       /* text starts at top of headshot */
+  gap: 40px;                     /* space between image and text */
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+.profile-pair:last-child {
+  margin-bottom: 0;
+}
 
 .profile-image {
-  flex: 0 0 32% !important; /* Locks the container to 32% width */
+  flex: 0 0 32% !important;      /* fixed width */
   max-width: 32% !important;
-  display: block;           /* Simplified from flex */
 }
 
 .profile-image img {
-  width: 100% !important;    /* This forces the image to scale down to the 32% container */
-  height: auto !important;   /* Keeps the headshot from looking squashed */
+  width: 100% !important;        /* force image to shrink */
+  height: auto !important;
   border-radius: 8px;
   display: block;
   object-fit: cover;
 }
 
-/* Ensure the text section behaves */
 .profile-text {
-  flex: 1;                  /* Allows text to fill the remaining 60-68% space */
+  flex: 1;                       /* takes up remaining space */
   max-width: 60%;
 }
 
-/* MOBILE FIX: Stack them so they don't get too tiny on phones */
-@media (max-width: 768px) {
-  .profile-pair {
+/* =========================================================
+   RESPONSIVE (Unified)
+   ========================================================= */
+
+@media (max-width: 900px) {
+  /* Hero & Work Sections */
+  .intro-images-container, 
+  .about-work-inner {
     flex-direction: column !important;
-    gap: 20px;
+    gap: 30px;
   }
-  .profile-image, 
-  .profile-text {
+
+  .about-hero-text, .about-hero-image, 
+  .about-work-text, .about-work-media {
     flex: 0 0 100% !important;
     max-width: 100% !important;
+    min-height: 350px !important;
+  }
+
+  /* Profile Section */
+  .profile-pair {
+    flex-direction: column !important; 
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .profile-image, 
+  .profile-text {
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
   }
 }
-
-
