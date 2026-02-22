@@ -20,7 +20,6 @@
 }
 
 /* 2. UNIVERSAL MEDIA LOCK (Fixes 1200px blowout) */
-/* Targets .intro-image (singular) and .offices-media */
 .intro-image, 
 .offices-media {
   flex: 0 0 60% !important;
@@ -39,16 +38,23 @@
   overflow: visible;
 }
 
-/* 3. SECTION 3 – SERVICES CAROUSEL (Fixes Oversize) */
+/* 3. SECTION 3 – SERVICES CAROUSEL (Updated for Title & Subtitle) */
 
-.page-section {
-  padding-bottom: 30px !important; /* Bottom of text section */
+.services-container {
+  padding-top: 60px !important; /* Gap below the dividing line */
+}
+
+.services-subtitle {
+  width: 100%;
+  display: block;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+  margin-bottom: 30px !important; /* Space before carousel images */
+  color: #666;
 }
 
 .services-carousel {
-  padding-top: 30px !important;    /* Top of carousel section */
-  /* 30px + 30px = 60px total gap */
-  
+  padding-top: 0 !important; /* Removed because container handles the gap now */
   background: #fff;
   padding-bottom: 80px !important; 
   position: relative;
@@ -56,35 +62,29 @@
   margin: 0 auto;
 }
 
-
 .services-carousel .carousel-slide {
-  /* Forces 3-up layout even with large images */
   flex: 0 0 calc((100% - 60px) / 3) !important;
   max-width: calc((100% - 60px) / 3) !important;
   min-width: 0 !important;
 }
 
-.services-carousel .carousel-track { 
-  display: flex;
-  gap: 30px; /* This creates the physical space between cards */
+.services-carousel .carousel-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
 }
 
-.service-card {
-  background: #fff;
-  border: 1px solid #e5e5e5;
-  padding: 30px;
-  height: 100%;
+.services-carousel .carousel-track { 
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 8px;
+  gap: 30px; 
 }
 
 /* 4. OFFICE CAROUSEL SPECIFICS */
 .offices-carousel {
   width: 100%;
   position: relative;
-   padding-bottom: 60px !important; 
+  padding-bottom: 60px !important; 
 }
 
 .offices-carousel .carousel-slide img {
@@ -94,8 +94,6 @@
   border-radius: 8px;
   display: block;
 }
-
-
 
 /* 6. RESPONSIVE */
 @media (max-width: 900px) {
