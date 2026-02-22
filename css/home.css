@@ -86,29 +86,22 @@
 }
 
 /* ========================================
-   SECTION 2: STRATEGY (Centered & Aligned)
+   SECTION 2: STRATEGY (Layout Fix)
 ======================================== */
-
-.home-intro.page-section {
-  width: 100%;
-  display: flex;
-  justify-content: center; /* Centers the entire section content */
-}
 
 .strategy-grid {
   display: grid !important;
-  /* Split into two equal columns within the 1200px container */
-  grid-template-columns: 1fr 1fr !important; 
-  gap: 60px !important; /* Matches the gap in your Section 1 and 4 */
+  /* First column (text) is flexible; second column (grid) is fixed to the cards' total width */
+  grid-template-columns: 1fr auto !important; 
+  gap: 60px !important; /* Standardized gap to match Sections 1 & 4 */
   align-items: start;
   max-width: 1200px !important;
-  width: 100% !important;
-  margin: 0 auto !important; /* This is the key to centering */
+  margin: 0 auto !important; /* Centers the whole section on the page */
   padding: 0 24px !important;
 }
 
 .strategy-text {
-  max-width: 520px; /* Prevents text from stretching too wide */
+  max-width: 520px;
 }
 
 /* ========================================
@@ -117,21 +110,24 @@
 
 .strategy-cards {
   display: grid !important;
-  /* Creates two columns of exactly 252px width */
-  grid-template-columns: repeat(2, 252px) !important; 
-  gap: 20px !important; /* The 20px gap between the cards */
-  justify-content: end; /* Pushes the card grid to the RIGHT side of its column */
+  /* Two columns of exactly 252px width each */
+  grid-template-columns: 252px 252px !important; 
+  gap: 20px !important; /* The 20px internal gap between squares */
   padding: 0;
   margin: 0;
+  justify-content: start;
 }
 
 .strategy-card {
   position: relative;
   display: flex;
   align-items: flex-end;
-  width: 252px !important;
+  
+  /* Fixed dimensions (Original look restored) */
+  width: 252px !important; 
   height: 252px !important;
-  aspect-ratio: 1 / 1; 
+  
+  margin: 0 !important; /* Stops cards from drifting to the center of columns */
   padding: 24px;
   text-decoration: none;
   background-size: cover;
@@ -142,12 +138,12 @@
   transition: transform 0.3s ease;
 }
 
-/* B&W Filter Layer */
+/* --- THE BLACK & WHITE IMAGE FILTER --- */
 .strategy-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: inherit; 
+  background: inherit; /* Pulls image from your HTML style attribute */
   filter: grayscale(100%) brightness(50%) contrast(110%);
   transition: filter 0.4s ease;
   z-index: 1;
@@ -163,20 +159,9 @@
 
 .card-overlay {
   position: relative;
-  z-index: 2;
+  z-index: 2; /* Keeps text clearly above the image filter */
 }
 
-.strategy-card h3 {
-  margin: 0;
-  font-size: 1.3rem;
-  color: #fff;
-}
-
-.strategy-card p {
-  font-size: 0.85rem;
-  color: #ddd;
-  margin-bottom: 8px;
-}
 
 
 /* ========================================
