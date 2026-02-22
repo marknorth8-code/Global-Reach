@@ -86,13 +86,36 @@
 }
 
 /* ========================================
-   STRATEGY CARDS – B&W IMAGE BACKGROUND
+   STRATEGY SPLIT LAYOUT (Section 2)
+======================================== */
+
+.strategy-grid {
+  display: grid !important;
+  /* First column (text) takes available space, second (grid) is fixed */
+  grid-template-columns: 1fr auto !important; 
+  gap: 40px !important; 
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.strategy-text {
+  max-width: 520px;
+}
+
+/* ========================================
+   STRATEGY CARDS – THE GRID
 ======================================== */
 
 .strategy-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px; /* Space between the squares */
+  display: grid !important;
+  /* This creates two columns of exactly 252px each */
+  grid-template-columns: 252px 252px !important; 
+  /* This is your requested 20px gap between cards */
+  gap: 20px !important; 
+  padding: 0 !important;
+  margin: 0 !important;
+  justify-content: start;
 }
 
 .strategy-card {
@@ -100,12 +123,13 @@
   display: flex;
   align-items: flex-end;
   
-  /* FIXED DIMENSIONS: Adjust these numbers to your preferred size */
-  width: 100%;
-  max-width: 252px;  /* This controls the horizontal size */
-  aspect-ratio: 1 / 1; /* This ensures the height matches the width */
+  /* The 10% reduced size */
+  width: 252px !important; 
+  height: 252px !important;
+  aspect-ratio: 1 / 1; 
   
-  margin: 0 auto;    /* Centers the squares if the column is wider than 280px */
+  /* Important: Remove auto margins to stop the drift */
+  margin: 0 !important; 
   padding: 24px;
   text-decoration: none;
   background-size: cover;
@@ -116,19 +140,17 @@
   transition: transform 0.3s ease;
 }
 
-
 /* The Black & White filter layer */
 .strategy-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: inherit; /* Pulls the image link from your HTML style attribute */
+  background: inherit; 
   filter: grayscale(100%) brightness(50%) contrast(110%);
   transition: filter 0.4s ease, opacity 0.4s ease;
   z-index: 1;
 }
 
-/* Hover: The card lifts and the image brightens slightly */
 .strategy-card:hover {
   transform: translateY(-4px);
 }
@@ -137,26 +159,25 @@
   filter: grayscale(100%) brightness(70%) contrast(120%);
 }
 
-/* Text Container */
 .card-overlay {
   position: relative;
-  z-index: 2; /* Sits on top of the image filter */
+  z-index: 2;
 }
 
 .strategy-card h3 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.3rem; 
   color: #fff;
 }
 
 .strategy-card p {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #ddd;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .strategy-card span {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
