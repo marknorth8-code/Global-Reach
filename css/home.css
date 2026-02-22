@@ -77,7 +77,7 @@
 .strategy-grid {
   display: grid !important;
   /* 1. Reduces card area size by ~30% and adds middle gap */
-  grid-template-columns: 1.3fr 0.7fr; 
+  grid-template-columns: 1.1fr 0.9fr; 
   gap: 100px; 
   align-items: start;
   /* 2. Adds the gap between the cards and the right side of the page */
