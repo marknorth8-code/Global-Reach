@@ -269,32 +269,7 @@ a:hover {
   margin-top: 4px;
 }
 
-/* ===============================
-   DESKTOP ACTIVE LINK STATE
-   =============================== */
 
-.home-page .primary-nav a[href="index.html"],
-.about-page .primary-nav a[href="about.html"],
-.insights-page .primary-nav a[href="insights.html"],
-.contact-page .primary-nav a[href="contact.html"] {
-  color: #000;
-  font-weight: 600;
-  position: relative;
-}
-
-/* Underline effect */
-.home-page .primary-nav a[href="index.html"]::after,
-.about-page .primary-nav a[href="about.html"]::after,
-.insights-page .primary-nav a[href="insights.html"]::after,
-.contact-page .primary-nav a[href="contact.html"]::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 2px;
-  background: #000;
-}
 
 /* =========================================================
    MOBILE NAV
