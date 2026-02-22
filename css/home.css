@@ -1,16 +1,13 @@
 /* =========================================================
-   HOME.CSS - RESTORED TOP PADDING & 60PX GAP FIX
+   HOME.CSS - Final Corrected Naming & Gaps
    ========================================================= */
 
-/* 1. RESET TEXT MARGINS */
-.page-section h2, 
-.page-section p {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  padding-bottom: 15px; 
+.intro-images-container {
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
 }
 
-/* 2. UNIVERSAL CONTAINER LOCK (Section 1 & 4) */
+/* 1. UNIVERSAL CONTAINER LOCK (Fixes Section 1 & 4 Gaps) */
 .intro-images-container, 
 .offices-inner {
   display: flex !important;
@@ -18,17 +15,18 @@
   align-items: flex-start;
   max-width: 1200px !important;
   margin: 0 auto !important;
-  /* RESTORED TOP PADDING: Sets spacing for top of section 1 and 4 */
-  padding: 60px 24px 60px 24px !important; 
+  padding: 0 24px 60px 24px !important; 
   width: 100% !important;
 }
 
-/* 3. MEDIA LOCK */
+/* 2. UNIVERSAL MEDIA LOCK (Fixes 1200px blowout) */
+/* Targets .intro-image (singular) and .offices-media */
 .intro-image, 
 .offices-media {
   flex: 0 0 60% !important;
   max-width: 60% !important;
   width: 60% !important;    
+  min-width: 0 !important;   
   height: 420px;
   background-size: cover;
   background-position: center;
@@ -36,17 +34,21 @@
   overflow: hidden;         
 }
 
-/* 4. SECTION 3 – SERVICES CAROUSEL (The 60px Bridge) */
-.page-section {
-  /* Restore default top padding for standard text sections */
-  padding-top: 60px !important; 
-  padding-bottom: 30px !important; /* Bottom 30px of the bridge */
+.offices-media {
+  position: relative;
+  overflow: visible;
 }
 
-/* Specific fix for the gap between Section 2 (Our Work) and Section 3 (Carousel) */
+/* 3. SECTION 3 – SERVICES CAROUSEL (Fixes Oversize) */
+
+.page-section {
+  padding-bottom: 30px !important; /* Bottom of text section */
+}
+
 .services-carousel {
-  /* Top 30px of the bridge + Bottom 30px of page-section = 60px total */
-  padding-top: 30px !important;    
+  padding-top: 30px !important;    /* Top of carousel section */
+  /* 30px + 30px = 60px total gap */
+  
   background: #fff;
   padding-bottom: 80px !important; 
   position: relative;
@@ -54,8 +56,9 @@
   margin: 0 auto;
 }
 
-/* 5. CAROUSEL LAYOUT */
+
 .services-carousel .carousel-slide {
+  /* Forces 3-up layout even with large images */
   flex: 0 0 calc((100% - 60px) / 3) !important;
   max-width: calc((100% - 60px) / 3) !important;
   min-width: 0 !important;
@@ -63,7 +66,7 @@
 
 .services-carousel .carousel-track { 
   display: flex;
-  gap: 30px; 
+  gap: 30px; /* This creates the physical space between cards */
 }
 
 .service-card {
@@ -77,11 +80,11 @@
   border-radius: 8px;
 }
 
-/* 6. OFFICE CAROUSEL */
+/* 4. OFFICE CAROUSEL SPECIFICS */
 .offices-carousel {
   width: 100%;
   position: relative;
-  padding-bottom: 60px !important; 
+   padding-bottom: 60px !important; 
 }
 
 .offices-carousel .carousel-slide img {
@@ -92,11 +95,12 @@
   display: block;
 }
 
-/* 7. RESPONSIVE */
+
+
+/* 6. RESPONSIVE */
 @media (max-width: 900px) {
   .intro-images-container, .offices-inner {
     flex-direction: column;
-    padding-top: 40px !important;
   }
   .intro-text, .intro-image, .offices-text, .offices-media {
     flex: 0 0 100% !important;
