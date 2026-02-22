@@ -216,23 +216,95 @@
 }
 
 
+@media (max-width: 768px) {
 
-/* --- RESPONSIVE --- */
-@media (max-width: 900px) {
-  .intro-images-container, .offices-inner {
+  .intro-images-container {
     flex-direction: column;
+    gap: 30px;
+    padding: 0 20px 40px 20px !important;
   }
-  .intro-text, .intro-image, .offices-text, .offices-media {
+
+  .intro-image {
+    height: 260px;
+  }
+
+  .intro-text h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .intro-text h2 {
+    font-size: 18px;
+  }
+
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+
+  /* --- INTRO --- */
+  .intro-images-container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px 40px 20px !important;
+  }
+
+  .intro-image {
+    height: 260px;
+  }
+
+  .intro-text h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .intro-text h2 {
+    font-size: 18px;
+  }
+
+  /* --- STRATEGY --- */
+  .strategy-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+    padding-right: 0 !important;
+  }
+
+  .strategy-cards {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .strategy-card {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* --- SERVICES --- */
+  .services-carousel .carousel-slide {
     flex: 0 0 100% !important;
     max-width: 100% !important;
   }
-  .permanent-label {
-    position: relative; 
-    top: 0;
-    margin-bottom: 20px;
+
+  .services-carousel .carousel-track {
+    gap: 15px;
   }
-  .offices-carousel .carousel-arrows {
-    justify-content: center; /* Center arrows on mobile for better thumb reach */
-    width: 100%;
+
+  /* --- OFFICES --- */
+  .offices-inner {
+    flex-direction: column;
+    gap: 40px;
   }
+
+  .offices-carousel .carousel-slide img {
+    height: 260px;
+  }
+
+   .offices-carousel .carousel-arrows {
+  position: static;
+  justify-content: center;
+  margin-top: 15px;
+}
+
 }
