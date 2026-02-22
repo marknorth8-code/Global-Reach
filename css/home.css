@@ -123,7 +123,7 @@
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: flex-start; /* Aligns them to the left */
+  justify-content: flex-end; /* Aligns them to the left */
   gap: 10px;                  /* Space between the two buttons */
   z-index: 10;
 }
