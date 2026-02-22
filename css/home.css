@@ -99,14 +99,13 @@
   margin: 0 auto;      /* centre it */
 }
 
-/* 1:1 Square Cards */
 .strategy-card {
   position: relative;
   display: flex;
   align-items: flex-end;
 
   width: 100%;
-  aspect-ratio: 1 / 1;   /* Keep square */
+  aspect-ratio: 1 / 1;
   padding: 20px;
 
   background-size: cover;
@@ -114,6 +113,8 @@
   border-radius: 4px;
   overflow: hidden;
   text-decoration: none;
+
+  filter: grayscale(100%) brightness(0.8);
 }
 
 /* 50% black overlay */
@@ -121,7 +122,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
   z-index: 1;
 }
 
