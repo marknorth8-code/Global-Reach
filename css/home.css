@@ -92,48 +92,48 @@
 .strategy-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px; /* Adjust gap to match your layout */
+  gap: 20px; /* Space between the squares */
 }
 
 .strategy-card {
   position: relative;
   display: flex;
   align-items: flex-end;
-  aspect-ratio: 1 / 1; /* Forces the square shape */
+  aspect-ratio: 1 / 1; /* Keeps them perfectly square */
   padding: 24px;
   text-decoration: none;
-  color: #ffffff;
+  background-size: cover;
+  background-position: center;
   overflow: hidden;
-  background-color: #000; /* Fallback */
-  border-radius: 4px; /* Optional: matches your site's subtle curves */
+  background-color: #000;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
 }
 
-/* The Image Layer */
+/* The Black & White filter layer */
 .strategy-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  /* Path to your specific image */
-  background-image: url("images/locations/br/hero.webp");
-  background-size: cover;
-  background-position: center;
-  
-  /* Black and White + Contrast settings for 2026 aesthetics */
-  filter: grayscale(100%) brightness(60%) contrast(110%);
-  opacity: 0.7; /* Adjust this to make the text pop */
-  transition: opacity 0.3s ease, filter 0.3s ease;
+  background: inherit; /* Pulls the image link from your HTML style attribute */
+  filter: grayscale(100%) brightness(50%) contrast(110%);
+  transition: filter 0.4s ease, opacity 0.4s ease;
+  z-index: 1;
 }
 
-/* Hover Effect: Image subtly clears up */
+/* Hover: The card lifts and the image brightens slightly */
+.strategy-card:hover {
+  transform: translateY(-4px);
+}
+
 .strategy-card:hover::before {
-  opacity: 1;
   filter: grayscale(100%) brightness(70%) contrast(120%);
 }
 
-/* Ensure text sits on top of the image */
+/* Text Container */
 .card-overlay {
   position: relative;
-  z-index: 2;
+  z-index: 2; /* Sits on top of the image filter */
 }
 
 .strategy-card h3 {
@@ -145,7 +145,16 @@
 .strategy-card p {
   font-size: 0.9rem;
   color: #ddd;
+  margin-bottom: 10px;
 }
+
+.strategy-card span {
+  font-size: 0.85rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 
 
 /* ========================================
