@@ -44,6 +44,7 @@
 <main id="main-content">
 
 <!-- ========= SECTION 1: INTRO (Updated) ========= -->
+<!-- ========= SECTION 1: INTRO (Corrected Layout) ========= -->
 <section class="intro-images page-section">
   <div class="intro-images-container">
 
@@ -51,21 +52,22 @@
       <h1>Intelligent Property Investment</h1>
       <h2>Our independence allows us to act solely in the interests of our clients</h2>
       <p>
-        We source high-potential investment and development opportunities in selected markets. Each location has been chosen for its compelling growth story and long-term upside 
+        We source high-potential investment and development opportunities in selected markets...
       </p>
     </div>
 
-    <!-- The Image Wrapper -->
-    <div class="intro-image-wrapper">
-      <div class="intro-image">
-         <!-- This is where your changing background images appear -->
-         <span id="image-caption" class="image-caption">Image Location Name</span>
-      </div>
-      <p class="permanent-label">Consultancy Portfolio 2024</p>
+    <!-- Keep this as the direct child of .intro-images-container -->
+    <div class="intro-image">
+       <!-- 1. Dynamic Caption: Pinned to bottom right of the image -->
+       <span id="image-caption" class="image-caption">Brazil - Bahia State</span>
+       
+       <!-- 2. Permanent Text: Positioned absolutely to sit BELOW the image -->
+       <p class="permanent-label">Consultancy Portfolio 2024</p>
     </div>
 
   </div>
 </section>
+
 
 
 <hr class="section-divider">
