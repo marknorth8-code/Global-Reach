@@ -488,3 +488,7 @@ header nav {
   margin-top: 0;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
