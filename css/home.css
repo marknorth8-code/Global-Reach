@@ -1,5 +1,5 @@
 /* =========================================================
-   HOME.CSS - Final Corrected Naming & Gaps
+   HOME.CSS - Final Corrected Naming, Gaps & Labels
    ========================================================= */
 
 .intro-images-container {
@@ -19,7 +19,7 @@
   width: 100% !important;
 }
 
-/* 2. UNIVERSAL MEDIA LOCK (Fixes 1200px blowout) */
+/* 2. UNIVERSAL MEDIA LOCK (Updated with Label Support) */
 .intro-image, 
 .offices-media {
   flex: 0 0 60% !important;
@@ -30,18 +30,47 @@
   background-size: cover;
   background-position: center;
   border-radius: 8px;
-  overflow: hidden;         
+  position: relative !important;
+}
+
+/* Fixed: intro-image must show overflow for labels, offices-media remains hidden if needed */
+.intro-image {
+  overflow: visible !important; 
 }
 
 .offices-media {
-  position: relative;
-  overflow: visible;
+  overflow: hidden; 
+}
+
+/* 1. Permanent text: Positioned under the bottom-left edge */
+.permanent-label {
+  position: absolute;
+  top: 100%;       
+  left: 0;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 2. Dynamic caption: Pinned to the bottom-right inside the image */
+.image-caption {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  font-size: 11px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4); 
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* 3. SECTION 3 – SERVICES CAROUSEL (Updated for Title & Subtitle) */
-
 .services-container {
-  padding-top: 60px !important; /* Gap below the dividing line */
+  padding-top: 60px !important; 
 }
 
 .services-subtitle {
@@ -49,12 +78,12 @@
   display: block;
   text-transform: lowercase;
   letter-spacing: 1px;
-  margin-bottom: 30px !important; /* Space before carousel images */
+  margin-bottom: 30px !important; 
   color: #666;
 }
 
 .services-carousel {
-  padding-top: 0 !important; /* Removed because container handles the gap now */
+  padding-top: 0 !important; 
   background: #fff;
   padding-bottom: 80px !important; 
   position: relative;
@@ -103,5 +132,10 @@
   .intro-text, .intro-image, .offices-text, .offices-media {
     flex: 0 0 100% !important;
     max-width: 100% !important;
+  }
+  .permanent-label {
+    position: relative; /* Moves text naturally below image on mobile */
+    top: 0;
+    margin-bottom: 20px;
   }
 }
