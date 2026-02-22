@@ -93,8 +93,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;   /* This creates the 20px space */
-}
-
   width: 70%;          /* shrink grid */
   margin: 0 auto;      /* centre it */
 }
