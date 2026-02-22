@@ -92,8 +92,10 @@
 .strategy-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  column-gap: 20px;   /* space left ↔ right */
+  row-gap: 0px;       /* no vertical gap */
   padding: 20px;
+}
 
   width: 70%;          /* shrink grid */
   margin: 0 auto;      /* centre it */
@@ -122,7 +124,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.2);
   z-index: 1;
 }
 
