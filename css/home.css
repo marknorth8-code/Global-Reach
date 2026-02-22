@@ -92,11 +92,11 @@
 .strategy-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 20px;   /* 20px between left & right */
+  column-gap: 20px;
   row-gap: 20px;
 
-  width: 100%;        /* fill the 60% column */
-  margin: 0;          /* remove auto-centering */
+  width: 80%;      /* 20% smaller */
+  margin-right: auto;  /* push grid left */
 }
 
 .strategy-card {
