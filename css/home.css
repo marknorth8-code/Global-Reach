@@ -19,7 +19,7 @@
   width: 100% !important;
 }
 
-/* 2. UNIVERSAL MEDIA LOCK (Updated with Label Support) */
+/* 2. UNIVERSAL MEDIA LOCK (Synced for Arrows & Labels) */
 .intro-image, 
 .offices-media {
   flex: 0 0 60% !important;
@@ -31,15 +31,14 @@
   background-position: center;
   border-radius: 8px;
   position: relative !important;
-}
-
-/* Fixed: intro-image must show overflow for labels, offices-media remains hidden if needed */
-.intro-image {
+  /* Allows both arrows and labels to sit outside the box */
   overflow: visible !important; 
 }
 
-.offices-media {
-  overflow: hidden; 
+/* Ensures carousel images stay clipped to rounded corners while arrows stay visible */
+.offices-carousel .carousel-viewport {
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 /* 1. Permanent text: Positioned under the bottom-left edge */
@@ -68,7 +67,7 @@
   letter-spacing: 0.5px;
 }
 
-/* 3. SECTION 3 – SERVICES CAROUSEL (Updated for Title & Subtitle) */
+/* 3. SECTION 3 – SERVICES CAROUSEL (Title & Subtitle Gap) */
 .services-container {
   padding-top: 60px !important; 
 }
@@ -116,6 +115,22 @@
   padding-bottom: 60px !important; 
 }
 
+/* Fixes the Arrow Visibility */
+.offices-carousel .carousel-arrows {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none; /* Allows clicking through the container */
+}
+
+.offices-carousel .carousel-arrow {
+  pointer-events: auto; /* Re-enables clicking on the actual buttons */
+}
+
 .offices-carousel .carousel-slide img {
   width: 100%;
   height: 420px;
@@ -134,7 +149,7 @@
     max-width: 100% !important;
   }
   .permanent-label {
-    position: relative; /* Moves text naturally below image on mobile */
+    position: relative; 
     top: 0;
     margin-bottom: 20px;
   }
