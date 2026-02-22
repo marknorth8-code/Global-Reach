@@ -68,6 +68,10 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+.home-hero-text,
+.home-hero-media {
+  min-width: 0;
+}
 
 
 /* ========================================
