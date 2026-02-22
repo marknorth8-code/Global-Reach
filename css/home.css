@@ -99,7 +99,13 @@
   position: relative;
   display: flex;
   align-items: flex-end;
-  aspect-ratio: 1 / 1; /* Keeps them perfectly square */
+  
+  /* FIXED DIMENSIONS: Adjust these numbers to your preferred size */
+  width: 100%;
+  max-width: 280px;  /* This controls the horizontal size */
+  aspect-ratio: 1 / 1; /* This ensures the height matches the width */
+  
+  margin: 0 auto;    /* Centers the squares if the column is wider than 280px */
   padding: 24px;
   text-decoration: none;
   background-size: cover;
@@ -109,6 +115,7 @@
   border-radius: 4px;
   transition: transform 0.3s ease;
 }
+
 
 /* The Black & White filter layer */
 .strategy-card::before {
