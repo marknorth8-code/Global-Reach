@@ -86,94 +86,114 @@ a:hover {
   text-align: center;
 }
 
-/* =========================================================
-   HEADER 
-   ========================================================= */
+/* =========================================
+   HEADER
+========================================= */
 
 .site-header {
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #000;
+  background: #ffffff;
   z-index: 1000;
 }
 
 .header-inner {
-  height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: height 0.3s ease;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
-}
-
-.site-header.is-shrunk .header-inner {
-  height: 65px;
-}
-
-header nav {
-  display: flex;
-  justify-content: space-around; /* Distributes links with space on both sides */
-  width: 100%;
-}
-
-
-
-/* Active Page Color */
-.nav-link.current-page, 
-.mobile-nav a.current-page {
-  color: #bbb !important; /* Replace with your specific color */
-  font-weight: bold;
-}
-
-/* Nudge links slightly left */
-.nav-list {
-  margin-right: 40px; 
-}
-
-.site-logo-container {
   display: flex;
   align-items: center;
-  height: 100%;
-  text-decoration: none;
+  justify-content: space-between;
+  height: 90px;
 }
 
-.logo-wrapper {
-  display: flex;
-  align-items: center;
-  height: 60px;
-  position: relative;
-  overflow: visible;
-  cursor: pointer;
+/* Logo */
+.site-logo {
+  max-height: 60px;
+  width: auto;
+  display: block;
 }
 
-
-
-/* =========================================================
-   NAVIGATION & DROPDOWNS
-   ========================================================= */
-
+/* Desktop Navigation */
 .primary-nav {
-  width: 60%;
   display: flex;
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .nav-list {
   list-style: none;
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-item {
-  flex: 1;
   text-align: center;
 }
+
+.nav-link,
+.nav-button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+  padding: 8px 0;
+}
+
+/* Mobile Toggle */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  display: none;
+  background: #ffffff;
+  width: 100%;
+}
+
+.mobile-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 20px 24px;
+}
+
+.mobile-nav li {
+  margin-bottom: 15px;
+}
+
+.mobile-nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+}
+
+/* Responsive */
+
+  .primary-nav {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+}
+
+/* =========================================================
+   NAVIGATION & DROPDOWNS
+   ========================================================= */
+
 
 .nav-link {
   font-family: Georgia, serif;
@@ -260,7 +280,6 @@ header nav {
   position: fixed;
   top: 65px;
   left: 0;
-  width: 100%;
   background: #fff;
   border-top: 1px solid #ddd;
 }
