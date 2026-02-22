@@ -92,9 +92,11 @@
 .strategy-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;   /* This creates the 20px space */
-  width: 70%;          /* shrink grid */
-  margin: 0 auto;      /* centre it */
+  column-gap: 20px;   /* 20px between left & right */
+  row-gap: 20px;
+
+  width: 100%;        /* fill the 60% column */
+  margin: 0;          /* remove auto-centering */
 }
 
 .strategy-card {
