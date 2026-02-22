@@ -112,23 +112,20 @@
 .offices-carousel {
   width: 100%;
   position: relative;
+  /* This padding creates space for the arrows to sit below the image */
   padding-bottom: 60px !important; 
 }
 
-/* Fixes the Arrow Visibility */
+/* Positions Arrows at the bottom of the section */
 .offices-carousel .carousel-arrows {
   position: absolute;
-  z-index: 10;
+  bottom: 0;         /* Pins them to the bottom of the 60px padding */
+  left: 0;
   width: 100%;
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
-  justify-content: space-between;
-  pointer-events: none; /* Allows clicking through the container */
-}
-
-.offices-carousel .carousel-arrow {
-  pointer-events: auto; /* Re-enables clicking on the actual buttons */
+  justify-content: flex-start; /* Aligns them to the left */
+  gap: 10px;                  /* Space between the two buttons */
+  z-index: 10;
 }
 
 .offices-carousel .carousel-slide img {
@@ -138,6 +135,13 @@
   border-radius: 8px;
   display: block;
 }
+
+/* Ensures the location labels (Brazil, Japan, etc.) don't overlap arrows */
+.location-label {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
 
 /* 6. RESPONSIVE */
 @media (max-width: 900px) {
