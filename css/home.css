@@ -306,5 +306,10 @@
   justify-content: center;
   margin-top: 15px;
 }
+   .intro-images-container,
+.offices-inner {
+  padding: 0 20px 40px 20px !important;
+  max-width: 100% !important;
+}
 
 }
