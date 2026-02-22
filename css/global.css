@@ -268,12 +268,6 @@ a:hover {
    MOBILE NAV
    ========================================================= */
 
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-}
 
 .mobile-nav {
   display: none;
@@ -401,7 +395,10 @@ a:hover {
 }
 
 .carousel-viewport {
-  overflow: hidden !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
   width: 100% !important;
   max-width: 100% !important;
 }
@@ -510,4 +507,10 @@ a:hover {
 html, body {
   overflow-x: hidden;
   max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .carousel-arrows {
+    display: none !important;
+  }
 }
