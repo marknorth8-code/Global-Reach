@@ -1,7 +1,150 @@
-/* ======================================================
-   HOME – STRATEGY SECTION (Square 2x2 Grid)
-   ====================================================== */
+/* =========================================================
+   HOME.CSS - FINAL CONSOLIDATED VERSION
+   ========================================================= */
 
+.intro-images-container {
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
+}
+
+/* 1. UNIVERSAL CONTAINER LOCK (Fixes Section 1 & 4 Gaps) */
+.intro-images-container, 
+.offices-inner {
+  display: flex !important;
+  gap: 60px;
+  align-items: flex-start;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 24px 60px 24px !important; 
+  width: 100% !important;
+}
+
+/* 2. UNIVERSAL MEDIA LOCK (Synced for Arrows & Labels) */
+.intro-image, 
+.offices-media {
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  width: 60% !important;    
+  min-width: 0 !important;   
+  height: 420px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  position: relative !important;
+  /* Allows both arrows and labels to sit outside the box */
+  overflow: visible !important; 
+}
+
+/* Ensures carousel images stay clipped to rounded corners while arrows stay visible */
+.offices-carousel .carousel-viewport {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* --- SECTION 1 LABELS --- */
+
+/* Permanent text: Positioned under the bottom-left edge */
+.permanent-label {
+  position: absolute;
+  top: 100%;       
+  left: 0;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Dynamic caption: Pinned to the bottom-right inside the image */
+.image-caption {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  font-size: 11px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4); 
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- SECTION 3 – SERVICES CAROUSEL --- */
+.services-container {
+  padding-top: 60px !important; 
+}
+
+.services-subtitle {
+  width: 100%;
+  display: block;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+  margin-bottom: 30px !important; 
+  color: #666;
+}
+
+.services-carousel {
+  padding-top: 0 !important; 
+  background: #fff;
+  padding-bottom: 80px !important; 
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-carousel .carousel-slide {
+  flex: 0 0 calc((100% - 60px) / 3) !important;
+  max-width: calc((100% - 60px) / 3) !important;
+  min-width: 0 !important;
+}
+
+.services-carousel .carousel-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.services-carousel .carousel-track { 
+  display: flex;
+  gap: 30px; 
+}
+
+/* --- SECTION 4 - OFFICE CAROUSEL --- */
+.offices-carousel {
+  width: 100%;
+  position: relative;
+  /* Space for arrows to sit below the image */
+  padding-bottom: 60px !important; 
+}
+
+/* Positions Arrows at the bottom of the section on the RIGHT */
+.offices-carousel .carousel-arrows {
+  position: absolute;
+  bottom: 0;         
+  right: 0;          /* Aligns to the right side of the container */
+  width: auto;       /* Shrinks to fit the two buttons */
+  display: flex;
+  justify-content: flex-end; 
+  gap: 10px;                  
+  z-index: 10;
+}
+
+.offices-carousel .carousel-slide img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Location labels (Brazil, Japan, etc.) */
+.location-label {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* --- STRATEGY GRID (Additional Styles) --- */
 .strategy-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -13,106 +156,22 @@
   max-width: 520px;
 }
 
-/* ===== 2x2 CARD GRID ===== */
-
-.strategy-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-/* Force square shape */
-.strategy-card {
-  position: relative;
-  aspect-ratio: 1 / 1;   /* This keeps them square */
-  display: flex;
-  align-items: flex-end;
-  padding: 24px;
-  text-decoration: none;
-  color: #ffffff;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  background-color: #111;
-}
-
-/* Background image layer */
-.strategy-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  filter: grayscale(100%) contrast(90%) brightness(70%);
-  opacity: 0.28;   /* subtle impression */
-  transition: opacity 0.3s ease;
-}
-
-/* Soft dark veil */
-.strategy-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-}
-
-/* Location images */
-.strategy-card:nth-child(1)::before {
-  background-image: url("/images/locations/brazil.webp");
-}
-
-.strategy-card:nth-child(2)::before {
-  background-image: url("/images/locations/nz.webp");
-}
-
-.strategy-card:nth-child(3)::before {
-  background-image: url("/images/locations/japan.webp");
-}
-
-.strategy-card:nth-child(4)::before {
-  background-image: url("/images/locations/uk.webp");
-}
-
-.strategy-card:hover {
-  transform: translateY(-4px);
-}
-
-.strategy-card:hover::before {
-  opacity: 0.4;
-}
-
-.card-overlay {
-  position: relative;
-  z-index: 3;
-}
-
-.card-overlay h3 {
-  margin: 0 0 8px 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.card-overlay p {
-  margin: 0 0 10px 0;
-  font-size: 0.9rem;
-  opacity: 0.85;
-}
-
-.card-overlay span {
-  font-size: 0.85rem;
-  letter-spacing: 0.5px;
-  opacity: 0.9;
-}
-
-/* ===== RESPONSIVE ===== */
-
-@media (max-width: 992px) {
-  .strategy-grid {
-    grid-template-columns: 1fr;
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .intro-images-container, .offices-inner {
+    flex-direction: column;
   }
-}
-
-@media (max-width: 600px) {
-  .strategy-cards {
-    grid-template-columns: 1fr;
+  .intro-text, .intro-image, .offices-text, .offices-media {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  .permanent-label {
+    position: relative; 
+    top: 0;
+    margin-bottom: 20px;
+  }
+  .offices-carousel .carousel-arrows {
+    justify-content: center; /* Center arrows on mobile for better thumb reach */
+    width: 100%;
   }
 }
