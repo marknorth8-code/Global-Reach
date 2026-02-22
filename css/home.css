@@ -1,16 +1,16 @@
 /* =========================================================
-   HOME.CSS - FINAL GAP FIX (Nuking Default Margins)
+   HOME.CSS - RESTORED TOP PADDING & 60PX GAP FIX
    ========================================================= */
 
-/* 1. RESET TEXT MARGINS (Fixes "Invisible" Gaps) */
+/* 1. RESET TEXT MARGINS */
 .page-section h2, 
 .page-section p {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
-  padding-bottom: 15px; /* Controlled spacing between title and text */
+  padding-bottom: 15px; 
 }
 
-/* 2. UNIVERSAL CONTAINER LOCK */
+/* 2. UNIVERSAL CONTAINER LOCK (Section 1 & 4) */
 .intro-images-container, 
 .offices-inner {
   display: flex !important;
@@ -18,7 +18,8 @@
   align-items: flex-start;
   max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 60px 24px 0 24px !important; 
+  /* RESTORED TOP PADDING: Sets spacing for top of section 1 and 4 */
+  padding: 60px 24px 60px 24px !important; 
   width: 100% !important;
 }
 
@@ -37,12 +38,15 @@
 
 /* 4. SECTION 3 – SERVICES CAROUSEL (The 60px Bridge) */
 .page-section {
-  padding-top: 0 !important;
-  padding-bottom: 30px !important; /* Bottom 30px */
+  /* Restore default top padding for standard text sections */
+  padding-top: 60px !important; 
+  padding-bottom: 30px !important; /* Bottom 30px of the bridge */
 }
 
+/* Specific fix for the gap between Section 2 (Our Work) and Section 3 (Carousel) */
 .services-carousel {
-  padding-top: 30px !important;    /* Top 30px = Total 60px */
+  /* Top 30px of the bridge + Bottom 30px of page-section = 60px total */
+  padding-top: 30px !important;    
   background: #fff;
   padding-bottom: 80px !important; 
   position: relative;
