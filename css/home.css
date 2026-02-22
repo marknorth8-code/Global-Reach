@@ -83,84 +83,76 @@
 }
 
 /* ========================================
-   STRATEGY CARDS
+   STRATEGY CARDS – FADED B&W BACKGROUND
 ======================================== */
-
-.strategy-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
 
 .strategy-card {
   position: relative;
   display: flex;
   align-items: flex-end;
   min-height: 180px;
-  padding: 20px;
+  padding: 24px;
   text-decoration: none;
-  color: #fff;
-  background-size: cover;
-  background-position: center;
+  color: #ffffff;
   overflow: hidden;
   transition: transform 0.3s ease;
+  background-color: #111; /* fallback */
 }
 
-/* Background images */
-.strategy-card:nth-child(1) {
-  background-image: url("/images/locations/brazil.webp");
-}
-
-.strategy-card:nth-child(2) {
-  background-image: url("/images/locations/nz.webp");
-}
-
-.strategy-card:nth-child(3) {
-  background-image: url("/images/locations/japan.webp");
-}
-
-.strategy-card:nth-child(4) {
-  background-image: url("/images/locations/uk.webp");
-}
-
+/* Image layer */
 .strategy-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  transition: background 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%) contrast(90%) brightness(70%);
+  opacity: 0.35; /* key control for subtlety */
+  transition: opacity 0.3s ease;
 }
 
+/* Soft dark veil layer for text clarity */
+.strategy-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* Location images */
+.strategy-card:nth-child(1)::before {
+  background-image: url("/images/locations/brazil.webp");
+}
+
+.strategy-card:nth-child(2)::before {
+  background-image: url("/images/locations/nz.webp");
+}
+
+.strategy-card:nth-child(3)::before {
+  background-image: url("/images/locations/japan.webp");
+}
+
+.strategy-card:nth-child(4)::before {
+  background-image: url("/images/locations/uk.webp");
+}
+
+/* Hover refinement */
 .strategy-card:hover {
   transform: translateY(-4px);
 }
 
 .strategy-card:hover::before {
-  background: rgba(0, 0, 0, 0.6);
+  opacity: 0.5; /* slight lift on hover */
 }
 
 .card-overlay {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
-.card-overlay h3 {
-  margin: 0 0 6px 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-}
 
-.card-overlay p {
-  margin: 0 0 10px 0;
-  font-size: 0.9rem;
-  opacity: 0.85;
-}
 
-.card-overlay span {
-  font-size: 0.85rem;
-  letter-spacing: 0.5px;
-  opacity: 0.9;
-}
+
 
 /* ========================================
    RESPONSIVE
