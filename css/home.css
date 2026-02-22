@@ -71,35 +71,26 @@
 
 
 /* ========================================
-   SECTION 2: STRATEGY (UPDATED)
+   SECTION 2: STRATEGY (FINAL FIX)
 ======================================== */
 
 .strategy-grid {
   display: grid;
-  /* 1. This reduces the card area size by 30% relative to the text */
-  grid-template-columns: 1.4fr 0.6fr; 
-  /* 2. Space between the 'Our Strategy' text and the cards */
+  /* 1. Shrinks the right column to reduce overall card size by ~30% */
+  grid-template-columns: 1fr 0.7fr; 
+  /* 2. Forces the gap between the 'Our Strategy' text and the grid */
   gap: 100px; 
   align-items: start;
   /* 3. Adds the gap between the cards and the right edge of the page */
-  padding-right: 80px !important; 
-  max-width: 1300px;
+  padding-right: 10% !important; 
+  max-width: 1400px;
   margin: 0 auto;
 }
 
-.strategy-text {
-  /* Allows text to fill more space since cards are now smaller */
-  max-width: 100%; 
-}
-
-/* ========================================
-   STRATEGY CARDS (UPDATED)
-======================================== */
-
 .strategy-cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  /* 4. Creates the gap between the left and right cards */
+  /* 4. This is the crucial gap between the left and right cards */
+  grid-template-columns: 1fr 1fr;
   gap: 30px; 
   width: 100%;
 }
@@ -108,28 +99,23 @@
   position: relative;
   display: flex;
   align-items: flex-end;
-  width: 100%;
+  /* 5. Ensure width is 100% of the half-grid created above */
+  width: 100%; 
   aspect-ratio: 1 / 1; 
   padding: 20px;
+  
+  /* Image Handling */
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   border-radius: 4px;
-  overflow: hidden;
+  
+  /* Visuals from your image */
   text-decoration: none;
-  /* Keeps the B&W look from your image */
   filter: grayscale(100%) brightness(0.8);
-}
-
-/* Responsive fix for smaller screens */
-@media (max-width: 1100px) {
-  .strategy-grid {
-    grid-template-columns: 1fr;
-    padding-right: 24px !important;
-    gap: 40px;
-  }
-  .strategy-cards {
-    max-width: 600px;
-  }
+  
+  /* CRITICAL: Ensures the image stays inside the card boundaries */
+  overflow: hidden; 
 }
 
 
