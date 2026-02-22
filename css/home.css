@@ -71,92 +71,68 @@
 
 
 /* ========================================
-   STRATEGY SPLIT LAYOUT
+   SECTION 2: STRATEGY
 ======================================== */
 
 .strategy-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: 40% 60%;
+  gap: 60px;
   align-items: start;
 }
 
 .strategy-text {
-  max-width: 520px;
+  max-width: 480px;
 }
 
 /* ========================================
-   SECTION 2: STRATEGY (The Final Alignment Fix)
-======================================== */
-
-.strategy-grid {
-  display: grid !important;
-  /* First column (text) is flexible; second column (grid) is fixed to the cards' total width */
-  grid-template-columns: 1fr auto !important; 
-  gap: 60px !important; 
-  align-items: start;
-  max-width: 1200px !important;
-  margin: 0 auto !important; 
-  padding: 0 24px !important;
-  /* CRITICAL: This ensures following sections don't slide up */
-  clear: both;
-}
-
-.strategy-text {
-  max-width: 480px; /* Narrowed slightly to give the grid more room */
-}
-
-/* ========================================
-   STRATEGY CARDS – THE GRID
+   STRATEGY CARDS
 ======================================== */
 
 .strategy-cards {
-  display: grid !important;
-  /* Explicitly define two columns of 252px each */
-  grid-template-columns: 252px 252px !important; 
-  gap: 20px !important; 
-  padding: 0;
-  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px; /* 20px around outer edge */
 }
 
+/* 1:1 Square Cards */
 .strategy-card {
   position: relative;
   display: flex;
   align-items: flex-end;
-  
-  /* LOCK SIZES: Forces the square shape regardless of text */
-  width: 252px !important; 
-  height: 252px !important;
-  min-height: 252px !important;
-  aspect-ratio: 1 / 1; 
-  
-  margin: 0 !important; 
-  padding: 20px; /* Reduced internal padding to keep text inside */
-  text-decoration: none;
+
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* Keep square */
+  padding: 20px;
+
   background-size: cover;
   background-position: center;
-  overflow: hidden; /* This keeps the text from bleeding out */
-  background-color: #000;
   border-radius: 4px;
+  overflow: hidden;
+  text-decoration: none;
 }
 
+/* 50% black overlay */
+.strategy-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+/* Text above overlay */
 .card-overlay {
   position: relative;
   z-index: 2;
-  width: 100%; /* Ensures text container doesn't overflow */
 }
 
-/* Ensure the text inside is smaller to fit the card */
-.strategy-card h3 {
-  font-size: 1.2rem !important;
-  margin: 0 0 5px 0;
+.strategy-card h3,
+.strategy-card p,
+.strategy-card span {
+  color: #fff;
 }
-
-.strategy-card p {
-  font-size: 0.8rem !important;
-  line-height: 1.3;
-}
-
 
 /* ========================================
    RESPONSIVE
@@ -255,18 +231,6 @@
 .location-label {
   margin-top: 10px;
   font-weight: 500;
-}
-
-/* --- STRATEGY GRID (Additional Styles) --- */
-.strategy-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-}
-
-.strategy-text {
-  max-width: 520px;
 }
 
 
