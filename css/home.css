@@ -86,21 +86,29 @@
 }
 
 /* ========================================
-   STRATEGY SPLIT LAYOUT (Section 2)
+   SECTION 2: STRATEGY (Centered & Aligned)
 ======================================== */
+
+.home-intro.page-section {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Centers the entire section content */
+}
 
 .strategy-grid {
   display: grid !important;
-  /* First column (text) takes available space, second (grid) is fixed */
-  grid-template-columns: 1fr auto !important; 
-  gap: 40px !important; 
+  /* Split into two equal columns within the 1200px container */
+  grid-template-columns: 1fr 1fr !important; 
+  gap: 60px !important; /* Matches the gap in your Section 1 and 4 */
   align-items: start;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1200px !important;
+  width: 100% !important;
+  margin: 0 auto !important; /* This is the key to centering */
+  padding: 0 24px !important;
 }
 
 .strategy-text {
-  max-width: 520px;
+  max-width: 520px; /* Prevents text from stretching too wide */
 }
 
 /* ========================================
@@ -109,27 +117,21 @@
 
 .strategy-cards {
   display: grid !important;
-  /* This creates two columns of exactly 252px each */
-  grid-template-columns: 252px 252px !important; 
-  /* This is your requested 20px gap between cards */
-  gap: 20px !important; 
-  padding: 0 !important;
-  margin: 0 !important;
-  justify-content: start;
+  /* Creates two columns of exactly 252px width */
+  grid-template-columns: repeat(2, 252px) !important; 
+  gap: 20px !important; /* The 20px gap between the cards */
+  justify-content: end; /* Pushes the card grid to the RIGHT side of its column */
+  padding: 0;
+  margin: 0;
 }
 
 .strategy-card {
   position: relative;
   display: flex;
   align-items: flex-end;
-  
-  /* The 10% reduced size */
-  width: 252px !important; 
+  width: 252px !important;
   height: 252px !important;
   aspect-ratio: 1 / 1; 
-  
-  /* Important: Remove auto margins to stop the drift */
-  margin: 0 !important; 
   padding: 24px;
   text-decoration: none;
   background-size: cover;
@@ -140,14 +142,14 @@
   transition: transform 0.3s ease;
 }
 
-/* The Black & White filter layer */
+/* B&W Filter Layer */
 .strategy-card::before {
   content: "";
   position: absolute;
   inset: 0;
   background: inherit; 
   filter: grayscale(100%) brightness(50%) contrast(110%);
-  transition: filter 0.4s ease, opacity 0.4s ease;
+  transition: filter 0.4s ease;
   z-index: 1;
 }
 
@@ -166,7 +168,7 @@
 
 .strategy-card h3 {
   margin: 0;
-  font-size: 1.3rem; 
+  font-size: 1.3rem;
   color: #fff;
 }
 
@@ -175,14 +177,6 @@
   color: #ddd;
   margin-bottom: 8px;
 }
-
-.strategy-card span {
-  font-size: 0.75rem;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
 
 
 /* ========================================
