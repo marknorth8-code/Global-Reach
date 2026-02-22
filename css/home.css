@@ -67,6 +67,126 @@
   letter-spacing: 0.5px;
 }
 
+/* ========================================
+   STRATEGY SPLIT LAYOUT
+======================================== */
+
+.strategy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.strategy-text {
+  max-width: 520px;
+}
+
+/* ========================================
+   STRATEGY CARDS
+======================================== */
+
+.strategy-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.strategy-card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 180px;
+  padding: 20px;
+  text-decoration: none;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+/* Background images */
+.strategy-card:nth-child(1) {
+  background-image: url("/images/locations/brazil.webp");
+}
+
+.strategy-card:nth-child(2) {
+  background-image: url("/images/locations/nz.webp");
+}
+
+.strategy-card:nth-child(3) {
+  background-image: url("/images/locations/japan.webp");
+}
+
+.strategy-card:nth-child(4) {
+  background-image: url("/images/locations/uk.webp");
+}
+
+.strategy-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  transition: background 0.3s ease;
+}
+
+.strategy-card:hover {
+  transform: translateY(-4px);
+}
+
+.strategy-card:hover::before {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.card-overlay {
+  position: relative;
+  z-index: 2;
+}
+
+.card-overlay h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.card-overlay p {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.card-overlay span {
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 992px) {
+  .strategy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strategy-text {
+    max-width: 100%;
+  }
+
+  .strategy-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .strategy-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* 3. SECTION 3 – SERVICES CAROUSEL (Title & Subtitle Gap) */
 .services-container {
   padding-top: 60px !important; 
