@@ -40,13 +40,22 @@
 }
 
 /* 3. SECTION 3 – SERVICES CAROUSEL (Fixes Oversize) */
+
+.page-section {
+  padding-bottom: 30px !important; /* Bottom of text section */
+}
+
 .services-carousel {
+  padding-top: 30px !important;    /* Top of carousel section */
+  /* 30px + 30px = 60px total gap */
+  
   background: #fff;
-  padding: 0 0 80px 0 !important; 
+  padding-bottom: 80px !important; 
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
 }
+
 
 .services-carousel .carousel-slide {
   /* Forces 3-up layout even with large images */
