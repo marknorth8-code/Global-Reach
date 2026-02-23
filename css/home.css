@@ -192,43 +192,34 @@
 }
 
 @media (max-width: 768px) {
-  /* 1. CONTAINER: Prevent horizontal overflow */
-  .intro-images-container {
-    display: flex !important;
-    flex-direction: column !important; /* Stack text over image */
-    width: 100% !important;
-    max-width: 100vw !important;
-    padding: 20px !important;
-    gap: 20px !important;
-    box-sizing: border-box !important; /* Padding stays INSIDE the width */
-    overflow: hidden !important; 
+
+  /* 1. FORCE FULL WIDTH (Override the 60% desktop lock) */
+  .intro-image, 
+  .offices-media {
+    flex: 0 0 100% !important;   /* Tells flexbox to take 100% space */
+    width: 100% !important;      /* Forces width to fill container */
+    max-width: 100% !important;  /* Removes the 60% restriction */
+    height: 300px !important;    /* Keeps image visible */
+    display: block !important;
+    min-width: 100% !important;  /* Ensures it doesn't shrink */
   }
 
-  /* 2. TEXT: Stop clipping the last letter */
+  /* 2. RE-CENTER CONTAINERS */
+  .intro-images-container,
+  .offices-inner {
+    flex-direction: column !important;
+    padding: 0 20px 40px 20px !important;
+    gap: 30px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 3. FIX TEXT WRAPPING */
   .intro-text {
     width: 100% !important;
     max-width: 100% !important;
+    padding-right: 10px !important; /* Buffer for last letter */
     box-sizing: border-box !important;
-    padding-right: 15px !important; /* Extra buffer for the last character */
-  }
-
-  .intro-text h1 {
-    font-size: 26px !important; /* Slightly smaller to prevent break-point issues */
-    line-height: 1.2 !important;
-    word-wrap: break-word !important; /* Force break if a word is too long */
-    margin: 0 !important;
-  }
-
-  /* 3. IMAGES: Force visibility */
-  .intro-image, 
-  .offices-media {
-    display: block !important;
-    width: 100% !important;
-    height: 300px !important; /* EXPLICIT height so div doesn't collapse */
-    min-height: 250px !important;
-    background-size: cover !important;
-    background-position: center !important;
-    flex: none !important; /* Stop flexbox from shrinking the height to 0 */
   }
 }
 
