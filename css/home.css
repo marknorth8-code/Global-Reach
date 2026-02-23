@@ -189,46 +189,37 @@
 
 @media (max-width: 768px) {
 
-  /* 1. SECTION 1 WIDTH & TEXT FIX */
+  /* 1. OVERRIDE GLOBAL WIDTH (Fixes Text Clipping) */
   .intro-images-container {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    max-width: 100vw !important; 
-    padding: 0 20px 40px 20px !important;
-    gap: 30px !important;
-    box-sizing: border-box !important; 
-    overflow: hidden !important; 
+    box-sizing: border-box !important;
+    width: 100vw !important; /* Force to viewport width */
+    padding: 0 20px !important;
   }
 
   .intro-text {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-right: 15px !important; 
     box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: calc(100vw - 40px) !important; /* Subtracts the padding */
+    padding-right: 15px !important; 
   }
 
-  .intro-text h1 {
-    font-size: 26px !important; 
-    line-height: 1.2 !important;
-    word-wrap: break-word !important;
-    margin: 0 !important;
+  /* 2. OVERRIDE GLOBAL CAROUSEL SLIDE (Fixes the "Peek") */
+  .services-carousel .carousel-slide,
+  .offices-carousel .carousel-slide {
+    min-width: 0 !important; /* Kills the global 100% min-width */
   }
 
-  .intro-text h2 { 
-    font-size: 18px !important; 
-  }
-
-  /* 2. SECTION 1 IMAGE VISIBILITY */
+  /* 3. OVERRIDE GLOBAL HEIGHT (Fixes Invisible Section 1 Image) */
   .intro-image {
     display: block !important;
+    height: 300px !important; /* Force actual pixels */
+    min-height: 300px !important;
     width: 100% !important;
-    flex: 0 0 300px !important; /* Forces height in flex container */
-    height: 300px !important; 
     background-size: cover !important;
     background-position: center !important;
-    border-radius: 8px;
   }
+}
+
 
   /* 3. STRATEGY MOBILE */
   .strategy-grid {
