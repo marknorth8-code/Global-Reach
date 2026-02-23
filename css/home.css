@@ -262,20 +262,25 @@
 }
 
 /* ========================================
-   MOBILE
+   MOBILE FIXES (REPLACEMENT BLOCK)
 ======================================== */
 
 @media (max-width: 768px) {
 
-  /* --- INTRO --- */
-  .intro-images-container {
-    flex-direction: column;
-    gap: 30px;
-    padding: 0 20px 40px 20px !important;
+  /* 1. Reset Universal Locks for Mobile */
+  .intro-image, 
+  .offices-media {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;    
+    height: 300px !important; /* Adjust height for mobile */
   }
 
-  .intro-image {
-    height: 260px;
+  /* 2. Intro Section Fixes */
+  .intro-images-container {
+    flex-direction: column !important;
+    gap: 40px !important;
+    padding: 20px !important;
   }
 
   .intro-text h1 {
@@ -283,11 +288,7 @@
     line-height: 1.2;
   }
 
-  .intro-text h2 {
-    font-size: 18px;
-  }
-
-  /* --- STRATEGY --- */
+  /* 3. Strategy Section Fixes */
   .strategy-grid {
     grid-template-columns: 1fr !important;
     gap: 40px;
@@ -299,39 +300,39 @@
     gap: 20px !important;
   }
 
-  .strategy-card {
-    aspect-ratio: 4 / 3;
+  /* 4. Services Carousel Fixes */
+  .services-carousel .carousel-viewport {
+    overflow-x: auto !important; /* Ensures scrolling is active */
+    scroll-snap-type: x mandatory;
   }
 
-  /* --- SERVICES --- */
   .services-carousel .carousel-slide {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
+    flex: 0 0 85% !important; /* Shows a peek of the next slide */
+    max-width: 85% !important;
+    scroll-snap-align: start;
   }
 
-  .services-carousel .carousel-track {
-    gap: 15px;
-  }
-
-  /* --- OFFICES --- */
+  /* 5. Offices Section Fixes */
   .offices-inner {
-    flex-direction: column;
-    gap: 40px;
+    flex-direction: column !important;
+    gap: 20px !important;
+    padding: 20px !important;
+  }
+
+  .offices-carousel .carousel-viewport {
+    overflow-x: auto !important; /* Enables touch scrolling */
+    width: 100% !important;
   }
 
   .offices-carousel .carousel-slide img {
-    height: 260px;
+    height: 300px !important;
+    width: 100% !important;
   }
 
-   .offices-carousel .carousel-arrows {
-  position: static;
-  justify-content: center;
-  margin-top: 15px;
-}
-   .intro-images-container,
-.offices-inner {
-  padding: 0 20px 40px 20px !important;
-  max-width: 100% !important;
-}
-
+  .offices-carousel .carousel-arrows {
+    position: relative !important;
+    justify-content: center !important;
+    margin-top: 20px;
+    right: auto !important;
+  }
 }
