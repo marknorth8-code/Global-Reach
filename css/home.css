@@ -95,46 +95,41 @@
   filter: grayscale(100%) brightness(0.8);
 }
 
-/* --- SECTION 3 – SERVICES CAROUSEL (10PX GAP UPDATE) --- */
-
-.services-carousel .carousel-track { 
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  /* 1. Updated to 10px gap */
-  gap: 10px !important; 
-  width: max-content;
+/* --- SECTION 3: SERVICES GRID --- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 even columns */
+  gap: 20px;
+  margin-top: 30px;
 }
 
-.services-carousel .carousel-slide {
-  /* 2. Updated math: (100% minus three 10px gaps) divided by 4 */
-  flex: 0 0 calc((100% - 30px) / 4) !important;
-  max-width: calc((100% - 30px) / 4) !important;
-  min-width: 0 !important;
-  scroll-snap-align: start;
-}
-
-.services-carousel .carousel-slide img {
+.service-item img {
   width: 100%;
-  aspect-ratio: 3 / 4; 
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 8px;
   display: block;
 }
 
-/* --- MOBILE UPDATE (For consistent 10px gaps) --- */
-@media (max-width: 768px) {
-  .services-carousel .carousel-track {
-    gap: 10px !important;
-    padding: 0 20px; /* Gives the first/last image room from screen edge */
-  }
-
-  .services-carousel .carousel-slide {
-    /* Keeps the 'peek' effect on mobile */
-    flex: 0 0 85vw !important;
-    max-width: 85vw !important;
+/* Responsive Tweak */
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 grid on tablets */
   }
 }
 
+@media (max-width: 600px) {
+  .services-grid {
+    display: flex;
+    overflow-x: auto; /* Allows horizontal swipe on small phones if desired */
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+  }
+  .service-item {
+    flex: 0 0 85%; /* Shows the 'peek' of the next image */
+    scroll-snap-align: center;
+  }
+}
 
 
 /* --- SECTION 4: OFFICES (DESKTOP RESTORED) --- */
