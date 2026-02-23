@@ -14,6 +14,12 @@
   width: 100% !important;
 }
 
+.intro-image::after {
+  display: none !important;
+  content: none !important;
+}
+
+
 /* 2. MEDIA BLOCKS */
 .intro-image, 
 .offices-media {
