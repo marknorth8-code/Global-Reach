@@ -50,6 +50,24 @@
 }
 
 /* --- SECTION 2: STRATEGY --- */
+.aligned-arrow {
+  display: inline-block;
+  position: relative;
+  
+  /* 1. Make it larger (Adjust 1.5 to 1.8 if you want it even bigger) */
+  font-size: 1.6rem; 
+  
+  /* 2. Lower it to align with the text center */
+  top: 4px; 
+  
+  /* 3. Ensure the height doesn't push the paragraph line height apart */
+  line-height: 0;
+  
+  /* Optional: Make the arrow bolder to match the text weight */
+  font-weight: bold;
+}
+
+
 .strategy-grid {
   display: grid !important;
   grid-template-columns: 1.1fr 0.9fr; 
@@ -75,6 +93,7 @@
   display: flex;
   align-items: flex-end;
 }
+
 
 /* --- GLOBAL MONOCHROME OVERLAY (Balanced Mid-Grey) --- */
 .strategy-card::after,
