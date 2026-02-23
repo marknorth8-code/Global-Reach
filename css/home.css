@@ -95,37 +95,46 @@
   filter: grayscale(100%) brightness(0.8);
 }
 
-/* --- SECTION 3 – SERVICES CAROUSEL UPDATES --- */
+/* --- SECTION 3 – SERVICES CAROUSEL (10PX GAP UPDATE) --- */
+
+.services-carousel .carousel-track { 
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  /* 1. Updated to 10px gap */
+  gap: 10px !important; 
+  width: max-content;
+}
 
 .services-carousel .carousel-slide {
-  /* Desktop: Shows 4 slides instead of 3 if you prefer, or keep at 3 for 'peek' */
-  flex: 0 0 calc((100% - 90px) / 4) !important;
-  max-width: calc((100% - 90px) / 4) !important;
+  /* 2. Updated math: (100% minus three 10px gaps) divided by 4 */
+  flex: 0 0 calc((100% - 30px) / 4) !important;
+  max-width: calc((100% - 30px) / 4) !important;
   min-width: 0 !important;
+  scroll-snap-align: start;
 }
 
 .services-carousel .carousel-slide img {
   width: 100%;
-  /* Forces the 600x800 aspect ratio */
   aspect-ratio: 3 / 4; 
   object-fit: cover;
   border-radius: 8px;
   display: block;
 }
 
+/* --- MOBILE UPDATE (For consistent 10px gaps) --- */
 @media (max-width: 768px) {
+  .services-carousel .carousel-track {
+    gap: 10px !important;
+    padding: 0 20px; /* Gives the first/last image room from screen edge */
+  }
+
   .services-carousel .carousel-slide {
-    /* Mobile: Keeps the 'peek' effect */
+    /* Keeps the 'peek' effect on mobile */
     flex: 0 0 85vw !important;
     max-width: 85vw !important;
   }
-  
-  .services-carousel .carousel-slide img {
-    /* Slightly shorter height for mobile screens */
-    height: 400px !important;
-    object-fit: cover;
-  }
 }
+
 
 
 /* --- SECTION 4: OFFICES (DESKTOP RESTORED) --- */
