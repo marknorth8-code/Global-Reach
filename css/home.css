@@ -313,47 +313,59 @@
     scroll-snap-align: center;
   }
 
-  /* 5. Offices Section Fixes (Gap + Snap) */
- /* 5. Offices Section Fixes (Size + Gap + Snap) */
+
+/* 5. Offices Section Fixes (Final Lockdown) */
+
 .offices-inner {
   flex-direction: column !important;
-  gap: 20px !important;
-  padding: 0 0 40px 0 !important; /* Remove side padding here to allow edge-to-edge scroll */
+  display: block !important; /* Switch to block to stop flex-growth */
+  width: 100% !important;
+  padding: 0 !important;
 }
 
-/* This is the container that was too wide */
 .offices-media {
-  flex: 0 0 100% !important;
-  max-width: 100% !important;
   width: 100% !important;
-  height: auto !important; /* Allow the carousel height to take over */
+  max-width: 100vw !important; /* Force it to stay inside phone screen */
+  overflow: hidden !important;
+  flex: none !important; /* Kill the 60% desktop flex lock */
 }
 
 .offices-carousel .carousel-viewport {
-  overflow-x: auto !important;
-  display: flex !important;
-  scroll-snap-type: x mandatory;
   width: 100% !important;
+  overflow-x: auto !important;
+  display: block !important; /* Viewport should be the window, not a flex item */
+  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
 
 .offices-carousel .carousel-track {
-  display: flex !important;
+  display: inline-flex !important; /* Only as wide as the items inside */
   gap: 15px !important;
-  padding: 0 20px; /* This creates the "peek" margin on the edges */
+  padding: 0 40px !important; /* Creates the "peek" on both sides */
 }
 
 .offices-carousel .carousel-slide {
-  /* This value controls the image size on screen */
-  flex: 0 0 80vw !important; 
-  max-width: 80vw !important;
+  /* This is the master control for size */
+  flex: 0 0 75vw !important; 
+  width: 75vw !important;
+  max-width: 75vw !important;
   scroll-snap-align: center;
-  min-width: 0;
 }
 
 .offices-carousel .carousel-slide img {
   width: 100% !important;
-  height: 250px !important; /* Fixed height for mobile consistency */
+  height: 220px !important; /* Slightly shorter for better mobile fit */
+  object-ratio: 3/2;
   object-fit: cover;
   border-radius: 8px;
+  display: block !important;
+}
+
+/* Ensure the arrows don't break the layout */
+.offices-carousel .carousel-arrows {
+  position: relative !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin: 20px 0 !important;
+  width: 100% !important;
 }
