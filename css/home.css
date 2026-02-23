@@ -150,20 +150,34 @@
   .strategy-grid { grid-template-columns: 1fr; padding-right: 0 !important; }
 }
 
+/* Update your existing mobile block with this corrected version */
 @media (max-width: 768px) {
-  /* Intro & Media Reset */
-  .intro-image, .offices-media {
+
+  /* 1. Ensure the intro images actually have a height to be visible */
+  .intro-image, 
+  .offices-media {
     flex: 0 0 100% !important;
     max-width: 100% !important;
     width: 100% !important;    
-    height: 300px !important; 
+    height: 300px !important; /* Force visibility */
+    display: block !important;
   }
 
+  /* 2. Fix the layout container */
   .intro-images-container {
     flex-direction: column !important;
     gap: 40px !important;
     padding: 20px !important;
   }
+
+  /* 3. FIXED: Added missing closing brace for the previous section */
+  .services-carousel .carousel-slide {
+    flex: 0 0 85% !important;
+    max-width: 85% !important;
+    scroll-snap-align: center;
+  }
+} /* <--- This brace was likely missing or misplaced in your snippet */
+
 
   /* Strategy Mobile */
   .strategy-cards {
@@ -196,11 +210,6 @@
     gap: 15px !important;
   }
 
-  .offices-carousel .carousel-slide {
-    flex: 0 0 75vw !important;
-    max-width: 75vw !important;
-    scroll-snap-align: center;
-  }
 
   .offices-carousel .carousel-slide img {
     height: 220px !important;
