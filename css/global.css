@@ -254,7 +254,7 @@ a:hover {
 
 .nav-link.active,
 .nav-link[aria-current="page"] {
-  color: #007BFF;   /* or use your previous brand colour */
+  color: #BBB;   /* or use your previous brand colour */
   font-weight: 600;
 }
 
