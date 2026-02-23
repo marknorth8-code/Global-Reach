@@ -157,6 +157,14 @@
   padding: 20px;
   z-index: 2; 
 }
+/* Force Section 3 text to be white */
+.service-overlay h3 {
+  color: #ffffff !important;
+  font-weight: 500;
+  /* Shadow ensures it is visible even when the grey layer lifts on hover */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
+}
+
 
 /* --- SECTION 4: OFFICES --- */
 .offices.page-section {
