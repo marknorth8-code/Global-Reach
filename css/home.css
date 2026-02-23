@@ -188,32 +188,46 @@
 }
 
 @media (max-width: 768px) {
-  /* Intro & Media Reset */
-  .intro-image, 
-  .offices-media {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-    width: 100% !important;    
-    height: 300px !important; 
-    display: block !important;
-    /* ADD THIS: Ensures background images actually fill the forced height */
-    background-size: cover !important;
-    background-position: center !important;
-  }
 
+  /* 1. THE TEXT CLIPPING FIX */
   .intro-images-container {
     flex-direction: column !important;
-    gap: 40px !important;
     padding: 20px !important;
-    /* ADD THIS: Prevents the container from growing wider than the screen */
+    width: 100% !important;
+    /* This forces the 100% width to INCLUDE the padding, not grow past it */
     box-sizing: border-box !important;
+    overflow: hidden !important; 
   }
 
   .intro-text {
-    /* ADD THIS: Safety buffer so the last letter doesn't touch the screen edge */
-    padding-right: 15px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    /* Adds a tiny safety gap for the last letter */
+    padding-right: 15px !important; 
     box-sizing: border-box !important;
   }
+
+  .intro-text h1 {
+    font-size: 26px !important; /* Slightly smaller to ensure fit */
+    line-height: 1.2;
+    word-wrap: break-word; /* Safety for long words */
+    margin-right: 0 !important;
+  }
+
+  /* 2. THE IMAGE VISIBILITY FIX */
+  .intro-image {
+    display: block !important;
+    width: 100% !important;
+    height: 300px !important; 
+    background-size: cover !important;
+    background-position: center !important;
+    /* This ensures it doesn't inherit the 60% desktop width */
+    flex: 0 0 100% !important; 
+  }
+
+}
+
+
 
   .intro-text h1 { font-size: 28px; line-height: 1.2; }
   .intro-text h2 { font-size: 18px; }
