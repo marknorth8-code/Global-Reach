@@ -34,37 +34,46 @@ function initHeader() {
   if (!header) return;
 
   // --- START: Active Link Highlighting Logic ---
-  // Get current filename (e.g., "about.html"). Defaults to index.html if empty.
-  const currentPath = window.location.pathname.split("/").pop() || "index.html";
+  // 1. Get current filename (e.g., "about.html"). 
+  let currentPath = window.location.pathname.split("/").pop();
+  if (currentPath === "" || currentPath === "/") currentPath = "index.html";
   
-  // Select all navigation links
+  // 2. Select all navigation links
   const navLinks = document.querySelectorAll(".nav-link, .mobile-nav a, .locations-dropdown a");
 
   navLinks.forEach(link => {
     const linkPath = link.getAttribute("href");
-    // If link matches current page, add 'current-page' class
+    
+    // 3. Check if link matches current page
     if (linkPath === currentPath) {
-      link.classList.add("current-page");
+      // Add both classes to be safe, and the ARIA attribute for accessibility
+      link.classList.add("active");
+      link.setAttribute("aria-current", "page");
       
-      // If the link is inside a dropdown, also highlight the parent "Locations" link
+      // 4. If the link is inside a dropdown (e.g., Brazil page), 
+      // highlight the parent "Offices" button too
       const parentDropdown = link.closest('.has-dropdown');
       if (parentDropdown) {
-        parentDropdown.querySelector('.nav-link').classList.add('current-page');
+        const parentBtn = parentDropdown.querySelector('.nav-link');
+        if (parentBtn) parentBtn.classList.add('active');
       }
     }
   });
   // --- END: Active Link Highlighting Logic ---
 
+  // Scroll effect
   window.addEventListener("scroll", () => {
     header.classList.toggle("is-shrunk", window.scrollY > 80);
   });
 
+  // Mobile Toggle Fix
   toggle?.addEventListener("click", () => {
-    const open = mobileNav.style.display === "block";
-    mobileNav.style.display = open ? "none" : "block";
-    toggle.setAttribute("aria-expanded", String(!open));
+    const isVisible = mobileNav.style.display === "block";
+    mobileNav.style.display = isVisible ? "none" : "block";
+    toggle.setAttribute("aria-expanded", String(!isVisible));
   });
 }
+
 
 // Run when page loads
 document.addEventListener("DOMContentLoaded", includeHTML);
