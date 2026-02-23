@@ -1,5 +1,5 @@
 /* =========================================================
-   HOME.CSS - KATAKANO MONOCHROME EDITION
+   HOME.CSS - KATAKANO MONOCHROME EDITION (FINAL)
    ========================================================= */
 
 /* 1. UNIVERSAL CONTAINERS */
@@ -14,12 +14,6 @@
   width: 100% !important;
 }
 
-.intro-image::after {
-  display: none !important;
-  content: none !important;
-}
-
-
 /* 2. MEDIA BLOCKS */
 .intro-image, 
 .offices-media {
@@ -30,6 +24,12 @@
   background-position: center;
   border-radius: 8px;
   position: relative !important;
+}
+
+/* FIX: Ensure Section 1 Hero has NO grey overlay */
+.intro-image::after {
+  display: none !important;
+  content: none !important;
 }
 
 /* --- SECTION 1 LABELS --- */
@@ -59,20 +59,11 @@
 .aligned-arrow {
   display: inline-block;
   position: relative;
-  
-  /* 1. Make it larger (Adjust 1.5 to 1.8 if you want it even bigger) */
   font-size: 3.4rem; 
-  
-  /* 2. Lower it to align with the text center */
   top: 4px; 
-  
-  /* 3. Ensure the height doesn't push the paragraph line height apart */
   line-height: 0;
-  
-  /* Optional: Make the arrow bolder to match the text weight */
   font-weight: bold;
 }
-
 
 .strategy-grid {
   display: grid !important;
@@ -100,25 +91,17 @@
   align-items: flex-end;
 }
 
-
-/* --- GLOBAL MONOCHROME OVERLAY (Balanced Mid-Grey) --- */
+/* --- GLOBAL MONOCHROME OVERLAY (Applied to Strategy & Services) --- */
 .strategy-card::after,
 .service-item::after {
   content: "";
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  
-  /* Black at 0.4 opacity creates a neutral mid-grey veil */
   background-color: rgba(0, 0, 0, 0.4); 
-  
-  /* Neutral brightness (1.0) ensures it's neither too dark nor overexposed */
   backdrop-filter: grayscale(100%) brightness(1.0); 
-  
   transition: all 0.4s ease;
   z-index: 1;
 }
-
-
 
 .strategy-card:hover::after,
 .service-item:hover::after {
@@ -134,51 +117,26 @@
   width: 100%;
 }
 
-.strategy-card h3, 
-.strategy-card p, 
-.strategy-card span {
+.strategy-card h3, .strategy-card p, .strategy-card span {
   color: #ffffff !important;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 /* --- SECTION 3: SERVICES GRID --- */
 .services-container {
-  /* Using padding-top/bottom to create the section gaps */
-  padding-top: 80px !important;
-  padding-bottom: 80px !important;
+  padding-top: 100px !important; /* Fixed: Added 100px gap at top */
+  padding-bottom: 80px !important; /* Fixed: Added 80px gap at bottom */
   display: block !important;
   overflow: visible !important;
-  clear: both; /* Prevents previous sections from overlapping */
+  clear: both;
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); 
   gap: 15px;
-  /* Added a firm top margin to protect the title text */
   margin-top: 50px !important; 
-  margin-bottom: 20px;
 }
-
-/* --- MOBILE SPECIFIC FIX (768px) --- */
-@media (max-width: 768px) {
-  .services-container {
-    padding-top: 60px !important;
-    padding-bottom: 80px !important;
-  }
-
-  .services-grid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    width: 100vw;
-    /* This 'breakout' math must only exist inside the mobile media query */
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 50px !important;
-    padding: 20px 0;
-  }
 
 .service-item {
   position: relative; 
@@ -193,19 +151,12 @@
   display: block;
 }
 
-/* This ensures Section 3 uses the Global Overlay you defined earlier */
-.service-item::after {
-  z-index: 1;
+.service-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  padding: 20px;
+  z-index: 2; 
 }
-
-   
-  .service-item {
-    flex: 0 0 80%;
-    margin-left: 24px;
-    scroll-snap-align: center;
-  }
-}
-
 
 /* --- SECTION 4: OFFICES --- */
 .offices.page-section {
@@ -226,27 +177,36 @@
 }
 
 @media (max-width: 768px) {
-  .services-section { overflow: visible !important; }
+  /* Scope mobile breakout only for the services grid */
+  .services-container { overflow: visible !important; }
+  
   .services-grid {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     padding: 20px 0; 
-    margin-top: 40px !important; /* Fixed overlap */
+    margin-top: 40px !important;
     width: 100vw;
     position: relative;
     left: 50%; right: 50%;
     margin-left: -50vw; margin-right: -50vw;
   }
-  .services-section .container { padding: 0 24px; }
-  .service-item { flex: 0 0 80%; margin-left: 24px; scroll-snap-align: center; }
+
+  .service-item {
+    flex: 0 0 80%; 
+    margin-left: 24px; 
+    scroll-snap-align: center;
+  }
+  
   .service-item:last-child { margin-right: 24px; }
 
   .intro-images-container { flex-direction: column !important; gap: 30px !important; }
+  
   .intro-image, .offices-media {
     flex: 0 0 100% !important; width: 100% !important;
     max-width: 100% !important; height: 300px !important; 
   }
+  
   .offices-inner { display: block !important; }
   .offices-carousel .carousel-slide img { height: 250px !important; }
 }
