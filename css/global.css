@@ -275,31 +275,28 @@ a:hover {
    MOBILE NAV
    ========================================================= */
 .mobile-nav {
-  display: none; /* Keep your existing toggle logic */
-  position: absolute;
-  top: 65px; /* Adjust based on your header height */
+  display: none; /* Controlled by your JS */
+  position: fixed; /* Use 'fixed' to ignore parent container boundaries */
+  top: 65px;      /* Height of your mobile header */
   left: 0;
-  width: 100vw; /* Forces the menu to 100% of the screen width */
+  width: 100%;    /* Fills the viewport width */
   background: #fff;
-  z-index: 1000;
-  border-top: 1px solid #ddd;
-  padding: 20px 0; /* Optional: adds space inside the menu */
+  border-bottom: 1px solid #ddd;
+  z-index: 9999;  /* Ensure it sits above all other content */
 }
 
-/* Ensure the list items inside also stretch or center as needed */
 .mobile-nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  width: 100%;
 }
 
 .mobile-nav li a {
   display: block;
-  width: 100%;
-  padding: 15px 24px; /* Matches your container padding for alignment */
-  text-align: left; /* Or 'center' if you prefer */
+  padding: 15px 24px; /* Standard readable tap target */
+  border-bottom: 1px solid #f0f0f0;
 }
+
 
 
 .nav-button:focus {
