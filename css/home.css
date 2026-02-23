@@ -178,104 +178,83 @@
 }
 
 /* ========================================
-   RESPONSIVE (FINAL MERGED & FIXED)
+   RESPONSIVE (CONSOLIDATED)
 ======================================== */
 
+@media (max-width: 992px) {
+  .strategy-grid { grid-template-columns: 1fr; }
+  .strategy-text { max-width: 100%; }
+  .strategy-cards { grid-template-columns: 1fr 1fr; }
+}
+
 @media (max-width: 768px) {
-
-  /* 1. UNIVERSAL MEDIA & CONTAINER RESET (S1 & S4) */
-  .intro-images-container, 
-  .offices-inner {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    max-width: 100vw !important;
-    padding: 0 20px 40px 20px !important;
-    gap: 30px !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-  }
-
-  /* 2. FORCE FULL WIDTH & VISIBILITY (Kills 60% lock) */
+  /* Intro & Media Reset */
   .intro-image, 
   .offices-media {
     flex: 0 0 100% !important;
-    width: 100% !important;
     max-width: 100% !important;
-    min-width: 100% !important;
-    height: 300px !important; /* Forces the box to have height */
+    width: 100% !important;    
+    height: 300px !important; 
     display: block !important;
-    background-size: cover !important;
-    background-position: center !important;
-    border-radius: 8px;
-    position: relative !important;
   }
 
-  /* 3. FIX TEXT CLIPPING */
-  .intro-text {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-right: 15px !important; /* Safety for last letter */
-    box-sizing: border-box !important;
+  .intro-images-container {
+    flex-direction: column !important;
+    gap: 40px !important;
+    padding: 20px !important;
   }
 
-  .intro-text h1 {
-    font-size: 28px;
-    line-height: 1.2;
-    word-wrap: break-word;
+  .intro-text h1 { font-size: 28px; line-height: 1.2; }
+  .intro-text h2 { font-size: 18px; }
+
+  /* Strategy Mobile */
+  .strategy-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+    padding-right: 0 !important;
+  }
+  .strategy-cards {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
   }
 
-  /* 4. OFFICE CAROUSEL SPECIFIC LOCK */
-  .offices-inner {
-    padding: 0 !important;
-  }
-
-  .offices-carousel .carousel-viewport {
-    display: block !important;
+  /* Services Mobile */
+  .services-carousel .carousel-viewport {
     overflow-x: auto !important;
     scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .offices-carousel .carousel-track {
-    display: flex !important;
-    padding: 0 40px !important;
-    gap: 15px !important;
-    width: auto !important;
-  }
-
-  .offices-carousel .carousel-slide {
-    flex: 0 0 75vw !important;
-    width: 75vw !important;
-    max-width: 75vw !important;
-    scroll-snap-align: center;
-  }
-
-  .offices-carousel .carousel-slide img {
-    width: 100% !important;
-    height: 220px !important;
-    object-fit: cover !important;
-  }
-
-  /* 5. STRATEGY & SERVICES */
-  .strategy-grid { grid-template-columns: 1fr !important; padding-right: 0 !important; }
-  .strategy-cards { grid-template-columns: 1fr !important; gap: 20px !important; }
-
-  .services-carousel .carousel-viewport { 
-    overflow-x: auto !important; 
-    padding: 0 20px; 
-    scroll-snap-type: x mandatory;
+    padding: 0 20px;
   }
   .services-carousel .carousel-slide {
     flex: 0 0 85% !important;
     max-width: 85% !important;
     scroll-snap-align: center;
   }
-}
 
-/* Specific fix for desktop strategy cards grid */
-@media (max-width: 992px) {
-  .strategy-grid { grid-template-columns: 1fr; }
+  /* Offices Mobile */
+  .offices-inner {
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+  .offices-carousel .carousel-viewport {
+    display: block !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+  }
+  .offices-carousel .carousel-track {
+    display: flex !important;
+    padding: 0 40px !important;
+    gap: 15px !important;
+  }
+  .offices-carousel .carousel-slide {
+    flex: 0 0 75vw !important;
+    max-width: 75vw !important;
+    scroll-snap-align: center;
+  }
+  .offices-carousel .carousel-slide img {
+    height: 220px !important;
+  }
 }
 
 @media (max-width: 600px) {
