@@ -1,8 +1,8 @@
 /* =========================================================
-   HOME.CSS - CLEANED & GRID-READY
+   HOME.CSS - FINAL OPTIMIZED VERSION
    ========================================================= */
 
-/* 1. UNIVERSAL CONTAINERS (Section 1 & 4) */
+/* 1. UNIVERSAL CONTAINERS */
 .intro-images-container, 
 .offices-inner {
   display: flex !important;
@@ -14,7 +14,7 @@
   width: 100% !important;
 }
 
-/* 2. MEDIA BLOCKS (Hero & Office Carousel Area) */
+/* 2. MEDIA BLOCKS */
 .intro-image, 
 .offices-media {
   flex: 0 0 60% !important;
@@ -49,7 +49,7 @@
   text-transform: uppercase;
 }
 
-/* --- SECTION 2: STRATEGY --- */
+/* --- SECTION 2: STRATEGY (Blue Overlay Theme) --- */
 .strategy-grid {
   display: grid !important;
   grid-template-columns: 1.1fr 0.9fr; 
@@ -64,35 +64,6 @@
   gap: 25px !important; 
 }
 
-.strategy-card {
-  position: relative;
-  aspect-ratio: 1 / 1; 
-  background-size: cover;
-  background-position: center;
-  border-radius: 4px;
-  overflow: hidden;
-  filter: grayscale(100%) brightness(0.8);
-  transition: 0.3s ease;
-}
-
-.strategy-card:hover { filter: grayscale(0%) brightness(1); }
-
-/* --- SECTION 2: STRATEGY CARDS (Blue Overlay) --- */
-.strategy-grid {
-  display: grid !important;
-  grid-template-columns: 1.1fr 0.9fr; 
-  gap: 100px; 
-  align-items: start;
-  margin-bottom: 40px;
-}
-
-.strategy-cards {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 25px !important; 
-}
-
-/* Updated Strategy Card with Blue Screen */
 .strategy-card {
   position: relative;
   aspect-ratio: 1 / 1; 
@@ -105,17 +76,18 @@
   align-items: flex-end;
 }
 
+/* The Blue Screen Overlay */
 .strategy-card::after {
   content: "";
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background-color: rgba(0, 48, 120, 0.6); /* Blue Screen */
+  background-color: rgba(0, 48, 120, 0.6); 
   transition: opacity 0.3s ease;
   z-index: 1;
 }
 
 .strategy-card:hover::after {
-  opacity: 0; /* Lifts screen to reveal color */
+  opacity: 0; /* Lifts to reveal color */
 }
 
 .card-overlay {
@@ -133,11 +105,10 @@
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-
-/* --- SECTION 3: SERVICES GRID (Replacement for Carousel) --- */
+/* --- SECTION 3: SERVICES GRID --- */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Clean 4-column layout */
+  grid-template-columns: repeat(4, 1fr); 
   gap: 15px;
   margin-top: 30px;
 }
@@ -173,7 +144,7 @@
 
 @media (max-width: 992px) {
   .strategy-grid { grid-template-columns: 1fr; gap: 40px; }
-  .services-grid { grid-template-columns: repeat(2, 1fr); } /* 2x2 on tablets */
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -186,7 +157,6 @@
     height: 300px !important; 
   }
 
-  /* Keep the "peek" behavior on mobile for services */
   .services-grid {
     display: flex;
     overflow-x: auto;
@@ -195,7 +165,7 @@
   }
   
   .service-item {
-    flex: 0 0 80%; /* Shows 80% of image plus a peek of the next */
+    flex: 0 0 80%; 
     scroll-snap-align: center;
   }
 
