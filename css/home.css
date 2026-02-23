@@ -136,51 +136,53 @@
 }
 
 /* --- SECTION 3: SERVICES GRID --- */
-
-/* Match this to your HTML class: .services-container */
+/* --- SECTION 3: SERVICES GRID --- */
 .services-container {
-  padding: 80px 0 60px 0 !important;
+  /* Using padding-top/bottom to create the section gaps */
+  padding-top: 80px !important;
+  padding-bottom: 80px !important;
   display: block !important;
   overflow: visible !important;
+  clear: both; /* Prevents previous sections from overlapping */
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); 
   gap: 15px;
-  margin-top: 40px; /* Increased margin to push grid away from text */
+  /* Added a firm top margin to protect the title text */
+  margin-top: 50px !important; 
+  margin-bottom: 20px;
+}
+
+/* --- MOBILE SPECIFIC FIX (768px) --- */
+@media (max-width: 768px) {
+  .services-container {
+    padding-top: 60px !important;
+    padding-bottom: 80px !important;
+  }
+
+  .services-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    width: 100vw;
+    /* This 'breakout' math must only exist inside the mobile media query */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 50px !important;
+    padding: 20px 0;
+  }
+  
+  .service-item {
+    flex: 0 0 80%;
+    margin-left: 24px;
+    scroll-snap-align: center;
+  }
 }
 
 
-.service-item {
-  position: relative; 
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.service-item img {
-  width: 100%;
-  aspect-ratio: 3 / 4; 
-  object-fit: cover;
-  display: block;
-}
-
-.service-overlay {
-  position: absolute;
-  top: 0; left: 0;
-  padding: 20px;
-  z-index: 2; 
-  width: auto;
-}
-
-.service-overlay h3 {
-  color: #ffffff !important;
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin: 0;
-  text-transform: capitalize;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.4); 
-}
 
 /* --- SECTION 4: OFFICES --- */
 .offices.page-section {
