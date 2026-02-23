@@ -76,22 +76,23 @@
   align-items: flex-end;
 }
 
-/* --- GLOBAL MONOCHROME OVERLAY (Lighter Mid-Grey) --- */
+/* --- GLOBAL MONOCHROME OVERLAY (Balanced Mid-Grey) --- */
 .strategy-card::after,
 .service-item::after {
   content: "";
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
   
-  /* Reduced opacity from 0.7 to 0.4 for a lighter grey tint */
-  background-color: rgba(255, 255, 255, 0.4); 
+  /* Black at 0.4 opacity creates a neutral mid-grey veil */
+  background-color: rgba(0, 0, 0, 0.4); 
   
-  /* Increased brightness from 0.8 to 1.2 to "lift" the grey tones */
-  backdrop-filter: grayscale(100%) brightness(1.2); 
+  /* Neutral brightness (1.0) ensures it's neither too dark nor overexposed */
+  backdrop-filter: grayscale(100%) brightness(1.0); 
   
   transition: all 0.4s ease;
   z-index: 1;
 }
+
 
 
 .strategy-card:hover::after,
