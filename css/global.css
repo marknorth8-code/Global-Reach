@@ -155,6 +155,7 @@ a:hover {
   cursor: pointer;
 }
 
+
 /* Mobile */
 @media (max-width: 900px) {
 
@@ -174,6 +175,20 @@ a:hover {
   .site-logo {
     max-height: 32px;
   }
+
+   /* Indent only the first 4 links (the offices) in the mobile dropdown */
+.mobile-nav ul li:nth-child(-n+4) a {
+  padding-left: 45px !important; /* Adjust this value for more/less indent */
+  font-size: 0.95rem;           /* Optional: slightly smaller for hierarchy */
+  color: #555;                  /* Optional: slightly lighter to show they are sub-items */
+}
+
+/* Keep the other links (About, Insights, Contact) at the standard alignment */
+.mobile-nav ul li:nth-child(n+5) a {
+  padding-left: 24px;
+  font-weight: 500;
+}
+
 }
 
 /* =========================================================
