@@ -274,23 +274,33 @@ a:hover {
 /* =========================================================
    MOBILE NAV
    ========================================================= */
-
-
 .mobile-nav {
-  display: none;
-  position: fixed;
-  top: 65px;
+  display: none; /* Keep your existing toggle logic */
+  position: absolute;
+  top: 65px; /* Adjust based on your header height */
   left: 0;
+  width: 100vw; /* Forces the menu to 100% of the screen width */
   background: #fff;
+  z-index: 1000;
   border-top: 1px solid #ddd;
+  padding: 20px 0; /* Optional: adds space inside the menu */
 }
 
+/* Ensure the list items inside also stretch or center as needed */
 .mobile-nav ul {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
+
+.mobile-nav li a {
+  display: block;
+  width: 100%;
+  padding: 15px 24px; /* Matches your container padding for alignment */
+  text-align: left; /* Or 'center' if you prefer */
+}
+
 
 .nav-button:focus {
   outline: none;
