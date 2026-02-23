@@ -55,6 +55,19 @@
   text-transform: uppercase;
 }
 
+@media (max-width: 768px) {
+  /* This ensures the 'Hero' area doesn't collapse */
+  .intro-image {
+    display: block !important;
+    width: 100% !important;
+    height: 300px !important; /* Forces the image box to be visible */
+    background-size: cover !important;
+    background-position: center !important;
+    min-height: 300px !important;
+  }
+}
+
+
 /* --- SECTION 2: STRATEGY --- */
 .aligned-arrow {
   display: inline-block;
