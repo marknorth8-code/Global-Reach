@@ -178,51 +178,55 @@
 }
 
 /* ========================================
-   RESPONSIVE (CONSOLIDATED)
+   RESPONSIVE (FINAL MERGED & FIXED)
 ======================================== */
 
 @media (max-width: 768px) {
 
-  /* --- SECTION 1 FIXES --- */
-  .intro-images-container {
+  /* 1. UNIVERSAL MEDIA & CONTAINER RESET (S1 & S4) */
+  .intro-images-container, 
+  .offices-inner {
     display: flex !important;
     flex-direction: column !important;
-    gap: 30px !important;
-    padding: 0 20px 40px 20px !important;
     width: 100% !important;
-    box-sizing: border-box !important; /* Forces text to stay inside container */
+    max-width: 100vw !important;
+    padding: 0 20px 40px 20px !important;
+    gap: 30px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
+  /* 2. FORCE FULL WIDTH & VISIBILITY (Kills 60% lock) */
+  .intro-image, 
+  .offices-media {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    height: 300px !important; /* Forces the box to have height */
+    display: block !important;
+    background-size: cover !important;
+    background-position: center !important;
+    border-radius: 8px;
+    position: relative !important;
+  }
+
+  /* 3. FIX TEXT CLIPPING */
   .intro-text {
     width: 100% !important;
     max-width: 100% !important;
+    padding-right: 15px !important; /* Safety for last letter */
     box-sizing: border-box !important;
-    padding-right: 10px; /* Safety gap so text doesn't touch screen edge */
   }
 
   .intro-text h1 {
     font-size: 28px;
     line-height: 1.2;
-    word-wrap: break-word; /* Prevents long words from cutting off */
+    word-wrap: break-word;
   }
 
-  .intro-image {
-    /* APPLYING THE OFFICE CAROUSEL RULE HERE */
-    width: 100% !important; 
-    max-width: 100% !important;
-    height: 260px !important; /* Matching your preferred height */
-    display: block !important;
-    border-radius: 8px;
-    background-size: cover;
-    background-position: center;
-  }
-
-  /* --- SECTION 4 (OFFICE CAROUSEL) RE-LOCK --- */
+  /* 4. OFFICE CAROUSEL SPECIFIC LOCK */
   .offices-inner {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100vw !important;
-    overflow: hidden !important;
     padding: 0 !important;
   }
 
@@ -230,12 +234,14 @@
     display: block !important;
     overflow-x: auto !important;
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
   .offices-carousel .carousel-track {
     display: flex !important;
     padding: 0 40px !important;
     gap: 15px !important;
+    width: auto !important;
   }
 
   .offices-carousel .carousel-slide {
@@ -249,17 +255,29 @@
     width: 100% !important;
     height: 220px !important;
     object-fit: cover !important;
-    display: block !important;
   }
 
-  /* --- STRATEGY & SERVICES MOBILE --- */
+  /* 5. STRATEGY & SERVICES */
   .strategy-grid { grid-template-columns: 1fr !important; padding-right: 0 !important; }
   .strategy-cards { grid-template-columns: 1fr !important; gap: 20px !important; }
 
-  .services-carousel .carousel-viewport { overflow-x: auto !important; padding: 0 20px; }
+  .services-carousel .carousel-viewport { 
+    overflow-x: auto !important; 
+    padding: 0 20px; 
+    scroll-snap-type: x mandatory;
+  }
   .services-carousel .carousel-slide {
     flex: 0 0 85% !important;
     max-width: 85% !important;
     scroll-snap-align: center;
   }
+}
+
+/* Specific fix for desktop strategy cards grid */
+@media (max-width: 992px) {
+  .strategy-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .strategy-cards { grid-template-columns: 1fr !important; }
 }
