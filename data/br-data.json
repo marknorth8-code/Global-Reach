@@ -1,5 +1,39 @@
-{
-  "sectionTitle": "Current Opportunities",
-  "introText": "Our latest selection of international investment opportunities, updated for Spring 2026.",
-  "properties":
-}
+[
+  {
+    "title": "Current opportunities, Bahia, Brazil",
+    "summary": "After 10 years working in NZ, these are my reflections on how the UK property market differs from NZ",
+    "date": "22 February 2026",
+    "image": "images/locations/br/brazil-01.webp",
+ "line1": "Price: $250,000",
+"line2": "Size: 1,200 sqm",
+"line3": "Status: Available",   
+    "link": "articles/insight-001.html"
+  },
+
+  {
+    "title": "Current opportunities, Bahia, Brazil",
+    "summary": "After 10 years working in NZ, these are my reflections on how the UK property market differs from NZ",
+    "date": "22 February 2026",
+    "image": "images/locations/br/brazil-02.webp",
+ "line1": "Price: $250,000",
+"line2": "Size: 1,200 sqm",
+"line3": "Status: Available",   
+    "link": "articles/insight-001.html"
+  },
+
+  {
+    "title": "Current opportunities, Bahia, Brazil",
+    "summary": "After 10 years working in NZ, these are my reflections on how the UK property market differs from NZ",
+    "date": "22 February 2026",
+    "image": "images/locations/br/brazil-03.webp",
+ "line1": "Price: $250,000",
+"line2": "Size: 1,200 sqm",
+"line3": "Status: Available",   
+    "link": "articles/insight-001.html"
+  },
+
+]
+
+  
+
+
