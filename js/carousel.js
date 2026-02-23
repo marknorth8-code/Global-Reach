@@ -16,31 +16,19 @@
     let scrollStep = 0;
 
     function calculateMetrics() {
+      // Standard full-width behavior for the Offices carousel
       const viewportWidth = viewport.getBoundingClientRect().width;
+      scrollStep = viewportWidth;
       
-      if (carousel.classList.contains('services-carousel')) {
-        // Measure exactly one card
-        const firstSlide = slides[0].getBoundingClientRect();
-        // Step = Card Width + 30px Gap (defined in CSS)
-        scrollStep = firstSlide.width + 30;
-      } else {
-        // Standard full-width behavior
-        scrollStep = viewportWidth;
-        slides.forEach(slide => {
-          slide.style.width = scrollStep + 'px';
-        });
-      }
+      slides.forEach(slide => {
+        slide.style.width = scrollStep + 'px';
+      });
     }
 
     function moveToSlide(i) {
       if (scrollStep > 0) {
-        // Prevent scrolling past the end for multi-carousels
-        if (carousel.classList.contains('services-carousel')) {
-            const maxIndex = slides.length - 3; // Stop when the last 3 are visible
-            index = Math.max(0, Math.min(i, maxIndex));
-        } else {
-            index = (i + slides.length) % slides.length;
-        }
+        // Standard infinite loop logic: wraps back to start/end
+        index = (i + slides.length) % slides.length;
         track.style.transform = `translateX(-${index * scrollStep}px)`;
       }
     }
@@ -58,13 +46,15 @@
       moveToSlide(index);
     }
 
+    // Small delay to ensure DOM dimensions are painted before calculating
     setTimeout(() => {
       calculateMetrics();
       moveToSlide(index);
     }, 100);
 
     if (nextBtn) nextBtn.addEventListener('click', goNext);
-    if (prevBtn) prevBtn.addEventListener('click', goPrev);
+    if (prevBtn) prevBtn.addEventListener('click', prevBtn.onclick = goPrev);
+    
     window.addEventListener('resize', handleResize);
     window.addEventListener('load', handleResize);
 
@@ -72,6 +62,8 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    // This will now only affect the "Offices" section 
+    // since you removed 'data-carousel' from the "Services" HTML.
     document.querySelectorAll('[data-carousel]').forEach(initCarousel);
   });
 })();
