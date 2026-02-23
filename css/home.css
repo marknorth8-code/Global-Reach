@@ -136,16 +136,21 @@
 }
 
 /* --- SECTION 3: SERVICES GRID --- */
-.services-section {
+
+/* Match this to your HTML class: .services-container */
+.services-container {
   padding: 80px 0 60px 0 !important;
+  display: block !important;
+  overflow: visible !important;
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); 
   gap: 15px;
-  margin-top: 30px;
+  margin-top: 40px; /* Increased margin to push grid away from text */
 }
+
 
 .service-item {
   position: relative; 
