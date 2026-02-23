@@ -262,7 +262,7 @@
 }
 
 /* ========================================
-   MOBILE FIXES (REPLACEMENT BLOCK)
+   MOBILE FIXES (CLEANED & VERIFIED)
 ======================================== */
 
 @media (max-width: 768px) {
@@ -273,7 +273,7 @@
     flex: 0 0 100% !important;
     max-width: 100% !important;
     width: 100% !important;    
-    height: 300px !important; /* Adjust height for mobile */
+    height: 300px !important; 
   }
 
   /* 2. Intro Section Fixes */
@@ -302,37 +302,63 @@
 
   /* 4. Services Carousel Fixes */
   .services-carousel .carousel-viewport {
-    overflow-x: auto !important; /* Ensures scrolling is active */
+    overflow-x: auto !important;
     scroll-snap-type: x mandatory;
+    padding: 0 20px;
   }
 
   .services-carousel .carousel-slide {
-    flex: 0 0 85% !important; /* Shows a peek of the next slide */
+    flex: 0 0 85% !important;
     max-width: 85% !important;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
   }
 
-  /* 5. Offices Section Fixes */
+  /* 5. Offices Section Fixes (Gap + Snap) */
   .offices-inner {
     flex-direction: column !important;
-    gap: 20px !important;
+    gap: 30px !important;
     padding: 20px !important;
   }
 
   .offices-carousel .carousel-viewport {
-    overflow-x: auto !important; /* Enables touch scrolling */
+    overflow-x: auto !important;
+    display: flex !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
     width: 100% !important;
+    padding-bottom: 20px;
+  }
+
+  .offices-carousel .carousel-track {
+    display: flex !important;
+    gap: 20px !important;
+    padding: 0 20px;
+  }
+
+  .offices-carousel .carousel-slide {
+    flex: 0 0 85% !important;
+    max-width: 85% !important;
+    scroll-snap-align: center;
+    min-width: 0;
   }
 
   .offices-carousel .carousel-slide img {
-    height: 300px !important;
     width: 100% !important;
+    height: 300px !important;
+    object-fit: cover;
+    border-radius: 8px;
   }
 
+  /* 6. Arrow Positioning Fix */
   .offices-carousel .carousel-arrows {
     position: relative !important;
+    display: flex !important;
     justify-content: center !important;
     margin-top: 20px;
     right: auto !important;
+    bottom: auto !important;
+    pointer-events: auto !important;
+    z-index: 100;
   }
 }
+
