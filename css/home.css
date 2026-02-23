@@ -1,5 +1,5 @@
 /* =========================================================
-   HOME.CSS - FINAL CONSOLIDATED VERSION
+   HOME.CSS - FINAL OPTIMIZED VERSION
    ========================================================= */
 
 .intro-images-container {
@@ -7,7 +7,7 @@
   padding-bottom: 60px !important;
 }
 
-/* 1. UNIVERSAL CONTAINER LOCK (Fixes Section 1 & 4 Gaps) */
+/* 1. UNIVERSAL CONTAINER LOCK */
 .intro-images-container, 
 .offices-inner {
   display: flex !important;
@@ -19,7 +19,7 @@
   width: 100% !important;
 }
 
-/* 2. UNIVERSAL MEDIA LOCK (Synced for Arrows & Labels) */
+/* 2. UNIVERSAL MEDIA LOCK */
 .intro-image, 
 .offices-media {
   flex: 0 0 60% !important;
@@ -31,19 +31,15 @@
   background-position: center;
   border-radius: 8px;
   position: relative !important;
-  /* Allows both arrows and labels to sit outside the box */
   overflow: visible !important; 
 }
 
-/* Ensures carousel images stay clipped to rounded corners while arrows stay visible */
 .offices-carousel .carousel-viewport {
   overflow: hidden;
   border-radius: 8px;
 }
 
-/* --- SECTION 1 LABELS --- */
-
-/* Permanent text: Positioned under the bottom-left edge */
+/* --- LABELS & CAPTIONS --- */
 .permanent-label {
   position: absolute;
   top: 100%;       
@@ -55,7 +51,6 @@
   white-space: nowrap;
 }
 
-/* Dynamic caption: Pinned to the bottom-right inside the image */
 .image-caption {
   position: absolute;
   bottom: 15px;
@@ -68,36 +63,22 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.home-hero-text,
-.home-hero-media {
-  min-width: 0;
-}
-
 
 /* ========================================
-   SECTION 2: STRATEGY (TOTAL FIX)
+   SECTION 2: STRATEGY
 ======================================== */
-
 .strategy-grid {
   display: grid !important;
-  /* 1. Reduces card area size by ~30% and adds middle gap */
   grid-template-columns: 1.1fr 0.9fr; 
   gap: 100px; 
   align-items: start;
-  /* 2. Adds the gap between the cards and the right side of the page */
   padding-right: 120px !important; 
   max-width: 1400px;
   margin: 0 auto;
 }
 
-/* ========================================
-   STRATEGY CARDS (THE GAP REPAIR)
-======================================== */
-
 .strategy-cards {
-  /* 3. This MUST be grid for the gap to exist between images */
   display: grid !important;
-  /* 4. Forces two columns with a visible gutter */
   grid-template-columns: repeat(2, 1fr) !important;
   gap: 25px !important; 
   width: 100%;
@@ -107,60 +88,17 @@
   position: relative;
   display: flex !important;
   align-items: flex-end;
-  /* 5. Ensures images stay square inside their new smaller grid cells */
   width: 100%;
   aspect-ratio: 1 / 1; 
-  
   background-size: cover;
   background-position: center;
   border-radius: 4px;
-  overflow: hidden; /* Clips the image to the card's rounded corners */
-  text-decoration: none;
+  overflow: hidden;
   filter: grayscale(100%) brightness(0.8);
 }
 
-
-/* ========================================
-   RESPONSIVE
-======================================== */
-
-@media (max-width: 992px) {
-  .strategy-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .strategy-text {
-    max-width: 100%;
-  }
-
-  .strategy-cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 600px) {
-  .strategy-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* --- SECTION 3 – SERVICES CAROUSEL --- */
-.services-container {
-  padding-top: 60px !important; 
-}
-
-.services-subtitle {
-  width: 100%;
-  display: block;
-  text-transform: lowercase;
-  letter-spacing: 1px;
-  margin-bottom: 30px !important; 
-  color: #666;
-}
-
+/* --- SECTION 3 – SERVICES --- */
 .services-carousel {
-  padding-top: 0 !important; 
-  background: #fff;
   padding-bottom: 80px !important; 
   position: relative;
   max-width: 1200px;
@@ -170,55 +108,29 @@
 .services-carousel .carousel-slide {
   flex: 0 0 calc((100% - 60px) / 3) !important;
   max-width: calc((100% - 60px) / 3) !important;
-  min-width: 0 !important;
 }
-
-.services-carousel .carousel-slide img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-}
-
-.services-carousel .carousel-track { 
-  display: flex;
-  gap: 30px; 
-}
-
-/* --- HIDE SCROLLBAR FOR SERVICES CAROUSEL --- */
 
 .services-carousel .carousel-viewport {
-  /* Hides scrollbar in Firefox */
   scrollbar-width: none; 
-  
-  /* Hides scrollbar in Internet Explorer and Edge */
   -ms-overflow-style: none; 
 }
 
-/* Hides scrollbar in Chrome, Safari, and Opera */
 .services-carousel .carousel-viewport::-webkit-scrollbar {
   display: none;
-  width: 0;
-  height: 0;
 }
-
 
 /* --- SECTION 4 - OFFICE CAROUSEL --- */
 .offices-carousel {
   width: 100%;
   position: relative;
-  /* Space for arrows to sit below the image */
   padding-bottom: 60px !important; 
 }
 
-/* Positions Arrows at the bottom of the section on the RIGHT */
 .offices-carousel .carousel-arrows {
   position: absolute;
   bottom: 0;         
-  right: 0;          /* Aligns to the right side of the container */
-  width: auto;       /* Shrinks to fit the two buttons */
+  right: 0;          
   display: flex;
-  justify-content: flex-end; 
   gap: 10px;                  
   z-index: 10;
 }
@@ -228,79 +140,38 @@
   height: 420px;
   object-fit: cover;
   border-radius: 8px;
-  display: block;
-}
-
-/* Location labels (Brazil, Japan, etc.) */
-.location-label {
-  margin-top: 10px;
-  font-weight: 500;
-}
-
-
-@media (max-width: 768px) {
-
-  .intro-images-container {
-    flex-direction: column;
-    gap: 30px;
-    padding: 0 20px 40px 20px !important;
-  }
-
-  .intro-image {
-    height: 260px;
-  }
-
-  .intro-text h1 {
-    font-size: 28px;
-    line-height: 1.2;
-  }
-
-  .intro-text h2 {
-    font-size: 18px;
-  }
-
 }
 
 /* ========================================
-   MOBILE FIXES (CLEANED & VERIFIED)
+   RESPONSIVE (CONSOLIDATED)
 ======================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+  .strategy-grid { grid-template-columns: 1fr; padding-right: 0 !important; }
+}
 
-  /* 1. Reset Universal Locks for Mobile */
-  .intro-image, 
-  .offices-media {
+@media (max-width: 768px) {
+  /* Intro & Media Reset */
+  .intro-image, .offices-media {
     flex: 0 0 100% !important;
     max-width: 100% !important;
     width: 100% !important;    
     height: 300px !important; 
   }
 
-  /* 2. Intro Section Fixes */
   .intro-images-container {
     flex-direction: column !important;
     gap: 40px !important;
     padding: 20px !important;
   }
 
-  .intro-text h1 {
-    font-size: 28px;
-    line-height: 1.2;
-  }
-
-  /* 3. Strategy Section Fixes */
-  .strategy-grid {
-    grid-template-columns: 1fr !important;
-    gap: 40px;
-    padding-right: 0 !important;
-  }
-
+  /* Strategy Mobile */
   .strategy-cards {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr 1fr !important;
     gap: 20px !important;
   }
 
-  /* 4. Services Carousel Fixes */
+  /* Services Mobile */
   .services-carousel .carousel-viewport {
     overflow-x: auto !important;
     scroll-snap-type: x mandatory;
@@ -313,52 +184,29 @@
     scroll-snap-align: center;
   }
 
-
-/* 5. Offices Section Fixes (STRICT LOCK) */
-
-@media (max-width: 768px) {
-  /* Stop the outer container from growing with the images */
-  .offices-inner, .offices-media {
+  /* Offices Mobile Strict Lock */
+  .offices-inner {
     display: block !important;
-    width: 100% !important;
-    max-width: 100vw !important;
-    overflow: hidden !important;
-    padding: 0 !important;
-  }
-
-  .offices-carousel .carousel-viewport {
-    display: block !important;
-    width: 100% !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    padding: 0 20px !important;
   }
 
   .offices-carousel .carousel-track {
-    display: flex !important; /* Only flex here */
-    flex-wrap: nowrap !important;
-    width: auto !important; /* Let it be as wide as slides + gaps */
-    padding: 0 40px !important;
+    display: flex !important;
+    padding: 0 10px !important;
     gap: 15px !important;
   }
 
   .offices-carousel .carousel-slide {
-    /* Use 'vw' to force a percentage of the screen width */
     flex: 0 0 75vw !important;
-    width: 75vw !important;
     max-width: 75vw !important;
     scroll-snap-align: center;
-    overflow: hidden !important;
   }
 
   .offices-carousel .carousel-slide img {
-    /* This forces the image to be NO WIDER than the 75vw slide */
-    width: 100% !important;
     height: 220px !important;
-    object-fit: cover !important;
-    display: block !important;
-    /* Reset any inherited max-widths from desktop */
-    max-width: 100% !important; 
-    min-width: 100% !important;
   }
+}
+
+@media (max-width: 600px) {
+  .strategy-cards { grid-template-columns: 1fr !important; }
 }
