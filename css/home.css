@@ -181,6 +181,10 @@
    RESPONSIVE (CONSOLIDATED)
 ======================================== */
 
+/* ========================================
+   RESPONSIVE - CLEAN CONSOLIDATED VERSION
+   ======================================== */
+
 @media (max-width: 992px) {
   .strategy-grid { grid-template-columns: 1fr; }
   .strategy-text { max-width: 100%; }
@@ -188,26 +192,48 @@
 }
 
 @media (max-width: 768px) {
-  /* Intro & Media Reset */
-  .intro-image, 
-  .offices-media {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-    width: 100% !important;    
-    height: 300px !important; 
-    display: block !important;
-  }
-
+  
+  /* 1. INTRO & SECTION 1 FIXES */
   .intro-images-container {
     flex-direction: column !important;
-    gap: 40px !important;
+    gap: 30px !important;
     padding: 20px !important;
+    width: 100% !important;
+    overflow: hidden; 
+    box-sizing: border-box;
   }
 
-  .intro-text h1 { font-size: 28px; line-height: 1.2; }
+  .intro-text {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-right: 15px; /* Fixes letter clipping */
+    box-sizing: border-box;
+  }
+
+  .intro-text h1 {
+    font-size: 28px;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
   .intro-text h2 { font-size: 18px; }
 
-  /* Strategy Mobile */
+  /* 2. MEDIA VISIBILITY (S1 & S4) */
+  .intro-image, 
+  .offices-media {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 auto !important; 
+    height: 300px !important;   
+    min-height: 250px !important;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+  }
+
+  /* 3. STRATEGY MOBILE */
   .strategy-grid {
     grid-template-columns: 1fr !important;
     gap: 40px;
@@ -218,7 +244,7 @@
     gap: 20px !important;
   }
 
-  /* Services Mobile */
+  /* 4. SERVICES CAROUSEL MOBILE */
   .services-carousel .carousel-viewport {
     overflow-x: auto !important;
     scroll-snap-type: x mandatory;
@@ -230,7 +256,7 @@
     scroll-snap-align: center;
   }
 
-  /* Offices Mobile */
+  /* 5. OFFICES CAROUSEL MOBILE */
   .offices-inner {
     display: block !important;
     width: 100% !important;
@@ -254,6 +280,8 @@
   }
   .offices-carousel .carousel-slide img {
     height: 220px !important;
+    width: 100% !important;
+    object-fit: cover !important;
   }
 }
 
