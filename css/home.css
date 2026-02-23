@@ -192,46 +192,46 @@
 }
 
 @media (max-width: 768px) {
-  
-  /* 1. INTRO & SECTION 1 FIXES */
+  /* 1. CONTAINER: Prevent horizontal overflow */
   .intro-images-container {
-    flex-direction: column !important;
-    gap: 30px !important;
-    padding: 20px !important;
+    display: flex !important;
+    flex-direction: column !important; /* Stack text over image */
     width: 100% !important;
-    overflow: hidden; 
-    box-sizing: border-box;
+    max-width: 100vw !important;
+    padding: 20px !important;
+    gap: 20px !important;
+    box-sizing: border-box !important; /* Padding stays INSIDE the width */
+    overflow: hidden !important; 
   }
 
+  /* 2. TEXT: Stop clipping the last letter */
   .intro-text {
     width: 100% !important;
     max-width: 100% !important;
-    padding-right: 15px; /* Fixes letter clipping */
-    box-sizing: border-box;
+    box-sizing: border-box !important;
+    padding-right: 15px !important; /* Extra buffer for the last character */
   }
 
   .intro-text h1 {
-    font-size: 28px;
-    line-height: 1.2;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    font-size: 26px !important; /* Slightly smaller to prevent break-point issues */
+    line-height: 1.2 !important;
+    word-wrap: break-word !important; /* Force break if a word is too long */
+    margin: 0 !important;
   }
 
-  .intro-text h2 { font-size: 18px; }
-
-  /* 2. MEDIA VISIBILITY (S1 & S4) */
+  /* 3. IMAGES: Force visibility */
   .intro-image, 
   .offices-media {
     display: block !important;
     width: 100% !important;
-    max-width: 100% !important;
-    flex: 0 0 auto !important; 
-    height: 300px !important;   
+    height: 300px !important; /* EXPLICIT height so div doesn't collapse */
     min-height: 250px !important;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
+    background-size: cover !important;
+    background-position: center !important;
+    flex: none !important; /* Stop flexbox from shrinking the height to 0 */
   }
+}
+
 
   /* 3. STRATEGY MOBILE */
   .strategy-grid {
