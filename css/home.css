@@ -196,12 +196,23 @@
     width: 100% !important;    
     height: 300px !important; 
     display: block !important;
+    /* ADD THIS: Ensures background images actually fill the forced height */
+    background-size: cover !important;
+    background-position: center !important;
   }
 
   .intro-images-container {
     flex-direction: column !important;
     gap: 40px !important;
     padding: 20px !important;
+    /* ADD THIS: Prevents the container from growing wider than the screen */
+    box-sizing: border-box !important;
+  }
+
+  .intro-text {
+    /* ADD THIS: Safety buffer so the last letter doesn't touch the screen edge */
+    padding-right: 15px !important;
+    box-sizing: border-box !important;
   }
 
   .intro-text h1 { font-size: 28px; line-height: 1.2; }
@@ -230,7 +241,7 @@
     scroll-snap-align: center;
   }
 
-  /* Offices Mobile */
+  /* Offices Mobile - LEAVING EXACTLY AS IS */
   .offices-inner {
     display: block !important;
     width: 100% !important;
@@ -256,6 +267,7 @@
     height: 220px !important;
   }
 }
+
 
 @media (max-width: 600px) {
   .strategy-cards { grid-template-columns: 1fr !important; }
