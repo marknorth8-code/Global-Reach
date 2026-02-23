@@ -185,6 +185,24 @@
   gap: 30px; 
 }
 
+/* --- HIDE SCROLLBAR FOR SERVICES CAROUSEL --- */
+
+.services-carousel .carousel-viewport {
+  /* Hides scrollbar in Firefox */
+  scrollbar-width: none; 
+  
+  /* Hides scrollbar in Internet Explorer and Edge */
+  -ms-overflow-style: none; 
+}
+
+/* Hides scrollbar in Chrome, Safari, and Opera */
+.services-carousel .carousel-viewport::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+
 /* --- SECTION 4 - OFFICE CAROUSEL --- */
 .offices-carousel {
   width: 100%;
