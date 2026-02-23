@@ -161,8 +161,6 @@
   text-shadow: 0 2px 4px rgba(0,0,0,0.4); 
 }
 
-
-
 /* ========================================
    RESPONSIVE OVERRIDES
    ======================================== */
@@ -173,7 +171,46 @@
 }
 
 @media (max-width: 768px) {
-  .intro-images-container { flex-direction: column !important; gap: 30px !important; }
+  /* 1. Services Section Visibility */
+  .services-section {
+    overflow: visible !important;
+  }
+
+  /* 2. Services Peek Layout */
+  .services-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px 0; 
+    margin-top: 10px;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  .services-section .container {
+    padding: 0 24px;
+    overflow: visible;
+  }
+  
+  .service-item {
+    flex: 0 0 80%; 
+    margin-left: 24px; 
+    scroll-snap-align: center;
+  }
+
+  .service-item:last-child {
+    margin-right: 24px;
+  }
+
+  /* 3. Intro & Offices (Fixed layout for mobile) */
+  .intro-images-container { 
+    flex-direction: column !important; 
+    gap: 30px !important; 
+  }
   
   .intro-image, .offices-media {
     flex: 0 0 100% !important; 
@@ -182,22 +219,12 @@
     height: 300px !important; 
   }
 
-  .services-grid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 10px;
-  }
-  
-  .service-item {
-    flex: 0 0 80%; 
-    scroll-snap-align: center;
-  }
-
   .offices-inner { display: block !important; }
   .offices-carousel .carousel-slide img { height: 250px !important; }
-}
+} /* This closing brace now correctly ends the 768px block */
 
 @media (max-width: 600px) {
   .strategy-cards { grid-template-columns: 1fr !important; }
 }
+
+
