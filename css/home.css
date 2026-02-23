@@ -95,26 +95,38 @@
   filter: grayscale(100%) brightness(0.8);
 }
 
-/* --- SECTION 3: SERVICES (DESKTOP RESTORED) --- */
-.services-container { padding-top: 60px !important; }
+/* --- SECTION 3 – SERVICES CAROUSEL UPDATES --- */
 
 .services-carousel .carousel-slide {
-  flex: 0 0 calc((100% - 60px) / 3) !important;
-  max-width: calc((100% - 60px) / 3) !important;
-  /* UNLOCK FROM GLOBAL.CSS */
-  min-width: 0 !important; 
+  /* Desktop: Shows 4 slides instead of 3 if you prefer, or keep at 3 for 'peek' */
+  flex: 0 0 calc((100% - 90px) / 4) !important;
+  max-width: calc((100% - 90px) / 4) !important;
+  min-width: 0 !important;
 }
 
-.services-carousel .carousel-track { 
-  display: flex;
-  gap: 30px; 
+.services-carousel .carousel-slide img {
+  width: 100%;
+  /* Forces the 600x800 aspect ratio */
+  aspect-ratio: 3 / 4; 
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
 }
 
-.services-carousel .carousel-viewport {
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
+@media (max-width: 768px) {
+  .services-carousel .carousel-slide {
+    /* Mobile: Keeps the 'peek' effect */
+    flex: 0 0 85vw !important;
+    max-width: 85vw !important;
+  }
+  
+  .services-carousel .carousel-slide img {
+    /* Slightly shorter height for mobile screens */
+    height: 400px !important;
+    object-fit: cover;
+  }
 }
-.services-carousel .carousel-viewport::-webkit-scrollbar { display: none; }
+
 
 /* --- SECTION 4: OFFICES (DESKTOP RESTORED) --- */
 .offices-carousel .carousel-arrows {
