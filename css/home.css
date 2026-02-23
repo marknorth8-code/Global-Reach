@@ -1,5 +1,5 @@
 /* =========================================================
-   HOME.CSS - FINAL OPTIMIZED VERSION
+   HOME.CSS - KATAKANO MONOCHROME EDITION
    ========================================================= */
 
 /* 1. UNIVERSAL CONTAINERS */
@@ -49,7 +49,7 @@
   text-transform: uppercase;
 }
 
-/* --- SECTION 2: STRATEGY (Blue Overlay Theme) --- */
+/* --- SECTION 2: STRATEGY --- */
 .strategy-grid {
   display: grid !important;
   grid-template-columns: 1.1fr 0.9fr; 
@@ -76,18 +76,22 @@
   align-items: flex-end;
 }
 
-/* The Blue Screen Overlay */
-.strategy-card::after {
+/* --- GLOBAL MONOCHROME OVERLAY (Strategy & Services) --- */
+.strategy-card::after,
+.service-item::after {
   content: "";
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background-color: rgba(0, 48, 120, 0.6); 
-  transition: opacity 0.3s ease;
+  background-color: rgba(20, 20, 20, 0.7); 
+  backdrop-filter: grayscale(100%) brightness(0.8); 
+  transition: all 0.4s ease;
   z-index: 1;
 }
 
-.strategy-card:hover::after {
-  opacity: 0; /* Lifts to reveal color */
+.strategy-card:hover::after,
+.service-item:hover::after {
+  opacity: 0;
+  backdrop-filter: grayscale(0%) brightness(1); 
 }
 
 .card-overlay {
@@ -105,7 +109,11 @@
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* --- SECTION 3: SERVICES GRID (Top-Left Text) --- */
+/* --- SECTION 3: SERVICES GRID --- */
+.services-section {
+  padding: 80px 0 60px 0 !important;
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); 
@@ -113,15 +121,10 @@
   margin-top: 30px;
 }
 
-.services-section {
-  padding: 80px 0 60px 0 !important; /* Increases top gap to prevent text overlap */
-}
-
 .service-item {
   position: relative; 
   overflow: hidden;
   border-radius: 8px;
-  /* Removed align-items: flex-end to stop pinning text to bottom */
 }
 
 .service-item img {
@@ -131,28 +134,12 @@
   display: block;
 }
 
-/* The Blue Screen Overlay */
-.service-item::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background-color: rgba(0, 48, 120, 0.6); 
-  transition: opacity 0.3s ease;
-  z-index: 1;
-}
-
-.service-item:hover::after {
-  opacity: 0;
-}
-
-/* Text Overlay (Moved to Top Left) */
 .service-overlay {
   position: absolute;
-  top: 0;     /* Pin to top */
-  left: 0;    /* Pin to left */
+  top: 0; left: 0;
   padding: 20px;
   z-index: 2; 
-  width: auto; /* Remove 100% width to prevent banner effect */
+  width: auto;
 }
 
 .service-overlay h3 {
@@ -161,21 +148,17 @@
   font-weight: 500;
   margin: 0;
   text-transform: capitalize;
-  /* Shadow helps white text stay visible even when blue lifts */
   text-shadow: 0 2px 4px rgba(0,0,0,0.4); 
 }
 
-
-/* --- SECTION 4: OFFICES (Section Spacing) --- */
+/* --- SECTION 4: OFFICES --- */
 .offices.page-section {
-  padding-bottom: 80px !important; /* Increased by 20px for better bottom clearance */
+  padding-bottom: 80px !important; 
 }
 
-/* Ensure the carousel itself doesn't eat that space */
 .offices-carousel {
   padding-bottom: 30px !important; 
 }
-
 
 /* ========================================
    RESPONSIVE OVERRIDES
@@ -187,60 +170,31 @@
 }
 
 @media (max-width: 768px) {
-  /* 1. Services Section Visibility */
-  .services-section {
-    overflow: visible !important;
-  }
-
-  /* 2. Services Peek Layout */
+  .services-section { overflow: visible !important; }
   .services-grid {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     padding: 20px 0; 
-    margin-top: 10px;
+    margin-top: 40px !important; /* Fixed overlap */
     width: 100vw;
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    left: 50%; right: 50%;
+    margin-left: -50vw; margin-right: -50vw;
   }
+  .services-section .container { padding: 0 24px; }
+  .service-item { flex: 0 0 80%; margin-left: 24px; scroll-snap-align: center; }
+  .service-item:last-child { margin-right: 24px; }
 
-  .services-section .container {
-    padding: 0 24px;
-    overflow: visible;
-  }
-  
-  .service-item {
-    flex: 0 0 80%; 
-    margin-left: 24px; 
-    scroll-snap-align: center;
-  }
-
-  .service-item:last-child {
-    margin-right: 24px;
-  }
-
-  /* 3. Intro & Offices (Fixed layout for mobile) */
-  .intro-images-container { 
-    flex-direction: column !important; 
-    gap: 30px !important; 
-  }
-  
+  .intro-images-container { flex-direction: column !important; gap: 30px !important; }
   .intro-image, .offices-media {
-    flex: 0 0 100% !important; 
-    width: 100% !important;
-    max-width: 100% !important;
-    height: 300px !important; 
+    flex: 0 0 100% !important; width: 100% !important;
+    max-width: 100% !important; height: 300px !important; 
   }
-
   .offices-inner { display: block !important; }
   .offices-carousel .carousel-slide img { height: 250px !important; }
-} /* This closing brace now correctly ends the 768px block */
+}
 
 @media (max-width: 600px) {
   .strategy-cards { grid-template-columns: 1fr !important; }
 }
-
-
