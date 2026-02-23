@@ -314,51 +314,46 @@
   }
 
   /* 5. Offices Section Fixes (Gap + Snap) */
-  .offices-inner {
-    flex-direction: column !important;
-    gap: 30px !important;
-    padding: 20px !important;
-  }
-
-  .offices-carousel .carousel-viewport {
-    overflow-x: auto !important;
-    display: flex !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    width: 100% !important;
-    padding-bottom: 20px;
-  }
-
-  .offices-carousel .carousel-track {
-    display: flex !important;
-    gap: 20px !important;
-    padding: 0 20px;
-  }
-
-  .offices-carousel .carousel-slide {
-    flex: 0 0 85% !important;
-    max-width: 85% !important;
-    scroll-snap-align: center;
-    min-width: 0;
-  }
-
-  .offices-carousel .carousel-slide img {
-    width: 100% !important;
-    height: 300px !important;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-
-  /* 6. Arrow Positioning Fix */
-  .offices-carousel .carousel-arrows {
-    position: relative !important;
-    display: flex !important;
-    justify-content: center !important;
-    margin-top: 20px;
-    right: auto !important;
-    bottom: auto !important;
-    pointer-events: auto !important;
-    z-index: 100;
-  }
+ /* 5. Offices Section Fixes (Size + Gap + Snap) */
+.offices-inner {
+  flex-direction: column !important;
+  gap: 20px !important;
+  padding: 0 0 40px 0 !important; /* Remove side padding here to allow edge-to-edge scroll */
 }
 
+/* This is the container that was too wide */
+.offices-media {
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important; /* Allow the carousel height to take over */
+}
+
+.offices-carousel .carousel-viewport {
+  overflow-x: auto !important;
+  display: flex !important;
+  scroll-snap-type: x mandatory;
+  width: 100% !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+.offices-carousel .carousel-track {
+  display: flex !important;
+  gap: 15px !important;
+  padding: 0 20px; /* This creates the "peek" margin on the edges */
+}
+
+.offices-carousel .carousel-slide {
+  /* This value controls the image size on screen */
+  flex: 0 0 80vw !important; 
+  max-width: 80vw !important;
+  scroll-snap-align: center;
+  min-width: 0;
+}
+
+.offices-carousel .carousel-slide img {
+  width: 100% !important;
+  height: 250px !important; /* Fixed height for mobile consistency */
+  object-fit: cover;
+  border-radius: 8px;
+}
