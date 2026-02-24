@@ -44,13 +44,13 @@ function initDynamicGrid() {
   let jsonFile = "";
 
   // Matches br.html, brazil.html, or /br/ folder
-  if (urlPath.includes("/br") || urlPath.includes("brazil")) {
+  if (urlPath.includes("br") || urlPath.includes("brazil")) {
     jsonFile = "br";
-  } else if (urlPath.includes("/jp") || urlPath.includes("japan")) {
+  } else if (urlPath.includes("jp") || urlPath.includes("japan")) {
     jsonFile = "jp";
-  } else if (urlPath.includes("/nz") || urlPath.includes("new-zealand")) {
+  } else if (urlPath.includes("nz") || urlPath.includes("new-zealand")) {
     jsonFile = "nz";
-  } else if (urlPath.includes("/uk") || urlPath.includes("uk")) {
+  } else if (urlPath.includes("uk") || urlPath.includes("uk")) {
     jsonFile = "uk";
   }
 
