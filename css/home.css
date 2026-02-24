@@ -212,13 +212,13 @@
 
 .services {
   padding: 60px 0;
-  display: block; /* Ensure it's a standard block for alignment */
+  display: block;
 }
 
 .services-inner {
-  max-width: 1200px; /* Adjust this to match your site's global container width */
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 .services .intro-text {
@@ -228,25 +228,33 @@
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 220px); 
+  grid-template-columns: repeat(auto-fit, 175px);
   gap: 20px;
-  justify-content: flex-start; /* Aligns the grid left with the text */
+  justify-content: flex-start;
 }
 
 .service-card {
   position: relative;
   width: 175px;
-  height: 233px; 
+  height: 233px; /* Fixed 3:4 ratio height for 175px width */
   border-radius: 4px;
   overflow: hidden;
-  
-  /* BORDER & SCALING */
   border: 2px solid #000000;
-  background-size: 100% 100%; /* Scales the 600x800 image to fit exactly */
+  
+  /* Image Scaling */
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
   
+  /* Remove any ghost filters from other sections */
+  filter: none !important;
   transition: transform 0.3s ease;
+}
+
+/* Ensure no full-height grey overlay exists on these cards */
+.service-card::after {
+  content: none !important;
+  display: none !important;
 }
 
 .service-card:hover {
@@ -256,26 +264,45 @@
 .service-overlay {
   position: absolute;
   bottom: 0;
+  left: 0;
   width: 100%;
-  /* 40% height ensures the gradient only covers the bottom portion */
-  height: 40%; 
+  height: 40%; /* Only covers the bottom 40% */
   padding: 12px;
   display: flex;
-  align-items: flex-end; /* Keeps text at the bottom */
+  align-items: flex-end; /* Pins text to the bottom */
   
-  /* GRADIENT: Dark grey at bottom (0%), fading to transparent at top (100%) */
-  background: linear-gradient(to top, rgba(30, 30, 30, 0.9) 0%, rgba(30, 30, 30, 0) 100%);
+  /* Smooth black-to-transparent gradient */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
   
-  color: #fff;
+  pointer-events: none; /* Allows clicks to pass through to the card */
 }
 
 .service-overlay h3 {
   margin: 0;
   font-size: 0.95rem;
   font-weight: 500;
-  /* Optional: keeps text crisp against any background */
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .services-grid {
+    display: flex !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding: 0 0 20px 0;
+    width: 100%;
+  }
+
+  .service-card {
+    flex: 0 0 220px; /* Slightly larger on mobile */
+    height: 293px;   /* Maintaining 3:4 ratio */
+    scroll-snap-align: center;
+  }
+}
+
 
 
 @media (max-width: 768px) {
