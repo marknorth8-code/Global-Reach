@@ -60,7 +60,7 @@ function initDynamicGrid() {
 
   // 2. Fetch the JSON data
   // Using path starting with '/' ensures it works from subfolders
-  const jsonPath = `/data/${jsonFile}-data.json`;
+   const jsonPath = `data/${jsonFile}-data.json`;
 
   fetch(jsonPath)
     .then(response => {
