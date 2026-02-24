@@ -7,29 +7,25 @@
   <link rel="stylesheet" href="css/global.css">
   
   <style>
-    /* HERO SECTION */
+    /* --- HERO SECTION --- */
     .location-hero {
       position: relative;
       width: 100%;
       height: 350px;
       overflow: hidden;
-      background: #333; /* Fallback */
+      background: #333;
     }
 
     .location-hero-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
       display: block;
     }
 
     .hero-overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background: rgba(0,0,0,0.3);
       display: flex;
       align-items: center;
@@ -44,7 +40,7 @@
       margin: 0;
     }
 
-    /* INTRO SPLIT */
+    /* --- LAYOUT & SECTIONS --- */
     .page-section { padding: 60px 0; }
     
     .intro-split {
@@ -54,41 +50,50 @@
       align-items: center;
     }
 
-    /* PROPERTY GRID (Used by include.js) */
+    /* --- PROPERTY GRID (STRICT 2-COLUMN) --- */
     .property-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 25px;
+      grid-template-columns: 1fr 1fr; 
+      gap: 30px;
       margin-top: 30px;
     }
 
     .property-card {
       border: 1px solid #eee;
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
       background: #fff;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .property-card:hover { transform: translateY(-5px); }
+    .property-card:hover { 
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
 
     .property-image-container {
       width: 100%;
-      aspect-ratio: 3/2;
+      aspect-ratio: 16 / 9; /* Professional widescreen ratio */
       overflow: hidden;
+      background: #f0f0f0;
     }
 
     .property-image-container img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: cover; /* Forces all images to fill the same dimensions */
+      display: block;
     }
 
     .property-info { padding: 20px; }
     .prop-detail { margin: 5px 0; font-size: 0.95rem; color: #444; }
 
+    /* --- RESPONSIVE ADJUSTMENTS --- */
     @media (max-width: 768px) {
-      .intro-split { grid-template-columns: 1fr; }
+      .intro-split, 
+      .property-grid { 
+        grid-template-columns: 1fr; 
+      }
       .hero-overlay h1 { font-size: 2.5rem; }
       .location-hero { height: 250px; }
     }
@@ -96,11 +101,9 @@
 </head>
 <body>
 
-  <!-- HEADER (Injected by include.js) -->
   <div id="header"></div>
 
   <main>
-    <!-- HERO -->
     <section class="location-hero">
       <img src="images/locations/br/hero.webp" alt="Brazil" class="location-hero-image">
       <div class="hero-overlay">
@@ -108,7 +111,6 @@
       </div>
     </section>
 
-    <!-- WHY THIS MARKET -->
     <section class="page-section">
       <div class="container intro-split">
         <div class="intro-text">
@@ -122,18 +124,16 @@
       </div>
     </section>
 
-    <!-- DYNAMIC PROPERTY GRID -->
     <section class="page-section" style="background: #f9f9f9;">
       <div class="container">
         <h2>Current Opportunities</h2>
         <div id="opportunities-grid" class="property-grid">
-           <!-- include.js injects the 12 property cards here -->
+           <!-- include.js injects content here -->
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER (Injected by include.js) -->
   <div id="footer"></div>
 
   <script src="js/include.js"></script>
