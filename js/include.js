@@ -5,8 +5,8 @@
 
 function includeHTML() {
   const includes = [
-    { id: "header", file: "/partials/header.html" }, // Use absolute paths if possible
-    { id: "footer", file: "/partials/footer.html" }
+    { id: "header", file: "partials/header.html" }, // Use absolute paths if possible
+    { id: "footer", file: "partials/footer.html" }
   ];
 
   const loadPromises = includes.map(item => {
