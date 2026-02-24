@@ -266,13 +266,13 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 40%; /* Only covers the bottom 40% */
+  height: 60%; /* Only covers the bottom 40% */
   padding: 12px;
   display: flex;
   align-items: flex-end; /* Pins text to the bottom */
   
   /* Smooth black-to-transparent gradient */
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0) 100%);
   
   pointer-events: none; /* Allows clicks to pass through to the card */
 }
