@@ -1,5 +1,5 @@
 /* =========================================================
-   HOME.CSS - KATAKANO MONOCHROME EDITION (COMPLETE)
+   HOME.CSS - KATAKANO MONOCHROME EDITION (OFFICE FIX)
    ========================================================= */
 
 /* 1. UNIVERSAL CONTAINERS */
@@ -14,6 +14,17 @@
   width: 100% !important;
 }
 
+/* --- SECTION 5 DESKTOP FIX (Only affects Offices) --- */
+.offices-inner {
+  /* Increased to 100px so arrows don't hit the dividing line */
+  padding-bottom: 100px !important; 
+}
+
+/* Ensure arrows are positioned relative to this container */
+.offices-inner .carousel-arrows { 
+  bottom: 40px !important; 
+}
+
 /* 2. MEDIA BLOCKS (DESKTOP) */
 .intro-image, 
 .offices-media {
@@ -25,17 +36,6 @@
   border-radius: 8px;
   position: relative !important;
 }
-
-/* Increase bottom space ONLY in Section 5 to clear arrows */
-.offices-inner {
-  padding-bottom: 60px !important; 
-}
-
-/* If the arrows are absolute, give them a specific offset from the bottom line */
-.offices-inner .carousel-arrows { 
-  bottom: 40px !important; 
-}
-
 
 /* FIX: Ensure Section 1 Hero has NO grey overlay */
 .intro-image::after {
@@ -250,7 +250,7 @@
     display: flex !important;
   }
 
-  /* 2. SECTION 1 HERO: Full-Bleed Edge to Edge */
+  /* 2. SECTION 1 HERO */
   .intro-image {
     display: block !important;
     position: relative !important;
@@ -265,7 +265,6 @@
     background-position: center !important;
   }
 
-  /* Adjust labels for full-bleed hero */
   .image-caption { right: 34px !important; }
   .permanent-label { left: 24px !important; }
 
@@ -297,7 +296,17 @@
     max-width: 100% !important;
     height: 300px !important;
   }
-}
+
+  /* SECTION 5 MOBILE GAP FIX (Isolated to Section 5) */
+  .offices-inner {
+    padding-bottom: 20px !important; /* Reduces the large gap on mobile */
+    gap: 15px !important;
+  }
+  
+  .offices-section {
+    margin-bottom: 10px !important;
+  }
+} /* Closing brace for 768px media query */
 
 @media (max-width: 600px) {
   .strategy-cards { grid-template-columns: 1fr !important; }
