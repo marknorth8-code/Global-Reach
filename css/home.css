@@ -210,60 +210,55 @@
 /* --- SECTION 4: SERVICES GRID --- */
 
 .services {
-  padding: 100px 0; /* slightly more premium spacing */
+  padding: 60px 0;
+  display: flex;
+  justify-content: center; /* centers smaller grid */
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px; /* slightly larger gap for breathing room */
+  grid-template-columns: repeat(4, 220px); /* fixed smaller width */
+  gap: 20px;
+  justify-content: center;
 }
 
-/* Service Card */
 .service-card {
   position: relative;
-  height: 220px; /* balanced reduction (not too compressed) */
-  border-radius: 8px;
+  height: 140px; /* smaller height */
+  width: 220px;  /* fixed width */
+  border-radius: 6px;
   overflow: hidden;
 
   background-size: cover;
-  background-position: center center; /* prevents awkward cropping */
+  background-position: center;
   background-repeat: no-repeat;
 
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.3s ease;
 }
 
-/* Subtle premium hover */
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transform: scale(1.04);
 }
 
-/* Bottom gradient overlay */
 .service-overlay {
   position: absolute;
   bottom: 0;
-  left: 0;
   width: 100%;
-  padding: 24px;
+  padding: 16px;
   color: #fff;
 
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.45) 45%,
-    rgba(0, 0, 0, 0.0) 100%
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.4) 40%,
+    rgba(0, 0, 0, 0) 100%
   );
 }
 
-/* Title styling */
 .service-overlay h3 {
   margin: 0;
-  font-size: 1.15rem;
-  font-weight: 500;
-  letter-spacing: 0.5px;
+  font-size: 1rem;
 }
-
 
 /* ========================================
    RESPONSIVE OVERRIDES
