@@ -1,5 +1,5 @@
 /* =========================================================
-   HOME.CSS - KATAKANO MONOCHROME EDITION (FINAL)
+   HOME.CSS - KATAKANO MONOCHROME EDITION (COMPLETE)
    ========================================================= */
 
 /* 1. UNIVERSAL CONTAINERS */
@@ -14,7 +14,7 @@
   width: 100% !important;
 }
 
-/* 2. MEDIA BLOCKS */
+/* 2. MEDIA BLOCKS (DESKTOP) */
 .intro-image, 
 .offices-media {
   flex: 0 0 60% !important;
@@ -91,7 +91,6 @@
   align-items: flex-end;
 }
 
-/* --- GLOBAL MONOCHROME OVERLAY (Applied to Strategy Only) --- */
 .strategy-card::after {
   content: "";
   position: absolute;
@@ -120,7 +119,7 @@
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* --- PARTNERSHIP SECTION 3 --- */
+/* --- SECTION 3: PARTNERSHIP --- */
 .partnership-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -134,6 +133,15 @@
   display: block;
 }
 
+.sub-label { font-size: 14px; color: #666; }
+
+.red-line {
+  width: 40px;
+  border: 0;
+  border-top: 3px solid #E10600;
+  margin: 10px 0 30px 0;
+}
+
 .partnership-quote {
   font-family: Georgia, serif;
   font-size: 42px; 
@@ -142,6 +150,8 @@
   font-weight: bold;
   margin-bottom: 20px;
 }
+
+.quote-author { font-size: 16px; color: #555; margin-bottom: 40px; }
 
 .story-btn {
   display: inline-block;
@@ -153,7 +163,7 @@
   transition: background 0.3s ease;
 }
 
-.story-btn:hover { background: #E10600; }
+.story-btn:hover { background: #E10600; text-decoration: none; }
 
 /* --- SECTION 4: SERVICES --- */
 .services { padding: 60px 0; display: block; }
@@ -189,7 +199,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 60%;
+  height: 60%; 
   padding: 12px;
   display: flex;
   align-items: flex-end;
@@ -220,20 +230,22 @@
 }
 
 @media (max-width: 768px) {
-  /* Layout: Vertical Stacking */
-  .intro-images-container, .offices-inner { 
+  /* 1. GENERAL LAYOUT */
+  .intro-images-container, 
+  .offices-inner { 
     flex-direction: column !important; 
     gap: 30px !important; 
     padding: 0 24px 60px 24px !important;
     display: flex !important;
   }
 
-  /* Section 1 Hero: Full-Bleed Edge to Edge */
+  /* 2. SECTION 1 HERO: Full-Bleed Edge to Edge */
   .intro-image {
     display: block !important;
     position: relative !important;
     flex: none !important; 
     width: calc(100% + 48px) !important; 
+    max-width: calc(100% + 48px) !important;
     margin-left: -24px !important;
     height: 320px !important;
     min-height: 320px !important;
@@ -246,7 +258,7 @@
   .image-caption { right: 34px !important; }
   .permanent-label { left: 24px !important; }
 
-  /* Section 4: Services Mobile Carousel */
+  /* 3. SECTION 4: Services Mobile Carousel */
   .services-grid {
     display: flex !important;
     overflow-x: auto !important;
@@ -267,9 +279,9 @@
     border: 2px solid #000 !important;
   }
 
-  /* Section 5: Offices Media */
+  /* 4. SECTION 5: Office Media Fix */
   .offices-media {
-    flex: 0 0 100% !important;
+    flex: none !important;
     width: 100% !important;
     max-width: 100% !important;
     height: 300px !important;
