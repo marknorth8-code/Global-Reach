@@ -50,50 +50,53 @@
       align-items: center;
     }
 
-    /* --- PROPERTY GRID (STRICT 2-COLUMN) --- */
-    .property-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr; 
-      gap: 30px;
+    /* --- DYNAMIC PROPERTY GRID (FOR BRAZIL PAGE) --- */
+    #opportunities-grid.property-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important; /* FORCES 2 COLUMNS */
+      gap: 30px !important;
       margin-top: 30px;
+      width: 100%;
     }
 
     .property-card {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
       border: 1px solid #eee;
       border-radius: 12px;
       overflow: hidden;
-      background: #fff;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      transition: transform 0.3s ease;
     }
 
-    .property-card:hover { 
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
+    .property-card:hover { transform: translateY(-5px); }
 
     .property-image-container {
       width: 100%;
       aspect-ratio: 16 / 9; /* Professional widescreen ratio */
       overflow: hidden;
-      background: #f0f0f0;
+      position: relative;
     }
 
     .property-image-container img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Forces all images to fill the same dimensions */
+      object-fit: cover !important; /* Secret to equal sizes */
       display: block;
     }
 
     .property-info { padding: 20px; }
-    .prop-detail { margin: 5px 0; font-size: 0.95rem; color: #444; }
+    .property-info p { max-width: 100% !important; margin-bottom: 5px; }
 
     /* --- RESPONSIVE ADJUSTMENTS --- */
     @media (max-width: 768px) {
-      .intro-split, 
-      .property-grid { 
-        grid-template-columns: 1fr; 
+      /* Stack Grid & Intro on Mobile */
+      #opportunities-grid.property-grid,
+      .intro-split {
+        grid-template-columns: 1fr !important;
       }
+      
       .hero-overlay h1 { font-size: 2.5rem; }
       .location-hero { height: 250px; }
     }
