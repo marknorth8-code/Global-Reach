@@ -5,7 +5,7 @@
 
 function includeHTML() {
   const includes = [
-    { id: "header", file: "partials/header.html" }, // Use absolute paths if possible
+    { id: "header", file: "partials/header.html" }, 
     { id: "footer", file: "partials/footer.html" }
   ];
 
@@ -43,24 +43,24 @@ function initDynamicGrid() {
   const urlPath = window.location.pathname.toLowerCase();
   let jsonFile = "";
 
-  if (urlPath.includes("/br/") || urlPath.includes("brazil")) {
+  // Matches br.html, brazil.html, or /br/ folder
+  if (urlPath.includes("/br") || urlPath.includes("brazil")) {
     jsonFile = "br";
-  } else if (urlPath.includes("/jp/") || urlPath.includes("japan")) {
+  } else if (urlPath.includes("/jp") || urlPath.includes("japan")) {
     jsonFile = "jp";
-  } else if (urlPath.includes("/nz/") || urlPath.includes("new-zealand")) {
+  } else if (urlPath.includes("/nz") || urlPath.includes("new-zealand")) {
     jsonFile = "nz";
-  } else if (urlPath.includes("/uk/") || urlPath.includes("uk")) {
+  } else if (urlPath.includes("/uk") || urlPath.includes("uk")) {
     jsonFile = "uk";
   }
 
   if (!jsonFile) {
-    console.warn("Could not determine location from URL for data fetching.");
+    console.warn("Could not determine location from URL. Path is: " + urlPath);
     return;
   }
 
-  // 2. Fetch the JSON data
-  // Using path starting with '/' ensures it works from subfolders
-   const jsonPath = `data/${jsonFile}-data.json`;
+  // 2. Fetch the JSON data using relative paths for GitHub Pages
+  const jsonPath = `data/${jsonFile}-data.json`;
 
   fetch(jsonPath)
     .then(response => {
@@ -68,10 +68,11 @@ function initDynamicGrid() {
       return response.json();
     })
     .then(data => {
+      // 3. Generate HTML
       const cardsHtml = data.map(prop => `
         <article class="property-card">
           <div class="property-image-container">
-             <img src="/${prop.image}" alt="${prop.title}" loading="lazy" 
+             <img src="${prop.image}" alt="${prop.title}" loading="lazy" 
                   onerror="this.src='https://via.placeholder.com'">
              <div class="property-overlay">
                 <h3 class="sharp-text">${prop.title}</h3>
@@ -82,7 +83,7 @@ function initDynamicGrid() {
              <p class="prop-detail">${prop.line2}</p>
              <p class="prop-detail">${prop.line3}</p>
              <div style="margin-top:15px;">
-               <a href="/${prop.link}" class="btn-small">View Details</a>
+               <a href="${prop.link}" class="btn-small">View Details</a>
              </div>
           </div>
         </article>
@@ -91,7 +92,7 @@ function initDynamicGrid() {
       gridContainer.innerHTML = cardsHtml;
     })
     .catch(err => {
-      gridContainer.innerHTML = `<p style="grid-column: 1/-1; text-align:center;">Currently updating opportunities. Please contact us for details.</p>`;
+      gridContainer.innerHTML = `<p style="grid-column: 1/-1; text-align:center; padding: 40px;">Currently updating opportunities. Please contact us for details.</p>`;
       console.warn("Dynamic grid skipped:", err.message);
     });
 }
@@ -125,11 +126,13 @@ function initHeader() {
   });
 
   // Mobile Menu Toggle
-  toggle?.addEventListener("click", () => {
-    const isVisible = mobileNav.style.display === "flex" || mobileNav.classList.contains("open");
-    mobileNav.style.display = isVisible ? "none" : "flex";
-    toggle.setAttribute("aria-expanded", String(!isVisible));
-  });
+  if (toggle && mobileNav) {
+    toggle.addEventListener("click", () => {
+      const isVisible = mobileNav.style.display === "flex" || mobileNav.classList.contains("open");
+      mobileNav.style.display = isVisible ? "none" : "flex";
+      toggle.setAttribute("aria-expanded", String(!isVisible));
+    });
+  }
 }
 
 // Initial Run
