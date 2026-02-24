@@ -235,8 +235,13 @@
 
 .service-card {
   position: relative;
-  height: 140px; 
-  width: 220px;  
+  /* Use aspect-ratio to match 600 (width) / 800 (height) */
+  aspect-ratio: 3 / 4; 
+  
+  /* Set a width that fits your grid; height will now calculate automatically */
+  width: 100%; 
+  max-width: 250px; 
+  
   border-radius: 6px;
   overflow: hidden;
   background-size: cover;
@@ -244,6 +249,7 @@
   background-repeat: no-repeat;
   transition: transform 0.3s ease;
 }
+
 
 .service-card:hover {
   transform: scale(1.04);
@@ -268,6 +274,7 @@
   margin: 0;
   font-size: 1rem;
 }
+
 
 /* Responsive Fix: If screen is small, stack cards in 1 or 2 columns */
 @media (max-width: 960px) {
