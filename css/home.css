@@ -257,15 +257,26 @@
   position: absolute;
   bottom: 0;
   width: 100%;
+  /* 40% height ensures the gradient only covers the bottom portion */
+  height: 40%; 
   padding: 12px;
+  display: flex;
+  align-items: flex-end; /* Keeps text at the bottom */
+  
+  /* GRADIENT: Dark grey at bottom (0%), fading to transparent at top (100%) */
+  background: linear-gradient(to top, rgba(30, 30, 30, 0.9) 0%, rgba(30, 30, 30, 0) 100%);
+  
   color: #fff;
-  }
+}
 
 .service-overlay h3 {
   margin: 0;
   font-size: 0.95rem;
   font-weight: 500;
+  /* Optional: keeps text crisp against any background */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
 }
+
 
 @media (max-width: 768px) {
   /* ... keep your existing breakout logic ... */
