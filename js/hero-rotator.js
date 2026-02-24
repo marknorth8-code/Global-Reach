@@ -2,8 +2,6 @@
   document.addEventListener("DOMContentLoaded", function () {
     const hero = document.querySelector(".intro-image");
     const caption = document.getElementById("image-caption");
-    
-    // Safety check: Exit if elements aren't found
     if (!hero || !caption) return;
 
     const slides = [
@@ -19,13 +17,31 @@
     let current = 0;
     let timer;
 
-    // Core Update Function
+    // 1. FAST VIEW: Preload ONLY the first image immediately
+    const firstImage = new Image();
+    firstImage.src = slides[0].url;
+    
+    // 2. BACKGROUND LOAD: Preload the rest only when the browser is idle
+    window.addEventListener('load', () => {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => preloadRemaining());
+      } else {
+        setTimeout(preloadRemaining, 2000); // Fallback for older browsers
+      }
+    });
+
+    function preloadRemaining() {
+      slides.slice(1).forEach(slide => {
+        const img = new Image();
+        img.src = slide.url;
+      });
+    }
+
     function updateHero() {
       hero.style.backgroundImage = `url(${slides[current].url})`;
       caption.textContent = slides[current].label;
     }
 
-    // Timer Controls
     const start = () => { if (!timer) timer = setInterval(rotate, 5000); };
     const stop = () => { clearInterval(timer); timer = null; };
     const rotate = () => {
@@ -33,19 +49,16 @@
       updateHero();
     };
 
-    // 1. Performance: Stop when scrolled out of view
     const observer = new IntersectionObserver(([entry]) => {
       entry.isIntersecting ? start() : stop();
     }, { threshold: 0.1 });
 
     observer.observe(hero);
 
-    // 2. Battery: Stop when tab is hidden
     document.addEventListener("visibilitychange", () => {
-      (document.hidden) ? stop() : start();
+      document.hidden ? stop() : start();
     });
 
-    // Set initial state
     updateHero();
   });
 })();
