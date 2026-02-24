@@ -26,6 +26,17 @@
   position: relative !important;
 }
 
+/* Increase bottom space ONLY in Section 5 to clear arrows */
+.offices-inner {
+  padding-bottom: 60px !important; 
+}
+
+/* If the arrows are absolute, give them a specific offset from the bottom line */
+.offices-inner .carousel-arrows { 
+  bottom: 40px !important; 
+}
+
+
 /* FIX: Ensure Section 1 Hero has NO grey overlay */
 .intro-image::after {
   display: none !important;
