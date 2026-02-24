@@ -5,13 +5,13 @@
     if (!hero || !caption) return;
 
     const slides = [
-      { url: "images/home/hero-01.webp", label: "Brazil - Bahia State" },
-      { url: "images/home/hero-02.webp", label: "Japan - Tokyo Central" },
-      { url: "images/home/hero-03.webp", label: "New Zealand - Auckland" },
-      { url: "images/home/hero-04.webp", label: "UK - East Midlands" },
-      { url: "images/home/hero-05.webp", label: "Strategic Development Site" },
-      { url: "images/home/hero-06.webp", label: "Asset Management Portfolio" },
-      { url: "images/home/hero-07.webp", label: "Commercial Acquisition" }
+      { url: "images/home/hero-01.webp", label: "Bahia - infrastructure appreciation?" },
+      { url: "images/home/hero-02.webp", label: "Auckland - new build" },
+      { url: "images/home/hero-03.webp", label: "Bahia - 750ha coastal farm" },
+      { url: "images/home/hero-04.webp", label: "Bahia - islands" },
+      { url: "images/home/hero-05.webp", label: "Jpan - 'Akiya' mountain house" },
+      { url: "images/home/hero-06.webp", label: "Auckland - development site" },
+      { url: "images/home/hero-07.webp", label: "UK - change of use opportunity?" }
     ];
 
     let current = 0;
