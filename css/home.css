@@ -209,50 +209,54 @@
 
 /* --- SECTION 4: SERVICES --- */
 
+/* --- SECTION 4: SERVICES --- */
+
 .services {
   padding: 60px 0;
-  display: flex;
-  flex-direction: column; /* Force vertical stack: Text on top, Grid below */
-  align-items: left;    /* Center the content */
+  /* Remove flex-direction from here if you are using a container div */
+}
+
+/* Use your global container class to handle the indentation/margins */
+.services-inner {
+  max-width: 1200px; /* Adjust to match your other section widths */
+  margin: 0 auto;
+  padding: 0 20px;   /* Standard side padding for mobile/desktop */
 }
 
 .services .intro-text {
-  max-width: 800px;       /* Keeps text readable */
-  text-align: left;     
-  margin-bottom: 40px;    /* Gap between text and cards */
+  text-align: left;  /* Change to 'center' if you prefer it centered within the margins */
+  margin-bottom: 40px;
 }
 
 .services-grid {
   display: grid;
-  /* Use 'auto-fit' instead of fixed '4' for better responsiveness */
+  /* Keeps your 4-column layout */
   grid-template-columns: repeat(auto-fit, 220px); 
-  gap: 20px;
-  justify-content: center;
-  width: 100%;
+  gap: 30px;
+  justify-content: flex-start; /* Aligns grid to the left with the text */
 }
 
 .service-card {
   position: relative;
-  /* Use aspect-ratio to match 600 (width) / 800 (height) */
-  aspect-ratio: 3 / 4; 
-  
-  /* Set a width that fits your grid; height will now calculate automatically */
-  width: 100%; 
-  max-width: 175px; 
-  
+  height: 293px; /* Based on 220px width at 3:4 ratio */
+  width: 220px;
   border-radius: 6px;
   overflow: hidden;
-  background-size: cover;
+  
+  /* BORDER & SCALING */
+  border: 2px solid #000000;      /* Black border */
+  background-size: contain;       /* Shows the FULL image, scaled down */
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #f9f9f9;     /* Fallback color if image is loading */
+  
   transition: transform 0.3s ease;
-   background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0));
 }
-
 
 .service-card:hover {
-  transform: scale(1.04);
+  transform: translateY(-5px);    /* Lift effect instead of scale to keep border crisp */
 }
+
 
 .service-overlay {
   position: absolute;
