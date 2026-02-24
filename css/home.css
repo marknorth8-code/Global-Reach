@@ -56,25 +56,31 @@
 }
 
 @media (max-width: 768px) {
-  /* ... existing mobile code ... */
-
+  /* Fix: Correctly forces the image to bleed to edges without disappearing */
   .intro-image {
-    width: 100vw !important;      /* Set width to 100% of the viewport */
-    max-width: 100vw !important;  
-    margin-left: -24px;           /* Pulls it left to cancel the container padding */
-    margin-right: -24px;          /* Pulls it right to cancel the container padding */
-    border-radius: 0 !important;  /* Optional: Remove rounded corners for full-bleed look */
-    height: 350px !important;     /* Adjust height as needed for mobile */
+    display: block !important;
+    position: relative !important;
+    
+    /* Calculate width to be 100% plus the padding of the parent (24px + 24px) */
+    width: calc(100% + 48px) !important; 
+    margin-left: -24px !important;  /* Pulls it exactly to the left edge */
+    
+    height: 300px !important;       /* Ensure there is a fixed height so it's visible */
+    min-height: 300px !important;
+    
+    background-size: cover !important;
+    background-position: center !important;
+    border-radius: 0 !important;    /* Square edges look better for full-bleed images */
   }
 
+  /* Adjust labels so they don't touch the very edge of the screen */
   .image-caption {
-    right: 24px;                  /* Adjust caption so it doesn't touch the screen edge */
+    right: 34px !important; 
   }
-
+  
   .permanent-label {
-    left: 24px;                   /* Adjust label so it stays aligned with your text */
+    left: 24px !important;
   }
-
 }
 
 
