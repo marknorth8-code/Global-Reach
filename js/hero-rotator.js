@@ -9,7 +9,7 @@
       { url: "images/home/hero-02.webp", label: "Auckland - new build" },
       { url: "images/home/hero-03.webp", label: "Bahia - 750ha coastal farm" },
       { url: "images/home/hero-04.webp", label: "Bahia - islands" },
-      { url: "images/home/hero-05.webp", label: "Jpan - 'Akiya' mountain house" },
+      { url: "images/home/hero-05.webp", label: "Japan - 'Akiya' mountain house" },
       { url: "images/home/hero-06.webp", label: "Auckland - development site" },
       { url: "images/home/hero-07.webp", label: "UK - change of use opportunity?" }
     ];
