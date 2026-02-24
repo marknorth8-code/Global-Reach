@@ -213,14 +213,12 @@
   padding: 60px 0;
   display: flex;
   flex-direction: column; /* Force vertical stack: Text on top, Grid below */
-  align-items: center;    /* Center the content */
-  width: 100%;
+  align-items: left;    /* Center the content */
 }
 
 .services .intro-text {
-  width: 100%;
   max-width: 800px;       /* Keeps text readable */
-  text-align: center;     
+  text-align: left;     
   margin-bottom: 40px;    /* Gap between text and cards */
 }
 
@@ -240,7 +238,7 @@
   
   /* Set a width that fits your grid; height will now calculate automatically */
   width: 100%; 
-  max-width: 250px; 
+  max-width: 175px; 
   
   border-radius: 6px;
   overflow: hidden;
@@ -335,6 +333,4 @@
 @media (max-width: 600px) {
   .strategy-cards { grid-template-columns: 1fr !important; }
 }
-.services {
-  background: red !important;
-}
+
