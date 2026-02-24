@@ -209,14 +209,12 @@
 
 
 /* --- SECTION 4: SERVICES --- */
-/* --- SECTION 4: SERVICES --- */
 
 .services {
   padding: 60px 0;
   display: block; /* Ensure it's a standard block for alignment */
 }
 
-/* This creates the 'indent' to match your other .container sections */
 .services-inner {
   max-width: 1200px; /* Adjust this to match your site's global container width */
   margin: 0 auto;
@@ -230,7 +228,6 @@
 
 .services-grid {
   display: grid;
-  /* Keeps the 4-column layout you have */
   grid-template-columns: repeat(auto-fit, 220px); 
   gap: 20px;
   justify-content: flex-start; /* Aligns the grid left with the text */
@@ -238,8 +235,8 @@
 
 .service-card {
   position: relative;
-  width: 220px;
-  height: 293px; /* Exact 3:4 ratio for a 220px width */
+  width: 175px;
+  height: auto; 
   border-radius: 4px;
   overflow: hidden;
   
@@ -262,8 +259,7 @@
   width: 100%;
   padding: 12px;
   color: #fff;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
-}
+  }
 
 .service-overlay h3 {
   margin: 0;
