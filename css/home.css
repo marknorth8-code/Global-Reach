@@ -207,32 +207,41 @@
   }
 }
 
-/* --- SECTION 4: SERVICES GRID --- */
+/* --- SECTION 4: SERVICES --- */
 
 .services {
   padding: 60px 0;
   display: flex;
-  justify-content: center; /* centers smaller grid */
+  flex-direction: column; /* Force vertical stack: Text on top, Grid below */
+  align-items: center;    /* Center the content */
+  width: 100%;
+}
+
+.services .intro-text {
+  width: 100%;
+  max-width: 800px;       /* Keeps text readable */
+  text-align: center;     
+  margin-bottom: 40px;    /* Gap between text and cards */
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 220px); /* fixed smaller width */
+  /* Use 'auto-fit' instead of fixed '4' for better responsiveness */
+  grid-template-columns: repeat(auto-fit, 220px); 
   gap: 20px;
   justify-content: center;
+  width: 100%;
 }
 
 .service-card {
   position: relative;
-  height: 140px; /* smaller height */
-  width: 220px;  /* fixed width */
+  height: 140px; 
+  width: 220px;  
   border-radius: 6px;
   overflow: hidden;
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   transition: transform 0.3s ease;
 }
 
@@ -243,10 +252,10 @@
 .service-overlay {
   position: absolute;
   bottom: 0;
+  left: 0;                /* Ensure overlay covers full width */
   width: 100%;
   padding: 16px;
   color: #fff;
-
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.65) 0%,
@@ -259,6 +268,18 @@
   margin: 0;
   font-size: 1rem;
 }
+
+/* Responsive Fix: If screen is small, stack cards in 1 or 2 columns */
+@media (max-width: 960px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    max-width: 500px; /* Limits to 2 columns on tablets */
+  }
+  .service-card {
+    width: 100%; /* Allows cards to fill the grid space */
+  }
+}
+
 
 /* ========================================
    RESPONSIVE OVERRIDES
