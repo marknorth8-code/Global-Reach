@@ -249,9 +249,31 @@ a:hover { text-decoration: underline; }
 /* =========================================================
    6. FOOTER
    ========================================================= */
-.site-footer { border-top: 1px solid #e5e5e5; padding: 40px 0; font-size: 0.85rem; }
-.footer-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.site-footer { 
+  /* Removed grey border: border-top: 1px solid #e5e5e5; */
+  padding: 40px 0; 
+  font-size: 0.85rem; 
+}
+
+.footer-inner { 
+  display: flex; 
+  justify-content: space-between; 
+  gap: 24px; 
+  flex-wrap: wrap; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 24px; 
+}
+
 .footer-right { text-align: right; }
 .footer-right a { display: block; text-decoration: underline; margin-bottom: 8px; color: #5f6368; }
+
+/* The Black Divider (Matches Header) */
+.section-divider:last-of-type {
+  border-top: 1px solid #000000 !important;
+  opacity: 1 !important;
+  max-width: 100% !important; /* Edge-to-edge like header */
+  margin: 0 !important;       /* Removes any gaps */
+}
 
 @media (max-width: 600px) { .footer-right { text-align: left; } }
