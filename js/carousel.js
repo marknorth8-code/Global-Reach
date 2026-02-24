@@ -53,7 +53,7 @@
     }, 100);
 
     if (nextBtn) nextBtn.addEventListener('click', goNext);
-    if (prevBtn) prevBtn.addEventListener('click', prevBtn.onclick = goPrev);
+    if (prevBtn) prevBtn.addEventListener('click', goPrev);
     
     window.addEventListener('resize', handleResize);
     window.addEventListener('load', handleResize);
