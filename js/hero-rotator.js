@@ -1,7 +1,9 @@
 (function () {
   document.addEventListener("DOMContentLoaded", function () {
     const hero = document.querySelector(".intro-image");
-    const caption = document.getElementById("image-caption"); // Selects the caption span
+    const caption = document.getElementById("image-caption");
+    
+    // Safety check: Exit if elements aren't found
     if (!hero || !caption) return;
 
     const slides = [
@@ -15,19 +17,35 @@
     ];
 
     let current = 0;
+    let timer;
 
-    // Function to update both image and text
+    // Core Update Function
     function updateHero() {
       hero.style.backgroundImage = `url(${slides[current].url})`;
       caption.textContent = slides[current].label;
     }
 
-    // Set initial state
-    updateHero();
-
-    setInterval(function () {
+    // Timer Controls
+    const start = () => { if (!timer) timer = setInterval(rotate, 5000); };
+    const stop = () => { clearInterval(timer); timer = null; };
+    const rotate = () => {
       current = (current + 1) % slides.length;
       updateHero();
-    }, 5000); // change every 5 seconds
+    };
+
+    // 1. Performance: Stop when scrolled out of view
+    const observer = new IntersectionObserver(([entry]) => {
+      entry.isIntersecting ? start() : stop();
+    }, { threshold: 0.1 });
+
+    observer.observe(hero);
+
+    // 2. Battery: Stop when tab is hidden
+    document.addEventListener("visibilitychange", () => {
+      (document.hidden) ? stop() : start();
+    });
+
+    // Set initial state
+    updateHero();
   });
 })();
