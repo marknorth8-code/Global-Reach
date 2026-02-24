@@ -207,77 +207,69 @@
   }
 }
 
-/* --- SECTION 4: SERVICES --- */
 
+/* --- SECTION 4: SERVICES --- */
 /* --- SECTION 4: SERVICES --- */
 
 .services {
   padding: 60px 0;
-  /* Remove flex-direction from here if you are using a container div */
+  display: block; /* Ensure it's a standard block for alignment */
 }
 
-/* Use your global container class to handle the indentation/margins */
+/* This creates the 'indent' to match your other .container sections */
 .services-inner {
-  max-width: 1200px; /* Adjust to match your other section widths */
+  max-width: 1200px; /* Adjust this to match your site's global container width */
   margin: 0 auto;
-  padding: 0 20px;   /* Standard side padding for mobile/desktop */
+  padding: 0 20px;
 }
 
 .services .intro-text {
-  text-align: left;  /* Change to 'center' if you prefer it centered within the margins */
+  text-align: left;
   margin-bottom: 40px;
 }
 
 .services-grid {
   display: grid;
-  /* Keeps your 4-column layout */
+  /* Keeps the 4-column layout you have */
   grid-template-columns: repeat(auto-fit, 220px); 
-  gap: 30px;
-  justify-content: flex-start; /* Aligns grid to the left with the text */
+  gap: 20px;
+  justify-content: flex-start; /* Aligns the grid left with the text */
 }
 
 .service-card {
   position: relative;
-  height: 293px; /* Based on 220px width at 3:4 ratio */
   width: 220px;
-  border-radius: 6px;
+  height: 293px; /* Exact 3:4 ratio for a 220px width */
+  border-radius: 4px;
   overflow: hidden;
   
   /* BORDER & SCALING */
-  border: 2px solid #000000;      /* Black border */
-  background-size: contain;       /* Shows the FULL image, scaled down */
+  border: 2px solid #000000;
+  background-size: 100% 100%; /* Scales the 600x800 image to fit exactly */
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #f9f9f9;     /* Fallback color if image is loading */
   
   transition: transform 0.3s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-5px);    /* Lift effect instead of scale to keep border crisp */
+  transform: translateY(-5px);
 }
-
 
 .service-overlay {
   position: absolute;
   bottom: 0;
-  left: 0;                /* Ensure overlay covers full width */
   width: 100%;
-  padding: 16px;
+  padding: 12px;
   color: #fff;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.65) 0%,
-    rgba(0, 0, 0, 0.4) 40%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
 }
 
 .service-overlay h3 {
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
 }
-
 
 
 /* Responsive Fix: If screen is small, stack cards in 1 or 2 columns */
