@@ -247,12 +247,25 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   6. FOOTER
+   6. FOOTER & BLACK DIVIDER
    ========================================================= */
+
+/* The Black Divider (Matches Header Symmetry) */
+.footer-divider-black {
+  border: 0 !important;
+  border-top: 1px solid #000000 !important;
+  height: 1px !important;
+  width: 100% !important;
+  max-width: 100% !important; /* Full width edge-to-edge */
+  margin: 0 !important;
+  display: block !important;
+  opacity: 1 !important;
+}
+
 .site-footer { 
-  /* Removed grey border: border-top: 1px solid #e5e5e5; */
   padding: 40px 0; 
   font-size: 0.85rem; 
+  border-top: none !important; /* Ensures no double lines */
 }
 
 .footer-inner { 
@@ -268,19 +281,6 @@ a:hover { text-decoration: underline; }
 .footer-right { text-align: right; }
 .footer-right a { display: block; text-decoration: underline; margin-bottom: 8px; color: #5f6368; }
 
-/* --- THE FOOTER DIVIDER (BLACK & EDGE-TO-EDGE) --- */
-hr.section-divider:last-of-type {
-  border: 0 !important;
-  border-top: 1px solid #000 !important;
-  height: 1px !important;
-  max-width: 100% !important; /* Forces it to match the header width */
-  width: 100% !important;
-  margin: 0 !important;
-  display: block !important;
-  opacity: 1 !important;
+@media (max-width: 600px) { 
+  .footer-right { text-align: left; } 
 }
-
-
-
-
-@media (max-width: 600px) { .footer-right { text-align: left; } }
