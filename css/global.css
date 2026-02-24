@@ -268,26 +268,18 @@ a:hover { text-decoration: underline; }
 .footer-right { text-align: right; }
 .footer-right a { display: block; text-decoration: underline; margin-bottom: 8px; color: #5f6368; }
 
-/* Specifically target the divider that comes right before the footer */
-hr.section-divider + .site-footer,
-.services + hr.section-divider {
+/* --- THE FOOTER DIVIDER (BLACK & EDGE-TO-EDGE) --- */
+hr.section-divider:last-of-type {
+  border: 0 !important;
   border-top: 1px solid #000000 !important;
-  opacity: 1 !important;
-  max-width: 100% !important;
+  height: 1px !important;
+  max-width: 100% !important; /* Forces it to match the header width */
+  width: 100% !important;
   margin: 0 !important;
   display: block !important;
+  opacity: 1 !important;
 }
 
-/* Fallback: Direct selector to ensure it has height */
-hr.section-divider:last-of-type {
-  border: 0;
-  border-top: 1px solid #000000 !important;
-  height: 1px;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  max-width: 100% !important;
-}
 
 
 @media (max-width: 600px) { .footer-right { text-align: left; } }
