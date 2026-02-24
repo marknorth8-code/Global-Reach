@@ -3,91 +3,166 @@
 <head>
   <meta charset="utf-8">
   <title>Brazil | Global Reach</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Brazil property investment and development experts delivering overseas acquisition, value-add strategy and project management services.">
-   <link rel="canonical" href="https://marknorth8-code.github.io/Global-Reach/">
-
-  <!-- Global CSS only -->
+  
+  <!-- Global CSS -->
   <link rel="stylesheet" href="css/global.css">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" href="/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-</head>
+  
+  <style>
+    /* --- 1. HERO SECTION --- */
+    .location-hero {
+      position: relative;
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+      background: #333;
+    }
 
+    .location-hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .hero-overlay h1 {
+      color: #fff;
+      font-size: 3.5rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      margin: 0;
+    }
+
+    /* --- 2. INTRO SPLIT --- */
+    .page-section { padding: 60px 0; }
+    
+    .intro-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    /* --- 3. THE GRID FIX (STRICT 2-COLUMN) --- */
+    /* Using ID #opportunities-grid to override global.css styles */
+    #opportunities-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important; /* FORCES 2 COLUMNS ON DESKTOP */
+      gap: 30px !important;
+      margin-top: 30px !important;
+      width: 100% !important;
+      max-width: 1200px;
+    }
+
+    /* --- 4. THE CARD & IMAGE FIX (UNIFORM SIZES) --- */
+    #opportunities-grid .property-card {
+      display: flex !important;
+      flex-direction: column !important;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    /* FORCES ALL IMAGES TO BE IDENTICAL IN HEIGHT AND WIDTH */
+    #opportunities-grid .property-image-container {
+      width: 100% !important;
+      height: 280px !important; /* FIXED HEIGHT FOR ALL IMAGES */
+      overflow: hidden !important;
+      position: relative;
+      background: #f4f4f4;
+    }
+
+    #opportunities-grid .property-image-container img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important; /* CROPS ANY IMAGE TO FIT THE 280px BOX */
+      display: block !important;
+    }
+
+    #opportunities-grid .property-info { 
+      padding: 20px; 
+    }
+
+    #opportunities-grid .property-info p { 
+      max-width: 100% !important; 
+      margin-bottom: 8px; 
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    /* --- 5. RESPONSIVE (MOBILE VIEW) --- */
+    @media (max-width: 850px) {
+      #opportunities-grid {
+        grid-template-columns: 1fr !important; /* STACKS TO 1 COLUMN ON MOBILE */
+      }
+      .intro-split { 
+        grid-template-columns: 1fr; 
+      }
+      .hero-overlay h1 { 
+        font-size: 2.5rem; 
+      }
+      .location-hero { 
+        height: 250px; 
+      }
+    }
+  </style>
+</head>
 <body>
 
-  <!-- HEADER (INCLUDED) -->
- <div id="header"></div>
+  <!-- Header Injected by include.js -->
+  <div id="header"></div>
 
-  <!-- MAIN -->
   <main>
+    <!-- HERO SECTION -->
+    <section class="location-hero">
+      <img src="images/locations/br/hero.webp" alt="Brazil Property Development" class="location-hero-image">
+      <div class="hero-overlay">
+        <h1>Bahia, Brazil</h1>
+      </div>
+    </section>
 
-    
-    <!-- ================= SECTION 1: HERO ================= -->
-<!-- Forced constrained hero -->
-<section style="position: relative; width: 100%; height: 350px; overflow: hidden; display: block;">
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
-    <img src="images/locations/br/hero.webp" 
-         alt="Brazil property development skyline" 
-         width="1920" 
-         height="640" 
-         loading="eager"
-         style="width: 100%; height: 100%; object-fit: cover; display: block;">
-  </div>
-  <div class="container" style="position: relative; z-index: 2; height: 100%; display: flex; align-items: center; justify-content: center;">
-    <h1 style="color: white; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.5);"></h1>
-  </div>
-</section>
+    <!-- INTRO SECTION -->
+    <section class="page-section">
+      <div class="container intro-split">
+        <div class="intro-text">
+          <h2>Why this market</h2>
+          <p>The team is based in Bahia where we are keenly anticipating the Salvador-Itaparica Bridge project. This is expected to be transformative, reducing travel times across the bay to 15 minutes and opening up kilometres of cheap land for development.</p>
+          <p>We actively seek investment options; however, we recommend discussing with us for the latest opportunities as availability changes rapidly.</p>
+        </div>
+        <div class="intro-image">
+           <img src="images/locations/br/market-intro.webp" alt="Bahia Market Development" style="width:100%; border-radius:8px;">
+        </div>
+      </div>
+    </section>
 
-  <!-- Heading stays in container to align with the rest of the site content -->
-  <div class="container">
-    <h1>Bahia, Brazil</h1>
-  </div>
+    <!-- PROPERTY GRID SECTION -->
+    <section class="page-section" style="background: #f9f9f9;">
+      <div class="container">
+        <h2 style="margin-bottom: 10px;">Current Opportunities</h2>
+        <div id="opportunities-grid" class="property-grid">
+           <!-- include.js injects the 12 property cards here -->
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <!-- Footer Injected by include.js -->
+  <div id="footer"></div>
 
-
-<!-- ================= SECTION 2: INTRO TEXT (MATCHING HOME PAGE) ================= -->
-<section class="page-section">
-  <div class="container intro-split">
-    <!-- Left Side: Text -->
-    <div class="intro-text">
-      <h2>Why this market</h2>
-      <p>
-        The team is based in Bahia where we are keenly anticipating the Salvador-Itaparica Bridge project. This is expected to be transformative, reducing travel times across the bay to 15 minutes and opening up kilometres of cheap land for development. The region's popular tourism sector will also benefit.
-      </p>
-      <p>
-        We actively seek good investment options but we do not have the instructions to sell the properties below. Therefore we do not guaranteee these are still available and would recommend discussing with us for the latest opportunities;  
-      </p>
-    </div>
-
-
-  </div>
-</section>
-
-
-<!-- ================= SECTION 3: DYNAMIC PROPERTY GRID ================= -->
-<section class="page-section">
-  <div class="container">
-    <div id="dynamic-grid-header">
-       <!-- JSON will inject your "Current Opportunities" title here -->
-    </div>
-    <div id="opportunities-grid" class="property-grid">
-       <!-- JSON will inject your 12 photos here -->
-    </div>
-  </div>
-</section>
-
-
-   </main>
-
-  <!-- FOOTER (INCLUDED) -->
-<div id="footer"></div>
-
-  <!-- Includes -->
+  <!-- Include Script -->
   <script src="js/include.js"></script>
-  
 
 </body>
 </html>
+
