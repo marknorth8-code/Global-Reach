@@ -307,3 +307,6 @@
 @media (max-width: 600px) {
   .strategy-cards { grid-template-columns: 1fr !important; }
 }
+.services {
+  background: red !important;
+}
