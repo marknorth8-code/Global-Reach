@@ -55,35 +55,6 @@
   text-transform: uppercase;
 }
 
-@media (max-width: 768px) {
-  /* Fix: Correctly forces the image to bleed to edges without disappearing */
-  .intro-image {
-    display: block !important;
-    position: relative !important;
-    
-    /* Calculate width to be 100% plus the padding of the parent (24px + 24px) */
-    width: calc(100% + 48px) !important; 
-    margin-left: -24px !important;  /* Pulls it exactly to the left edge */
-    
-    height: 300px !important;       /* Ensure there is a fixed height so it's visible */
-    min-height: 300px !important;
-    
-    background-size: cover !important;
-    background-position: center !important;
-    border-radius: 0 !important;    /* Square edges look better for full-bleed images */
-  }
-
-  /* Adjust labels so they don't touch the very edge of the screen */
-  .image-caption {
-    right: 34px !important; 
-  }
-  
-  .permanent-label {
-    left: 24px !important;
-  }
-}
-
-
 /* --- SECTION 2: STRATEGY --- */
 .aligned-arrow {
   display: inline-block;
@@ -120,9 +91,8 @@
   align-items: flex-end;
 }
 
-/* --- GLOBAL MONOCHROME OVERLAY (Applied to Strategy & Services) --- */
-.strategy-card::after,
-.service-card::after {
+/* --- GLOBAL MONOCHROME OVERLAY (Applied to Strategy Only) --- */
+.strategy-card::after {
   content: "";
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
@@ -132,8 +102,7 @@
   z-index: 1;
 }
 
-.strategy-card:hover::after,
-.service-card:hover::after {
+.strategy-card:hover::after {
   opacity: 0;
   backdrop-filter: grayscale(0%) brightness(1); 
 }
@@ -154,7 +123,7 @@
 /* --- PARTNERSHIP SECTION 3 --- */
 .partnership-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Exact split like the image */
+  grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
 }
@@ -165,38 +134,15 @@
   display: block;
 }
 
-.partnership-text {
-  max-width: 500px;
-}
-
-.sub-label {
-  font-size: 14px;
-  color: #666;
-}
-
-.red-line {
-  width: 40px;
-  border: 0;
-  border-top: 3px solid #E10600; /* Matches your red arrow color */
-  margin: 10px 0 30px 0;
-}
-
 .partnership-quote {
   font-family: Georgia, serif;
-  font-size: 42px; /* Large impact font */
+  font-size: 42px; 
   line-height: 1.1;
-  color: #000033; /* Dark navy like the image */
+  color: #000033;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.quote-author {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 40px;
-}
-
-/* Dark Navy Button */
 .story-btn {
   display: inline-block;
   background: #000033;
@@ -207,40 +153,12 @@
   transition: background 0.3s ease;
 }
 
-.story-btn:hover {
-  background: #E10600;
-  text-decoration: none;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 900px) {
-  .partnership-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .partnership-quote {
-    font-size: 32px;
-  }
-}
-
+.story-btn:hover { background: #E10600; }
 
 /* --- SECTION 4: SERVICES --- */
-
-.services {
-  padding: 60px 0;
-  display: block;
-}
-
-.services-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.services .intro-text {
-  text-align: left;
-  margin-bottom: 40px;
-}
+.services { padding: 60px 0; display: block; }
+.services-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.services .intro-text { text-align: left; margin-bottom: 40px; }
 
 .services-grid {
   display: grid;
@@ -252,45 +170,32 @@
 .service-card {
   position: relative;
   width: 175px;
-  height: 233px; /* Fixed 3:4 ratio height for 175px width */
+  height: 233px; 
   border-radius: 4px;
   overflow: hidden;
   border: 2px solid #000000;
-  
-  /* Image Scaling */
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
-  
-  /* Remove any ghost filters from other sections */
   filter: none !important;
   transition: transform 0.3s ease;
 }
 
-/* Ensure no full-height grey overlay exists on these cards */
-.service-card::after {
-  content: none !important;
-  display: none !important;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-}
+.service-card::after { display: none !important; content: none !important; }
+.service-card:hover { transform: translateY(-5px); }
 
 .service-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 60%; /* Only covers the bottom 40% */
+  height: 60%;
   padding: 12px;
   display: flex;
-  align-items: flex-end; /* Pins text to the bottom */
-  
-  /* Smooth black-to-transparent gradient */
+  align-items: flex-end;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0) 100%);
-  
-  pointer-events: none; /* Allows clicks to pass through to the card */
+  color: #fff;
+  pointer-events: none;
 }
 
 .service-overlay h3 {
@@ -301,58 +206,45 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .services-grid {
-    display: flex !important;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 15px;
-    padding: 0 0 20px 0;
-    width: 100%;
-  }
-
-  .service-card {
-    flex: 0 0 220px; /* Slightly larger on mobile */
-    height: 293px;   /* Maintaining 3:4 ratio */
-    scroll-snap-align: center;
-  }
-}
-
-
-
-@media (max-width: 768px) {
-  /* ... keep your existing breakout logic ... */
-
-  .services-grid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 15px; /* Space between cards */
-    padding: 0 20px 20px 20px;
-    width: 100vw;
-    margin-left: -20px; /* Aligns with screen edge */
-  }
-
-  .service-card {
-    flex: 0 0 260px; /* Fixed width for mobile cards */
-    height: 346px;   /* Maintains 3:4 ratio for 260px width */
-    scroll-snap-align: center;
-  }
-}
-
 /* ========================================
-   RESPONSIVE OVERRIDES
+   UNIFIED RESPONSIVE OVERRIDES
    ======================================== */
 
 @media (max-width: 992px) {
   .strategy-grid { grid-template-columns: 1fr; gap: 40px; }
 }
 
+@media (max-width: 900px) {
+  .partnership-grid { grid-template-columns: 1fr; gap: 40px; }
+  .partnership-quote { font-size: 32px; }
+}
+
 @media (max-width: 768px) {
-  /* Section 1 & 5 Layout */
-  .intro-images-container, .offices-inner { flex-direction: column !important; gap: 30px !important; }
-  .intro-image, .offices-media { flex: 0 0 100% !important; width: 100% !important; max-width: 100% !important; height: 300px !important; }
+  /* Layout: Vertical Stacking */
+  .intro-images-container, .offices-inner { 
+    flex-direction: column !important; 
+    gap: 30px !important; 
+    padding: 0 24px 60px 24px !important;
+    display: flex !important;
+  }
+
+  /* Section 1 Hero: Full-Bleed Edge to Edge */
+  .intro-image {
+    display: block !important;
+    position: relative !important;
+    flex: none !important; 
+    width: calc(100% + 48px) !important; 
+    margin-left: -24px !important;
+    height: 320px !important;
+    min-height: 320px !important;
+    border-radius: 0 !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  /* Adjust labels for full-bleed hero */
+  .image-caption { right: 34px !important; }
+  .permanent-label { left: 24px !important; }
 
   /* Section 4: Services Mobile Carousel */
   .services-grid {
@@ -365,13 +257,22 @@
     position: relative;
     left: 50%; right: 50%;
     margin-left: -50vw; margin-right: -50vw;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+    -webkit-overflow-scrolling: touch;
   }
 
   .service-card {
-    flex: 0 0 260px !important; /* Fixed width for swipeable cards */
-    height: 346px !important;   /* Matches 3:4 ratio */
+    flex: 0 0 260px !important;
+    height: 346px !important;
     scroll-snap-align: center;
+    border: 2px solid #000 !important;
+  }
+
+  /* Section 5: Offices Media */
+  .offices-media {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 300px !important;
   }
 }
 
