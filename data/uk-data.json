@@ -42,5 +42,20 @@
     "status": "Sold",
 
     "link": "articles/uk-insight-003.html"
+  },
+
+    {
+    "title": "Current opportunities, Midlands, UK",
+    "summary": "Contemporary two-bedroom apartment in central Market Harborough with strong rental demand.",
+    "date": "25 February 2026",
+    "image": "images/locations/uk/uk-04.webp",
+
+    "price": 295000,
+    "size": 91,
+    "location": "UK",
+    "subLocation": "Market Harborough",
+    "status": "Sold",
+
+    "link": "articles/uk-insight-003.html"
   }
 ]
