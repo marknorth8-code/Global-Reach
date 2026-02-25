@@ -1,41 +1,46 @@
 [
   {
-    "id": 1,
-    "title": "Victorian Townhouse – Market Harborough",
+    "title": "Current opportunities, Midlands, UK",
+    "summary": "Elegant five-bedroom Victorian townhouse within walking distance of the town centre.",
+    "date": "25 February 2026",
+    "image": "images/locations/uk/uk-01.webp",
+
     "price": 685000,
-    "currency": "GBP",
-    "location": "Market Harborough",
-    "bedrooms": 5,
-    "bathrooms": 3,
-    "size_sqft": 2450,
-    "status": "Available",
-    "type": "Residential",
-    "description": "Elegant five-bedroom Victorian townhouse within walking distance of Market Harborough town centre. Renovated throughout with period features and modern finishes."
+    "size": 227,
+    "location": "UK",
+    "subLocation": "Market Harborough",
+    "status": "For Sale",
+
+    "link": "articles/uk-insight-001.html"
   },
+
   {
-    "id": 2,
-    "title": "Modern Family Home – Little Bowden",
+    "title": "Current opportunities, Midlands, UK",
+    "summary": "Spacious four-bedroom detached home in the sought-after Little Bowden area.",
+    "date": "25 February 2026",
+    "image": "images/locations/uk/uk-02.webp",
+
     "price": 525000,
-    "currency": "GBP",
-    "location": "Market Harborough",
-    "bedrooms": 4,
-    "bathrooms": 2,
-    "size_sqft": 1850,
+    "size": 172,
+    "location": "UK",
+    "subLocation": "Market Harborough",
     "status": "Under Offer",
-    "type": "Residential",
-    "description": "Spacious four-bedroom detached home in the sought-after Little Bowden area. Open-plan kitchen, private garden, and double garage."
+
+    "link": "articles/uk-insight-002.html"
   },
+
   {
-    "id": 3,
-    "title": "Town Centre Investment Apartment",
+    "title": "Current opportunities, Midlands, UK",
+    "summary": "Contemporary two-bedroom apartment in central Market Harborough with strong rental demand.",
+    "date": "25 February 2026",
+    "image": "images/locations/uk/uk-03.webp",
+
     "price": 295000,
-    "currency": "GBP",
-    "location": "Market Harborough",
-    "bedrooms": 2,
-    "bathrooms": 2,
-    "size_sqft": 980,
+    "size": 91,
+    "location": "UK",
+    "subLocation": "Market Harborough",
     "status": "Sold",
-    "type": "Investment",
-    "description": "Contemporary two-bedroom apartment in central Market Harborough. Strong rental demand and long-term tenant in place."
+
+    "link": "articles/uk-insight-003.html"
   }
 ]
