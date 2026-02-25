@@ -42,5 +42,20 @@
     "status": "For Sale",
 
     "link": "articles/nz-insight-003.html"
+  },
+
+    {
+    "title": "Boutique Terrace Development Site, North Shore",
+    "summary": "Well-located infill development parcel suitable for premium terrace housing, benefiting from strong school zoning and infrastructure.",
+    "date": "25 February 2026",
+    "image": "images/locations/nz/nz-04.webp",
+
+    "price": 1780000,
+    "size": 640,
+    "location": "New Zealand",
+    "subLocation": "Auckland",
+    "status": "For Sale",
+
+    "link": "articles/nz-insight-003.html"
   }
 ]
