@@ -73,7 +73,7 @@ function initDynamicGrid() {
   <article class="property-card"
     data-price="${prop.price}"
     data-size="${prop.size}"
-    data-location="${prop.location}"
+    data-location="${prop.sublocation}"
     data-status="${prop.status}">
     
     <div class="property-image-container">
