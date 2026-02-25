@@ -130,21 +130,29 @@
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* --- SECTION 3: PARTNERSHIP --- */
+/* --- SECTION 3: PARTNERSHIP (Desktop Base) --- */
 .partnership-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px;
 }
 
 .partnership-image img {
   width: 100%;
   border-radius: 4px;
   display: block;
+  object-fit: cover;
 }
 
-.sub-label { font-size: 14px; color: #666; }
+.sub-label { 
+  font-size: 14px; 
+  color: #666; 
+  display: block;
+}
 
 .red-line {
   width: 40px;
@@ -162,7 +170,11 @@
   margin-bottom: 20px;
 }
 
-.quote-author { font-size: 16px; color: #555; margin-bottom: 40px; }
+.quote-author { 
+  font-size: 16px; 
+  color: #555; 
+  margin-bottom: 40px; 
+}
 
 .story-btn {
   display: inline-block;
@@ -174,7 +186,43 @@
   transition: background 0.3s ease;
 }
 
-.story-btn:hover { background: #E10600; text-decoration: none; }
+.story-btn:hover { 
+  background: #E10600; 
+  text-decoration: none; 
+}
+
+/* --- MOBILE OVERRIDES (768px and below) --- */
+@media (max-width: 768px) {
+  .partnership-grid {
+    display: block !important; /* Stack image and text */
+    padding: 0 !important;      /* Remove container padding to allow edge-to-edge */
+  }
+
+  .partnership-image {
+    /* calc(100% + 48px) covers the 24px padding on each side of the parent */
+    width: calc(100% + 48px) !important; 
+    margin-left: -24px !important;       
+    margin-right: -24px !important;      
+    margin-bottom: 30px;
+  }
+
+  .partnership-image img {
+    border-radius: 0 !important; /* Edge-to-edge looks better without curves */
+    width: 100%;
+    height: auto;
+  }
+
+  .partnership-text {
+    /* Add padding back to the text so it doesn't touch the screen edges */
+    padding: 0 24px 60px 24px !important; 
+    text-align: left;
+  }
+
+  .partnership-quote {
+    font-size: 32px !important; /* Scale down font for mobile */
+  }
+}
+
 
 /* --- SECTION 4: SERVICES --- */
 .services { padding: 60px 0; display: block; }
