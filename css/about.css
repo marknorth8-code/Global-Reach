@@ -128,30 +128,56 @@
 }
 
 /* =========================================================
-   RESPONSIVE (Unified)
+   RESPONSIVE (Unified & Cleaned)
    ========================================================= */
 
 @media (max-width: 900px) {
-  /* Hero & Work Sections */
+  /* 1. Reset Container for Stacking */
   .intro-images-container, 
   .about-work-inner {
     flex-direction: column !important;
     gap: 30px;
+    padding: 0 !important; /* Remove padding to allow image edge-to-edge */
   }
 
-  .about-hero-text, .about-hero-image, 
-  .about-work-text, .about-work-media {
-    flex: 0 0 100% !important;
+  /* 2. Text Content (Add padding back so text doesn't touch edges) */
+  .about-hero-text, 
+  .about-work-text {
+    flex: 0 0 auto !important;
     max-width: 100% !important;
-    min-height: 350px !important;
+    padding: 0 24px !important;
+    order: -1; /* Keeps text above image */
   }
 
-  /* Profile Section */
+  /* 3. Image & Carousel (Force Edge-to-Edge) */
+  .about-hero-image, 
+  .about-work-media {
+    flex: 0 0 auto !important;
+    width: 100vw !important;           /* Force full viewport width */
+    max-width: 100vw !important;
+    height: 320px !important;          /* Fixed height for visibility */
+    min-height: 320px !important;
+    border-radius: 0 !important;       /* Square edges for mobile */
+    margin: 0 !important;
+    
+    background-size: cover !important;
+    background-position: center !important;
+    display: block !important;
+  }
+
+  /* 4. Carousel Slide Fix (If using About Work Carousel) */
+  .about-work-media .carousel-slide img {
+    height: 320px !important;
+    border-radius: 0 !important;
+  }
+
+  /* 5. Profile Section Mobile */
   .profile-pair {
     flex-direction: column !important; 
     align-items: center;
     text-align: center;
     gap: 20px;
+    padding: 0 24px;
   }
 
   .profile-image, 
