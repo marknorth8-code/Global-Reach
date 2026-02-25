@@ -6,7 +6,8 @@
 function includeHTML() {
   const includes = [
     { id: "header", file: "partials/header.html" }, 
-    { id: "footer", file: "partials/footer.html" }
+    { id: "footer", file: "partials/footer.html" },
+    { id: "contact-form-container", file: "partials/contact-form.html" }
   ];
 
   const loadPromises = includes.map(item => {
