@@ -49,21 +49,50 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
-      align-items: center;
+      align-items: start;
     }
 
-    /* --- 3. THE GRID FIX (STRICT 2-COLUMN) --- */
-    /* Using ID #opportunities-grid to override global.css styles */
+    /* --- SEARCH BAR --- */
+    .property-search {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+      align-content: flex-start;
+    }
+
+    .property-search input,
+    .property-search select {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+
+    .property-search button {
+      padding: 8px 16px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .property-search button:hover {
+      background: #333;
+    }
+
+    /* --- PROPERTY GRID (FORCED 2 COLUMN) --- */
     #opportunities-grid {
       display: grid !important;
-      grid-template-columns: 1fr 1fr !important; /* FORCES 2 COLUMNS ON DESKTOP */
+      grid-template-columns: 1fr 1fr !important;
       gap: 30px !important;
       margin-top: 30px !important;
       width: 100% !important;
       max-width: 1200px;
     }
 
-    /* --- 4. THE CARD & IMAGE FIX (UNIFORM SIZES) --- */
     #opportunities-grid .property-card {
       display: flex !important;
       flex-direction: column !important;
@@ -74,10 +103,9 @@
       height: 100%;
     }
 
-    /* FORCES ALL IMAGES TO BE IDENTICAL IN HEIGHT AND WIDTH */
     #opportunities-grid .property-image-container {
       width: 100% !important;
-      height: 280px !important; /* FIXED HEIGHT FOR ALL IMAGES */
+      height: 280px !important;
       overflow: hidden !important;
       position: relative;
       background: #f4f4f4;
@@ -86,7 +114,7 @@
     #opportunities-grid .property-image-container img {
       width: 100% !important;
       height: 100% !important;
-      object-fit: cover !important; /* CROPS ANY IMAGE TO FIT THE 280px BOX */
+      object-fit: cover !important;
       display: block !important;
     }
 
@@ -95,16 +123,15 @@
     }
 
     #opportunities-grid .property-info p { 
-      max-width: 100% !important; 
       margin-bottom: 8px; 
       font-size: 0.95rem;
       color: #444;
     }
 
-    /* --- 5. RESPONSIVE (MOBILE VIEW) --- */
+    /* --- RESPONSIVE --- */
     @media (max-width: 850px) {
       #opportunities-grid {
-        grid-template-columns: 1fr !important; /* STACKS TO 1 COLUMN ON MOBILE */
+        grid-template-columns: 1fr !important;
       }
       .intro-split { 
         grid-template-columns: 1fr; 
@@ -115,6 +142,9 @@
       .location-hero { 
         height: 250px; 
       }
+      .property-search {
+        justify-content: flex-start;
+      }
     }
   </style>
 </head>
@@ -124,6 +154,7 @@
   <div id="header"></div>
 
   <main>
+
     <!-- HERO SECTION -->
     <section class="location-hero">
       <img src="images/locations/br/hero.webp" alt="Brazil Property Development" class="location-hero-image">
@@ -132,29 +163,52 @@
       </div>
     </section>
 
-    <!-- INTRO SECTION -->
+    <!-- INTRO + SEARCH -->
     <section class="page-section">
       <div class="container intro-split">
+        
         <div class="intro-text">
           <h2>Why this market</h2>
           <p>The team is based in Bahia where we are keenly anticipating the Salvador-Itaparica Bridge project. This is expected to be transformative, reducing travel times across the bay to 15 minutes and opening up kilometres of cheap land for development.</p>
           <p>We actively seek investment options; however, we recommend discussing with us for the latest opportunities as availability changes rapidly.</p>
         </div>
-        <div class="intro-image">
-           
+
+        <div class="property-search">
+          <input type="number" id="minPrice" placeholder="Min Price">
+          <input type="number" id="maxPrice" placeholder="Max Price">
+          <input type="number" id="minSize" placeholder="Min Size (sqm)">
+          
+          <select id="locationFilter">
+            <option value="">All Locations</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Japan">Japan</option>
+            <option value="New Zealand">New Zealand</option>
+            <option value="United Kingdom">United Kingdom</option>
+          </select>
+
+          <select id="statusFilter">
+            <option value="">All Status</option>
+            <option value="For Sale">For Sale</option>
+            <option value="Sold">Sold</option>
+            <option value="Under Offer">Under Offer</option>
+          </select>
+
+          <button onclick="filterProperties()">Search</button>
         </div>
+
       </div>
     </section>
 
-    <!-- PROPERTY GRID SECTION -->
+    <!-- PROPERTY GRID -->
     <section class="page-section" style="background: #f9f9f9;">
       <div class="container">
         <h2 style="margin-bottom: 10px;">Current Opportunities</h2>
         <div id="opportunities-grid" class="property-grid">
-           <!-- include.js injects the 12 property cards here -->
+          <!-- include.js injects property cards here -->
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- Footer Injected by include.js -->
@@ -163,6 +217,34 @@
   <!-- Include Script -->
   <script src="js/include.js"></script>
 
+  <!-- Search Filter Script -->
+  <script>
+    function filterProperties() {
+      const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
+      const maxPrice = parseInt(document.getElementById('maxPrice').value) || Infinity;
+      const minSize = parseInt(document.getElementById('minSize').value) || 0;
+      const location = document.getElementById('locationFilter').value;
+      const status = document.getElementById('statusFilter').value;
+
+      const properties = document.querySelectorAll('#opportunities-grid .property-card');
+
+      properties.forEach(property => {
+        const price = parseInt(property.dataset.price) || 0;
+        const size = parseInt(property.dataset.size) || 0;
+        const propLocation = property.dataset.location || "";
+        const propStatus = property.dataset.status || "";
+
+        const matches =
+          price >= minPrice &&
+          price <= maxPrice &&
+          size >= minSize &&
+          (location === "" || propLocation === location) &&
+          (status === "" || propStatus === status);
+
+        property.style.display = matches ? "flex" : "none";
+      });
+    }
+  </script>
+
 </body>
 </html>
-
