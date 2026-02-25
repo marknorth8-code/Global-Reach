@@ -128,7 +128,7 @@
 }
 
 /* =========================================================
-   RESPONSIVE - ABOUT PAGE MOBILE (Hero & Work Full Width)
+   RESPONSIVE - ABOUT PAGE MOBILE (Touch-Scroll Carousel)
    ========================================================= */
 
 @media (max-width: 900px) {
@@ -136,43 +136,64 @@
   .intro-images-container, 
   .about-work-inner {
     flex-direction: column !important;
-    gap: 0 !important; /* Tighten gap to control spacing manually */
-    padding: 0 !important; /* Strip padding for edge-to-edge media */
+    gap: 0 !important;
+    padding: 0 !important;
     width: 100vw !important;
     max-width: 100vw !important;
   }
 
-  /* 2. Text Blocks (Restore 24px padding for readability) */
+  /* 2. Text Blocks */
   .about-hero-text, 
   .about-work-text {
     flex: 0 0 auto !important;
     max-width: 100% !important;
-    padding: 0 24px 30px 24px !important; /* Bottom 30px gap before image */
-    order: -1; /* Keeps text above the image/carousel */
+    padding: 0 24px 30px 24px !important;
+    order: -1;
     box-sizing: border-box !important;
   }
 
-  /* 3. Hero Image & Work Carousel (Force Edge-to-Edge) */
-  .about-hero-image, 
-  .about-work-media {
+  /* 3. Hero Image (Static) */
+  .about-hero-image {
     flex: 0 0 auto !important;
     width: 100vw !important;
-    max-width: 100vw !important;
     height: 320px !important;
-    min-height: 320px !important;
     border-radius: 0 !important;
     margin: 0 !important;
-    overflow: hidden;
     background-size: cover !important;
     background-position: center !important;
     display: block !important;
   }
 
-  /* 4. Carousel Engine Fix (Force slides to fill 100vw) */
-  .about-work-media .carousel-viewport,
-  .about-work-media .carousel-track,
-  .about-work-media .carousel-slide {
+  /* 4. WORK CAROUSEL (Touch Scroll Overrides) */
+  .about-work-media {
     width: 100vw !important;
+    height: 320px !important;
+    margin: 0 !important;
+  }
+
+  .about-work-media .carousel-viewport {
+    overflow-x: auto !important; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Enable touch snapping */
+    display: flex !important;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 0 !important;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+  }
+
+  .about-work-media .carousel-viewport::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari */
+  }
+
+  .about-work-media .carousel-track {
+    display: flex !important;
+    transform: none !important; /* Disable JS positioning on mobile */
+    width: auto !important;
+  }
+
+  .about-work-media .carousel-slide {
+    flex: 0 0 100vw !important; /* Each slide takes full width */
+    width: 100vw !important;
+    scroll-snap-align: center; /* Snap cards to center */
     border-radius: 0 !important;
   }
 
@@ -183,18 +204,9 @@
     border-radius: 0 !important;
   }
 
-  /* Position Carousel Arrows for Mobile */
+  /* HIDE ARROWS ON MOBILE ONLY */
   .about-work-media .carousel-arrows {
-    right: 15px !important;
-    bottom: 15px !important;
-    gap: 8px !important;
-    display: flex !important;
-  }
-
-  .about-work-media .carousel-arrow {
-    width: 42px !important;
-    height: 42px !important;
-    background: rgba(255, 255, 255, 0.9) !important;
+    display: none !important;
   }
 
   /* 5. Profile Section Mobile */
