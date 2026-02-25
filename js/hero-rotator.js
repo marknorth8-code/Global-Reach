@@ -11,7 +11,7 @@
       { url: "images/home/hero-04.webp", label: "Bahia - islands" },
       { url: "images/home/hero-05.webp", label: "Japan - 'Akiya' mountain house" },
       { url: "images/home/hero-06.webp", label: "Auckland - development site" },
-      { url: "images/home/hero-07.webp", label: "UK - change of use" }
+      { url: "images/home/hero-07.webp", label: "Hakuba - ski chalet" }
     ];
 
     let current = 0;
