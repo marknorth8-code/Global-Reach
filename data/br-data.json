@@ -1,40 +1,46 @@
 [
   {
     "title": "Current opportunities, Bahia, Brazil",
-    "summary": "After 10 years working in NZ, these are my reflections on how the UK property market differs from NZ",
+    "summary": "Prime development land positioned to benefit from the Salvador–Itaparica Bridge project.",
     "date": "22 February 2026",
     "image": "images/locations/br/brazil-01.webp",
- "line1": "Price: $250,000",
-"line2": "Size: 1,200 sqm",
-"line3": "Location: Itaparika",
-"line4": "Status: Available",   
+
+    "price": 250000,
+    "size": 1200,
+    "location": "Brazil",
+    "subLocation": "Itaparica",
+    "status": "For Sale",
+
     "link": "articles/insight-001.html"
   },
 
   {
     "title": "Current opportunities, Bahia, Brazil",
-    "summary": "After 10 years working in NZ, these are my reflections on how the UK property market differs from NZ",
+    "summary": "Residential development plot in a high-growth corridor.",
     "date": "22 February 2026",
     "image": "images/locations/br/brazil-02.webp",
- "line1": "Price: $250,000",
-"line2": "Size: 1,200 sqm",
-"line3": "Status: Available",   
+
+    "price": 250000,
+    "size": 1200,
+    "location": "Brazil",
+    "subLocation": "Itaparica",
+    "status": "For Sale",
+
     "link": "articles/insight-001.html"
   },
 
   {
     "title": "Current opportunities, Bahia, Brazil",
-    "summary": "After 10 years working in NZ, these are my reflections on how the UK property market differs from NZ",
+    "summary": "Strategic land holding suitable for mixed-use development.",
     "date": "22 February 2026",
     "image": "images/locations/br/brazil-03.webp",
- "line1": "Price: $250,000",
-"line2": "Size: 1,200 sqm",
-"line3": "Status: Available",   
+
+    "price": 250000,
+    "size": 1200,
+    "location": "Brazil",
+    "subLocation": "Itaparica",
+    "status": "For Sale",
+
     "link": "articles/insight-001.html"
   }
-
 ]
-
-  
-
-
