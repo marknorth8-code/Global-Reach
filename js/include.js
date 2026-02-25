@@ -33,47 +33,46 @@ function includeHTML() {
 
 /**
  * DYNAMIC GRID LOADER
- * Detects location from URL and fetches corresponding JSON data
  */
 function initDynamicGrid() {
   const gridContainer = document.getElementById("opportunities-grid");
   if (!gridContainer) return;
 
-  // 1. Detect location from URL path or filename
   const urlPath = window.location.pathname.toLowerCase();
   let jsonFile = "";
 
-  // Matches br.html, brazil.html, or /br/ folder
   if (urlPath.includes("br") || urlPath.includes("brazil")) {
     jsonFile = "br";
   } else if (urlPath.includes("jp") || urlPath.includes("japan")) {
     jsonFile = "jp";
   } else if (urlPath.includes("nz") || urlPath.includes("new-zealand")) {
     jsonFile = "nz";
-  } else if (urlPath.includes("uk") || urlPath.includes("uk")) {
+  } else if (urlPath.includes("uk")) {
     jsonFile = "uk";
   }
 
-  if (!jsonFile) {
-    console.warn("Could not determine location from URL. Path is: " + urlPath);
-    return;
-  }
+  if (!jsonFile) return;
 
-  // 2. Fetch the JSON data using relative paths for GitHub Pages
   const jsonPath = `data/${jsonFile}-data.json`;
 
   fetch(jsonPath)
     .then(response => {
-      if (!response.ok) throw new Error(`Data file not found at ${jsonPath}`);
+      if (!response.ok) throw new Error(`Data file not found`);
       return response.json();
     })
     .then(data => {
-      // 3. Generate HTML
-     const cardsHtml = data.map(prop => `
+      
+      // FIX 1: Determine Currency Symbol based on the detected country
+      let symbol = "R$"; 
+      if (jsonFile === "uk") symbol = "£";
+      if (jsonFile === "jp") symbol = "¥";
+      if (jsonFile === "nz") symbol = "$";
+
+      const cardsHtml = data.map(prop => `
   <article class="property-card"
     data-price="${prop.price}"
     data-size="${prop.size}"
-    data-location="${prop.sublocation}"
+    data-location="${prop.subLocation}" 
     data-status="${prop.status}">
     
     <div class="property-image-container">
@@ -85,25 +84,24 @@ function initDynamicGrid() {
     </div>
 
     <div class="property-info">
-<p class="prop-detail"><strong>${prop.summary}</strong></p>
-<p class="prop-detail">${prop.subLocation}</p>
-<p class="prop-detail">R$${prop.price.toLocaleString()} | ${prop.size} sqm</p>
+      <p class="prop-detail"><strong>${prop.summary}</strong></p>
+      <p class="prop-detail">${prop.subLocation}</p>
+      
+      <!-- FIX 2: Use the dynamic 'symbol' variable instead of hardcoded R$ -->
+      <p class="prop-detail">${symbol}${prop.price.toLocaleString()} | ${prop.size} sqm</p>
 
        <div style="margin-top:15px;">
          <a href="${prop.link}" class="btn-small">View Details</a>
        </div>
     </div>
-
   </article>
 `).join("");
 
       gridContainer.innerHTML = cardsHtml;
     })
-    .catch(err => {
-      gridContainer.innerHTML = `<p style="grid-column: 1/-1; text-align:center; padding: 40px;">Currently updating opportunities. Please contact us for details.</p>`;
-      console.warn("Dynamic grid skipped:", err.message);
-    });
+    .catch(err => console.warn("Grid error:", err));
 }
+
 
 /**
  * HEADER NAVIGATION LOGIC
