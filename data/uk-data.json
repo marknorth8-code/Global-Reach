@@ -1,1 +1,41 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Victorian Townhouse – Market Harborough",
+    "price": 685000,
+    "currency": "GBP",
+    "location": "Market Harborough",
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "size_sqft": 2450,
+    "status": "Available",
+    "type": "Residential",
+    "description": "Elegant five-bedroom Victorian townhouse within walking distance of Market Harborough town centre. Renovated throughout with period features and modern finishes."
+  },
+  {
+    "id": 2,
+    "title": "Modern Family Home – Little Bowden",
+    "price": 525000,
+    "currency": "GBP",
+    "location": "Market Harborough",
+    "bedrooms": 4,
+    "bathrooms": 2,
+    "size_sqft": 1850,
+    "status": "Under Offer",
+    "type": "Residential",
+    "description": "Spacious four-bedroom detached home in the sought-after Little Bowden area. Open-plan kitchen, private garden, and double garage."
+  },
+  {
+    "id": 3,
+    "title": "Town Centre Investment Apartment",
+    "price": 295000,
+    "currency": "GBP",
+    "location": "Market Harborough",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "size_sqft": 980,
+    "status": "Sold",
+    "type": "Investment",
+    "description": "Contemporary two-bedroom apartment in central Market Harborough. Strong rental demand and long-term tenant in place."
+  }
+]
