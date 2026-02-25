@@ -180,17 +180,17 @@
           
           <select id="locationFilter">
             <option value="">All Locations</option>
-            <option value="Brazil">Brazil</option>
-            <option value="Japan">Japan</option>
-            <option value="New Zealand">New Zealand</option>
-            <option value="United Kingdom">United Kingdom</option>
+            <option value="Bahia">Morro de sao paulo</option>
+            <option value="Salvador">Salvador</option>
+            <option value="Itaparica">Itaparica</option>
+            <option value="Boipeba">Boipeba</option>
           </select>
 
           <select id="statusFilter">
             <option value="">All Status</option>
-            <option value="For Sale">For Sale</option>
-            <option value="Sold">Sold</option>
+            <option value="Available">Available</option>
             <option value="Under Offer">Under Offer</option>
+            <option value="Sold">Sold</option>
           </select>
 
           <button onclick="filterProperties()">Search</button>
@@ -218,33 +218,43 @@
   <script src="js/include.js"></script>
 
   <!-- Search Filter Script -->
-  <script>
-    function filterProperties() {
-      const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
-      const maxPrice = parseInt(document.getElementById('maxPrice').value) || Infinity;
-      const minSize = parseInt(document.getElementById('minSize').value) || 0;
-      const location = document.getElementById('locationFilter').value;
-      const status = document.getElementById('statusFilter').value;
+ <script>
+  function filterProperties() {
+    const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
+    const maxPrice = parseInt(document.getElementById('maxPrice').value) || Infinity;
+    const minSize = parseInt(document.getElementById('minSize').value) || 0;
+    const location = document.getElementById('locationFilter').value;
+    const status = document.getElementById('statusFilter').value;
 
-      const properties = document.querySelectorAll('#opportunities-grid .property-card');
+    const properties = document.querySelectorAll('#opportunities-grid .property-card');
 
-      properties.forEach(property => {
-        const price = parseInt(property.dataset.price) || 0;
-        const size = parseInt(property.dataset.size) || 0;
-        const propLocation = property.dataset.location || "";
-        const propStatus = property.dataset.status || "";
+    properties.forEach(property => {
+      const price = parseInt(property.dataset.price) || 0;
+      const size = parseInt(property.dataset.size) || 0;
+      const propLocation = property.dataset.location || "";
+      const propStatus = property.dataset.status || "";
 
-        const matches =
-          price >= minPrice &&
-          price <= maxPrice &&
-          size >= minSize &&
-          (location === "" || propLocation === location) &&
-          (status === "" || propStatus === status);
+      const matches =
+        price >= minPrice &&
+        price <= maxPrice &&
+        size >= minSize &&
+        (location === "" || propLocation.toLowerCase() === location.toLowerCase()) &&
+        (status === "" || propStatus.toLowerCase() === status.toLowerCase());
 
-        property.style.display = matches ? "flex" : "none";
-      });
-    }
-  </script>
+      property.style.display = matches ? "flex" : "none";
+    });
+  }
+
+  // Auto filter when fields change
+  document.querySelectorAll('.property-search input, .property-search select')
+    .forEach(el => el.addEventListener('change', filterProperties));
+
+  // Optional: button click support
+  const btn = document.getElementById('searchBtn');
+  if (btn) {
+    btn.addEventListener('click', filterProperties);
+  }
+</script>
 
 </body>
 </html>
