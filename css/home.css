@@ -316,37 +316,38 @@
   .image-caption { right: 34px !important; }
   .permanent-label { left: 24px !important; }
 
-/* 3. SECTION 4: Services Mobile Carousel */
+/* 3. SECTION 4: Services Mobile Carousel - FIXED SCROLL */
 .services-grid {
   display: flex !important;
+  flex-wrap: nowrap !important;
   overflow-x: auto !important;
   scroll-snap-type: x mandatory;
-  gap: 20px;
+  gap: 15px;
   
-  /* Remove the 50vw centering hacks */
-  width: auto;
-  position: static;
-  margin: 0;
+  /* Reset positioning to normal flow */
+  width: auto !important;
+  position: static !important;
+  margin: 0 !important;
 
-  /* Padding-left/right creates the "centering" effect for the first and last cards */
-  padding-left: calc(50vw - 130px); /* 130px is half of your 260px card width */
-  padding-right: calc(50vw - 130px);
+  /* Standard alignment: matches your site's 24px left margin */
+  padding: 10px 24px 30px 24px !important; 
   
+  /* Enable smooth touch behavior */
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Hides scrollbar on Firefox */
+  scrollbar-width: none; /* Hide scrollbar Firefox */
 }
 
+/* Hide scrollbar Chrome/Safari */
 .services-grid::-webkit-scrollbar {
-  display: none; /* Hides scrollbar on Chrome/Safari */
+  display: none; 
 }
 
 .service-card {
-  flex: 0 0 260px !important; /* Fixed width for carousel */
+  flex: 0 0 260px !important; 
   height: 346px !important;
-  scroll-snap-align: center;
+  scroll-snap-align: start; /* Snaps card to the left margin */
   border: 2px solid #000 !important;
 }
-
 
   /* 4. SECTION 5: Office Media Fix */
   .offices-media {
