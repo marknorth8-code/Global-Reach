@@ -165,14 +165,14 @@
     background-position: center !important;
   }
 
-  /* 4. WORK CAROUSEL (Touch Scroll & Full Width) */
+   /* 4. WORK CAROUSEL (Gap Fix) */
   .about-work-media {
     display: block !important;
-    flex: none !important;     /* Kills the 60% desktop width */
     width: 100vw !important;
     max-width: 100vw !important;
-    height: 320px !important;
     margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
   }
 
   .about-work-media .carousel-viewport {
@@ -180,37 +180,44 @@
     overflow-x: auto !important;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    border-radius: 0 !important;
     scrollbar-width: none;
-    height: 320px !important;
+    width: 100vw !important;
+    height: auto !important; /* Let content dictate height */
   }
 
-  .about-work-media .carousel-viewport::-webkit-scrollbar {
-    display: none;
-  }
-
+  /* CRITICAL FIX: Kill the JS-calculated width */
   .about-work-media .carousel-track {
     display: flex !important;
-    transform: none !important; /* Disable JS movement */
-    width: auto !important;
+    transform: none !important; 
+    width: auto !important;      /* Forces track to shrink to fit items */
+    max-width: none !important;
+    gap: 0 !important;           /* Ensures NO gap between images */
   }
 
   .about-work-media .carousel-slide {
-    flex: 0 0 100vw !important; /* Force each slide to fill screen */
+    flex: 0 0 100vw !important;  /* Force slide to exactly 1 screen width */
     width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
     scroll-snap-align: start;
-    border-radius: 0 !important;
+    padding: 0 !important;       /* Removes any horizontal gaps */
+    margin: 0 !important;
   }
 
   .about-work-media .carousel-slide img {
     width: 100vw !important;
     height: 320px !important;
     object-fit: cover !important;
-    border-radius: 0 !important;
+    display: block;
   }
 
-  .about-work-media .carousel-arrows {
-    display: none !important;
+  /* Keep the captions visible under the full-width images */
+  .about-work-media .carousel-slide p {
+    padding: 10px 24px;
+    font-size: 14px;
+    color: #555;
+    background: #fff;
+    margin: 0;
   }
 
   /* 5. Profile Section Mobile */
