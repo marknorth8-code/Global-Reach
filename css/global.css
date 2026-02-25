@@ -126,6 +126,26 @@ a:hover { text-decoration: underline; }
   margin-top: 4px;
 }
 
+/* --- Shrink Logic --- */
+
+/* 1. Add smooth transitions to the elements that change size */
+.header-inner, 
+.site-logo {
+  transition: all 0.3s ease-in-out;
+}
+
+/* 2. Apply the shrunk styles when the JS adds the class */
+@media (min-width: 901px) {
+  .site-header.is-shrunk .header-inner {
+    height: 60px; /* Shrunk height */
+  }
+
+  .site-header.is-shrunk .site-logo {
+    max-height: 40px; /* Smaller logo to fit */
+  }
+}
+
+
 /* Dropdowns */
 .has-dropdown { position: relative; }
 .has-dropdown:hover .locations-dropdown { display: block; }
