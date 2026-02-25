@@ -85,9 +85,9 @@ function initDynamicGrid() {
     </div>
 
     <div class="property-info">
-       <p class="prop-detail"><strong>${prop.line1}</strong></p>
-       <p class="prop-detail">${prop.line2}</p>
-       <p class="prop-detail">${prop.line3}</p>
+<p class="prop-detail"><strong>${prop.summary}</strong></p>
+<p class="prop-detail">${prop.subLocation}</p>
+<p class="prop-detail">R$${prop.price.toLocaleString()} | ${prop.size} sqm</p>
 
        <div style="margin-top:15px;">
          <a href="${prop.link}" class="btn-small">View Details</a>
