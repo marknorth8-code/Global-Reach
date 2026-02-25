@@ -186,51 +186,48 @@
     </section>
 
     <!-- INTRO + SEARCH -->
-    <section class="page-section">
-      <div class="container intro-split">
-        
-        <div class="intro-text">
-        <div>
-  <h3>Strategic Investment Focus</h3>
-  <p>We are currently prioritizing the <strong>Salvador-Itaparica Bridge</strong> corridor. This project will be transformative, slashing travel times across the bay to just 15 minutes and unlocking kilometres of high-potential land for development. We position our clients ahead of this curve, identifying undervalued sites before the full impact of the bridge is priced into the market.</p>
-
- <p>We act as your strategic advisor on the ground. While we maintain a network of preferred partners, we are independent. </p>
-
-<p>Good properties can sell fast and many of our clients instruct us to source properties off market. 
-</p>
-
-
-  <p><em>The Brazilian market moves quickly. While we actively seek out the best options, we recommend contacting us directly for the latest off-market opportunities and infrastructure updates.</em></p>
-</div>
-
-
-<div class="search-panel">
-  <h2 class="search-title">Search Opportunities</h2>
-
-  <div class="property-search">
-    <input type="number" id="minPrice" placeholder="Min Price">
-    <input type="number" id="maxPrice" placeholder="Max Price">
-    <input type="number" id="minSize" placeholder="Min Size (sqm)">
+  <!-- INTRO + SEARCH -->
+<section class="page-section">
+  <div class="container intro-split">
     
-    <select id="locationFilter">
-      <option value="">All Locations</option>
-      <option value="Bahia">Morro de Sao Paulo</option>
-      <option value="Salvador">Salvador</option>
-      <option value="Itaparica">Itaparica</option>
-      <option value="Boipeba">Boipeba</option>
-    </select>
+    <div class="intro-text">
+      <h2>Strategic Investment Opportunities</h2>
+      <p>We prioritize the <strong>Salvador-Itaparica Bridge</strong> corridor—a transformative project set to slash travel times to 15 minutes and unlock kilometers of high-potential development land. We position our clients ahead of the curve, identifying undervalued assets before infrastructure impact is fully priced in.</p>
 
-    <select id="statusFilter">
-      <option value="">All Status</option>
-      <option value="For Sale">For Sale</option>
-      <option value="Under Offer">Under Offer</option>
-      <option value="Sold">Sold</option>
-    </select>
+      <p>As your independent advisors on the ground, we maintain a network of preferred partners but remain unconstrained in our sourcing. Whether a listing is public or held by a specific agent, we provide the local expertise to vet and secure it for you.</p>
 
-    <button onclick="filterProperties()">Search</button>
-  </div>
-</div>
-    </section>
+      <p><em>The Brazilian market moves quickly; many of our best opportunities are sourced <strong>off-market</strong>. We recommend contacting us directly for the latest infrastructure updates and curated listings.</em></p>
+    </div> <!-- Added missing closing tag -->
+
+    <div class="search-panel">
+      <h2 class="search-title">Search Opportunities</h2>
+
+      <div class="property-search">
+        <input type="number" id="minPrice" placeholder="Min Price">
+        <input type="number" id="maxPrice" placeholder="Max Price">
+        <input type="number" id="minSize" placeholder="Min Size (sqm)">
+        
+        <select id="locationFilter">
+          <option value="">All Locations</option>
+          <option value="Itaparica">Itaparica / Vera Cruz</option>
+          <option value="Salvador">Salvador</option>
+          <option value="Morro de Sao Paulo">Morro de São Paulo</option>
+          <option value="Boipeba">Boipeba</option>
+        </select>
+
+        <select id="statusFilter">
+          <option value="">All Status</option>
+          <option value="For Sale">For Sale</option>
+          <option value="Under Offer">Under Offer</option>
+          <option value="Sold">Sold</option>
+        </select>
+
+        <button onclick="filterProperties()">Search</button>
+      </div>
+    </div>
+  </div> <!-- Container End -->
+</section>
+
 
     <!-- PROPERTY GRID -->
     <section class="page-section">
