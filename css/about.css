@@ -128,72 +128,77 @@
 }
 
 /* =========================================================
-   RESPONSIVE - ABOUT PAGE MOBILE (Touch-Scroll Carousel)
+   RESPONSIVE - ABOUT PAGE MOBILE (Fixed Image Squeezing)
    ========================================================= */
 
 @media (max-width: 900px) {
-  /* 1. Reset Containers for Stacking */
+  /* 1. Reset Containers to ignore Desktop Flex */
   .intro-images-container, 
   .about-work-inner {
-    flex-direction: column !important;
-    gap: 0 !important;
+    display: block !important; /* Switch from Flex to Block for easier stacking */
     padding: 0 !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
-  /* 2. Text Blocks */
+  /* 2. Text Blocks (Full width with padding) */
   .about-hero-text, 
   .about-work-text {
-    flex: 0 0 auto !important;
+    display: block !important;
+    width: 100% !important;
     max-width: 100% !important;
+    flex: none !important; /* Kills the 35% desktop width */
     padding: 0 24px 30px 24px !important;
-    order: -1;
     box-sizing: border-box !important;
   }
 
-  /* 3. Hero Image (Static) */
+  /* 3. Hero Image (Force 100vw width) */
   .about-hero-image {
-    flex: 0 0 auto !important;
+    display: block !important;
+    flex: none !important;     /* Kills the 60% desktop width */
     width: 100vw !important;
+    max-width: 100vw !important;
     height: 320px !important;
     border-radius: 0 !important;
     margin: 0 !important;
     background-size: cover !important;
     background-position: center !important;
-    display: block !important;
   }
 
-  /* 4. WORK CAROUSEL (Touch Scroll Overrides) */
+  /* 4. WORK CAROUSEL (Touch Scroll & Full Width) */
   .about-work-media {
+    display: block !important;
+    flex: none !important;     /* Kills the 60% desktop width */
     width: 100vw !important;
+    max-width: 100vw !important;
     height: 320px !important;
     margin: 0 !important;
   }
 
   .about-work-media .carousel-viewport {
-    overflow-x: auto !important; /* Enable horizontal scrolling */
-    scroll-snap-type: x mandatory; /* Enable touch snapping */
     display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     border-radius: 0 !important;
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    scrollbar-width: none;
+    height: 320px !important;
   }
 
   .about-work-media .carousel-viewport::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome/Safari */
+    display: none;
   }
 
   .about-work-media .carousel-track {
     display: flex !important;
-    transform: none !important; /* Disable JS positioning on mobile */
+    transform: none !important; /* Disable JS movement */
     width: auto !important;
   }
 
   .about-work-media .carousel-slide {
-    flex: 0 0 100vw !important; /* Each slide takes full width */
+    flex: 0 0 100vw !important; /* Force each slide to fill screen */
     width: 100vw !important;
-    scroll-snap-align: center; /* Snap cards to center */
+    scroll-snap-align: start;
     border-radius: 0 !important;
   }
 
@@ -204,22 +209,17 @@
     border-radius: 0 !important;
   }
 
-  /* HIDE ARROWS ON MOBILE ONLY */
   .about-work-media .carousel-arrows {
     display: none !important;
   }
 
   /* 5. Profile Section Mobile */
-  .about-profiles-inner {
-    padding: 40px 0 !important;
-  }
-
   .profile-pair {
     flex-direction: column !important; 
     align-items: center;
     text-align: center;
     gap: 20px;
-    padding: 0 24px 40px 24px !important;
+    padding: 0 24px 40px 24px;
   }
 
   .profile-image, 
