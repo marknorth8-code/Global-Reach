@@ -69,25 +69,33 @@ function initDynamicGrid() {
     })
     .then(data => {
       // 3. Generate HTML
-      const cardsHtml = data.map(prop => `
-        <article class="property-card">
-          <div class="property-image-container">
-             <img src="${prop.image}" alt="${prop.title}" loading="lazy" 
-                  onerror="this.src='https://via.placeholder.com'">
-             <div class="property-overlay">
-                <h3 class="sharp-text">${prop.title}</h3>
-             </div>
-          </div>
-          <div class="property-info">
-             <p class="prop-detail"><strong>${prop.line1}</strong></p>
-             <p class="prop-detail">${prop.line2}</p>
-             <p class="prop-detail">${prop.line3}</p>
-             <div style="margin-top:15px;">
-               <a href="${prop.link}" class="btn-small">View Details</a>
-             </div>
-          </div>
-        </article>
-      `).join("");
+     const cardsHtml = data.map(prop => `
+  <article class="property-card"
+    data-price="${prop.price}"
+    data-size="${prop.size}"
+    data-location="${prop.location}"
+    data-status="${prop.status}">
+    
+    <div class="property-image-container">
+       <img src="${prop.image}" alt="${prop.title}" loading="lazy"
+            onerror="this.src='https://via.placeholder.com'">
+       <div class="property-overlay">
+          <h3 class="sharp-text">${prop.title}</h3>
+       </div>
+    </div>
+
+    <div class="property-info">
+       <p class="prop-detail"><strong>${prop.line1}</strong></p>
+       <p class="prop-detail">${prop.line2}</p>
+       <p class="prop-detail">${prop.line3}</p>
+
+       <div style="margin-top:15px;">
+         <a href="${prop.link}" class="btn-small">View Details</a>
+       </div>
+    </div>
+
+  </article>
+`).join("");
 
       gridContainer.innerHTML = cardsHtml;
     })
