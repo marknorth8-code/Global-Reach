@@ -66,7 +66,7 @@ function initDynamicGrid() {
       let symbol = "R$"; 
       if (jsonFile === "uk") symbol = "£";
       if (jsonFile === "jp") symbol = "¥";
-      if (jsonFile === "nz") symbol = "$";
+      if (jsonFile === "nz") symbol = "NZ$";
 
       const cardsHtml = data.map(prop => `
   <article class="property-card"
