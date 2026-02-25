@@ -316,38 +316,33 @@
   .image-caption { right: 34px !important; }
   .permanent-label { left: 24px !important; }
 
-/* 3. SECTION 4: Services Mobile Carousel - FIXED SCROLL */
-.services-grid {
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  overflow-x: auto !important;
-  scroll-snap-type: x mandatory;
-  gap: 15px;
-  
-  /* Reset positioning to normal flow */
-  width: auto !important;
-  position: static !important;
-  margin: 0 !important;
+  /* --- SECTION 4: Services Mobile Carousel - FIXED SCROLL --- */
+  .services-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    justify-content: flex-start !important; /* FIX: Unlocks scroll to first card */
+    width: auto !important;
+    position: static !important;
+    margin: 0 !important;
+    padding: 10px 24px 30px 24px !important; 
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; 
+  }
 
-  /* Standard alignment: matches your site's 24px left margin */
-  padding: 10px 24px 30px 24px !important; 
-  
-  /* Enable smooth touch behavior */
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Hide scrollbar Firefox */
-}
+  .services-grid::-webkit-scrollbar {
+    display: none; 
+  }
 
-/* Hide scrollbar Chrome/Safari */
-.services-grid::-webkit-scrollbar {
-  display: none; 
-}
-
-.service-card {
-  flex: 0 0 260px !important; 
-  height: 346px !important;
-  scroll-snap-align: start; /* Snaps card to the left margin */
-  border: 2px solid #000 !important;
-}
+  .service-card {
+    flex: 0 0 260px !important; 
+    height: 346px !important;
+    scroll-snap-align: start; 
+    scroll-margin-left: 24px; /* FIX: Snaps to the 24px margin */
+    border: 2px solid #000 !important;
+  }
 
   /* 4. SECTION 5: Office Media Fix */
   .offices-media {
@@ -357,17 +352,17 @@
     height: 300px !important;
   }
 
-  /* SECTION 5 MOBILE GAP FIX (Isolated to Section 5) */
   .offices-inner {
-    padding-bottom: 20px !important; /* Reduces the large gap on mobile */
+    padding-bottom: 20px !important; 
     gap: 15px !important;
   }
   
   .offices-section {
     margin-bottom: 10px !important;
   }
-} /* Closing brace for 768px media query */
+} /* End 768px */
 
 @media (max-width: 600px) {
   .strategy-cards { grid-template-columns: 1fr !important; }
 }
+
