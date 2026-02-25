@@ -42,5 +42,21 @@
     "status": "For Sale",
 
     "link": "articles/insight-001.html"
+  },
+
+  {
+    "title": "Current opportunities, Bahia, Brazil",
+    "summary": "Prime development land positioned to benefit from the Salvador–Itaparica Bridge project.",
+    "date": "22 February 2026",
+    "image": "images/locations/br/brazil-04.webp",
+
+    "price": 280000,
+    "size": 1500,
+    "location": "Brazil",
+    "subLocation": "Salvador",
+    "status": "For Sale",
+
+    "link": "articles/insight-004.html"
   }
+  
 ]
