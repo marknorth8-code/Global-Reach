@@ -80,6 +80,28 @@
 }
 
 /* =========================================================
+   FIX: UNIVERSAL SECTION SPACING
+   ========================================================= */
+
+/* This ensures every section has an exact 60px gap top and bottom */
+.page-section {
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
+  display: block;
+  width: 100%;
+  clear: both;
+}
+
+/* Removes default browser margins from dividers to keep spacing precise */
+.section-divider {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 0 auto;
+  max-width: 1200px;
+  height: 0;
+}
+
+/* =========================================================
    3. SECTION 2: STRATEGY
    ========================================================= */
 
@@ -89,13 +111,10 @@
   gap: 100px;
   align-items: start;
   max-width: 1200px;
-  margin: 0 auto;
-  /* Using padding instead of margin to force the gap */
-  padding-top: 0;
-  padding-bottom: 60px; 
+  margin: 0 auto !important;
 }
 
-/* Force first/last elements to respect the 60px boundary */
+/* Prevent internal text margins from pushing the 60px gap further */
 .strategy-grid > *:first-child { margin-top: 0; }
 .strategy-grid > *:last-child { margin-bottom: 0; }
 
@@ -169,19 +188,8 @@
   gap: 80px;
   align-items: center;
   max-width: 1200px;
-  margin: 0 auto;
-  /* Absolute 60px gap at top and bottom */
-  padding: 60px 24px;
-}
-
-/* Fix: Remove browser default margins that disrupt the 60px padding */
-.partnership-grid > *:first-child, 
-.partnership-grid > div > *:first-child { 
-  margin-top: 0; 
-}
-.partnership-grid > *:last-child, 
-.partnership-grid > div > *:last-child { 
-  margin-bottom: 0; 
+  margin: 0 auto !important;
+  padding: 0 24px; /* Horizontal padding only; vertical is handled by .page-section */
 }
 
 .partnership-image img {
@@ -234,13 +242,13 @@
   text-decoration: none;
 }
 
-
 /* =========================================================
-   5. SECTION 4: SERVICES (DESKTOP)
+   5. SECTION 4: SERVICES
    ========================================================= */
 
 .services {
-  padding: 60px 0;
+  padding: 60px 0; /* Matches the 60px gap of other sections */
+  clear: both;
 }
 
 .services-inner {
@@ -274,11 +282,6 @@
   transition: transform 0.3s ease;
 }
 
-.service-card::after {
-  display: none !important;
-  content: none !important;
-}
-
 .service-card:hover {
   transform: translateY(-5px);
 }
@@ -306,7 +309,7 @@
   margin: 0;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #ffffff;
+  color: #ffffff !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
