@@ -199,72 +199,124 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   4. HEADER & NAVIGATION (FIXED LAYOUT & SHRINK)
+   4. HEADER & NAVIGATION (REFINED & SPACED)
    ========================================================= */
 
 .site-header {
   position: fixed;
   top: 0; left: 0; width: 100%;
   z-index: 1000;
-  background: #fff;
-  border-bottom: 1px solid #000;
-  transition: all 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0.98); /* Slight transparency for a modern feel */
+  border-bottom: 1px solid #eaeaea; /* Softer, more professional line */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 90px; /* Starting height */
+  height: 100px; /* Increased initial height for "luxury" spacing */
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
-  transition: height 0.3s ease-in-out;
+  padding: 0 40px; /* More side breathing room */
+  transition: height 0.4s ease;
 }
 
-/* FIX 1: Remove grey surround from Offices button */
-.nav-button {
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
-  font-family: inherit;
-  font-size: inherit;
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-/* FIX 2: Spread links evenly across 60% */
+/* NAVIGATION LINKS */
 .primary-nav { 
-  flex: 0 0 60%; 
+  flex: 0 0 55%; /* Slightly tighter to keep links grouped but spread */
 }
 
 .nav-list { 
   list-style: none; 
   display: flex; 
-  justify-content: space-between; /* This spreads them out evenly */
+  justify-content: space-between; 
   align-items: center; 
   width: 100%;
 }
 
 .nav-link, .nav-button {
-  font-family: Georgia, serif;
-  font-size: 15px;
-  color: #000;
+  font-family: "Georgia", serif;
+  font-size: 16px; /* Slightly larger for readability */
+  font-weight: 400;
+  color: #1a1a1a;
+  text-transform: uppercase; /* Adds professional authority */
+  letter-spacing: 1.5px; /* Spaced out letters look more "premium" */
   text-decoration: none;
-  white-space: nowrap;
+  padding: 10px 0;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-/* FIX 3: Shrink Logic */
-/* When JS adds .is-shrunk, reduce the height of the container and logo */
+/* Hover Effect: Animated underline instead of just a color change */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #E10600; /* Katakano Red */
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover { color: #E10600; text-decoration: none; }
+
+/* REFINED DROPDOWN */
+.locations-dropdown {
+  position: absolute;
+  top: 100%;
+  left: -20px; /* Slight offset to align better */
+  background: #fff;
+  min-width: 300px; /* Wider to avoid "cramped" look */
+  padding: 20px 0;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* Softer, deeper shadow */
+  border-radius: 4px;
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.has-dropdown:hover .locations-dropdown {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.locations-dropdown li a {
+  display: block;
+  padding: 12px 25px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #444;
+  letter-spacing: 0.5px;
+  transition: background 0.2s ease;
+}
+
+.locations-dropdown li a:hover {
+  background: #f8f8f8;
+  color: #E10600;
+  text-decoration: none;
+}
+
+/* SHRINK LOGIC */
+.site-header.is-shrunk {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
 .site-header.is-shrunk .header-inner {
-  height: 60px; 
+  height: 70px; /* Elegant shrink */
 }
 
 .site-header.is-shrunk .site-logo {
-  max-height: 40px;
+  max-height: 45px;
 }
+
 
 .site-logo { 
   max-height: 60px; 
