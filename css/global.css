@@ -299,7 +299,7 @@ a:hover { text-decoration: underline; }
 }
 
 .footer-right { text-align: right; }
-.footer-right a { display: block; text-decoration: underline; margin-bottom: 8px; color: #E10600; }
+.footer-right a { display: block; text-decoration: underline; margin-bottom: 8px; }
 
 @media (max-width: 600px) { 
   .footer-right { text-align: left; } 
