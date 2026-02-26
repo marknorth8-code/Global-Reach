@@ -63,7 +63,6 @@ function initDynamicGrid() {
     })
     .then(data => {
       
-      // FIX 1: Determine Currency Symbol based on the detected country
       let symbol = "R$"; 
       if (jsonFile === "uk") symbol = "£";
       if (jsonFile === "jp") symbol = "¥";
@@ -87,8 +86,6 @@ function initDynamicGrid() {
     <div class="property-info">
       <p class="prop-detail"><strong>${prop.summary}</strong></p>
       <p class="prop-detail">${prop.subLocation}</p>
-      
-      <!-- FIX 2: Use the dynamic 'symbol' variable instead of hardcoded R$ -->
       <p class="prop-detail">${symbol}${prop.price.toLocaleString()} | ${prop.size} sqm</p>
 
        <div style="margin-top:15px;">
@@ -115,13 +112,22 @@ function initHeader() {
 
   if (!header) return;
 
-  // Set Active Link based on current page
-  const currentPath = window.location.pathname;
+  // --- SMART ACTIVE LINK DETECTION ---
+  // Gets current filename (e.g. "br.html") or defaults to "index.html"
+  const fullPath = window.location.pathname;
+  const currentFile = fullPath.split("/").pop() || "index.html";
+  
   const navLinks = document.querySelectorAll(".nav-link, .mobile-nav a");
 
   navLinks.forEach(link => {
     const href = link.getAttribute("href");
-    if (href && currentPath.includes(href) && href !== "/") {
+    
+    // Reset classes before checking
+    link.classList.remove("active");
+    link.removeAttribute("aria-current");
+
+    // Match filename exactly with href
+    if (href === currentFile) {
       link.classList.add("active");
       link.setAttribute("aria-current", "page");
     }
@@ -135,9 +141,10 @@ function initHeader() {
   // Mobile Menu Toggle
   if (toggle && mobileNav) {
     toggle.addEventListener("click", () => {
-      const isVisible = mobileNav.style.display === "flex" || mobileNav.classList.contains("open");
-      mobileNav.style.display = isVisible ? "none" : "flex";
-      toggle.setAttribute("aria-expanded", String(!isVisible));
+      const isOpen = mobileNav.classList.toggle("open");
+      mobileNav.style.display = isOpen ? "flex" : "none";
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.innerHTML = isOpen ? "✕" : "☰"; 
     });
   }
 }
