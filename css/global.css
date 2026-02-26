@@ -235,6 +235,16 @@ a:hover { text-decoration: underline; }
   margin-top: 4px;
 }
 
+.site-header {
+  position: fixed; /* Stays fixed relative to the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it stays above other content */
+  background: #fff; /* Prevents content from showing through */
+}
+
+
 /* --- Shrink Logic --- */
 
 /* 1. Add smooth transitions to the elements that change size */
