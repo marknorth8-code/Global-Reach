@@ -35,6 +35,10 @@
   font-weight: 500;
 }
 
+.hero-text h2 {
+  margin-bottom: 2.5rem; /* Adjust this value (e.g., 30px or 40px) to get the exact gap you want */
+}
+
 /* --- SECTION 2: STRATEGY GRID --- */
 .strategy-grid {
   display: grid;
