@@ -103,7 +103,7 @@ a:hover { text-decoration: underline; }
   .strategy-grid, 
   .partnership-grid,
   .profile-grid {
-    display: block; 
+    display: block !important; 
     padding: 0;
   }
 
@@ -117,33 +117,42 @@ a:hover { text-decoration: underline; }
   .profile-text {
     padding: 0 24px 30px 24px;
     width: 100%;
+    box-sizing: border-box;
   }
 
   /* Standardize Media: Full-screen width edge-to-edge */
+  /* Added .offices-carousel and .work-carousel to ensure they expand */
   .media-side, 
   .intro-image, 
   .partnership-image, 
   .offices-media, 
   .about-hero-image, 
-  .about-work-media {
-    width: 100vw;
+  .about-work-media,
+  .offices-carousel,
+  .work-carousel {
+    width: 100vw !important;
+    max-width: 100vw !important; /* Forces override of desktop 60% */
     min-height: 320px; 
     margin: 0;
     border-radius: 0;
     position: relative;
     left: 50%;
     right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    flex: none !important; /* Removes flex-basis constraints */
   }
 
-  /* Ensure standard images (Partnership/Profiles) fill that width */
+  /* Ensure standard images fill that width and center correctly */
   .media-side img, 
+  .intro-image img,
   .partnership-image img, 
-  .profile-image img {
-    width: 100vw;
+  .profile-image img,
+  .about-hero-image img {
+    width: 100vw !important;
     height: auto;
     border-radius: 0;
+    display: block;
   }
 
   /* Center the profiles on About page */
@@ -154,16 +163,6 @@ a:hover { text-decoration: underline; }
   }
 }
 
-
-
-/* Standard Section Divider Line */
-.section-divider {
-  border: 0;
-  border-top: 1px solid #5D5D5D;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
 
 /* =========================================================
    4. SHARED COMPONENTS (Buttons & Labels)
