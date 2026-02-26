@@ -341,9 +341,9 @@ a:hover { text-decoration: underline; }
 }
 
 .carousel-arrow svg {
-  width: 28px;   /* increase size */
-  height: 28px;
+  transform: scale(1.4);
 }
+
 .carousel-arrow {
   background: #fff;
   transition: all 0.3s ease;
