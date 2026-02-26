@@ -18,6 +18,8 @@ body {
   line-height: 1.6;
   color: #000;
   background: #fff;
+    padding-top: 90px;
+    transition: padding 0.3s ease;
 }
 
 
@@ -253,31 +255,29 @@ a:hover { text-decoration: underline; }
 }
 
 @media (max-width: 900px) {
+  /* 1. Adjust Body Padding for the smaller mobile header */
+  body { 
+    padding-top: 65px; 
+  }
 
-  /* Hide desktop nav */
+  /* 2. Hide desktop nav */
   .primary-nav {
     display: none;
   }
 
-  /* Header sizing (mobile stable height) */
-  .header-inner {
+  /* 3. Header sizing */
+  .header-inner,
+  .site-header.is-shrunk .header-inner {
     height: 65px;
     padding: 0 16px;
   }
 
-  /* Prevent shrink height change on mobile */
-  .site-header.is-shrunk .header-inner {
-    height: 65px;
-  }
-
-  /* Logo sizing */
+  /* 4. Logo & Toggle */
   .site-logo {
     max-height: 40px;
     max-width: 70%;
-    height: auto;
   }
 
-  /* Hamburger button */
   .nav-toggle {
     display: block;
     background: none;
@@ -286,7 +286,6 @@ a:hover { text-decoration: underline; }
     cursor: pointer;
     margin-left: 10px;
   }
-
 }
 
 
