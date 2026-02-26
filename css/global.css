@@ -472,50 +472,39 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   FINAL MOBILE EDGE-TO-EDGE FIX (Section 1 + Carousels)
+   AGGRESSIVE MOBILE EDGE-TO-EDGE FIX
    ========================================================= */
 
 @media (max-width: 900px) {
-  /* Prevent horizontal scroll */
+  /* 1. Prevent the page from shaking or scrolling sideways */
   html, body {
-    overflow-x: hidden;
-    width: 100%;
+    overflow-x: hidden !important;
+    width: 100% !important;
     position: relative;
   }
 
-  /* 1. FORCE FLEX-ROW TO RELEASE THE IMAGE (Fixes Section 1) */
-  .flex-row {
-    display: block !important; /* Stops the text and image from sitting side-by-side */
-    width: 100%;
-  }
-
-  /* 2. TARGET ALL SECTION 1 HEROES & MEDIA CONTAINERS */
-  .media-side,
+  /* 2. Target Section 1 Heroes & Carousels */
   .intro-image,
   .about-hero-image,
   .partnership-image,
   .about-work-media,
-  .offices .media-side {
-    display: block !important;
-    width: calc(100% + 48px) !important; /* Expands to touch screen edges */
-    margin-left: -24px !important;       /* Pulls left */
-    margin-right: -24px !important;      /* Pulls right */
-    max-width: none !important;          /* Breaks the 60% desktop limit */
-    flex: none !important;               /* Stops Flexbox from shrinking it */
+  .offices .media-side,
+  .media-side {
+    /* The "Nuclear" Breakout */
+    width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    
+    /* Kill all desktop constraints */
+    margin: 0 !important;
+    max-width: 100vw !important;
+    flex: none !important;
     border-radius: 0 !important;
   }
 
-  /* 3. TARGET THE HOME SERVICES CAROUSEL */
-  .services-grid {
-    width: calc(100% + 48px) !important;
-    margin-left: -24px !important;
-    margin-right: -24px !important;
-    padding-left: 24px !important; 
-    padding-right: 24px !important;
-    justify-content: flex-start !important;
-  }
-
-  /* 4. ENSURE INTERNAL ELEMENTS FILL THE NEW WIDTH */
+  /* 3. Ensure the images inside those containers fill the 100vw */
   .intro-image,
   .about-hero-image,
   .partnership-image img,
@@ -527,12 +516,24 @@ a:hover { text-decoration: underline; }
     border-radius: 0 !important;
   }
 
-  /* 5. RE-ALIGN CAPTIONS/LABELS */
+  /* 4. Home Services Carousel (Special Handling for Horizontal Scroll) */
+  .services-grid {
+    width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding-left: 24px !important; 
+    padding-right: 24px !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+  }
+
+  /* 5. Keep labels/captions inside the screen safety zone */
   .permanent-label, 
   .location-label {
     padding-left: 24px;
     padding-right: 24px;
-    width: 100%;
+    width: 100vw;
     box-sizing: border-box;
   }
   
@@ -540,3 +541,4 @@ a:hover { text-decoration: underline; }
     right: 24px;
   }
 }
+
