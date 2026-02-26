@@ -244,6 +244,14 @@ a:hover { text-decoration: underline; }
   background: #fff; /* Prevents content from showing through */
 }
 
+.site-header {
+  border-bottom: 1px solid #000; /* This creates your solid dividing line */
+}
+
+body {
+  padding-top: 90px; /* Match this to your header's total height */
+}
+
 
 /* --- Shrink Logic --- */
 
