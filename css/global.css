@@ -89,94 +89,71 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   UNIVERSAL MOBILE RESET (Gapless & Touch-Scroll Fix)
+   UNIVERSAL MOBILE RESET (Final Touch-Scroll Fix)
    ========================================================= */
 @media (max-width: 992px) {
   
-  /* 1. Force the HTML and Body to stay exactly 100% wide */
+  /* 1. Prevent page-level horizontal shaking */
   html, body {
     width: 100%;
     overflow-x: hidden;
   }
 
-  /* 2. Reset all Flex/Grid and stack items vertically */
-  .flex-row, 
-  .strategy-grid, 
-  .partnership-grid,
-  .profile-grid,
-  .profile-pair {
+  /* 2. Stack standard layouts */
+  .flex-row, .strategy-grid, .partnership-grid, .profile-grid, .profile-pair {
     display: block !important; 
     padding: 0 !important;
     width: 100% !important;
   }
 
-  /* 3. Text blocks maintain standard 24px side-gap */
-  .intro-text, 
-  .strategy-text, 
-  .partnership-text, 
-  .about-hero-text, 
-  .about-work-text,
-  .offices-text,
-  .profile-text {
+  /* 3. Text block padding */
+  .intro-text, .strategy-text, .partnership-text, .about-hero-text, 
+  .about-work-text, .offices-text, .profile-text {
     padding: 0 24px 30px 24px !important;
     width: 100% !important;
     box-sizing: border-box;
   }
 
-  /* 4. THE GAPLESS BREAKOUT (Precision Fix for Issues 1-4) */
-  .media-side, 
-  .intro-image, 
-  .partnership-image, 
-  .offices-media, 
-  .about-hero-image, 
-  .about-work-media,
-  .offices-carousel,
-  .work-carousel,
-  .profile-image,
-  .carousel-viewport {
+  /* 4. THE BREAKOUT: Forces the visible "window" to be edge-to-edge */
+  .media-side, .intro-image, .partnership-image, .offices-media, 
+  .about-hero-image, .about-work-media, .offices-carousel, 
+  .work-carousel, .profile-image, .carousel-viewport {
     width: calc(100% + 48px) !important;
-    max-width: none !important;
     margin-left: -24px !important;
     margin-right: -24px !important;
-    border-radius: 0 !important;
     position: relative !important;
-    left: 0 !important;
-    right: 0 !important;
-    flex: none !important; 
-    float: none !important;
-    /* Touch scroll enablement */
-    overflow-x: auto !important; 
-    -webkit-overflow-scrolling: touch !important; 
+    overflow-x: auto !important; /* Re-enables touch swiping */
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
     touch-action: pan-x pan-y !important;
-  }
-
-  /* 5. Force all images & carousel slides to match breakout width */
-  .media-side img, 
-  .intro-image img, 
-  .partnership-image img, 
-  .profile-image img,
-  .about-hero-image img,
-  .carousel-track,
-  .carousel-slide img {
-    width: 100% !important;
-    min-width: 100% !important;
-    height: auto !important;
     border-radius: 0 !important;
-    display: block;
   }
 
+  /* 5. THE TRACK: Keeps slides in a single horizontal row */
   .carousel-track {
     display: flex !important;
-    width: max-content !important; 
+    width: auto !important; 
+    flex-wrap: nowrap !important;
   }
 
+  /* 6. THE SLIDES: Forces each image to be exactly the width of the phone */
   .carousel-slide {
-    width: calc(100vw) !important; /* Matches exactly the visible screen width */
-    flex-shrink: 0 !important;
+    flex: 0 0 100% !important; /* Slide is 100% of the viewport width */
+    width: 100% !important;
+    max-width: 100% !important;
     scroll-snap-align: center;
   }
 
-  /* Hide scrollbar for a cleaner look while keeping functionality */
+  /* 7. THE IMAGES: Ensures they fill the slide without bloating */
+  .media-side img, .intro-image img, .partnership-image img, 
+  .profile-image img, .about-hero-image img, .carousel-slide img {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    border-radius: 0 !important;
+  }
+
+  /* Hide scrollbars for the professional look */
   .carousel-viewport::-webkit-scrollbar {
     display: none;
   }
