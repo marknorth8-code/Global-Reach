@@ -88,66 +88,75 @@ a:hover { text-decoration: underline; }
   background-repeat: no-repeat;
 }
 
-/* =========================================================
-   UNIVERSAL MOBILE RESET (JavaScript-Friendly Fix)
-   ========================================================= */
-@media (max-width: 992px) {
-  
-  /* 1. Reset Flex/Grid */
-  .flex-row, .strategy-grid, .partnership-grid, .profile-grid, .profile-pair {
-    display: block !important; 
-    padding: 0 !important;
-    width: 100% !important;
+(function () {
+  function initCarousel(carousel) {
+    if (!carousel || carousel.dataset.initialised === "true") return;
+
+    const track = carousel.querySelector('.carousel-track');
+    const viewport = carousel.querySelector('.carousel-viewport');
+    if (!track || !viewport) return;
+
+    const slides = Array.from(track.querySelectorAll('.carousel-slide'));
+    if (slides.length === 0) return;
+
+    const prevBtn = carousel.querySelector('[data-carousel-prev]');
+    const nextBtn = carousel.querySelector('[data-carousel-next]');
+
+    let index = 0;
+    let scrollStep = 0;
+
+    function calculateMetrics() {
+      // Standard full-width behavior for the Offices carousel
+      const viewportWidth = viewport.getBoundingClientRect().width;
+      scrollStep = viewportWidth;
+      
+      slides.forEach(slide => {
+        slide.style.width = scrollStep + 'px';
+      });
+    }
+
+    function moveToSlide(i) {
+      if (scrollStep > 0) {
+        // Standard infinite loop logic: wraps back to start/end
+        index = (i + slides.length) % slides.length;
+        track.style.transform = `translateX(-${index * scrollStep}px)`;
+      }
+    }
+
+    function goNext() {
+      moveToSlide(index + 1);
+    }
+
+    function goPrev() {
+      moveToSlide(index - 1);
+    }
+
+    function handleResize() {
+      calculateMetrics();
+      moveToSlide(index);
+    }
+
+    // Small delay to ensure DOM dimensions are painted before calculating
+    setTimeout(() => {
+      calculateMetrics();
+      moveToSlide(index);
+    }, 100);
+
+    if (nextBtn) nextBtn.addEventListener('click', goNext);
+    if (prevBtn) prevBtn.addEventListener('click', goPrev);
+    
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('load', handleResize);
+
+    carousel.dataset.initialised = "true";
   }
 
-  /* 2. Text block padding */
-  .intro-text, .strategy-text, .partnership-text, .about-hero-text, 
-  .about-work-text, .offices-text, .profile-text {
-    padding: 0 24px 30px 24px !important;
-    width: 100% !important;
-    box-sizing: border-box;
-  }
-
-  /* 3. THE BREAKOUT: Only moves the "window" to the screen edges */
-  .media-side, .intro-image, .partnership-image, .offices-media, 
-  .about-hero-image, .about-work-media, .offices-carousel, 
-  .work-carousel, .profile-image, .carousel-viewport {
-    width: auto !important;
-    margin-left: -24px !important;
-    margin-right: -24px !important;
-    border-radius: 0 !important;
-    position: relative !important;
-    overflow: hidden !important; /* JS handles the sliding, so we hide overflow */
-  }
-
-  /* 4. THE IMAGES (Non-Carousel): Home S1 and About S1 */
-  .intro-image img, .about-hero-image img, .partnership-image img, .profile-image img {
-    width: 100% !important;
-    height: auto !important;
-    display: block;
-  }
-
-  /* 5. THE CAROUSEL FIX (Home S6 and About S3) */
-  /* We let your JavaScript set the width, we just ensure it doesn't wrap */
-  .carousel-track {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    width: max-content !important; 
-  }
-
-  .carousel-slide {
-    flex-shrink: 0 !important;
-    /* Do NOT set width here; the JS function calculateMetrics() handles it */
-  }
-
-  .carousel-slide img {
-    width: 100% !important; 
-    height: auto !important;
-    display: block;
-    object-fit: cover;
-  }
-}
-
+  document.addEventListener("DOMContentLoaded", function () {
+    // This will now only affect the "Offices" section 
+    // since you removed 'data-carousel' from the "Services" HTML.
+    document.querySelectorAll('[data-carousel]').forEach(initCarousel);
+  });
+})();
 
 /* =========================================================
    4. SHARED COMPONENTS
