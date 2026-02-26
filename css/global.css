@@ -397,3 +397,67 @@ a:hover { text-decoration: underline; }
 @media (min-width: 769px) {
   html { scroll-padding-top: 100px; }
 }
+   /* =========================================================
+   MOBILE FIXES (Targeted Only)
+   ========================================================= */
+@media (max-width: 992px) {
+  
+  /* Fix 1 & 3: Force Hero images to stack and fill width */
+  .flex-row {
+    display: block !important;
+  }
+
+  .media-side, 
+  .intro-image, 
+  .about-hero-image, 
+  .partnership-image {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: -24px !important; /* Pulls back from container padding */
+    margin-right: -24px !important;
+    flex: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Fix 2 & 4: Force Carousels to be full width */
+  /* Added .carousel-viewport to ensure it ignores container padding */
+  .offices-carousel, 
+  .work-carousel, 
+  .carousel-viewport {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: -24px !important;
+    margin-right: -24px !important;
+    border-radius: 0 !important;
+    overflow-x: auto !important; /* Re-enables touch swipe */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Ensure the slides inside carousels match the new width */
+  .carousel-slide {
+    width: 100vw !important;
+    flex: 0 0 100vw !important;
+  }
+
+  /* Ensure all images inside these sections fill the new width */
+  .media-side img, 
+  .intro-image img, 
+  .about-hero-image img, 
+  .carousel-slide img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 0 !important;
+  }
+
+  /* Keep text readable by ensuring it doesn't touch the screen edge */
+  .intro-text, 
+  .about-hero-text, 
+  .partnership-text, 
+  .offices-text, 
+  .about-work-text {
+    padding: 0 24px 30px 24px !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+}
+
