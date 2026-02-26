@@ -97,7 +97,8 @@
   grid-template-columns: 1.1fr 0.9fr;
   gap: 100px;
   align-items: start;
-  margin-bottom: 40px;
+  /* Updated from 40px to 60px */
+  margin-bottom: 60px; 
 }
 
 .strategy-cards {
@@ -150,6 +151,7 @@
   color: #ffffff !important;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
+
 
 
 /* =========================================================
