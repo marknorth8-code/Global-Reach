@@ -75,6 +75,9 @@
   text-transform: uppercase;
 }
 
+.intro-text h2 {
+  margin-bottom: 20px; /* Adjust this value as needed */
+}
 
 /* =========================================================
    3. SECTION 2: STRATEGY
