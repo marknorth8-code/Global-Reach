@@ -92,20 +92,69 @@ a:hover { text-decoration: underline; }
   background-position: center;
   background-repeat: no-repeat;
 }
+
+/* =========================================================
+   UNIVERSAL MOBILE RESET (Clean Version)
+   ========================================================= */
 @media (max-width: 992px) {
-  .flex-row {
-    flex-direction: column !important;
-    display: flex !important; /* Forces the container to stay open */
-    padding: 0 !important;
+  
+  /* Stack the flex containers vertically */
+  .flex-row, 
+  .strategy-grid, 
+  .partnership-grid,
+  .profile-grid {
+    display: block; 
+    padding: 0;
   }
 
-  .media-side {
-    display: block !important; /* Ensures it's not hidden */
-    width: 100vw !important;
-    min-height: 320px !important; /* "Min-height" is harder for other code to override than "height" */
-    flex: none !important;
+  /* Standardize text blocks: 24px side gaps for readability */
+  .intro-text, 
+  .strategy-text, 
+  .partnership-text, 
+  .about-hero-text, 
+  .about-work-text,
+  .offices-text,
+  .profile-text {
+    padding: 0 24px 30px 24px;
+    width: 100%;
+  }
+
+  /* Standardize Media: Full-screen width edge-to-edge */
+  .media-side, 
+  .intro-image, 
+  .partnership-image, 
+  .offices-media, 
+  .about-hero-image, 
+  .about-work-media {
+    width: 100vw;
+    min-height: 320px; 
+    margin: 0;
+    border-radius: 0;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  /* Ensure standard images (Partnership/Profiles) fill that width */
+  .media-side img, 
+  .partnership-image img, 
+  .profile-image img {
+    width: 100vw;
+    height: auto;
+    border-radius: 0;
+  }
+
+  /* Center the profiles on About page */
+  .profile-pair {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }
+
+
 
 /* Standard Section Divider Line */
 .section-divider {
@@ -149,35 +198,10 @@ a:hover { text-decoration: underline; }
   text-decoration: none;
 }
 
-/* =========================================================
-   5. HEADER & FOOTER (Kept Original)
-   ========================================================= */
-
-/* ... Keep all your original Site-Header, Shrink Logic, Dropdowns, and Footer styles here ... */
-
-
 
 /* =========================================================
    4. HEADER & NAVIGATION
    ========================================================= */
-.site-header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #fff;
-  border-bottom: 1px solid #000;
-  z-index: 1000;
-}
-
-.header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-  height: 90px;
-}
 
 .site-logo { max-height: 60px; width: auto; display: block; }
 
