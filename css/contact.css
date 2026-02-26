@@ -1,36 +1,17 @@
 /* =========================================================
-   Contact Page CSS – Step 1.1
-   ---------------------------------------------------------
-   Structural layout only
-   Mobile-first
-   No animations / no JS dependencies
+   CONTACT STYLES - SYNCED WITH GLOBAL.CSS
    ========================================================= */
 
-/* ================= CONTACT INTRO ================= */
-.contact-intro {
-  background: #ffffff;
-}
-
-.contact-intro .container {
-  padding-top: var(--section-spacing-mobile);
-   margin-top: 20px; 
-  padding-bottom: var(--section-spacing-mobile);
-}
-
-/* ================= CONTACT CONTENT ================= */
-.contact-content {
-  background: var(--color-tertiary);
-}
-
+/* The layout is now handled by .flex-row in global.css */
 .contact-layout {
   display: flex;
-  flex-direction: column;
-  gap: 30px;
+  gap: 60px;
+  margin-top: 40px;
 }
 
-/* ================= CONTACT FORM ================= */
+/* --- CONTACT FORM --- */
 .contact-form-wrapper {
-  width: 100%;
+  flex: 0 0 60%; /* Matches the 60% media-side width */
 }
 
 .contact-form {
@@ -46,87 +27,83 @@
 
 .contact-form label {
   margin-bottom: 6px;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .contact-form input,
 .contact-form textarea {
-  padding: 10px;
+  padding: 12px;
   font-size: 15px;
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
+  border: 1px solid #000;
+  border-radius: 0; /* Sharp edges for brand consistency */
   background: #f5f5f5;
+  font-family: inherit;
 }
 
 .contact-form textarea {
-  min-height: 120px;
+  min-height: 150px;
   resize: vertical;
 }
 
 .contact-form button {
-  padding: 12px 20px;
-  font-size: 16px;
-  background: var(--color-primary);
-  color: #f5f5f5;
+  width: max-content;
+  padding: 12px 40px;
+  background: #333;
+  color: #fff;
   border: none;
-  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-/* ================= CONTACT DETAILS / ASIDE ================= */
+.contact-form button:hover {
+  background: #E10600;
+}
+
+/* --- CONTACT DETAILS / SIDEBAR --- */
 .contact-details {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .contact-info p {
-  margin: 0 0 10px;
+  margin-bottom: 15px;
+  font-size: 15px;
 }
 
 .contact-social {
   display: flex;
   gap: 12px;
+  margin-top: 10px;
 }
 
 .contact-social a {
   display: block;
-  width: 30px;
-  height: 30px;
-  background: #f5f5f5; 
-  text-indent: -9999px;
+  width: 35px;
+  height: 35px;
+  background: #f5f5f5;
   border-radius: 50%;
+  transition: background 0.3s ease;
 }
 
-/* ================= RESPONSIVE LAYOUT ================= */
-@media (min-width: 768px) {
+.contact-social a:hover {
+  background: #eee;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
   .contact-layout {
-    flex-direction: row;
-    gap: 60px;
+    flex-direction: column;
+    gap: 40px;
   }
-
-  .contact-form-wrapper {
-    width: 60%;
-  }
-
+  
+  .contact-form-wrapper, 
   .contact-details {
-    width: 40%;
+    width: 100%;
+    flex: none;
   }
 }
-
-/* ================= SECTION DIVIDER ================= */
-.contact-divider {
-  width: 90%;
-  margin: var(--section-spacing-mobile) auto;
-  border: none;
-  border-bottom: 1px solid var(--color-border);
-}
-
-@media (min-width: 768px) {
-  .contact-divider {
-    margin: var(--section-spacing-desktop) auto;
-  }
-}
-
-/* ================= PAGE PLACEHOLDER NOTES ================= */
-/* Step 1 placeholder for additional contact-specific styles */
