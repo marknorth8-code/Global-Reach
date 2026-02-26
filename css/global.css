@@ -179,7 +179,7 @@ a:hover { text-decoration: underline; }
 .nav-link:hover,
 .nav-button:hover,
 .nav-link.active {
-  color: #E10600;
+  color: #BBB;
 }
 
 .nav-link.active::after,
@@ -188,7 +188,7 @@ a:hover { text-decoration: underline; }
   display: block;
   height: 2px;
   width: 100%;
-  background: #E10600;
+  background: #BBB;
   margin-top: 4px;
 }
 
@@ -353,32 +353,29 @@ a:hover { text-decoration: underline; }
     display: block;
   }
 
-  /* Allow full-width layout */
+  /* Keep standard mobile gutter */
   .container {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
-  /* CRITICAL FIX: Reset media-side width */
+  /* Reset media width */
   .media-side {
     flex: none;
     max-width: 100%;
     width: 100%;
   }
 
-  /* Ensure background images span full width */
+  /* Full-width images only */
   .intro-image,
-  .about-hero-image {
-    width: 100%;
-  }
-
-  /* Ensure partnership image spans full width */
-  .partnership-image img {
+  .about-hero-image,
+  .partnership-image img,
+  .media-side img {
     width: 100%;
     border-radius: 0;
   }
 
-  /* Add padding back only to text blocks */
+  /* Text padding */
   .intro-text,
   .about-hero-text,
   .partnership-text,
@@ -394,6 +391,7 @@ a:hover { text-decoration: underline; }
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
   }
 
   .carousel-track {
@@ -404,6 +402,8 @@ a:hover { text-decoration: underline; }
   .carousel-slide {
     flex: 0 0 100%;
     min-width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
   .carousel-arrows {
