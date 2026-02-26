@@ -199,10 +199,9 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   4. HEADER & NAVIGATION
+   4. HEADER & NAVIGATION (FINAL FIXED VERSION)
    ========================================================= */
 
-/* The Header Wrapper */
 .site-header {
   position: fixed;
   top: 0;
@@ -210,71 +209,79 @@ a:hover { text-decoration: underline; }
   width: 100%;
   z-index: 1000;
   background: #fff;
-  border-bottom: 1px solid #000; /* Your solid dividing line */
-  transition: all 0.3s ease-in-out;
+  border-bottom: 2px solid #000; /* Stronger divider line */
 }
 
-/* Inner Container - Handles the logo vs nav split */
 .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 90px; /* Default height */
-  transition: all 0.3s ease-in-out;
+  height: 90px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-.site-logo-container {
-  flex: 0 0 auto;
-}
-
-.site-logo { 
-  max-height: 60px; 
-  width: auto; 
-  display: block; 
-  transition: max-height 0.3s ease;
-}
-
-/* Nav Area - Forced to 60% and aligned right */
+/* DESKTOP NAV LOGIC */
 .primary-nav { 
   flex: 0 0 60%; 
-  max-width: 60%;
 }
 
 .nav-list { 
   list-style: none; 
   display: flex; 
-  justify-content: flex-end; /* Pushes links to the right edge */
+  justify-content: flex-end; 
   align-items: center; 
-  gap: 30px; /* Space between links */
+  gap: 30px; 
 }
 
-.nav-link, .nav-button {
-  background: none;
-  border: none;
-  font-family: Georgia, serif;
-  font-size: 15px;
-  cursor: pointer;
-  color: #000;
-  padding: 8px 0;
-  white-space: nowrap;
-  text-decoration: none;
+/* DROPDOWN - Hidden by default */
+.locations-dropdown {
+  position: absolute;
+  top: 100%;
+  background: #fff;
+  list-style: none;
+  padding: 15px;
+  border: 1px solid #ddd;
+  display: none; /* CRITICAL: Hides the list you see in your screenshot */
+  min-width: 250px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Active Highlight */
-.nav-link.active, .nav-link[aria-current="page"] {
-  color: #BBB;
-  font-weight: 600;
+.has-dropdown:hover .locations-dropdown,
+.locations-dropdown.is-open {
+  display: block; /* Shows only on hover or JS click */
 }
 
-/* --- Shrink Logic (Desktop) --- */
-@media (min-width: 901px) {
-  .site-header.is-shrunk .header-inner {
-    height: 60px; 
+/* MOBILE NAV - Hidden on Desktop */
+.nav-toggle { display: none; } /* Hides hamburger on desktop */
+.mobile-nav { display: none; } /* Hides the vertical list on desktop */
+
+/* =========================================================
+   MOBILE RESPONSIVENESS (Trigger at 900px)
+   ========================================================= */
+@media (max-width: 900px) {
+  .primary-nav { display: none; } /* Hide desktop links */
+  
+  .nav-toggle { 
+    display: block; /* Show hamburger only on mobile */
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
   }
-  .site-header.is-shrunk .site-logo {
-    max-height: 40px; 
+
+  .mobile-nav.open {
+    display: block; /* Only show when hamburger is clicked */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
   }
 }
+
 
 
 /* =========================================================
