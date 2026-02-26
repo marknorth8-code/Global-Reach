@@ -471,3 +471,54 @@ a:hover { text-decoration: underline; }
   .footer-right { text-align: left; }
 }
 
+/* =========================================================
+   MOBILE EDGE-TO-EDGE FIX
+   ========================================================= */
+
+@media (max-width: 900px) {
+  /* 1. Target Hero Images (Home & About Section 1) and Partnership Image */
+  .intro-image,
+  .about-hero-image,
+  .partnership-image,
+  .media-side.about-work-media,
+  .offices .media-side {
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    border-radius: 0 !important;
+  }
+
+  /* 2. Target the Home Services Carousel */
+  .services-grid {
+    width: 100vw !important;
+    margin-left: -24px; /* Matches your .container padding */
+    margin-right: -24px;
+    padding-left: 24px !important; /* Keeps first card aligned with text */
+    padding-right: 24px !important;
+    justify-content: flex-start !important; /* Allows scrolling past the edge */
+  }
+
+  /* 3. Ensure all images inside these containers fill the new width */
+  .intro-image,
+  .about-hero-image,
+  .partnership-image img,
+  .carousel-slide img {
+    width: 100% !important;
+    border-radius: 0 !important;
+  }
+
+  /* 4. Fix labels/captions that might now be off-screen */
+  .permanent-label, 
+  .location-label {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  
+  .image-caption {
+    right: 24px;
+  }
+}
+
