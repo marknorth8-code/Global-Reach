@@ -87,27 +87,23 @@ a:hover { text-decoration: underline; }
 }
 
 /* Mobile Fix for Flex Rows - Updated for Full-Width Media */
+.intro-image, .about-hero-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 @media (max-width: 992px) {
   .flex-row {
-    flex-direction: column;
-    gap: 40px;
-    padding: 0 !important; /* Removes side padding to allow full-width media */
-  }
-
-  /* Keep text indented 24px so it doesn't hit the screen edge */
-  .flex-row > div:not(.media-side) {
-    padding: 0 24px;
+    flex-direction: column !important;
+    display: flex !important; /* Forces the container to stay open */
+    padding: 0 !important;
   }
 
   .media-side {
-    max-width: 100% !important;
-    flex: 0 0 100% !important;
+    display: block !important; /* Ensures it's not hidden */
     width: 100vw !important;
-    border-radius: 0 !important; /* Edge-to-edge looks better sharp */
-  }
-
-  .media-side img {
-    border-radius: 0 !important;
+    min-height: 320px !important; /* "Min-height" is harder for other code to override than "height" */
+    flex: none !important;
   }
 }
 
