@@ -126,7 +126,7 @@ a:hover { text-decoration: underline; }
    ========================================================= */
 
 .site-header {
-position: sticky;
+  position: fixed; /* Changed from sticky to fixed */
   top: 0;
   left: 0;
   width: 100%;
