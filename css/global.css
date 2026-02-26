@@ -589,107 +589,67 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   7. MOBILE FIXES (Clean & Stable)
+   7. MOBILE FIXES (Reset + Stable)
    ========================================================= */
 @media (max-width: 992px) {
 
-  /* -----------------------------------------------------
-     Prevent global sideways scroll
-  ----------------------------------------------------- */
-  html, body {
-    overflow-x: hidden;
-  }
-
-  /* -----------------------------------------------------
-     Stack layout vertically
-  ----------------------------------------------------- */
+  /* Stack layout */
   .flex-row {
     display: block;
   }
 
-  /* -----------------------------------------------------
-     Reset media wrapper (do NOT break this out)
-  ----------------------------------------------------- */
+  /* Remove side padding ONLY for media rows */
+  .section:has(.offices-carousel),
+  .section:has(.work-carousel),
+  .section:has(.intro-image),
+  .section:has(.about-hero-image),
+  .section:has(.partnership-image) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Media wrapper full width */
   .media-side {
     width: 100%;
     margin: 0;
   }
 
-/* -----------------------------------------------------
-   Edge-to-edge breakout (correct for padded container)
------------------------------------------------------ */
-
-.intro-image,
-.partnership-image,
-.about-hero-image,
-.offices-carousel,
-.work-carousel {
-    width: calc(100% + 48px);
-    margin-left: -24px;
-    margin-right: -24px;
-}
-
-  /* -----------------------------------------------------
-     Carousel Structure
-  ----------------------------------------------------- */
-
-  .carousel-viewport {
+  /* Images full width */
+  .media-side img,
+  .carousel-slide img {
     width: 100%;
-    max-width: 100%;
-    margin: 0;
+    height: auto;
+    display: block;
+  }
+
+  /* Carousel */
+  .carousel-viewport {
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
   }
 
   .carousel-track {
     display: flex;
     flex-wrap: nowrap;
-    width: max-content;   /* CRITICAL */
+    width: max-content;
   }
 
   .carousel-slide {
     flex: 0 0 100%;
-    width: 100%;
     min-width: 100%;
-    scroll-snap-align: center;
   }
 
-  /* -----------------------------------------------------
-     Image Safety
-  ----------------------------------------------------- */
-  .media-side img,
-  .intro-image img,
-  .partnership-image img,
-  .about-hero-image img,
-  .carousel-slide img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 0;
-  }
-
-  /* -----------------------------------------------------
-     Text blocks retain padding
-  ----------------------------------------------------- */
+  /* Keep text readable */
   .intro-text,
   .about-hero-text,
   .partnership-text,
   .offices-text,
   .about-work-text {
     padding: 0 24px 30px 24px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  /* Hide mobile scrollbars (if any) */
-  .carousel-viewport::-webkit-scrollbar {
-    display: none;
   }
 
 }
-
 /* =========================================================
    8. FOOTER
    ========================================================= */
