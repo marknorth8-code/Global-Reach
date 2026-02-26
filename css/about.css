@@ -24,7 +24,7 @@
 }
 
 .profile-image {
-  flex: 0 0 300px; /* Fixed width for consistent headshots */
+  flex: 0 0 300px;
   max-width: 300px;
 }
 
@@ -48,8 +48,8 @@
 
 /* --- SECTION 3: WORK CAROUSEL --- */
 .about-work-media {
-  /* Dimensions inherited from .media-side in global.css */
   height: 420px;
+  position: relative;
 }
 
 .about-work-media .carousel-slide img {
@@ -59,7 +59,6 @@
   border-radius: 8px;
 }
 
-/* Text styling for carousel captions */
 .about-work-media .location-label {
   font-size: 14px;
   color: #555;
@@ -71,7 +70,26 @@
    RESPONSIVE - ABOUT PAGE MOBILE
    ========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+  /* Fix disappearing Hero & Carousel images on mobile */
+  .about-hero-image,
+  .about-work-media,
+  .about-work-media .carousel-slide img {
+    height: 320px;
+  }
+
+  /* Force Work Carousel to be edge-to-edge */
+  .about-work-media {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    border-radius: 0;
+  }
+
+  .about-work-media .carousel-slide img {
+    border-radius: 0;
+  }
+
   /* Profile stacking */
   .profile-pair {
     flex-direction: column;
@@ -83,11 +101,5 @@
   .profile-image {
     flex: 0 0 200px;
     max-width: 200px;
-  }
-
-  /* Hero & Carousel Image height for mobile */
-  .about-hero-image,
-  .about-work-media .carousel-slide img {
-    height: 320px;
   }
 }
