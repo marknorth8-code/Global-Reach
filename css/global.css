@@ -12,6 +12,7 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   max-width: 100%;
+  scroll-padding-top: 100px; /* Buffer for anchor links */
 }
 
 body {
@@ -25,6 +26,7 @@ body {
 
 @media (max-width: 900px) {
   body { padding-top: 65px; }
+  html { scroll-padding-top: 80px; }
 }
 
 /* =========================================================
@@ -34,7 +36,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   line-height: 1.25;
   margin-bottom: 0.75rem;
-  margin-top: 0 !important;
 }
 
 h1 { font-size: 2rem; }
@@ -47,33 +48,23 @@ a { color: inherit; text-decoration: none; transition: 0.2s; }
 a:hover { text-decoration: underline; }
 
 /* =========================================================
-   3. LAYOUT & UTILITIES
+   3. MASTER LAYOUT SYSTEM (The Logic)
    ========================================================= */
+
+/* The Standard Container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-.page-section { padding: 60px 0; }
-.page-section--tight { padding: 30px 0; }
-.text-center { text-align: center; }
-
-.section-divider {
-  border: 0;
-  border-top: 1px solid #5D5D5D;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto !important;
+/* The Standard Section Spacing (Exactly 60px) */
+.page-section {
+  padding: 60px 0;
+  clear: both;
 }
 
-/* Force Field Gap Fixes */
-.intro-image, .about-hero-image, .offices-media, .about-work-media {
-  min-width: 0 !important;
-}
-
-
-/* 1. The Flexible Row (Hero, Partnership, About Work) */
+/* Standard Flex Row (Text + Image) */
 .flex-row {
   display: flex;
   gap: 60px;
@@ -81,7 +72,7 @@ a:hover { text-decoration: underline; }
   justify-content: space-between;
 }
 
-/* 2. The Standard Media Side (60% width) */
+/* Standard Media Side (60% Width) */
 .media-side {
   flex: 0 0 60%;
   max-width: 60%;
@@ -92,9 +83,10 @@ a:hover { text-decoration: underline; }
   width: 100%;
   border-radius: 8px;
   display: block;
+  object-fit: cover;
 }
 
-/* 3. Responsive Fix for all Flex Rows */
+/* Mobile Fix for Flex Rows */
 @media (max-width: 992px) {
   .flex-row {
     flex-direction: column;
@@ -105,6 +97,55 @@ a:hover { text-decoration: underline; }
     flex: 0 0 100%;
   }
 }
+
+/* Standard Section Divider Line */
+.section-divider {
+  border: 0;
+  border-top: 1px solid #5D5D5D;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   4. SHARED COMPONENTS (Buttons & Labels)
+   ========================================================= */
+
+.location-label {
+  margin-bottom: 0;
+  line-height: 1.4;
+  font-weight: 600;
+  padding: 10px 0;
+  font-size: 0.95rem;
+}
+
+.sub-label {
+  font-size: 14px;
+  color: #666;
+  display: block;
+}
+
+.story-btn {
+  display: inline-block;
+  background: #000033;
+  color: #fff !important;
+  padding: 15px 40px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.story-btn:hover {
+  background: #E10600;
+  text-decoration: none;
+}
+
+/* =========================================================
+   5. HEADER & FOOTER (Kept Original)
+   ========================================================= */
+
+/* ... Keep all your original Site-Header, Shrink Logic, Dropdowns, and Footer styles here ... */
+
 
 
 /* =========================================================
