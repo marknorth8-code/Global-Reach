@@ -293,27 +293,33 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   7. MOBILE FIXES (Corrected – Desktop Safe)
+   7. MOBILE FIXES (Clean + Stable)
    ========================================================= */
 @media (max-width: 900px) {
 
+  /* Stack layout */
   .flex-row {
     display: block;
   }
 
-  /* Break media elements out of 24px container padding */
-  .media-side,
-  .offices-carousel,
-  .work-carousel,
-  .intro-image,
-  .about-hero-image,
-  .partnership-image {
-    width: calc(100% + 48px);
-    margin-left: -24px;
-    margin-right: -24px;
+  /* Remove horizontal padding from container on mobile */
+  .container {
+    padding-left: 0;
+    padding-right: 0;
   }
 
-  /* Enable native swipe */
+  /* Add padding back only to text blocks */
+  .intro-text,
+  .about-hero-text,
+  .partnership-text,
+  .offices-text,
+  .about-work-text {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 30px;
+  }
+
+  /* Carousel mobile behaviour */
   .carousel-viewport {
     overflow-x: auto;
     overflow-y: hidden;
@@ -321,8 +327,8 @@ a:hover { text-decoration: underline; }
   }
 
   .carousel-track {
+    display: flex;
     flex-wrap: nowrap;
-    width: max-content;
   }
 
   .carousel-slide {
@@ -330,13 +336,8 @@ a:hover { text-decoration: underline; }
     min-width: 100%;
   }
 
-  /* Restore padding for text blocks */
-  .intro-text,
-  .about-hero-text,
-  .partnership-text,
-  .offices-text,
-  .about-work-text {
-    padding: 0 24px 30px 24px;
+  .carousel-arrows {
+    display: none;
   }
 
 }
@@ -381,14 +382,6 @@ a:hover { text-decoration: underline; }
    MOBILE EDGE FIX (Safe – No Desktop Impact)
    ========================================================= */
 @media (max-width: 900px) {
-
-  /* Ensure no accidental overflow */
-  .page-section,
-  .container,
-  .flex-row {
-    max-width: 100%;
-    overflow: hidden;
-  }
 
   /* Make all images respect viewport width */
   img {
