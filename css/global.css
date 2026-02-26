@@ -589,74 +589,106 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   7. MOBILE FIXES (Precision Targeted)
+   7. MOBILE FIXES (Clean & Stable)
    ========================================================= */
 @media (max-width: 992px) {
-  
-  /* Force stacking */
-  .flex-row { display: block !important; }
 
-  /* Breakout Logic: Targets Heros, Partners, and Carousels */
-  /* Reverses the 24px container padding perfectly to kill the gap */
-  .media-side, 
-  .intro-image, 
-  .partnership-image,
-  .about-hero-image, 
-  .offices-carousel, 
-  .work-carousel, 
-  .carousel-viewport {
-    width: calc(100% + 48px) !important;
-    max-width: none !important;
-    margin-left: -24px !important;
-    margin-right: -24px !important;
-    border-radius: 0 !important;
-    position: relative !important;
-    left: 0 !important;
-    overflow-x: auto !important; 
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch;
+  /* -----------------------------------------------------
+     Prevent global sideways scroll
+  ----------------------------------------------------- */
+  html, body {
+    overflow-x: hidden;
   }
 
-  /* Carousel Track: Keeps slides in a single horizontal row */
-  .carousel-track {
-    display: flex !important;
-    width: max-content !important;
-    flex-wrap: nowrap !important;
-  }
-
-  /* Carousel Slides: Force exact screen width */
-  .carousel-slide {
-    flex: 0 0 100% !important; 
-    width: 100% !important;
-    min-width: 100% !important;
-    scroll-snap-align: center;
-  }
-
-  /* Ensure images fill the breakout container */
-  .media-side img, 
-  .intro-image img, 
-  .partnership-image img, 
-  .about-hero-image img, 
-  .carousel-slide img {
-    width: 100% !important;
-    height: auto !important;
+  /* -----------------------------------------------------
+     Stack layout vertically
+  ----------------------------------------------------- */
+  .flex-row {
     display: block;
-    border-radius: 0 !important;
   }
 
-  /* Text blocks: Keep the 24px gap for readability */
-  .intro-text, 
-  .about-hero-text, 
-  .partnership-text, 
-  .offices-text, 
+  /* -----------------------------------------------------
+     Reset media wrapper (do NOT break this out)
+  ----------------------------------------------------- */
+  .media-side {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* -----------------------------------------------------
+     Edge-to-edge breakout (ONLY top-level media elements)
+  ----------------------------------------------------- */
+  .intro-image,
+  .partnership-image,
+  .about-hero-image,
+  .offices-carousel,
+  .work-carousel {
+    position: relative;
+    left: 50%;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: -50vw;
+  }
+
+  /* -----------------------------------------------------
+     Carousel Structure
+  ----------------------------------------------------- */
+
+  /* Viewport must NOT break out */
+  .carousel-viewport {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 0;
+  }
+
+  /* Track keeps slides horizontal */
+  .carousel-track {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  /* Each slide = full screen width */
+  .carousel-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+  }
+
+  /* -----------------------------------------------------
+     Image Safety
+  ----------------------------------------------------- */
+  .media-side img,
+  .intro-image img,
+  .partnership-image img,
+  .about-hero-image img,
+  .carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+  }
+
+  /* -----------------------------------------------------
+     Text blocks retain padding
+  ----------------------------------------------------- */
+  .intro-text,
+  .about-hero-text,
+  .partnership-text,
+  .offices-text,
   .about-work-text {
-    padding: 0 24px 30px 24px !important;
-    width: 100% !important;
+    padding: 0 24px 30px 24px;
+    width: 100%;
     box-sizing: border-box;
-    display: block !important;
   }
 
-  .carousel-viewport::-webkit-scrollbar { display: none; }
+  /* Hide mobile scrollbars (if any) */
+  .carousel-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
 }
 
 /* =========================================================
