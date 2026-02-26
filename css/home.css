@@ -83,6 +83,22 @@
    3. SECTION 2: STRATEGY
    ========================================================= */
 
+.strategy-grid {
+  display: grid !important;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 100px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* Using padding instead of margin to force the gap */
+  padding-top: 0;
+  padding-bottom: 60px; 
+}
+
+/* Force first/last elements to respect the 60px boundary */
+.strategy-grid > *:first-child { margin-top: 0; }
+.strategy-grid > *:last-child { margin-bottom: 0; }
+
 .aligned-arrow {
   display: inline-block;
   position: relative;
@@ -90,15 +106,6 @@
   top: 12px;
   line-height: 0;
   font-weight: bold;
-}
-
-.strategy-grid {
-  display: grid !important;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 100px;
-  align-items: start;
-  /* Updated from 40px to 60px */
-  margin-bottom: 60px; 
 }
 
 .strategy-cards {
@@ -152,8 +159,6 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-
-
 /* =========================================================
    4. SECTION 3: PARTNERSHIP
    ========================================================= */
@@ -165,13 +170,19 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  /* Updated: Exactly 60px top/bottom, 24px left/right */
+  /* Absolute 60px gap at top and bottom */
   padding: 60px 24px;
 }
 
-/* Ensures internal margins don't expand the 60px gap */
-.partnership-grid > *:first-child { margin-top: 0; }
-.partnership-grid > *:last-child { margin-bottom: 0; }
+/* Fix: Remove browser default margins that disrupt the 60px padding */
+.partnership-grid > *:first-child, 
+.partnership-grid > div > *:first-child { 
+  margin-top: 0; 
+}
+.partnership-grid > *:last-child, 
+.partnership-grid > div > *:last-child { 
+  margin-bottom: 0; 
+}
 
 .partnership-image img {
   width: 100%;
