@@ -634,27 +634,27 @@ a:hover { text-decoration: underline; }
      Carousel Structure
   ----------------------------------------------------- */
 
-  /* Viewport must NOT break out */
   .carousel-viewport {
     width: 100%;
     max-width: 100%;
     margin: 0;
-    overflow: hidden;
-    border-radius: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
   }
 
-  /* Track keeps slides horizontal */
   .carousel-track {
     display: flex;
     flex-wrap: nowrap;
-    width: 100%;
+    width: max-content;   /* CRITICAL */
   }
 
-  /* Each slide = full screen width */
   .carousel-slide {
     flex: 0 0 100%;
     width: 100%;
     min-width: 100%;
+    scroll-snap-align: center;
   }
 
   /* -----------------------------------------------------
