@@ -86,17 +86,31 @@ a:hover { text-decoration: underline; }
   object-fit: cover;
 }
 
-/* Mobile Fix for Flex Rows */
+/* Mobile Fix for Flex Rows - Updated for Full-Width Media */
 @media (max-width: 992px) {
   .flex-row {
     flex-direction: column;
     gap: 40px;
+    padding: 0 !important; /* Removes container padding for edge-to-edge mobile images */
   }
+  
+  /* Text blocks still need padding so they don't hit the screen edge */
+  .flex-row > div:not(.media-side) {
+    padding: 0 24px;
+  }
+
   .media-side {
-    max-width: 100%;
-    flex: 0 0 100%;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    width: 100vw !important;
+    border-radius: 0 !important; /* Edge-to-edge looks better without corners */
+  }
+
+  .media-side img {
+    border-radius: 0 !important;
   }
 }
+
 
 /* Standard Section Divider Line */
 .section-divider {
