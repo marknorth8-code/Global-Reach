@@ -175,6 +175,301 @@ a:hover { text-decoration: underline; }
 }
 
 .nav-link:hover, .nav-button:hover, .nav-link.active {
+  color: #EBBB !important;
+}
+
+.nav-link.active::after, 
+.nav-link[aria-current="page"]::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #E10600;
+  margin-top: 4px;
+}
+
+.locations-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  min-width: 250px; 
+  padding: 10px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border: 1px solid #eee;
+  display: none;
+  list-style: none;
+  z-index: 1001;
+  margin-top: 5px;
+}
+
+.has-dropdown:hover .locations-dropdown { display: block; }
+
+.locations-dropdown li a {
+  display: block;
+  padding: 12px 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+.site-header.is-shrunk .header-inner { height: 60px; }
+.site-logo { max-height: 60px; width: auto; transition: max-height 0.3s ease; }
+.site-header.is-shrunk .site-logo { max-height: 40px; }
+
+/* Mobile Nav Logic */
+.nav-toggle, .mobile-nav { display: none; }
+
+@media (max-width: 900px) {
+  .primary-nav { display: none; }
+  .nav-toggle { display: block; background: none; border: none; font-size: 30px; cursor: pointer; }
+  
+  .mobile-nav.open {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+/* =========================================================
+   6. CAROUSEL ENGINE
+   ========================================================= */
+.carousel {
+  position: relative;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.carousel-track { display: flex; transition: transform 0.4s ease-out; }
+
+.carousel-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.carousel-arrows {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.carousel-arrow {
+  pointer-events: all;
+  background: #fff;
+  border: 1px solid #eee;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.offices-carousel { padding-bottom: 50px; }
+
+@media (max-width: 900px) {
+  .carousel-arrows { display: none; }
+}
+
+/* =========================================================
+   1. GLOBAL RESET & BASE
+   ========================================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+  scroll-padding-top: 100px; 
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #111;
+  background: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-top: 90px;
+}
+
+@media (max-width: 900px) {
+  body { padding-top: 65px; }
+  html { scroll-padding-top: 80px; }
+}
+
+/* =========================================================
+   2. TYPOGRAPHY & LINKS
+   ========================================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+
+p { max-width: 70ch; margin-bottom: 1rem; }
+
+a { color: inherit; text-decoration: none; transition: 0.2s; }
+a:hover { text-decoration: underline; }
+
+/* =========================================================
+   3. MASTER LAYOUT SYSTEM
+   ========================================================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.page-section {
+  padding: 60px 0;
+  clear: both;
+}
+
+.flex-row {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.media-side {
+  flex: 0 0 60%;
+  max-width: 60%;
+  position: relative;
+}
+
+.media-side img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+  object-fit: cover;
+}
+
+.intro-image, .about-hero-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* =========================================================
+   4. SHARED COMPONENTS
+   ========================================================= */
+.location-label {
+  margin-bottom: 0;
+  line-height: 1.4;
+  font-weight: 600;
+  padding: 10px 0;
+  font-size: 0.95rem;
+}
+
+.sub-label {
+  font-size: 14px;
+  color: #666;
+  display: block;
+}
+
+.story-btn {
+  display: inline-block;
+  background: #000033;
+  color: #fff;
+  padding: 15px 40px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.story-btn:hover {
+  background: #E10600;
+  text-decoration: none;
+}
+
+/* =========================================================
+   5. HEADER & NAVIGATION
+   ========================================================= */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 2px solid #000;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  transition: height 0.3s ease;
+}
+
+.has-dropdown { position: relative; }
+
+.nav-button {
+  background: transparent !important;
+  border: none !important;
+  padding: 0;
+  font-family: "Georgia", serif;
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.primary-nav { flex: 0 0 60%; }
+
+.nav-list { 
+  list-style: none; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  width: 100%;
+}
+
+.nav-link {
+  font-family: "Georgia", serif;
+  font-size: 16px;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-link:hover, .nav-button:hover, .nav-link.active {
   color: #E10600 !important;
 }
 
@@ -363,6 +658,39 @@ a:hover { text-decoration: underline; }
 
   .carousel-viewport::-webkit-scrollbar { display: none; }
 }
+
+/* =========================================================
+   8. FOOTER
+   ========================================================= */
+.footer-divider-black {
+  border: 0;
+  border-top: 1px solid #000;
+  width: 100%;
+  margin: 0;
+}
+
+.site-footer { padding: 40px 0; font-size: 0.85rem; }
+
+.footer-inner { 
+  display: flex; 
+  justify-content: space-between; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 24px; 
+}
+
+.footer-right { text-align: right; }
+.footer-right a { display: block; text-decoration: underline; margin-bottom: 8px; }
+
+@media (max-width: 600px) { 
+  .footer-inner { flex-direction: column; gap: 20px; }
+  .footer-right { text-align: left; } 
+}
+
+@media (min-width: 769px) {
+  html { scroll-padding-top: 100px; }
+}
+
 
 /* =========================================================
    8. FOOTER
