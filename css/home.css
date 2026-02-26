@@ -343,7 +343,7 @@
   width: max-content; /* Only as wide as the text */
   padding: 12px 40px; /* Wider side padding for a premium feel */
   align-self: flex-start; /* Keeps it on the left */
-  background: #000;
+  background: #333;
   color: #fff;
   border: none;
   border-radius: 0; /* Keeps it sharp and monochrome */
