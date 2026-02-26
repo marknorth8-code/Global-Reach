@@ -472,45 +472,51 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   MOBILE EDGE-TO-EDGE FIX
+   REVISED MOBILE EDGE-TO-EDGE FIX (No Right Gap)
    ========================================================= */
 
 @media (max-width: 900px) {
-  /* 1. Target Hero Images (Home & About Section 1) and Partnership Image */
+  /* Prevent any browser-level horizontal shifting */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Force Hero/Carousel containers to ignore the 24px container padding */
   .intro-image,
   .about-hero-image,
   .partnership-image,
   .media-side.about-work-media,
   .offices .media-side {
-    width: 100vw !important;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw !important;
-    margin-right: -50vw !important;
+    width: calc(100% + 48px) !important; /* Expansion: (24px Left + 24px Right) */
+    margin-left: -24px !important;       /* Pull to left edge */
+    margin-right: -24px !important;      /* Pull to right edge */
+    max-width: none !important;          /* Overrides desktop 60% width */
     border-radius: 0 !important;
+    flex: none !important;
   }
 
-  /* 2. Target the Home Services Carousel */
+  /* Fix the Home Services Carousel specifically */
   .services-grid {
-    width: 100vw !important;
-    margin-left: -24px; /* Matches your .container padding */
-    margin-right: -24px;
-    padding-left: 24px !important; /* Keeps first card aligned with text */
-    padding-right: 24px !important;
-    justify-content: flex-start !important; /* Allows scrolling past the edge */
+    width: calc(100% + 48px) !important;
+    margin-left: -24px !important;
+    margin-right: -24px !important;
+    padding-left: 24px !important;  /* Keeps first card aligned with text */
+    padding-right: 24px !important; /* Allows last card to hit the right edge */
+    justify-content: flex-start !important;
   }
 
-  /* 3. Ensure all images inside these containers fill the new width */
+  /* Ensure all nested images/viewports fill the new expanded width */
   .intro-image,
   .about-hero-image,
   .partnership-image img,
-  .carousel-slide img {
+  .carousel-slide img,
+  .carousel-viewport {
     width: 100% !important;
     border-radius: 0 !important;
   }
 
-  /* 4. Fix labels/captions that might now be off-screen */
+  /* Re-align captions/labels so they don't touch the screen edge */
   .permanent-label, 
   .location-label {
     padding-left: 24px;
@@ -521,4 +527,3 @@ a:hover { text-decoration: underline; }
     right: 24px;
   }
 }
-
