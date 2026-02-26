@@ -198,9 +198,8 @@ a:hover { text-decoration: underline; }
   text-decoration: none;
 }
 
-
 /* =========================================================
-   4. HEADER & NAVIGATION (REFINED & BOLD)
+   4. HEADER & NAVIGATION (FINAL REFINED VERSION)
    ========================================================= */
 
 .site-header {
@@ -208,8 +207,7 @@ a:hover { text-decoration: underline; }
   top: 0; left: 0; width: 100%;
   z-index: 1000;
   background: #fff;
-  /* FIX: Bold dividing line between header and section 1 */
-  border-bottom: 2px solid #000; 
+  border-bottom: 2px solid #000; /* Bold dividing line */
   transition: all 0.3s ease-in-out;
 }
 
@@ -224,14 +222,19 @@ a:hover { text-decoration: underline; }
   transition: height 0.3s ease;
 }
 
-/* FIX: Remove the grey box/border from the "Offices" button */
+/* FIX: Ensure dropdown anchors to this parent, not the whole page */
+.has-dropdown { 
+  position: relative; 
+}
+
+/* FIX: Transparent 'Offices' button */
 .nav-button {
   background: transparent !important;
   border: none !important;
   outline: none !important;
   padding: 0;
   margin: 0;
-  font-family: "Georgia", serif; /* Matches your other links */
+  font-family: "Georgia", serif;
   font-size: 16px;
   color: #000;
   cursor: pointer;
@@ -264,19 +267,17 @@ a:hover { text-decoration: underline; }
 }
 
 /* Hover & Active States */
-.nav-link:hover, .nav-button:hover {
-  color: #E10600; /* Katakano Red */
+.nav-link:hover, .nav-button:hover, .nav-link.active {
+  color: #E10600 !important; /* Katakano Red */
 }
 
-/* Active Highlight - Changes color when on the current page */
+/* Active Highlight - Red text + Bold underline */
 .nav-link.active, 
-.nav-link[aria-current="page"],
-.mobile-nav a.active {
-  color: #E10600 !important; /* The Katakano Red */
-  font-weight: 700; /* Makes it slightly bolder to stand out */
+.nav-link[aria-current="page"] {
+  color: #E10600 !important;
+  font-weight: 700;
 }
 
-/* Optional: Add a small red line under the active link */
 .nav-link.active::after, 
 .nav-link[aria-current="page"]::after {
   content: "";
@@ -287,20 +288,21 @@ a:hover { text-decoration: underline; }
   margin-top: 4px;
 }
 
-
-/* REFINED DROPDOWN */
+/* REFINED DROPDOWN - Centered under the 'Offices' link */
 .locations-dropdown {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 50%; /* Start at middle of link */
+  transform: translateX(-50%); /* Pull back to perfectly center */
   background: #fff;
-  min-width: 280px; 
-  padding: 15px 0;
+  min-width: 250px; 
+  padding: 10px 0;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   border: 1px solid #eee;
   display: none;
   list-style: none;
   z-index: 1001;
+  margin-top: 5px;
 }
 
 .has-dropdown:hover .locations-dropdown {
@@ -309,10 +311,12 @@ a:hover { text-decoration: underline; }
 
 .locations-dropdown li a {
   display: block;
-  padding: 12px 25px;
+  padding: 12px 20px;
   font-size: 14px;
   color: #333;
   text-decoration: none;
+  text-transform: none; /* City names stay normal case */
+  letter-spacing: 0.5px;
 }
 
 .locations-dropdown li a:hover {
@@ -336,14 +340,13 @@ a:hover { text-decoration: underline; }
   transition: max-height 0.3s ease;
 }
 
-
 /* Mobile Nav - Hidden on Desktop */
 .nav-toggle, .mobile-nav { display: none; }
 
 @media (max-width: 900px) {
   .primary-nav { display: none; }
   .nav-toggle { display: block; background: none; border: none; font-size: 30px; cursor: pointer; }
-  /* Add mobile-nav open logic here if needed */
+  .mobile-nav.open { display: block; }
 }
 
 
