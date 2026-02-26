@@ -299,8 +299,23 @@ a:hover { text-decoration: underline; }
 }
 
 .footer-right { text-align: right; }
-.footer-right a { display: block; text-decoration: underline; margin-bottom: 8px; color: #5f6368; }
+.footer-right a { display: block; text-decoration: underline; margin-bottom: 8px; color: #E10600; }
 
 @media (max-width: 600px) { 
   .footer-right { text-align: left; } 
 }
+
+/* This creates a 'buffer' so anchor links don't hide under the header */
+html {
+  /* Adjust '80px' to match the actual height of your mobile header */
+  scroll-padding-top: 80px; 
+  scroll-behavior: smooth;
+}
+
+/* If your desktop header is a different height, you can adjust it here */
+@media (min-width: 769px) {
+  html {
+    scroll-padding-top: 100px; 
+  }
+}
+
