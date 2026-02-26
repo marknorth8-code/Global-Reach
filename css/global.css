@@ -589,7 +589,7 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   7. MOBILE FIXES (Reset + Stable)
+   7. MOBILE FIXES (Stable – No :has)
    ========================================================= */
 @media (max-width: 992px) {
 
@@ -598,12 +598,13 @@ a:hover { text-decoration: underline; }
     display: block;
   }
 
-  /* Remove side padding ONLY for media rows */
-  .section:has(.offices-carousel),
-  .section:has(.work-carousel),
-  .section:has(.intro-image),
-  .section:has(.about-hero-image),
-  .section:has(.partnership-image) {
+  /* Remove horizontal padding from containers
+     ONLY in sections with media/carousels */
+  .offices-section .container,
+  .work-section .container,
+  .intro-section .container,
+  .about-hero-section .container,
+  .partnership-section .container {
     padding-left: 0;
     padding-right: 0;
   }
@@ -640,7 +641,7 @@ a:hover { text-decoration: underline; }
     min-width: 100%;
   }
 
-  /* Keep text readable */
+  /* Text blocks retain readable padding */
   .intro-text,
   .about-hero-text,
   .partnership-text,
@@ -650,6 +651,7 @@ a:hover { text-decoration: underline; }
   }
 
 }
+
 /* =========================================================
    8. FOOTER
    ========================================================= */
