@@ -199,30 +199,43 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   4. HEADER & NAVIGATION (FINAL FIXED VERSION)
+   4. HEADER & NAVIGATION (FIXED LAYOUT & SHRINK)
    ========================================================= */
 
 .site-header {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 0; left: 0; width: 100%;
   z-index: 1000;
   background: #fff;
-  border-bottom: 2px solid #000; /* Stronger divider line */
+  border-bottom: 1px solid #000;
+  transition: all 0.3s ease-in-out;
 }
 
 .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 90px;
+  height: 90px; /* Starting height */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+  transition: height 0.3s ease-in-out;
 }
 
-/* DESKTOP NAV LOGIC */
+/* FIX 1: Remove grey surround from Offices button */
+.nav-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* FIX 2: Spread links evenly across 60% */
 .primary-nav { 
   flex: 0 0 60%; 
 }
@@ -230,32 +243,65 @@ a:hover { text-decoration: underline; }
 .nav-list { 
   list-style: none; 
   display: flex; 
-  justify-content: flex-end; 
+  justify-content: space-between; /* This spreads them out evenly */
   align-items: center; 
-  gap: 30px; 
+  width: 100%;
 }
 
-/* DROPDOWN - Hidden by default */
+.nav-link, .nav-button {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  color: #000;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* FIX 3: Shrink Logic */
+/* When JS adds .is-shrunk, reduce the height of the container and logo */
+.site-header.is-shrunk .header-inner {
+  height: 60px; 
+}
+
+.site-header.is-shrunk .site-logo {
+  max-height: 40px;
+}
+
+.site-logo { 
+  max-height: 60px; 
+  width: auto; 
+  display: block; 
+  transition: max-height 0.3s ease;
+}
+
+/* Dropdowns - Hidden by default */
+.has-dropdown { position: relative; }
 .locations-dropdown {
   position: absolute;
   top: 100%;
+  left: 0;
   background: #fff;
-  list-style: none;
-  padding: 15px;
-  border: 1px solid #ddd;
-  display: none; /* CRITICAL: Hides the list you see in your screenshot */
+  display: none;
   min-width: 250px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 10px 0;
+  list-style: none;
+  z-index: 1001;
 }
 
 .has-dropdown:hover .locations-dropdown,
 .locations-dropdown.is-open {
-  display: block; /* Shows only on hover or JS click */
+  display: block;
 }
 
-/* MOBILE NAV - Hidden on Desktop */
-.nav-toggle { display: none; } /* Hides hamburger on desktop */
-.mobile-nav { display: none; } /* Hides the vertical list on desktop */
+/* Mobile Nav - Hidden on Desktop */
+.nav-toggle, .mobile-nav { display: none; }
+
+@media (max-width: 900px) {
+  .primary-nav { display: none; }
+  .nav-toggle { display: block; background: none; border: none; font-size: 30px; cursor: pointer; }
+  /* Add mobile-nav open logic here if needed */
+}
+
 
 /* =========================================================
    MOBILE RESPONSIVENESS (Trigger at 900px)
