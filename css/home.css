@@ -163,8 +163,13 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  /* Updated: Exactly 60px top/bottom, 24px left/right */
   padding: 60px 24px;
 }
+
+/* Ensures internal margins don't expand the 60px gap */
+.partnership-grid > *:first-child { margin-top: 0; }
+.partnership-grid > *:last-child { margin-bottom: 0; }
 
 .partnership-image img {
   width: 100%;
