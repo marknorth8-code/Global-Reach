@@ -89,14 +89,14 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   UNIVERSAL MOBILE RESET (Gapless Breakout Fix)
+   UNIVERSAL MOBILE RESET (Gapless & Touch-Scroll Fix)
    ========================================================= */
 @media (max-width: 992px) {
   
   /* 1. Force the HTML and Body to stay exactly 100% wide */
   html, body {
     width: 100%;
-    overflow-x: hidden; /* Prevents the horizontal 'shiver' */
+    overflow-x: hidden;
   }
 
   /* 2. Reset all Flex/Grid and stack items vertically */
@@ -124,7 +124,6 @@ a:hover { text-decoration: underline; }
   }
 
   /* 4. THE GAPLESS BREAKOUT (Precision Fix for Issues 1-4) */
-  /* Using calc(100% + 48px) instead of 100vw to perfectly reverse the 24px padding */
   .media-side, 
   .intro-image, 
   .partnership-image, 
@@ -145,16 +144,19 @@ a:hover { text-decoration: underline; }
     right: 0 !important;
     flex: none !important; 
     float: none !important;
+    /* Touch scroll enablement */
+    overflow-x: auto !important; 
+    -webkit-overflow-scrolling: touch !important; 
+    touch-action: pan-x pan-y !important;
   }
 
-  /* 5. Force all images & carousel slides to match this exact breakout width */
+  /* 5. Force all images & carousel slides to match breakout width */
   .media-side img, 
   .intro-image img, 
   .partnership-image img, 
   .profile-image img,
   .about-hero-image img,
   .carousel-track,
-  .carousel-slide,
   .carousel-slide img {
     width: 100% !important;
     min-width: 100% !important;
@@ -163,9 +165,20 @@ a:hover { text-decoration: underline; }
     display: block;
   }
 
-  /* Carousel Slide Correction for JS-based Widths */
+  .carousel-track {
+    display: flex !important;
+    width: max-content !important; 
+  }
+
   .carousel-slide {
-    width: calc(100% + 48px) !important;
+    width: calc(100vw) !important; /* Matches exactly the visible screen width */
+    flex-shrink: 0 !important;
+    scroll-snap-align: center;
+  }
+
+  /* Hide scrollbar for a cleaner look while keeping functionality */
+  .carousel-viewport::-webkit-scrollbar {
+    display: none;
   }
 }
 
