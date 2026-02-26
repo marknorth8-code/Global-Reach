@@ -189,7 +189,7 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto !important;
-  padding: 0 24px; /* Horizontal padding only; vertical is handled by .page-section */
+  padding: 0 24px;
 }
 
 .partnership-image img {
@@ -245,11 +245,6 @@
 /* =========================================================
    5. SECTION 4: SERVICES
    ========================================================= */
-
-.services {
-  padding: 60px 0; /* Matches the 60px gap of other sections */
-  clear: both;
-}
 
 .services-inner {
   max-width: 1200px;
