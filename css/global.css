@@ -268,6 +268,26 @@ a:hover { text-decoration: underline; }
   color: #E10600; /* Katakano Red */
 }
 
+/* Active Highlight - Changes color when on the current page */
+.nav-link.active, 
+.nav-link[aria-current="page"],
+.mobile-nav a.active {
+  color: #E10600 !important; /* The Katakano Red */
+  font-weight: 700; /* Makes it slightly bolder to stand out */
+}
+
+/* Optional: Add a small red line under the active link */
+.nav-link.active::after, 
+.nav-link[aria-current="page"]::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #E10600;
+  margin-top: 4px;
+}
+
+
 /* REFINED DROPDOWN */
 .locations-dropdown {
   position: absolute;
@@ -316,27 +336,6 @@ a:hover { text-decoration: underline; }
   transition: max-height 0.3s ease;
 }
 
-
-
-/* Dropdowns - Hidden by default */
-.has-dropdown { position: relative; }
-.locations-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  display: none;
-  min-width: 250px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 10px 0;
-  list-style: none;
-  z-index: 1001;
-}
-
-.has-dropdown:hover .locations-dropdown,
-.locations-dropdown.is-open {
-  display: block;
-}
 
 /* Mobile Nav - Hidden on Desktop */
 .nav-toggle, .mobile-nav { display: none; }
