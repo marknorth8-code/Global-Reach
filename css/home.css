@@ -119,6 +119,7 @@
   grid-template-columns: repeat(5, 175px); 
   gap: 20px;
   overflow-x: auto;
+   justify-content: center;
   padding: 20px 0; /* Align with container edges */
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
