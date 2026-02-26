@@ -472,55 +472,68 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   REVISED MOBILE EDGE-TO-EDGE FIX (No Right Gap)
+   FINAL MOBILE EDGE-TO-EDGE FIX (Section 1 + Carousels)
    ========================================================= */
 
 @media (max-width: 900px) {
-  /* Prevent any browser-level horizontal shifting */
+  /* Prevent horizontal scroll */
   html, body {
     overflow-x: hidden;
     width: 100%;
+    position: relative;
   }
 
-  /* Force Hero/Carousel containers to ignore the 24px container padding */
+  /* 1. FORCE FLEX-ROW TO RELEASE THE IMAGE (Fixes Section 1) */
+  .flex-row {
+    display: block !important; /* Stops the text and image from sitting side-by-side */
+    width: 100%;
+  }
+
+  /* 2. TARGET ALL SECTION 1 HEROES & MEDIA CONTAINERS */
+  .media-side,
   .intro-image,
   .about-hero-image,
   .partnership-image,
-  .media-side.about-work-media,
+  .about-work-media,
   .offices .media-side {
-    width: calc(100% + 48px) !important; /* Expansion: (24px Left + 24px Right) */
-    margin-left: -24px !important;       /* Pull to left edge */
-    margin-right: -24px !important;      /* Pull to right edge */
-    max-width: none !important;          /* Overrides desktop 60% width */
+    display: block !important;
+    width: calc(100% + 48px) !important; /* Expands to touch screen edges */
+    margin-left: -24px !important;       /* Pulls left */
+    margin-right: -24px !important;      /* Pulls right */
+    max-width: none !important;          /* Breaks the 60% desktop limit */
+    flex: none !important;               /* Stops Flexbox from shrinking it */
     border-radius: 0 !important;
-    flex: none !important;
   }
 
-  /* Fix the Home Services Carousel specifically */
+  /* 3. TARGET THE HOME SERVICES CAROUSEL */
   .services-grid {
     width: calc(100% + 48px) !important;
     margin-left: -24px !important;
     margin-right: -24px !important;
-    padding-left: 24px !important;  /* Keeps first card aligned with text */
-    padding-right: 24px !important; /* Allows last card to hit the right edge */
+    padding-left: 24px !important; 
+    padding-right: 24px !important;
     justify-content: flex-start !important;
   }
 
-  /* Ensure all nested images/viewports fill the new expanded width */
+  /* 4. ENSURE INTERNAL ELEMENTS FILL THE NEW WIDTH */
   .intro-image,
   .about-hero-image,
   .partnership-image img,
   .carousel-slide img,
-  .carousel-viewport {
+  .carousel-viewport,
+  .media-side img {
     width: 100% !important;
+    max-width: 100% !important;
     border-radius: 0 !important;
   }
 
-  /* Re-align captions/labels so they don't touch the screen edge */
+  /* 5. RE-ALIGN CAPTIONS/LABELS */
   .permanent-label, 
   .location-label {
     padding-left: 24px;
     padding-right: 24px;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .image-caption {
