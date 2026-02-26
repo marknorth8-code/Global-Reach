@@ -91,10 +91,10 @@ a:hover { text-decoration: underline; }
   .flex-row {
     flex-direction: column;
     gap: 40px;
-    padding: 0 !important; /* Removes container padding for edge-to-edge mobile images */
+    padding: 0 !important; /* Removes side padding to allow full-width media */
   }
-  
-  /* Text blocks still need padding so they don't hit the screen edge */
+
+  /* Keep text indented 24px so it doesn't hit the screen edge */
   .flex-row > div:not(.media-side) {
     padding: 0 24px;
   }
@@ -103,14 +103,13 @@ a:hover { text-decoration: underline; }
     max-width: 100% !important;
     flex: 0 0 100% !important;
     width: 100vw !important;
-    border-radius: 0 !important; /* Edge-to-edge looks better without corners */
+    border-radius: 0 !important; /* Edge-to-edge looks better sharp */
   }
 
   .media-side img {
     border-radius: 0 !important;
   }
 }
-
 
 /* Standard Section Divider Line */
 .section-divider {
