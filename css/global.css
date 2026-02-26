@@ -19,9 +19,13 @@ body {
   background: #fff;
 }
 
+body {
+  padding-top: 90px; /* match default header height */
+}
+
 @media (max-width: 900px) {
   body { padding-top: 65px; }
-  html { scroll-padding-top: 80px; }
+  html { scroll-padding-top: 100px; }
 }
 
 /* =========================================================
@@ -206,7 +210,7 @@ a:hover { text-decoration: underline; }
   display: none;
   list-style: none;
   z-index: 1001;
-  margin-top: 5px;
+  margin-top: 0px;
 }
 
 .has-dropdown:hover .locations-dropdown {
