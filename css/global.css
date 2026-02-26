@@ -186,7 +186,7 @@ a:hover { text-decoration: underline; }
 .story-btn {
   display: inline-block;
   background: #000033;
-  color: #fff !important;
+  color: #fff;
   padding: 15px 40px;
   text-decoration: none;
   font-weight: 500;
@@ -307,7 +307,7 @@ a:hover { text-decoration: underline; }
   .nav-toggle { display: block; margin-left: auto; }
   .header-inner { height: 65px; }
   .site-logo { max-height: 32px; }
-  .mobile-nav ul li:nth-child(-n+4) a { padding-left: 45px !important; color: #555; font-size: 0.95rem; }
+  .mobile-nav ul li:nth-child(-n+4) a { padding-left: 45px; color: #555; font-size: 0.95rem; }
   .mobile-nav ul li:nth-child(n+5) a { padding-left: 24px; font-weight: 500; }
 }
 
@@ -366,11 +366,11 @@ a:hover { text-decoration: underline; }
 
 .carousel-arrow:hover { background: #bbb; }
 
-.offices-carousel { padding-bottom: 50px !important; }
+.offices-carousel { padding-bottom: 50px; }
 .location-label { margin-bottom: 0; line-height: 1; font-weight: 600; padding: 10px 0; }
 
 @media (max-width: 900px) {
-  .carousel-arrows { display: none !important; }
+  .carousel-arrows { display: none; }
   .carousel-viewport { overflow-x: auto; scroll-snap-type: x mandatory; }
   .carousel-slide { scroll-snap-align: center; }
 }
@@ -381,20 +381,20 @@ a:hover { text-decoration: underline; }
 
 /* The Black Divider (Matches Header Symmetry) */
 .footer-divider-black {
-  border: 0 !important;
-  border-top: 1px solid #000000 !important;
-  height: 1px !important;
-  width: 100% !important;
-  max-width: 100% !important; /* Full width edge-to-edge */
-  margin: 0 !important;
-  display: block !important;
-  opacity: 1 !important;
+  border: 0;
+  border-top: 1px solid #000000;
+  height: 1px;
+  width: 100%;
+  max-width: 100%; /* Full width edge-to-edge */
+  margin: 0;
+  display: block;
+  opacity: 1;
 }
 
 .site-footer { 
   padding: 40px 0; 
   font-size: 0.85rem; 
-  border-top: none !important; /* Ensures no double lines */
+  border-top: none ; /* Ensures no double lines */
 }
 
 .footer-inner { 
