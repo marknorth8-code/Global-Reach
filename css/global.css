@@ -72,6 +72,41 @@ a:hover { text-decoration: underline; }
   min-width: 0 !important;
 }
 
+
+/* 1. The Flexible Row (Hero, Partnership, About Work) */
+.flex-row {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* 2. The Standard Media Side (60% width) */
+.media-side {
+  flex: 0 0 60%;
+  max-width: 60%;
+  position: relative;
+}
+
+.media-side img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+/* 3. Responsive Fix for all Flex Rows */
+@media (max-width: 992px) {
+  .flex-row {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .media-side {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
+
+
 /* =========================================================
    4. HEADER & NAVIGATION
    ========================================================= */
