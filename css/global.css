@@ -175,7 +175,7 @@ a:hover { text-decoration: underline; }
 }
 
 .nav-link:hover, .nav-button:hover, .nav-link.active {
-  color: #EBBB !important;
+  color: #BBB !important;
 }
 
 .nav-link.active::after, 
@@ -184,7 +184,7 @@ a:hover { text-decoration: underline; }
   display: block;
   height: 2px;
   width: 100%;
-  background: #E10600;
+  background: #BBB;
   margin-top: 4px;
 }
 
