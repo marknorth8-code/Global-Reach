@@ -615,20 +615,19 @@ a:hover { text-decoration: underline; }
     margin: 0;
   }
 
-  /* -----------------------------------------------------
-     Edge-to-edge breakout (ONLY top-level media elements)
-  ----------------------------------------------------- */
-  .intro-image,
-  .partnership-image,
-  .about-hero-image,
-  .offices-carousel,
-  .work-carousel {
-    position: relative;
-    left: 50%;
-    width: 100vw;
-    max-width: 100vw;
-    margin-left: -50vw;
-  }
+/* -----------------------------------------------------
+   Edge-to-edge breakout (correct for padded container)
+----------------------------------------------------- */
+
+.intro-image,
+.partnership-image,
+.about-hero-image,
+.offices-carousel,
+.work-carousel {
+    width: calc(100% + 48px);
+    margin-left: -24px;
+    margin-right: -24px;
+}
 
   /* -----------------------------------------------------
      Carousel Structure
