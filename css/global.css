@@ -355,6 +355,7 @@ a:hover { text-decoration: underline; }
 }
 
 .offices-carousel { padding-bottom: 10px; }
+.work-carousel { padding-bottom: 10px; }
 
 @media (max-width: 900px) {
   .carousel-arrows { display: none; }
