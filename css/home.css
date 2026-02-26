@@ -340,14 +340,16 @@
 }
 
 .contact-form button {
-  padding: 12px 20px;
-  font-size: 16px;
-  background: var(--color-primary, #000);
-  color: #f5f5f5;
+  width: max-content; /* Only as wide as the text */
+  padding: 12px 40px; /* Wider side padding for a premium feel */
+  align-self: flex-start; /* Keeps it on the left */
+  background: #000;
+  color: #fff;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  border-radius: 0; /* Keeps it sharp and monochrome */
   text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .contact-details {
