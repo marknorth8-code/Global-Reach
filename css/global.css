@@ -10,18 +10,13 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  max-width: 100%;
-  scroll-padding-top: 100px;
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  color: #111;
-  background: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.6;
-  overflow-x: hidden;
-  padding-top: 90px;
+  color: #000;
+  background: #fff;
 }
 
 @media (max-width: 900px) {
@@ -380,4 +375,43 @@ a:hover { text-decoration: underline; }
 @media (max-width: 600px) {
   .footer-inner { flex-direction: column; gap: 20px; }
   .footer-right { text-align: left; }
+}
+
+/* =========================================================
+   MOBILE EDGE FIX (Safe – No Desktop Impact)
+   ========================================================= */
+@media (max-width: 900px) {
+
+  /* Ensure no accidental overflow */
+  .page-section,
+  .container,
+  .flex-row {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Make all images respect viewport width */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Fix carousel sizing */
+  .carousel-viewport {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .carousel-track {
+    display: flex;
+    width: 100%;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
 }
