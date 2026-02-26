@@ -340,7 +340,21 @@ a:hover { text-decoration: underline; }
   cursor: pointer;
 }
 
-.offices-carousel { padding-bottom: 25px; }
+.carousel-arrow svg {
+  width: 28px;   /* increase size */
+  height: 28px;
+}
+.carousel-arrow {
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.carousel-arrow:hover {
+  background: #BBB;   /* your brand navy */
+  border-color: #BBB;
+}
+
+.offices-carousel { padding-bottom: 10px; }
 
 @media (max-width: 900px) {
   .carousel-arrows { display: none; }
