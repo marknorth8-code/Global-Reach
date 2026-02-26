@@ -1,84 +1,31 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Katakano | Global Property Consultancy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Global property investment and development consultancy. Chartered surveyors, architects and project managers delivering value across overseas markets.">
-
-  <link rel="preload" as="image" href="images/home/hero-01.webp" fetchpriority="high">
-  
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/home.css">
-  <link rel="canonical" href="https://marknorth8-code.github.io/Global-Reach/">
-
-  <!-- Favicons -->
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-
-  <!-- Structured Data (Schema) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    "name": "Katakano and Partners",
-    "url": "https://marknorth8-code.github.io/Global-Reach/",
-    "logo": "https://marknorth8-code.github.io/Global-Reach/",
-    "description": "Global property investment and development consultancy. Chartered surveyors, architects and project managers delivering value across overseas markets.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "YOUR_STREET_ADDRESS",
-      "addressLocality": "London",
-      "addressCountry": "UK"
-    },
-    "telephone": "+447470292634",
-    "areaServed": ["International", "UK", "New Zealand", "Japan", "Brazil"]
-  }
-  </script>
-</head>
-
-<body class="home">
-
-<div id="header"></div>
-
 <main id="main-content">
 
-<!-- ========= SECTION 1: INTRO (Updated) ========= -->
+<!-- ========= SECTION 1: INTRO (Updated to Global Flex) ========= -->
 <section class="intro-images page-section">
-  <div class="intro-images-container">
+  <!-- Use 'container flex-row' to inherit global centering and flex logic -->
+  <div class="container flex-row">
 
     <div class="intro-text">
       <h2>Delivering Cross-Border Property Value</h2>
       <h3>We will guide you through acquisition, design, delivery and the ongoing management of your next property project.</h3>
-      <p>
-        
-      </p>
     </div>
 
-    <!-- Keep this as the direct child of .intro-images-container -->
-    <div class="intro-image">
-       <!-- 1. Dynamic Caption: Pinned to bottom right of the image -->
+    <!-- Use 'media-side' to inherit the 60% width and responsive logic -->
+    <div class="media-side intro-image">
        <span id="image-caption" class="image-caption">Brazil - Bahia State</span>
-       
-       <!-- 2. Permanent Text: Positioned absolutely to sit BELOW the image -->
        <p class="permanent-label">Previous opportunities</p>
     </div>
 
   </div>
 </section>
 
-
-
 <hr class="section-divider">
 
-<!-- ========= SECTION 2: SERVICES INTRO ========= -->
-
+<!-- ========= SECTION 2: STRATEGY (Grid remains unique) ========= -->
 <section class="home-intro page-section">
+  <!-- This stays as strategy-grid because it's a specific 1.1fr / 0.9fr layout -->
   <div class="container strategy-grid">
 
-    <!-- LEFT SIDE -->
     <div class="strategy-text">
       <h1>Development and Project Managers</h1>
       <p>
@@ -91,69 +38,60 @@
         View our insight page for further detail on 
         <a href="insights.html"><ins>Our Thoughts and Strategy</ins></a>.
       </p>
-<p style="color: #E10600;">
-  With our partners we proactively identify investment opportunities. Click a location card to explore our partners’ active projects.
-  <span class="aligned-arrow">&rarr;</span>
-</p>
+      <p style="color: #E10600;">
+        With our partners we proactively identify investment opportunities. Click a location card to explore our partners’ active projects.
+        <span class="aligned-arrow">&rarr;</span>
+      </p>
     </div>
 
-   <!-- RIGHT SIDE -->
-<div class="strategy-cards">
+    <div class="strategy-cards">
+      <a href="br.html" class="strategy-card" style="background-image: url('images/locations/br/hero.webp');">
+        <div class="card-overlay">
+          <h3>Bahia, Brazil</h3>
+          <p>Infrastructure projects and tourism growth</p>
+          <span>View Properties →</span>
+        </div>
+      </a>
 
-  <!-- THE IMAGE LINK IS HERE: url('images/locations/br/hero.webp') -->
-  <a href="br.html" class="strategy-card" style="background-image: url('images/locations/br/hero.webp');">
-    <div class="card-overlay">
-      <h3>Bahia, Brazil</h3>
-      <p>Infrastructure projects and tourism growth</p>
-      <span>View Properties →</span>
+      <a href="nz.html" class="strategy-card" style="background-image: url('images/locations/nz/hero.webp');">
+        <div class="card-overlay">
+          <h3>Auckland, NZ</h3>
+          <p>Supply-constrained urban market</p>
+          <span>View Properties →</span>
+        </div>
+      </a>
+
+      <a href="jp.html" class="strategy-card" style="background-image: url('images/locations/jp/hero.webp');">
+        <div class="card-overlay">
+          <h3>Hakuba, Japan</h3>
+          <p>Empty homes and booming tourist sector</p>
+          <span>View Properties →</span>
+        </div>
+      </a>
+
+      <a href="uk.html" class="strategy-card" style="background-image: url('images/locations/uk/hero.webp');">
+        <div class="card-overlay">
+          <h3>East Midlands, UK</h3>
+          <p>Regional regeneration and homes supply</p>
+          <span>View Properties →</span>
+        </div>
+      </a>
     </div>
-  </a>
 
-  <!-- THE IMAGE LINK IS HERE: url('images/locations/nz/hero.webp') -->
-  <a href="nz.html" class="strategy-card" style="background-image: url('images/locations/nz/hero.webp');">
-    <div class="card-overlay">
-      <h3>Auckland, NZ</h3>
-      <p>Supply-constrained urban market</p>
-      <span>View Properties →</span>
-    </div>
-  </a>
-
-  <!-- THE IMAGE LINK IS HERE: url('images/locations/japan/hero.webp') -->
-  <a href="jp.html" class="strategy-card" style="background-image: url('images/locations/jp/hero.webp');">
-    <div class="card-overlay">
-      <h3>Hakuba, Japan</h3>
-      <p>Empty homes and booming tourist sector</p>
-      <span>View Properties →</span>
-    </div>
-  </a>
-
-  <!-- THE IMAGE LINK IS HERE: url('images/locations/uk/hero.webp') -->
-  <a href="uk.html" class="strategy-card" style="background-image: url('images/locations/uk/hero.webp');">
-    <div class="card-overlay">
-      <h3>East Midlands, UK</h3>
-      <p>Rgional regeneration and homes supply</p>
-      <span>View Properties →</span>
-    </div>
-  </a>
-
-</div>
-
-    </div>   <!-- closes container -->
+  </div>
 </section>
 
+<hr class="section-divider">
 
-  <hr class="section-divider">
-
-<!-- ========= SECTION 3: PARTNERSHIP ========= -->
+<!-- ========= SECTION 3: PARTNERSHIP (Updated to Global Flex) ========= -->
 <section class="partnership page-section">
-  <div class="container partnership-grid">
+  <!-- Swapping 'partnership-grid' for 'flex-row' -->
+  <div class="container flex-row">
     
-    <!-- LEFT SIDE: IMAGE -->
-    <div class="partnership-image">
+    <div class="media-side partnership-image">
       <img src="images/home/partnership.webp" alt="Team working in partnership">
     </div>
 
-    <!-- RIGHT SIDE: QUOTE -->
     <div class="partnership-text">
       <span class="sub-label">Working in partnership</span>
       <hr class="red-line">
@@ -170,10 +108,11 @@
 
 <hr class="section-divider">
 
-  
-<!-- ========= SECTION 4: SERVICES ========= -->
-<section class="services">
-  <div class="services-inner"> <!-- Indentation wrapper -->
+
+  <!-- ========= SECTION 4: SERVICES ========= -->
+<section class="services page-section">
+  <!-- Replaced 'services-inner' with global 'container' -->
+  <div class="container"> 
     
     <div class="intro-text">
       <h2>Our Services</h2>
@@ -181,7 +120,7 @@
     </div>
 
     <div class="services-grid">
-   <div class="service-card" style="background-image: url('images/home/services/services-00.webp');">
+      <div class="service-card" style="background-image: url('images/home/services/services-00.webp');">
         <div class="service-overlay"><h3>Appraisals and Strategy</h3></div>
       </div>
       
@@ -200,64 +139,51 @@
       <div class="service-card" style="background-image: url('images/home/services/services-04.webp');">
         <div class="service-overlay"><h3>Disposal and Exit</h3></div>
       </div>
-    </div> <!-- Corrected: closes services-grid -->
-
-  </div> <!-- Corrected: closes services-inner -->
+    </div>
+  </div> 
 </section>
-
 
 <hr class="section-divider">
 
-<!-- ========= SECTION 5: Offices ========= -->
+<!-- ========= SECTION 5: OFFICES ========= -->
 <section class="offices page-section">
-  <div class="container offices-inner"> <!-- Added .container for alignment -->
+  <!-- Replaced 'offices-inner' with global 'container flex-row' -->
+  <div class="container flex-row">
 
-    <!-- LEFT SIDE (Text) -->
     <div class="offices-text">
-        <h2>Our Locations</h2>
-<p>
-We have teams in Bahia (Brazil), Auckland (NZ), Hakuba (Japan) and the East Midlands (UK). We have selected these markets for their economic growth potential and availability of reasonably priced development opportunities. Each location  presents a distinct growth narrative with its own risk–reward profile, providing diversification across geographic regions. From these established bases, we are able to undertake site searches further afield and leverage our extensive networks.
-</p>
-         <p>
-      Each market offers a distinct growth narrative, diversification benefit and their own risk/reward characteristics.
+      <h2>Our Locations</h2>
+      <p>
+        We have teams in Bahia (Brazil), Auckland (NZ), Hakuba (Japan) and the East Midlands (UK). We have selected these markets for their economic growth potential and availability of reasonably priced development opportunities. 
+      </p>
+      <p>
+        Each location presents a distinct growth narrative with its own risk–reward profile, providing diversification across geographic regions.
       </p>
     </div>
 
-    <!-- RIGHT SIDE (Carousel) -->
-    <div class="offices-media">
-      <!-- This wrapper ensures arrows stay relative to the image area -->
+    <!-- Replaced 'offices-media' with global 'media-side' -->
+    <div class="media-side">
       <div class="carousel offices-carousel" data-carousel="manual">
-        
         <div class="carousel-viewport">
           <div class="carousel-track" aria-label="offices-carousel">
             <div class="carousel-slide">
-              <a href="brazil-insight.html">
-  <img src="images/locations/brazil.webp" alt="Brazil" loading="lazy">
-</a>
+              <a href="brazil-insight.html"><img src="images/locations/brazil.webp" alt="Brazil" loading="lazy"></a>
               <p class="location-label"> Brazil</p>
             </div>
             <div class="carousel-slide">
-             <a href="japan-insight.html">
-  <img src="images/locations/japan.webp" alt="Japan" loading="lazy">
-</a>
+              <a href="japan-insight.html"><img src="images/locations/japan.webp" alt="Japan" loading="lazy"></a>
               <p class="location-label"> Japan</p>
             </div>
             <div class="carousel-slide">
-              <a href="nz-insight.html">
-  <img src="images/locations/nz.webp" alt="New Zealand" loading="lazy">
-</a>
+              <a href="nz-insight.html"><img src="images/locations/nz.webp" alt="New Zealand" loading="lazy"></a>
               <p class="location-label"> New Zealand</p>
             </div>
             <div class="carousel-slide">
-          <a href="uk-insight.html">
-  <img src="images/locations/uk.webp" alt="United Kingdom" loading="lazy">
-</a>
+              <a href="uk-insight.html"><img src="images/locations/uk.webp" alt="United Kingdom" loading="lazy"></a>
               <p class="location-label"> United Kingdom</p>
             </div>
           </div>
         </div>
 
-        <!-- Arrows are now inside the .offices-carousel div -->
         <div class="carousel-arrows">
           <button class="carousel-arrow left" data-carousel-prev aria-label="Previous slide">&lt;</button>
           <button class="carousel-arrow right" data-carousel-next aria-label="Next slide">&gt;</button>
@@ -268,10 +194,9 @@ We have teams in Bahia (Brazil), Auckland (NZ), Hakuba (Japan) and the East Midl
   </div>
 </section>
 
-
 <hr class="section-divider">
 
-<!-- ========= SECTION 6: OUR WORK ========= -->
+<!-- ========= SECTION 6: OUR WORK (Simple Info Block) ========= -->
 <section class="page-section">
   <div class="container">
     <h2>Our Work</h2>
@@ -279,78 +204,55 @@ We have teams in Bahia (Brazil), Auckland (NZ), Hakuba (Japan) and the East Midl
       We have our own investments in these locations and have built trusted partners we feel confident to recommend. 
       These hands-on experiences inform our approach and drive success for our clients.
     </p>
-   <p>
-  Learn more about our work; 
-  <a href="about.html#about-work"><ins>here</ins></a>.
-</p>
+    <p>
+      Learn more about our work <a href="about.html#about-work"><ins>here</ins></a>.
+    </p>
   </div>
 </section>
 
-  <hr class="section-divider">
+<hr class="section-divider">
 
-<!-- CONTACT SECTION -->
-    
-  <section class="contact-intro section">
-  <div class="container">
-    <h2>Get in Touch</h2>
-    <p>Have a project in mind? Contact our team today.</p>
-    
-      <div class="container contact-layout">
+<!-- ========= SECTION 7: CONTACT ========= -->
+<section class="contact-section page-section">
+  <!-- Unified under one 'container' to align with the rest of the site -->
+  <div class="container contact-layout">
 
-        <!-- ================= CONTACT FORM ================= -->
-        <div class="contact-form-wrapper">
-          <form 
-            class="contact-form" 
-            action="https://formspree.io/f/yourformid" 
-            method="POST"
-            aria-label="Contact form"
-          >
-            <div class="form-row">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required>
-            </div>
-
-            <div class="form-row">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="Your email" required>
-            </div>
-
-            <div class="form-row">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Your message" required></textarea>
-            </div>
-
-            <button type="submit">Send</button>
-          </form>
+    <div class="contact-form-wrapper">
+      <h2>Get in Touch</h2>
+      <p>Have a project in mind? Contact our team today.</p>
+      
+      <form class="contact-form" action="https://formspree.io/f/yourformid" method="POST">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required>
         </div>
 
-        <!-- ================= CONTACT DETAILS ================= -->
-        <aside class="contact-details">
-          <div class="contact-info">
-            <p>Email: <a href="mailto:barkertonss@outlook.com">admin@katakota.com</a></p>
-            <p>Phone: <a href="tel:+447470292634">+44 7470 292 634</a></p>
-          </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Your email" required>
+        </div>
 
-          <nav class="contact-social" aria-label="Social media links">
-            <a href="#" aria-label="LinkedIn"></a>
-            <a href="#" aria-label="Instagram"></a>
-            <a href="#" aria-label="Twitter / X"></a>
-          </nav>
-        </aside>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Your message" required></textarea>
+        </div>
 
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <aside class="contact-details">
+      <div class="contact-info">
+        <p>Email: <a href="mailto:admin@katakano.com">admin@katakano.com</a></p>
+        <p>Phone: <a href="tel:+447470292634">+44 7470 292 634</a></p>
       </div>
-    </section>
 
+      <nav class="contact-social" aria-label="Social media links">
+        <a href="#" aria-label="LinkedIn"></a>
+        <a href="#" aria-label="Instagram"></a>
+        <a href="#" aria-label="Twitter / X"></a>
+      </nav>
+    </aside>
 
-  
-</main>
-
-<div id="footer"></div>
-
-<script src="js/include.js"></script>
-<script src="js/carousel.js" defer></script>
-<script src="js/hero-rotator.js"></script>
-  
-
-</body>
-</html>
+  </div>
+</section>
