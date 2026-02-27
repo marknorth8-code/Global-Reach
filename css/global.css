@@ -553,13 +553,12 @@ a:hover { text-decoration: underline; }
   }
 
 /* =========================================================
-   8. MOBILE NAV: HIERARCHY & TOGGLE FIX
+   8. MOBILE NAV: HIERARCHY & TOGGLE REPAIR
    ========================================================= */
 
 @media (max-width: 900px) {
-  /* 1. The Mobile Menu - Hidden by default */
+  /* 1. The Mobile Menu - Let the JS control 'display' */
   .mobile-nav {
-    display: none; 
     background: #fff;
     width: 100%;
     border-bottom: 2px solid #000;
@@ -567,38 +566,41 @@ a:hover { text-decoration: underline; }
     top: 65px;
     left: 0;
     z-index: 1000;
+    /* Remove any hardcoded display: block here so JS can use 'flex' or 'none' */
   }
 
-  /* 2. ONLY Show when the JS triggers it */
-  /* This targets both the class 'is-active' and the attribute 'aria-hidden' */
-  .mobile-nav.is-active,
-  .mobile-nav[aria-hidden="false"] {
-    display: block !important; 
-  }
-
-  /* 3. Base Alignment (Matches Logo at 24px) */
+  /* 2. Base Alignment (Aligns with Logo at 24px) */
   .mobile-nav ul {
     list-style: none !important;
     padding: 0 !important;
     margin: 0 !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-nav ul li {
+    width: 100%;
   }
 
   .mobile-nav ul li a {
     display: block !important;
-    padding: 18px 24px !important; /* Base Indent */
+    padding: 18px 24px !important; /* 24px Base Indent */
     font-size: 16px !important;
     color: #000 !important;
     border-bottom: 1px solid #f5f5f5 !important;
+    text-decoration: none !important;
   }
 
-  /* 4. Indent the 4 Country Locations (48px) */
+  /* 3. Indent the 4 Country Locations (48px) */
+  /* Targets the first 4 <li> items in your mobile-nav <ul> */
   .mobile-nav ul li:nth-child(-n+4) a {
     padding-left: 48px !important; 
     background-color: #fafafa !important;
     color: #666 !important;
   }
 
-  /* 5. Header for the locations group */
+  /* 4. Visual Header for Locations */
   .mobile-nav ul li:first-child::before {
     content: "Our Locations";
     display: block;
