@@ -472,7 +472,7 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   CLEAN MOBILE FULL-WIDTH REPAIR
+   CLEAN MOBILE FULL-WIDTH REPAIR (FINAL CONSOLIDATED)
    ========================================================= */
 
 @media (max-width: 900px) {
@@ -488,7 +488,7 @@ a:hover { text-decoration: underline; }
     max-width: 100% !important;
   }
 
-  /* 2. Re-apply Padding ONLY to the text blocks (so they stay aligned) */
+  /* 2. Re-apply Padding ONLY to the text blocks (aligned with logo) */
   .intro-text,
   .about-hero-text,
   .partnership-text,
@@ -504,25 +504,28 @@ a:hover { text-decoration: underline; }
     display: block !important;
   }
 
-  /* 4. Fix Section 1 & Static Image Heights (Prevents "Huge" images) */
+  /* 4. Fix Section 1 & Static Images */
   .intro-image,
   .about-hero-image,
   .partnership-image img {
     width: 100% !important;
-    height: 320px !important; /* Set your desired mobile height */
+    height: 320px !important; 
     border-radius: 0 !important;
     object-fit: cover !important;
     margin: 0 !important;
   }
 
-  /* 5. Fix Service Carousel (Section 4) */
+  /* 5. Fix Service Carousel (Start at card 1 & allow scroll) */
   .services-grid {
     display: grid !important;
     grid-template-columns: repeat(5, 175px) !important;
+    justify-content: flex-start !important; /* Forces scroll to start at left */
     overflow-x: auto !important;
-    padding-left: 24px !important; /* First card aligns with text */
-    padding-right: 24px !important;
+    -webkit-overflow-scrolling: touch;
+    padding-left: 24px !important; 
+    padding-right: 24px !important; 
     gap: 20px !important;
+    scroll-snap-type: x mandatory;
   }
 
   /* 6. Fix JS Carousels (Offices & Work) */
@@ -532,21 +535,20 @@ a:hover { text-decoration: underline; }
   }
 
   .carousel-slide img {
-    height: 320px !important; /* Match hero height */
+    height: 320px !important; 
     object-fit: cover !important;
     border-radius: 0 !important;
   }
 
-  /* 7. UI Alignment for Labels */
+  /* 7. UI Alignment for Labels & Captions */
   .permanent-label, 
-  .location-label,
-  .image-caption {
+  .location-label {
     margin-left: 24px !important;
     margin-right: 24px !important;
+    display: block;
   }
   
   .image-caption {
     right: 24px !important;
-    margin-right: 0 !important;
   }
 }
