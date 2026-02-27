@@ -551,4 +551,28 @@ a:hover { text-decoration: underline; }
   .image-caption {
     right: 24px !important;
   }
+   /* --- MOBILE DROPDOWN UPGRADE --- */
+.locations-dropdown {
+  position: fixed !important; /* Locks it to the screen width, not the parent button */
+  top: 65px !important;      /* Aligns exactly with the bottom of your mobile header */
+  left: 0 !important;
+  right: 0 !important;
+  width: 100vw !important;
+  transform: none !important; /* Removes the desktop centering */
+  background: #fff !important;
+  border-bottom: 2px solid #000 !important;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1) !important;
+  padding: 10px 0 !important;
+}
+
+.locations-dropdown li a {
+  padding: 18px 24px !important; /* Larger "Tap Target" for thumbs */
+  font-size: 16px !important;    /* Easier to read */
+  border-bottom: 1px solid #eee; /* Visual separation */
+}
+
+.locations-dropdown li:last-child a {
+  border-bottom: none;
+}
+
 }
