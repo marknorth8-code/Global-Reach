@@ -472,68 +472,70 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   FINAL REFINED MOBILE EDGE-TO-EDGE FIX
+   REFINED MOBILE EDGE-TO-EDGE FIX (CAROUSEL RESTORED)
    ========================================================= */
 
 @media (max-width: 900px) {
   html, body {
     overflow-x: hidden !important;
-    width: 100% !important;
   }
 
-  /* 1. Breakout for Section 1 Heroes & Carousels */
+  /* 1. GENERAL BREAKOUT (Width & Margins) */
   .intro-images .media-side,
   .about-hero .media-side,
   .partnership-image,
   .about-work-media,
   .offices .media-side,
   .services-grid {
-    width: calc(100% + 48px) !important; 
-    margin-left: -24px !important;       
-    margin-right: -24px !important;      
+    width: calc(100% + 48px) !important;
+    margin-left: -24px !important;
+    margin-right: -24px !important;
     max-width: none !important;
     flex: none !important;
     border-radius: 0 !important;
   }
 
-  /* 2. Specific fix for Section 1 & Static Images (Stacking) */
+  /* 2. STATIC HEROES & PARTNERSHIP (Force Stack) */
   .intro-images .media-side,
   .about-hero .media-side,
   .partnership-image {
     display: block !important;
   }
 
-  /* 3. Specific fix for Section 4 Carousel (Restores Scrolling) */
+  /* 3. SECTION 4 SERVICES CAROUSEL FIX (Force Horizontal) */
   .services-grid {
-    display: grid !important; /* Forces it back to grid mode */
-    padding-left: 24px !important; 
+    display: grid !important; 
+    grid-template-columns: repeat(5, 175px) !important; /* Forces 5 cards in a row */
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 20px !important;
+    padding-left: 24px !important; /* Re-aligns first card with text */
     padding-right: 24px !important;
-    justify-content: flex-start !important;
-    /* Keeps your 5-column layout from home.css */
-    grid-template-columns: repeat(5, 175px) !important; 
   }
 
-  /* 4. Image fills and resets */
-  .intro-image,
-  .about-hero-image,
-  .partnership-image img,
-  .carousel-slide img,
-  .carousel-viewport,
-  .media-side img {
+  /* 4. OFFICE/WORK CAROUSELS (Restore JS/CSS Slider) */
+  .carousel-viewport {
+    width: 100% !important;
+    display: flex !important;
+    overflow-x: auto !important;
+  }
+  
+  .carousel-track {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+  }
+
+  /* 5. IMAGE & UI RESET */
+  .intro-image, .about-hero-image, .partnership-image img, 
+  .carousel-slide img, .media-side img {
     width: 100% !important;
     max-width: 100% !important;
     border-radius: 0 !important;
     object-fit: cover !important;
   }
 
-  /* 5. UI Alignment */
-  .permanent-label, 
-  .location-label {
+  .permanent-label, .location-label {
     padding-left: 24px;
     padding-right: 24px;
-  }
-  
-  .image-caption {
-    right: 24px;
   }
 }
