@@ -552,43 +552,50 @@ a:hover { text-decoration: underline; }
     right: 24px !important;
   }
 
-  /* 8. MOBILE DROPDOWN UPGRADE & HIERARCHY */
+   /* 8. MOBILE DROPDOWN: FORCED INDENTATION */
   .locations-dropdown {
     position: fixed !important;
     top: 65px !important;      
     left: 0 !important;
-    right: 0 !important;
     width: 100vw !important;
-    transform: none !important; 
+    margin: 0 !important;      /* Kill any default margins */
+    padding: 10px 0 !important; /* Reset padding to vertical only */
+    list-style: none !important;
     background: #fff !important;
     border-bottom: 2px solid #000 !important;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
-    padding: 10px 0 !important;
-    /* Keeps original hover logic, change to 'block' if it won't open */
+    display: none;             /* Keeps your hover logic */
   }
 
+  .locations-dropdown li {
+    width: 100% !important;
+    display: block !important;
+    padding: 0 !important;      /* We will use the anchor for the hit area */
+  }
+
+  /* Level 1: Main indent (Aligns with Logo/Text at 24px) */
   .locations-dropdown li a {
-    padding: 16px 24px !important; /* Level 1 Indent (24px) */
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 16px 24px !important; /* FORCED 24px INDENT */
     font-size: 16px !important;
     color: #000 !important;
     border-bottom: 1px solid #f5f5f5;
     min-height: 55px;
-    display: flex;
-    align-items: center;
-    text-transform: none;
+    text-align: left !important;
   }
 
-  /* Indent the 4 Country Locations (Level 2 Indent) */
+  /* Level 2: Sub-indent (The 4 Countries at 48px) */
   .locations-dropdown li a[href*="br.html"],
   .locations-dropdown li a[href*="nz.html"],
   .locations-dropdown li a[href*="jp.html"],
   .locations-dropdown li a[href*="uk.html"] {
-    padding-left: 48px !important; 
-    font-weight: 400 !important;
+    padding-left: 48px !important; /* FORCED 48px INDENT */
     color: #555 !important;
   }
 
   .locations-dropdown li:last-child a {
     border-bottom: none !important;
   }
-} /* Final closing bracket for media query */
