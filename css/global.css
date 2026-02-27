@@ -472,36 +472,48 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   MOBILE SECTION 1 & CAROUSEL BREAKOUT (FIXES GAPS)
+   FINAL REFINED MOBILE EDGE-TO-EDGE FIX
    ========================================================= */
 
 @media (max-width: 900px) {
-  /* Prevent horizontal scrolling */
   html, body {
     overflow-x: hidden !important;
     width: 100% !important;
   }
 
-  /* Target the specific media containers in Section 1 and all carousels */
+  /* 1. Breakout for Section 1 Heroes & Carousels */
   .intro-images .media-side,
   .about-hero .media-side,
   .partnership-image,
   .about-work-media,
   .offices .media-side,
   .services-grid {
-    /* 1. Force the container to ignore its parent's padding */
     width: calc(100% + 48px) !important; 
     margin-left: -24px !important;       
     margin-right: -24px !important;      
-    
-    /* 2. Kill all desktop Flexbox and Width restrictions */
     max-width: none !important;
     flex: none !important;
-    display: block !important;
     border-radius: 0 !important;
   }
 
-  /* Ensure the images themselves fill the newly expanded container */
+  /* 2. Specific fix for Section 1 & Static Images (Stacking) */
+  .intro-images .media-side,
+  .about-hero .media-side,
+  .partnership-image {
+    display: block !important;
+  }
+
+  /* 3. Specific fix for Section 4 Carousel (Restores Scrolling) */
+  .services-grid {
+    display: grid !important; /* Forces it back to grid mode */
+    padding-left: 24px !important; 
+    padding-right: 24px !important;
+    justify-content: flex-start !important;
+    /* Keeps your 5-column layout from home.css */
+    grid-template-columns: repeat(5, 175px) !important; 
+  }
+
+  /* 4. Image fills and resets */
   .intro-image,
   .about-hero-image,
   .partnership-image img,
@@ -510,12 +522,11 @@ a:hover { text-decoration: underline; }
   .media-side img {
     width: 100% !important;
     max-width: 100% !important;
-    height: 320px !important; /* Forces a consistent height for heroes */
-    object-fit: cover !important;
     border-radius: 0 !important;
+    object-fit: cover !important;
   }
 
-  /* Keep labels and captions from touching the screen edge */
+  /* 5. UI Alignment */
   .permanent-label, 
   .location-label {
     padding-left: 24px;
