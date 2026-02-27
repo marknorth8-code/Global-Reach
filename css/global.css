@@ -552,58 +552,58 @@ a:hover { text-decoration: underline; }
     right: 24px !important;
   }
 
-   /* 8. MOBILE DROPDOWN: ABSOLUTE ALIGNMENT RESET */
+   /* 8. MOBILE DROPDOWN: FULL-WIDTH SLIDE-DOWN PANEL */
   .locations-dropdown {
+    /* Format: Full-Width Bar */
     position: fixed !important;
-    top: 65px !important;
+    top: 65px !important;    /* Aligns with header bottom */
     left: 0 !important;
     width: 100vw !important;
+    height: auto !important;
     
-    /* Force Reset: Remove all centering and positioning from desktop */
-    transform: none !important;
+    /* Layout: Force horizontal breakout */
+    display: none;           /* Keeps your hover logic */
+    flex-direction: column !important;
     margin: 0 !important;
-    padding: 10px 0 !important;
-    display: none; /* Keeps original hover behavior */
-    
-    /* Layout Reset */
+    padding: 0 !important;
     list-style: none !important;
-    background: #fff !important;
+    
+    /* Visuals: Clean White Panel */
+    background: #ffffff !important;
+    border-top: 1px solid #eee !important;
     border-bottom: 2px solid #000 !important;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15) !important;
     z-index: 9999 !important;
+    transform: none !important; 
   }
 
-  /* Force the list items to be full-width blocks */
   .locations-dropdown li {
+    width: 100vw !important;
     display: block !important;
-    width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
   }
 
-  /* Force the links to be left-aligned flex containers */
+  /* Level 1: Main indent (Logo alignment) */
   .locations-dropdown li a {
-    display: flex !important;
-    justify-content: flex-start !important; /* Force text to the left */
-    align-items: center !important;
-    
+    display: block !important;
     width: 100% !important;
-    min-height: 60px !important;
-    box-sizing: border-box !important;
-    
-    /* THE INDENT: Aligns with Logo/Text at 24px */
-    padding-left: 24px !important; 
-    
-    /* Text Cleanup */
-    text-align: left !important;
+    padding: 20px 24px !important; /* Forces 24px gap from left glass */
     font-size: 16px !important;
     color: #000 !important;
+    text-align: left !important;
     border-bottom: 1px solid #f0f0f0;
+    box-sizing: border-box !important;
   }
 
-  /* SUB-INDENT: The 4 Countries at 48px */
-  .locations-dropdown li a[href*=".html"] {
-    padding-left: 48px !important;
+  /* Level 2: Sub-indent (The 4 Country Locations) */
+  /* This targets the specific location links to shift them right */
+  .locations-dropdown li a[href*="br.html"],
+  .locations-dropdown li a[href*="nz.html"],
+  .locations-dropdown li a[href*="jp.html"],
+  .locations-dropdown li a[href*="uk.html"] {
+    padding-left: 54px !important; /* Heavy indent to differentiate */
+    background-color: #fafafa !important; /* Subtle background change */
     color: #555 !important;
   }
 
