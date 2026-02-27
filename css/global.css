@@ -574,5 +574,51 @@ a:hover { text-decoration: underline; }
 .locations-dropdown li:last-child a {
   border-bottom: none;
 }
+   /* =========================================================
+   MOBILE DROPDOWN: INDENTED HIERARCHY
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .locations-dropdown {
+    position: fixed !important;
+    top: 65px !important;      /* Aligns with your mobile header height */
+    left: 0 !important;
+    width: 100vw !important;
+    transform: none !important;
+    background: #fff !important;
+    border-bottom: 2px solid #000 !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    padding: 10px 0 !important;
+    display: none;             /* Hidden until hover/click */
+  }
+
+  /* 1. The Main "Title" or first level of the dropdown (if applicable) */
+  .locations-dropdown li a {
+    padding: 16px 24px !important; /* Standard 24px indent from left */
+    font-size: 16px !important;
+    color: #000 !important;
+    display: block;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  /* 2. THE FOUR COUNTRY LOCATIONS: Extra Indentation */
+  /* This targets the specific location links to make them look nested */
+  .locations-dropdown li a[href*="br.html"],
+  .locations-dropdown li a[href*="nz.html"],
+  .locations-dropdown li a[href*="jp.html"],
+  .locations-dropdown li a[href*="uk.html"] {
+    padding-left: 48px !important; /* Double the indent (24px -> 48px) */
+    font-weight: 400 !important;
+    color: #444 !important;        /* Slightly softer color for sub-items */
+  }
+
+  /* 3. Increase Tap Area Height */
+  .locations-dropdown li a {
+    min-height: 55px;
+    display: flex;
+    align-items: center;
+  }
+}
+
 
 }
