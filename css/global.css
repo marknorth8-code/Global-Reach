@@ -472,81 +472,54 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   FINAL SECTION 1 & CAROUSEL FIX
+   MOBILE SECTION 1 & CAROUSEL BREAKOUT (FIXES GAPS)
    ========================================================= */
 
 @media (max-width: 900px) {
-  /* 1. Prevent any horizontal "wiggle" */
+  /* Prevent horizontal scrolling */
   html, body {
     overflow-x: hidden !important;
-    position: relative;
-    width: 100%;
+    width: 100% !important;
   }
 
-  /* 2. FORCE SECTION 1 CONTAINERS TO IGNORE DESKTOP WIDTHS */
-  .intro-images .flex-row,
-  .about-hero .flex-row,
-  .flex-row {
-    display: block !important; /* Stacks text and image vertically */
-  }
-
-  /* 3. BREAKOUT THE MEDIA SIDES (Heroes and Carousels) */
-  .media-side,
-  .intro-image,
-  .about-hero-image,
+  /* Target the specific media containers in Section 1 and all carousels */
+  .intro-images .media-side,
+  .about-hero .media-side,
   .partnership-image,
   .about-work-media,
-  .offices .media-side {
-    /* Kill Desktop Flex/Width Limits */
-    flex: none !important;
+  .offices .media-side,
+  .services-grid {
+    /* 1. Force the container to ignore its parent's padding */
+    width: calc(100% + 48px) !important; 
+    margin-left: -24px !important;       
+    margin-right: -24px !important;      
+    
+    /* 2. Kill all desktop Flexbox and Width restrictions */
     max-width: none !important;
-    min-width: 0 !important;
-    
-    /* Force Full Width */
-    width: 100vw !important;
-    position: relative !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    
-    /* Clean Up Styles */
-    margin: 0 !important;
-    border-radius: 0 !important;
-    padding: 0 !important;
-  }
-
-  /* 4. ENSURE IMAGES STRETCH WITHIN THE NEW BOX */
-  .media-side img,
-  .intro-image,
-  .about-hero-image,
-  .partnership-image img,
-  .carousel-slide img,
-  .carousel-viewport {
-    width: 100% !important;
-    max-width: 100% !important;
+    flex: none !important;
     display: block !important;
     border-radius: 0 !important;
   }
 
-  /* 5. FIX THE HOME SERVICES CAROUSEL (Requires Padding Alignment) */
-  .services-grid {
-    width: 100vw !important;
-    position: relative !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    margin: 0 !important;
-    padding-left: 24px !important; 
-    padding-right: 24px !important;
-    justify-content: flex-start !important;
+  /* Ensure the images themselves fill the newly expanded container */
+  .intro-image,
+  .about-hero-image,
+  .partnership-image img,
+  .carousel-slide img,
+  .carousel-viewport,
+  .media-side img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 320px !important; /* Forces a consistent height for heroes */
+    object-fit: cover !important;
+    border-radius: 0 !important;
   }
 
-  /* 6. KEEP LABELS IN THE SCREEN SAFETY ZONE */
+  /* Keep labels and captions from touching the screen edge */
   .permanent-label, 
   .location-label {
     padding-left: 24px;
     padding-right: 24px;
-    width: 100%;
-    box-sizing: border-box;
-    display: block;
   }
   
   .image-caption {
