@@ -472,78 +472,81 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   FINAL CORRECTED MOBILE BREAKOUT (STRETCHED IMAGES FIX)
+   CLEAN MOBILE FULL-WIDTH REPAIR
    ========================================================= */
 
 @media (max-width: 900px) {
-  html, body {
-    overflow-x: hidden !important;
+  /* 1. Reset Container Padding for Sections with Full-Width Media */
+  .intro-images .container,
+  .about-hero .container,
+  .partnership .container,
+  .offices .container,
+  .about-work .container,
+  .services .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
   }
 
-  /* 1. APPLY BREAKOUT TO THE WRAPPERS ONLY (Not the inner slides) */
-  .intro-images .media-side,
-  .about-hero .media-side,
-  .partnership-image,
-  .about-work-media,
-  .offices .media-side,
-  .services-grid {
-    width: calc(100% + 48px) !important;
-    margin-left: -24px !important;
-    margin-right: -24px !important;
-    max-width: none !important;
-    flex: none !important;
-    border-radius: 0 !important;
-    display: block !important; /* Forces vertical stacking for Section 1 */
-  }
-
-  /* 2. RE-ESTABLISH SERVICES CAROUSEL (Fixes the stacking) */
-  .services-grid {
-    display: grid !important; 
-    grid-template-columns: repeat(5, 175px) !important; 
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
+  /* 2. Re-apply Padding ONLY to the text blocks (so they stay aligned) */
+  .intro-text,
+  .about-hero-text,
+  .partnership-text,
+  .offices-text,
+  .about-work-text,
+  .services .intro-text {
     padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  /* 3. Force Section 1 & Partnership to Stack */
+  .flex-row {
+    display: block !important;
+  }
+
+  /* 4. Fix Section 1 & Static Image Heights (Prevents "Huge" images) */
+  .intro-image,
+  .about-hero-image,
+  .partnership-image img {
+    width: 100% !important;
+    height: 320px !important; /* Set your desired mobile height */
+    border-radius: 0 !important;
+    object-fit: cover !important;
+    margin: 0 !important;
+  }
+
+  /* 5. Fix Service Carousel (Section 4) */
+  .services-grid {
+    display: grid !important;
+    grid-template-columns: repeat(5, 175px) !important;
+    overflow-x: auto !important;
+    padding-left: 24px !important; /* First card aligns with text */
     padding-right: 24px !important;
     gap: 20px !important;
   }
 
-  /* 3. PROTECT THE JS CAROUSELS (Offices & Work) */
-  /* This ensures the viewport expands, but the images inside don't bloat */
+  /* 6. Fix JS Carousels (Offices & Work) */
   .carousel-viewport {
-    width: 100% !important;
     border-radius: 0 !important;
-  }
-
-  .carousel-slide {
-    width: 100% !important; /* JS will handle the exact pixel width */
-    flex: 0 0 100% !important;
+    width: 100% !important;
   }
 
   .carousel-slide img {
-    width: 100% !important;
-    height: 320px !important; /* Set your preferred mobile height here */
+    height: 320px !important; /* Match hero height */
     object-fit: cover !important;
     border-radius: 0 !important;
   }
 
-  /* 4. STATIC HERO & PARTNERSHIP IMAGE HEIGHTS */
-  .intro-image, .about-hero-image, .partnership-image img {
-    width: 100% !important;
-    height: 320px !important; /* Match the carousel height for consistency */
-    object-fit: cover !important;
-    border-radius: 0 !important;
-  }
-
-  /* 5. UI PADDING RE-ALIGNMENT */
-  .permanent-label, .location-label {
-    padding-left: 24px;
-    padding-right: 24px;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
+  /* 7. UI Alignment for Labels */
+  .permanent-label, 
+  .location-label,
   .image-caption {
-    right: 24px;
+    margin-left: 24px !important;
+    margin-right: 24px !important;
+  }
+  
+  .image-caption {
+    right: 24px !important;
+    margin-right: 0 !important;
   }
 }
