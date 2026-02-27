@@ -488,7 +488,7 @@ a:hover { text-decoration: underline; }
     max-width: 100% !important;
   }
 
-  /* 2. Re-apply Padding ONLY to the text blocks (aligned with logo) */
+  /* 2. Re-apply Padding ONLY to the text blocks */
   .intro-text,
   .about-hero-text,
   .partnership-text,
@@ -515,11 +515,11 @@ a:hover { text-decoration: underline; }
     margin: 0 !important;
   }
 
-  /* 5. Fix Service Carousel (Start at card 1 & allow scroll) */
+  /* 5. Fix Service Carousel */
   .services-grid {
     display: grid !important;
     grid-template-columns: repeat(5, 175px) !important;
-    justify-content: flex-start !important; /* Forces scroll to start at left */
+    justify-content: flex-start !important; 
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch;
     padding-left: 24px !important; 
@@ -551,72 +551,44 @@ a:hover { text-decoration: underline; }
   .image-caption {
     right: 24px !important;
   }
-   /* --- MOBILE DROPDOWN UPGRADE --- */
-.locations-dropdown {
-  position: fixed !important; /* Locks it to the screen width, not the parent button */
-  top: 65px !important;      /* Aligns exactly with the bottom of your mobile header */
-  left: 0 !important;
-  right: 0 !important;
-  width: 100vw !important;
-  transform: none !important; /* Removes the desktop centering */
-  background: #fff !important;
-  border-bottom: 2px solid #000 !important;
-  box-shadow: 0 10px 15px rgba(0,0,0,0.1) !important;
-  padding: 10px 0 !important;
-}
 
-.locations-dropdown li a {
-  padding: 18px 24px !important; /* Larger "Tap Target" for thumbs */
-  font-size: 16px !important;    /* Easier to read */
-  border-bottom: 1px solid #eee; /* Visual separation */
-}
-
-.locations-dropdown li:last-child a {
-  border-bottom: none;
-}
-   /* =========================================================
-   MOBILE DROPDOWN: INDENTED HIERARCHY
-   ========================================================= */
-
-@media (max-width: 900px) {
+  /* 8. MOBILE DROPDOWN UPGRADE & HIERARCHY */
   .locations-dropdown {
     position: fixed !important;
-    top: 65px !important;      /* Aligns with your mobile header height */
+    top: 65px !important;      
     left: 0 !important;
+    right: 0 !important;
     width: 100vw !important;
-    transform: none !important;
+    transform: none !important; 
     background: #fff !important;
     border-bottom: 2px solid #000 !important;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
     padding: 10px 0 !important;
-    display: none;             /* Hidden until hover/click */
+    /* Keeps original hover logic, change to 'block' if it won't open */
   }
 
-  /* 1. The Main "Title" or first level of the dropdown (if applicable) */
   .locations-dropdown li a {
-    padding: 16px 24px !important; /* Standard 24px indent from left */
+    padding: 16px 24px !important; /* Level 1 Indent (24px) */
     font-size: 16px !important;
     color: #000 !important;
-    display: block;
     border-bottom: 1px solid #f5f5f5;
+    min-height: 55px;
+    display: flex;
+    align-items: center;
+    text-transform: none;
   }
 
-  /* 2. THE FOUR COUNTRY LOCATIONS: Extra Indentation */
-  /* This targets the specific location links to make them look nested */
+  /* Indent the 4 Country Locations (Level 2 Indent) */
   .locations-dropdown li a[href*="br.html"],
   .locations-dropdown li a[href*="nz.html"],
   .locations-dropdown li a[href*="jp.html"],
   .locations-dropdown li a[href*="uk.html"] {
-    padding-left: 48px !important; /* Double the indent (24px -> 48px) */
+    padding-left: 48px !important; 
     font-weight: 400 !important;
-    color: #444 !important;        /* Slightly softer color for sub-items */
+    color: #555 !important;
   }
 
-  /* 3. Increase Tap Area Height */
-  .locations-dropdown li a {
-    min-height: 55px;
-    display: flex;
-    align-items: center;
+  .locations-dropdown li:last-child a {
+    border-bottom: none !important;
   }
-}
-
+} /* Final closing bracket for media query */
