@@ -552,56 +552,61 @@ a:hover { text-decoration: underline; }
     right: 24px !important;
   }
 
-    /* 8. MOBILE DROPDOWN: FORCED ALIGNMENT & INDENT */
+   /* 8. MOBILE DROPDOWN: ABSOLUTE ALIGNMENT RESET */
   .locations-dropdown {
     position: fixed !important;
     top: 65px !important;
     left: 0 !important;
     width: 100vw !important;
+    
+    /* Force Reset: Remove all centering and positioning from desktop */
+    transform: none !important;
+    margin: 0 !important;
+    padding: 10px 0 !important;
+    display: none; /* Keeps original hover behavior */
+    
+    /* Layout Reset */
+    list-style: none !important;
     background: #fff !important;
     border-bottom: 2px solid #000 !important;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
-    padding: 10px 0 !important;
-    margin: 0 !important;
-    list-style: none !important;
-    display: none; /* Keeps hover behavior */
-    z-index: 9999;
+    z-index: 9999 !important;
   }
 
+  /* Force the list items to be full-width blocks */
   .locations-dropdown li {
-    display: flex !important;
-    justify-content: flex-start !important; /* Forces content to the left */
+    display: block !important;
     width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
   }
 
+  /* Force the links to be left-aligned flex containers */
   .locations-dropdown li a {
-    flex: 1 !important;
     display: flex !important;
+    justify-content: flex-start !important; /* Force text to the left */
     align-items: center !important;
-    justify-content: flex-start !important; /* Forces text to the left */
-    min-height: 60px !important;
-    width: 100% !important;
-    text-align: left !important;
-    border-bottom: 1px solid #f0f0f0;
     
-    /* THE ACTUAL INDENT (Using Margin as a spacer) */
+    width: 100% !important;
+    min-height: 60px !important;
+    box-sizing: border-box !important;
+    
+    /* THE INDENT: Aligns with Logo/Text at 24px */
     padding-left: 24px !important; 
-    margin: 0 !important;
+    
+    /* Text Cleanup */
+    text-align: left !important;
+    font-size: 16px !important;
+    color: #000 !important;
+    border-bottom: 1px solid #f0f0f0;
   }
 
-  /* SUB-LEVEL: Extra Indent for the 4 Countries */
-  .locations-dropdown li a[href*="br.html"],
-  .locations-dropdown li a[href*="nz.html"],
-  .locations-dropdown li a[href*="jp.html"],
-  .locations-dropdown li a[href*="uk.html"] {
-    padding-left: 48px !important; /* Double the distance from the edge */
+  /* SUB-INDENT: The 4 Countries at 48px */
+  .locations-dropdown li a[href*=".html"] {
+    padding-left: 48px !important;
     color: #555 !important;
-    font-weight: 400 !important;
   }
 
-  /* Cleanup */
   .locations-dropdown li:last-child a {
     border-bottom: none !important;
   }
