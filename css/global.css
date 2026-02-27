@@ -557,9 +557,9 @@ a:hover { text-decoration: underline; }
    ========================================================= */
 
 @media (max-width: 900px) {
-  /* 1. The Mobile Menu (Hidden by default) */
+  /* 1. The Mobile Menu - Hidden by default */
   .mobile-nav {
-    display: none; /* Let JS handle showing/hiding */
+    display: none; 
     background: #fff;
     width: 100%;
     border-bottom: 2px solid #000;
@@ -569,44 +569,43 @@ a:hover { text-decoration: underline; }
     z-index: 1000;
   }
 
-  /* 2. Show only when active (Adjust '.is-active' to match your JS class) */
+  /* 2. ONLY Show when the JS triggers it */
+  /* This targets both the class 'is-active' and the attribute 'aria-hidden' */
   .mobile-nav.is-active,
   .mobile-nav[aria-hidden="false"] {
-    display: block !important;
+    display: block !important; 
   }
 
-  /* 3. Base Alignment for All Links (Aligns with Logo) */
+  /* 3. Base Alignment (Matches Logo at 24px) */
   .mobile-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   .mobile-nav ul li a {
-    display: block;
-    padding: 18px 24px !important; /* 24px Base Indent */
-    font-size: 16px;
-    color: #000;
-    border-bottom: 1px solid #f5f5f5;
-    text-decoration: none;
+    display: block !important;
+    padding: 18px 24px !important; /* Base Indent */
+    font-size: 16px !important;
+    color: #000 !important;
+    border-bottom: 1px solid #f5f5f5 !important;
   }
 
-  /* 4. Grouping the 4 Countries (Nested Look) */
+  /* 4. Indent the 4 Country Locations (48px) */
   .mobile-nav ul li:nth-child(-n+4) a {
-    padding-left: 48px !important; /* Double Indent (48px) */
-    background-color: #fafafa;
-    color: #555;
-    font-weight: 400;
+    padding-left: 48px !important; 
+    background-color: #fafafa !important;
+    color: #666 !important;
   }
 
-  /* 5. Visual "Locations" Header */
+  /* 5. Header for the locations group */
   .mobile-nav ul li:first-child::before {
-    content: "Locations";
+    content: "Our Locations";
     display: block;
     padding: 20px 24px 5px 24px;
     font-size: 11px;
     text-transform: uppercase;
     color: #999;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
   }
 }
