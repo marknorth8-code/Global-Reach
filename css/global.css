@@ -552,61 +552,53 @@ a:hover { text-decoration: underline; }
     right: 24px !important;
   }
 
-   /* 8. MOBILE DROPDOWN: FULL-WIDTH SLIDE-DOWN PANEL */
-  .locations-dropdown {
-    /* Format: Full-Width Bar */
-    position: fixed !important;
-    top: 65px !important;    /* Aligns with header bottom */
-    left: 0 !important;
-    width: 100vw !important;
-    height: auto !important;
-    
-    /* Layout: Force horizontal breakout */
-    display: none;           /* Keeps your hover logic */
-    flex-direction: column !important;
-    margin: 0 !important;
-    padding: 0 !important;
+/* =========================================================
+   8. MOBILE NAV: HIERARCHY & INDENTATION
+   ========================================================= */
+
+@media (max-width: 900px) {
+  /* 1. Target the actual mobile menu container */
+  .mobile-nav {
+    display: block !important; /* Ensure it's visible when toggled */
+    background: #fff;
+    width: 100%;
+    border-bottom: 2px solid #000;
+  }
+
+  .mobile-nav ul {
     list-style: none !important;
-    
-    /* Visuals: Clean White Panel */
-    background: #ffffff !important;
-    border-top: 1px solid #eee !important;
-    border-bottom: 2px solid #000 !important;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15) !important;
-    z-index: 9999 !important;
-    transform: none !important; 
-  }
-
-  .locations-dropdown li {
-    width: 100vw !important;
-    display: block !important;
-    margin: 0 !important;
     padding: 0 !important;
+    margin: 0 !important;
   }
 
-  /* Level 1: Main indent (Logo alignment) */
-  .locations-dropdown li a {
+  /* 2. Style ALL mobile links with a base indent (Aligns with Logo) */
+  .mobile-nav ul li a {
     display: block !important;
-    width: 100% !important;
-    padding: 20px 24px !important; /* Forces 24px gap from left glass */
+    padding: 18px 24px !important; /* Base 24px indent from left edge */
     font-size: 16px !important;
     color: #000 !important;
-    text-align: left !important;
     border-bottom: 1px solid #f0f0f0;
-    box-sizing: border-box !important;
+    text-decoration: none !important;
   }
 
-  /* Level 2: Sub-indent (The 4 Country Locations) */
-  /* This targets the specific location links to shift them right */
-  .locations-dropdown li a[href*="br.html"],
-  .locations-dropdown li a[href*="nz.html"],
-  .locations-dropdown li a[href*="jp.html"],
-  .locations-dropdown li a[href*="uk.html"] {
-    padding-left: 54px !important; /* Heavy indent to differentiate */
-    background-color: #fafafa !important; /* Subtle background change */
-    color: #555 !important;
+  /* 3. DIFFERENTIATE LOCATIONS: Extra Indent for the first 4 links */
+  /* This targets the 4 countries specifically to nest them */
+  .mobile-nav ul li:nth-child(-n+4) a {
+    padding-left: 48px !important; /* Double indent (48px) */
+    color: #666 !important;        /* Softer color for sub-items */
+    font-weight: 400 !important;
+    background-color: #fafafa;     /* Subtle background to group them */
   }
 
-  .locations-dropdown li:last-child a {
-    border-bottom: none !important;
+  /* 4. Optional: Add a "Locations" label header before the countries */
+  .mobile-nav ul li:first-child::before {
+    content: "Our Locations";
+    display: block;
+    padding: 15px 24px 5px 24px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #BBB;
+    letter-spacing: 1px;
+    font-weight: 600;
   }
+}
