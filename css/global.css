@@ -472,7 +472,7 @@ a:hover { text-decoration: underline; }
 }
 
 /* =========================================================
-   REFINED MOBILE EDGE-TO-EDGE FIX (CAROUSEL RESTORED)
+   FINAL CORRECTED MOBILE BREAKOUT (STRETCHED IMAGES FIX)
    ========================================================= */
 
 @media (max-width: 900px) {
@@ -480,7 +480,7 @@ a:hover { text-decoration: underline; }
     overflow-x: hidden !important;
   }
 
-  /* 1. GENERAL BREAKOUT (Width & Margins) */
+  /* 1. APPLY BREAKOUT TO THE WRAPPERS ONLY (Not the inner slides) */
   .intro-images .media-side,
   .about-hero .media-side,
   .partnership-image,
@@ -493,49 +493,57 @@ a:hover { text-decoration: underline; }
     max-width: none !important;
     flex: none !important;
     border-radius: 0 !important;
+    display: block !important; /* Forces vertical stacking for Section 1 */
   }
 
-  /* 2. STATIC HEROES & PARTNERSHIP (Force Stack) */
-  .intro-images .media-side,
-  .about-hero .media-side,
-  .partnership-image {
-    display: block !important;
-  }
-
-  /* 3. SECTION 4 SERVICES CAROUSEL FIX (Force Horizontal) */
+  /* 2. RE-ESTABLISH SERVICES CAROUSEL (Fixes the stacking) */
   .services-grid {
     display: grid !important; 
-    grid-template-columns: repeat(5, 175px) !important; /* Forces 5 cards in a row */
+    grid-template-columns: repeat(5, 175px) !important; 
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
-    gap: 20px !important;
-    padding-left: 24px !important; /* Re-aligns first card with text */
+    padding-left: 24px !important;
     padding-right: 24px !important;
+    gap: 20px !important;
   }
 
-  /* 4. OFFICE/WORK CAROUSELS (Restore JS/CSS Slider) */
+  /* 3. PROTECT THE JS CAROUSELS (Offices & Work) */
+  /* This ensures the viewport expands, but the images inside don't bloat */
   .carousel-viewport {
     width: 100% !important;
-    display: flex !important;
-    overflow-x: auto !important;
-  }
-  
-  .carousel-track {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-  }
-
-  /* 5. IMAGE & UI RESET */
-  .intro-image, .about-hero-image, .partnership-image img, 
-  .carousel-slide img, .media-side img {
-    width: 100% !important;
-    max-width: 100% !important;
     border-radius: 0 !important;
-    object-fit: cover !important;
   }
 
+  .carousel-slide {
+    width: 100% !important; /* JS will handle the exact pixel width */
+    flex: 0 0 100% !important;
+  }
+
+  .carousel-slide img {
+    width: 100% !important;
+    height: 320px !important; /* Set your preferred mobile height here */
+    object-fit: cover !important;
+    border-radius: 0 !important;
+  }
+
+  /* 4. STATIC HERO & PARTNERSHIP IMAGE HEIGHTS */
+  .intro-image, .about-hero-image, .partnership-image img {
+    width: 100% !important;
+    height: 320px !important; /* Match the carousel height for consistency */
+    object-fit: cover !important;
+    border-radius: 0 !important;
+  }
+
+  /* 5. UI PADDING RE-ALIGNMENT */
   .permanent-label, .location-label {
     padding-left: 24px;
     padding-right: 24px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .image-caption {
+    right: 24px;
   }
 }
